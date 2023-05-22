@@ -1,0 +1,2 @@
+def mainlocator():
+    return None
