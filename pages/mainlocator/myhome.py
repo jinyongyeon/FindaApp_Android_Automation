@@ -1,0 +1,4 @@
+
+class MyHome:
+
+    loan = '//*[@text = ""]'
