@@ -14,6 +14,9 @@ class Result_Join:
 
     reports= []
 
+class Result_MyHome:
+
+    reports= []
 
 
 

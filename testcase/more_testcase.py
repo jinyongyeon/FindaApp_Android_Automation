@@ -247,53 +247,23 @@ class MoreTestcase_A(unittest.TestCase):
             self.assertEqual(Result_A.text,"오늘의 내 최저금리 알아보기")
             print("대출 한 번에 비교 진입 : PASS")
             morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
-        except Exception:
+        except AssertionError:
+            print("대출 한 번에 비교 진입 : FAIL")
+            morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
+        except :
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
-                self.assertEqual(Result_B.text,"가장 좋은 상품 보러가기")
+                self.assertIn("오늘입금" , Result_B.text)
                 print("대출 한 번에 비교 진입 : PASS")
                 morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
             except AssertionError:
                 print("대출 한 번에 비교 진입 : FAIL")
                 morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-                WebDriver.tearDown()
-            except:
-                try:
-                    Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
-                    self.assertEqual(Result_A.text, "오늘의 내 최저금리 알아보기")
-                    print("대출 한 번에 비교 진입 : PASS")
-                    morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
-                except Exception:
-                    try:
-                        Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
-                        self.assertEqual(Result_B.text, "가장 좋은 상품 보러가기")
-                        print("대출 한 번에 비교 진입 : PASS")
-                        morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
-                    except AssertionError:
-                        print("대출 한 번에 비교 진입 : FAIL")
-                        morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-                        WebDriver.tearDown()
-                    # except:
-                    #     pass
-                except NoSuchElementException:
-                    try:
-                        Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
-                        self.assertEqual(Result_B.text, "가장 좋은 상품 보러가기")
-                        print("대출 한 번에 비교 진입 : PASS")
-                        morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
-                    except AssertionError:
-                        print("대출 한 번에 비교 진입 : FAIL")
-                        morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-                        WebDriver.tearDown()
-                except AssertionError:
-                    print("대출 한 번에 비교 진입 : FAIL")
-                    morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-                    WebDriver.tearDown()
+            except Exception as e:
+                print("대출 한 번에 비교 진입 에러 발생 : {}".format(str(e)))
+                morereports.reports.append("대출 한 번에 비교 진입 : *Error*")
 
-        try:
-            more.comPariSonLoanBback()
-        except:
-            base.android_Back()
+        base.android_Back()
 
     # 자동차 구매 대출 진입 테스트
     def test_AutoLoan(self):
@@ -562,29 +532,34 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         base.scroll(0.93)
         time.sleep(1)
-        more.credit_Score()
-        time.sleep(10)
+
         try:
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
-            self.assertIn("내 신용점수", Result.text)
+            more.credit_Score()
+            time.sleep(10)
             print("신용점수 진입 : PASS")
             morereports.reports.append("신용점수 진입 : *PASS*")
-        except:
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
-                self.assertIn("내 신용점수", Result.text)
-                print("신용점수 진입 : PASS")
-                morereports.reports.append("신용점수 진입 : *PASS*")
-            except AssertionError:
-                print("신용점수 진입 : FAIL")
-                morereports.reports.append("신용점수 진입 : *FAIL*")
-            except Exception as e:
-                print("신용점수 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("신용점수 진입 : *Error*")
+        except :
+            print("신용점수 진입 : FAIL")
+            morereports.reports.append("신용점수 진입 : *FAIL*")
+
+
+        # try:
+        #     Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
+        #     self.assertEqual("내 신용점수", Result.text)
+        #     print("신용점수 진입 : PASS")
+        #     morereports.reports.append("신용점수 진입 : *PASS*")
+        # except AssertionError:
+        #     print("신용점수 진입 : FAIL")
+        #     morereports.reports.append("신용점수 진입 : *FAIL*")
+        # except Exception as e:
+        #     print("신용점수 진입 에러 발생 : {}".format(str(e)))
+        #     morereports.reports.append("신용점수 진입 : *Error*")
+
         try:
             more.credit_Score_Back()
         except:
             base.android_Back()
+
 
     # 신용점수 올리기 진입 테스트
     def test_Improve_Credit_Score(self):

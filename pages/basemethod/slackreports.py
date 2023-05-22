@@ -5,7 +5,7 @@ import json
 
 # 웹훅 들어갈 주소
 
-slack_webhook_url = 'https://hooks.slack.com/services/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'
+slack_webhook_url = 'https://hooks.slack.com/services/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'
 
 
 class SlackWebHook:

@@ -68,7 +68,8 @@ class Etc:
     # 대출 한 번에 비교 결과
     comparison_loan_Result_a = '//*[@text = "오늘의 내 최저금리 알아보기"]'
     # comparison_loan_Result_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView'
-    comparison_loan_Result_b = '//*[@text = "가장 좋은 상품 보러가기"]'
+    # comparison_loan_Result_b = '//*[@text = "오늘입금"]'
+    comparison_loan_Result_b = '//*[@text = "오늘입금"]'
 
     # 대출 한 번에 비교 뒤로가기
     comparison_loan_back = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ListView/android.view.View/android.widget.Button"
