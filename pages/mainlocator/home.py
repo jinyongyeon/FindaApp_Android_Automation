@@ -1,4 +1,4 @@
 
-class MyHome:
+class Home:
 
     loan = '//*[@text = ""]'
