@@ -45,4 +45,18 @@ class SlackWebHook:
         else:
             return 'error'
 
+    def myHome_SendSlackWebHook(data):
+        headers = {
+            'Content-type': 'application/json'
+        }
 
+        data = {
+            'text': "*2.[AOS]마이홈 테스트 결과*\n\n\n" + data
+        }
+
+        res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
+
+        if res.status_code == 200:
+            return 'ok'
+        else:
+            return 'error'
