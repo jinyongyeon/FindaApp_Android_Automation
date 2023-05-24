@@ -10,6 +10,7 @@ class MyHome:
     def __init__(self):
         self.home = Home()
 
+    # 비교대출 배너
     def comPariSonLoan_In_a(self):
         loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_a)
         loans.click()
@@ -30,3 +31,5 @@ class MyHome:
         loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_e)
         loans.click()
         time.sleep(2)
+
+    # 대출진단 배너
