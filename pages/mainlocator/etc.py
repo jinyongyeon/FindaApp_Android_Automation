@@ -99,7 +99,7 @@ class Etc:
     charter_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 30일 안에 대출 갈아타기
-    change_loan = '//*[@text = "30일 안에 대출 갈아타기"]'
+    change_loan = '//*[@text = "30일 대출 챌린지"]'
 
     # 30일 안에 대출 갈아타기 결과
     change_loan_Result_a = '//*[@text = "매주 한도조회하면 내 레벨도 함께 높아져요"]'

@@ -356,7 +356,7 @@ class MoreTestcase_A(unittest.TestCase):
         except:
             base.android_Back()
 
-    # 30일 안에 대출 갈아타기 진입 테스트
+    # 30일 대출 챌린지 진입 테스트
     def test_Change_Loan(self):
         driver = WebDriver.setUp()
         more = More()
@@ -367,17 +367,17 @@ class MoreTestcase_A(unittest.TestCase):
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_a)
             self.assertEqual(Result_A.text,"매주 한도조회하면 내 레벨도 함께 높아져요")
-            print("30일 안에 대출 갈아타기 진입 : PASS")
-            morereports.reports.append("30일 안에 대출 갈아타기 진입 : *PASS*")
+            print("30일 대출 챌린지 진입 : PASS")
+            morereports.reports.append("30일 대출 챌린지 진입 : *PASS*")
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_b)
                 self.assertEqual(Result_B.text,"30일 대환 챌린지 Beta")
-                print("30일 안에 대출 갈아타기 진입 : PASS")
-                morereports.reports.append("30일 안에 대출 갈아타기 진입 : *PASS*")
+                print("30일 대출 챌린지 진입 : PASS")
+                morereports.reports.append("30일 대출 챌린지 진입 : *PASS*")
             except AssertionError:
-                print("30일 안에 대출 갈아타기 진입 : FAIL")
-                morereports.reports.append("30일 안에 대출 갈아타기 진입 : *FAIL*")
+                print("30일 대출 챌린지 진입 : FAIL")
+                morereports.reports.append("30일 대출 챌린지 진입 : *FAIL*")
                 WebDriver.tearDown()
             # except:
             #     pass
@@ -385,15 +385,15 @@ class MoreTestcase_A(unittest.TestCase):
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_b)
                 self.assertEqual(Result_B.text, "30일 대환 챌린지 Beta")
-                print("30일 안에 대출 갈아타기 진입 : PASS")
-                morereports.reports.append("30일 안에 대출 갈아타기 진입 : *PASS*")
+                print("30일 대출 챌린지 진입 : PASS")
+                morereports.reports.append("30일 대출 챌린지 진입 : *PASS*")
             except AssertionError:
-                print("30일 안에 대출 갈아타기 진입 : FAIL")
-                morereports.reports.append("30일 안에 대출 갈아타기 진입 : *FAIL*")
+                print("30일 대출 챌린지 진입 : FAIL")
+                morereports.reports.append("30일 대출 챌린지 진입 : *FAIL*")
                 WebDriver.tearDown()
         except AssertionError:
-            print("30일 안에 대출 갈아타기 진입 : FAIL")
-            morereports.reports.append("30일 안에 대출 갈아타기 진입 : *FAIL*")
+            print("30일 대출 챌린지 진입 : FAIL")
+            morereports.reports.append("30일 대출 챌린지 진입 : *FAIL*")
             WebDriver.tearDown()
         try:
             more.change_Loan_Back()
