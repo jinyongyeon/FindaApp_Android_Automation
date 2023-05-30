@@ -49,3 +49,39 @@ class MyHome:
         loandiagnosisbanner_d = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_d)
         loandiagnosisbanner_d.click()
         time.sleep(2)
+    def loanDiagnosisBanner_E(self):
+        loandiagnosisbanner_e = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_e)
+        loandiagnosisbanner_e.click()
+        time.sleep(2)
+    def loanDiagnosisBanner_F(self):
+        loandiagnosisbanner_f = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_f)
+        loandiagnosisbanner_f.click()
+        time.sleep(2)
+
+    # 내대출 진입
+    def loan_Banner(self):
+        loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_banner)
+        loan_banner.click()
+        time.sleep(2)
+    def loan_A(self):
+        loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_a)
+        loan_a.click()
+        time.sleep(2)
+    def loan_B(self):
+        loan_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_b)
+        loan_b.click()
+        time.sleep(2)
+
+    # 내 현금자산 배너
+    def cash_Assets_Banner(self):
+        cash_assets_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.cash_assets_banner)
+        cash_assets_banner.click()
+        time.sleep(2)
+    def cash_Assets_Banner_A(self):
+        cash_assets_banner_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.cash_assets_banner_a)
+        cash_assets_banner_a.click()
+        time.sleep(2)
+    def cash_Assets_Banner_B(self):
+        cash_assets_banner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.cash_assets_banner_b)
+        cash_assets_banner_b.click()
+        time.sleep(2)
