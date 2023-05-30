@@ -1124,6 +1124,7 @@ class MoreTestcase_C(unittest.TestCase):
         more = More()
         etc = Etc()
         morereports = Result_More()
+        base = basemethod()
         more.deposit_And_Savings()
         time.sleep(10)
         try:
@@ -1148,7 +1149,8 @@ class MoreTestcase_C(unittest.TestCase):
                 print("예적금 비교 진입 에러 발생 : {}".format(str(e)))
                 morereports.reports.append("예적금 비교 진입 : *Error*")
                 WebDriver.tearDown()
-        more.deposit_And_Savings_Back()
+        base.android_Back()
+
 
     # 핀다 포스트 진입 테스트
     def test_Finda_Post(self):

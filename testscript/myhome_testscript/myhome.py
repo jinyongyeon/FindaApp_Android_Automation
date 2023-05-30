@@ -33,3 +33,19 @@ class MyHome:
         time.sleep(2)
 
     # 대출진단 배너
+    def loanDiagnosisBanner_A(self):
+        loandiagnosisbanner_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_aa)
+        loandiagnosisbanner_a.click()
+        time.sleep(2)
+    def loanDiagnosisBanner_B(self):
+        loandiagnosisbanner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_bb)
+        loandiagnosisbanner_b.click()
+        time.sleep(2)
+    def loanDiagnosisBanner_C(self):
+        loandiagnosisbanner_c = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_c)
+        loandiagnosisbanner_c.click()
+        time.sleep(2)
+    def loanDiagnosisBanner_D(self):
+        loandiagnosisbanner_d = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_d)
+        loandiagnosisbanner_d.click()
+        time.sleep(2)
