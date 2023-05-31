@@ -2,7 +2,7 @@ from pages.basemethod.result import Result_More, Result_Join, Result_MyHome
 from pages.basemethod.slackreports import SlackWebHook
 
 import unittest
-from testcase.login_testcase import LoginTestCase
+from testcase.login_testcase import LoginTestCase, JoInTestCase
 from testcase.more_testcase import MoreTestcase_A
 from testcase.more_testcase import MoreTestcase_B
 from testcase.more_testcase import MoreTestcase_C
@@ -50,11 +50,11 @@ suite.addTest(MoreTestcase_C('test_Notice'))
 suite.addTest(MoreTestcase_C('test_loan_Reviews'))
 suite.addTest(MoreTestcase_C('test_Alarm'))
 suite.addTest(LoginTestCase('test_LogOut'))
-suite.addTest(LoginTestCase('test_Message_Certification'))
-suite.addTest(LoginTestCase('test_Enter_Personal_Information'))
-suite.addTest(LoginTestCase('test_Membership_Terms_And_Conditions'))
-suite.addTest(LoginTestCase('test_Certification_Number'))
-suite.addTest(LoginTestCase('test_Join'))
+suite.addTest(JoInTestCase('test_Message_Certification'))
+suite.addTest(JoInTestCase('test_Enter_Personal_Information'))
+suite.addTest(JoInTestCase('test_Membership_Terms_And_Conditions'))
+suite.addTest(JoInTestCase('test_Certification_Number'))
+suite.addTest(JoInTestCase('test_Join'))
 suite.addTest(LoginTestCase('test_Withdraw'))
 
 runner = unittest.TextTestRunner()

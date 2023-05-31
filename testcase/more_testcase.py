@@ -27,9 +27,9 @@ class MoreTestcase_A(unittest.TestCase):
     #     print("더보기 TestCase_A완료")
     #
     #
-    # def setUp(self):
-    #     more = More()
-    #     more.etcIn()
+    def setUp(self):
+        more = More()
+        more.etcIn()
 
     def tearDown(self):
         base = basemethod()

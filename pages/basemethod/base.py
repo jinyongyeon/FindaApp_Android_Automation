@@ -1,6 +1,9 @@
 import time
 from telnetlib import EC
 from appium.webdriver.common.mobileby import MobileBy
+from appium import webdriver
+
+from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from appium.webdriver.common.touch_action import TouchAction
@@ -10,22 +13,21 @@ class basemethod:
 
 
     def __init__(self):
-        # self.driver = WebDriver.setUp()
         self.driver = WebDriver.driver
+        # self.driver = WebDriver.__init__().driver
+
 
 
     # android back 키
+    # def android_Back(self):
+    #     if self.driver is not None:
+    #         self.driver.press_keycode(4)
     def android_Back(self):
         self.driver.press_keycode(4)
 
+
     def scroll(self, scroll_distance):
-        # # 스크롤할 거리 지정
-        # distance = 2000  # 스크롤 거리 (픽셀 단위)
-        # # 스크롤 이벤트 생성
-        # action = TouchAction(self.driver)
-        # action.press(x=500, y=1500).move_to(x=500, y=1500 - distance).release()
-        # return action.perform()
-        # 화면 크기 얻어오기
+
         screen_size = self.driver.get_window_size()
         height = screen_size['height']
 

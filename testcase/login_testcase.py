@@ -12,9 +12,7 @@ from testscript.login_testscript.logincase import JoIn
 from testscript.more_testscript.see_more import More
 from testscript.more_testscript.seting import Seting
 
-
-class LoginTestCase(unittest.TestCase):
-
+class JoInTestCase(unittest.TestCase):
     # @classmethod
     # def setUpClass(cls):
     #     print("더보기 TestCase_A 시작")
@@ -24,42 +22,15 @@ class LoginTestCase(unittest.TestCase):
     #     print("더보기 TestCase_A완료")
     #
     #
-    # def setUp(self):
-    #     base = basemethod()
-    #     base.scroll(1)
-    #     base.scroll(0.93)
-    #
-    # def tearDown(self):
-    #     base = basemethod()
-    #     more = More()
-    #     base.android_Back()
-    #     time.sleep(1)
-    #     more.etcIn()
-    #     base.scroll_up(0.8)
-    #     base.scroll_up(0.8)
-    #     base.scroll_up(0.8)
-
-    # 핀코드 로그인 테스트
-    def test_Check_In(self):
-        main = Main()
+    def setUp(self):
         join = JoIn()
-        result_join = Result_Join()
-        # driver = WebDriver.setUp()
-        info = InFo()
         join.appStart()
-        join.pinCode()
-        time.sleep(3)
-        try:
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
-            self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
-            print("로그인 : PASS")
-            result_join.reports.append("로그인 결과 : *PASS*")
-        except AssertionError:
-            print("로그인 : FAIL")
-            result_join.reports.append("로그인 결과 : *FAIL*")
-        except Exception as e:
-            print("로그인 에러 발생 : {}".format(str(e)))
-            result_join.reports.append("로그인 : Error")
+
+    def tearDown(self):
+        join = JoIn()
+        join.appQuit()
+
+
 
     #MO인증 테스트
     def test_Message_Certification(self):
@@ -99,6 +70,9 @@ class LoginTestCase(unittest.TestCase):
         # driver = WebDriver.setUp()
         result_join = Result_Join()
         info = InFo()
+        join.start_Onboarding()
+        join.malicious_App_Search()
+        join.message_Certification()
         join.enter_Personal_Information()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.phone_number_Result)
@@ -124,6 +98,10 @@ class LoginTestCase(unittest.TestCase):
         results_b = []
         results_c = []
         results_d = []
+        join.start_Onboarding()
+        join.malicious_App_Search()
+        join.message_Certification()
+        join.enter_Personal_Information()
         join.join_Next()
         verification_list = [("핀다 필수 항목 모두 동의", main.membership_terms_and_conditions_a_Result),
                              ("제휴사 필수 항목 모두 동의", main.membership_terms_and_conditions_b_Result),
@@ -548,6 +526,12 @@ class LoginTestCase(unittest.TestCase):
         # driver = WebDriver.setUp()
         result_join = Result_Join()
         base = basemethod()
+        join.start_Onboarding()
+        join.malicious_App_Search()
+        join.message_Certification()
+        join.enter_Personal_Information()
+        join.join_Next()
+        time.sleep(2)
         join.membership_Terms_And_Conditions_All()
         time.sleep(5)
         join.join_Next()
@@ -594,6 +578,18 @@ class LoginTestCase(unittest.TestCase):
         base = basemethod()
         info = InFo()
         result_join = Result_Join()
+        result_join = Result_Join()
+        base = basemethod()
+        join.start_Onboarding()
+        join.malicious_App_Search()
+        join.message_Certification()
+        join.enter_Personal_Information()
+        join.join_Next()
+        time.sleep(2)
+        join.membership_Terms_And_Conditions_All()
+        time.sleep(5)
+        join.join_Next()
+        time.sleep(3)
         join.use_Fingerprint()
         join.pinCode()
         join.pinCode()
@@ -608,6 +604,32 @@ class LoginTestCase(unittest.TestCase):
         except Exception as e:
             print("회원가입 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 결과 : *Error*")
+
+
+class LoginTestCase(unittest.TestCase):
+
+    # 핀코드 로그인 테스트
+    def test_Check_In(self):
+        main = Main()
+        join = JoIn()
+        result_join = Result_Join()
+        # driver = WebDriver.setUp()
+        info = InFo()
+        join.appStart()
+        # join.appQuit()
+        join.pinCode()
+        time.sleep(3)
+        try:
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
+            self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
+            print("로그인 : PASS")
+            result_join.reports.append("로그인 결과 : *PASS*")
+        except AssertionError:
+            print("로그인 : FAIL")
+            result_join.reports.append("로그인 결과 : *FAIL*")
+        except Exception as e:
+            print("로그인 에러 발생 : {}".format(str(e)))
+            result_join.reports.append("로그인 : Error")
 
     #로그아웃
     def test_LogOut(self):
@@ -643,6 +665,8 @@ class LoginTestCase(unittest.TestCase):
         info = InFo()
         result_join = Result_Join()
         more = More()
+        join.appStart()
+        join.pinCode()
         more.etcIn()
         seting.setingIn()
         base.scroll(2)

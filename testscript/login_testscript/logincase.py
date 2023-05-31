@@ -1,5 +1,7 @@
 import re
 import time
+import subprocess
+
 from appium import webdriver
 
 from telnetlib import EC
@@ -41,18 +43,24 @@ class JoIn:
         next_button.click()
         time.sleep(2)
 
+    # 앱 종료
+    def appQuit(self):
+        self.result = subprocess.run(
+            ['adb', 'shell', 'am', 'force-stop', f'{"kr.co.finda.finda"}'])
+        time.sleep(3)
+
+        # WebDriver_B.set_run_with_app(True)
+        # WebDriver_B.quit()
+        # WebDriver_B.set_run_with_app(False)
+
     # 앱 실행
     def appStart(self):
-        FindaApp = WebDriver.driver.find_element(MobileBy.XPATH, self.main.findaapp)
-        FindaApp.click()
+        self.result = subprocess.run(['adb', 'shell', 'am', 'start', '-n',f'{"kr.co.finda.finda"}/{".ui.splash.SplashActivity"}'])
         time.sleep(5)
-    # def appStart(self):
-    #     # WebDriver.driver.start_activity('kr.co.finda.finda', '.ui.splash.SplashActivity')
-    #     # time.sleep(5)
-    #
-    #     self.wd.start_activity('kr.co.finda.finda', '.ui.splash.SplashActivity')
-    #     time.sleep(5)
-    #     # self.wd.quit()
+        # FindaApp = WebDriver.driver.find_element(MobileBy.XPATH, self.main.findaapp)
+        # FindaApp.click()
+        # time.sleep(5)
+
 
     # 핀코드 입력
     def pinCode(self):
