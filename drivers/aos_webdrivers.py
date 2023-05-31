@@ -14,7 +14,7 @@ class WebDriver:
             "appium:ensureWebviewsHavePages" : True,
             "appium:nativeWebScreenshot": True,
             "appium:newCommandTimeout": 3600,
-            "appium:connectHardwareKeyboard": True
+            "appium:connectHardwareKeyboard": True,
             # 'appActivity': '.ui.splash.SplashActivity',
             # 'noReset': 'true'
             # "appPackage": "kr.co.finda.finda",
