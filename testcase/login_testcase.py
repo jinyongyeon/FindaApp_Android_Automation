@@ -15,6 +15,29 @@ from testscript.more_testscript.seting import Seting
 
 class LoginTestCase(unittest.TestCase):
 
+    # @classmethod
+    # def setUpClass(cls):
+    #     print("더보기 TestCase_A 시작")
+    #
+    # @classmethod
+    # def tearDownClass(cls):
+    #     print("더보기 TestCase_A완료")
+    #
+    #
+    # def setUp(self):
+    #     base = basemethod()
+    #     base.scroll(1)
+    #     base.scroll(0.93)
+    #
+    # def tearDown(self):
+    #     base = basemethod()
+    #     more = More()
+    #     base.android_Back()
+    #     time.sleep(1)
+    #     more.etcIn()
+    #     base.scroll_up(0.8)
+    #     base.scroll_up(0.8)
+    #     base.scroll_up(0.8)
 
     # 핀코드 로그인 테스트
     def test_Check_In(self):
@@ -56,7 +79,6 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("MO인증 결과 : FAIL")
             result_join.reports.append("MO인증 결과 : *FAIL*")
-            WebDriver.tearDown()
         except :
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, main.mo_Result)
@@ -66,17 +88,15 @@ class LoginTestCase(unittest.TestCase):
             except AssertionError:
                 print("MO인증 결과 : FAIL")
                 result_join.reports.append("MO인증 결과 : *FAIL*")
-                WebDriver.tearDown()
             except Exception as e:
                 print("MO인증 에러 발생 : {}".format(str(e)))
                 result_join.reports.append("MO인증 결과 : *Error*")
-                WebDriver.tearDown()
 
     #유심내용 자동입력 테스트
     def test_Enter_Personal_Information(self):
         main = Main()
         join = JoIn()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         result_join = Result_Join()
         info = InFo()
         join.enter_Personal_Information()
@@ -88,17 +108,15 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("유심내용 자동입력 결과 : FAIL")
             result_join.reports.append("유심내용 자동입력 결과 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("유심내용 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("유심내용 자동입력 결과 : *Error*")
-            WebDriver.tearDown()
 
     #회원가입 약관 동의 진입 테스트
     def test_Membership_Terms_And_Conditions(self):
         main = Main()
         join = JoIn()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         result_join = Result_Join()
         base = basemethod()
         results = []
@@ -527,7 +545,7 @@ class LoginTestCase(unittest.TestCase):
     def test_Certification_Number(self):
         main = Main()
         join = JoIn()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         result_join = Result_Join()
         base = basemethod()
         join.membership_Terms_And_Conditions_All()
@@ -564,17 +582,15 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 재요청 : FAIL")
             result_join.reports.append("회원가입 인증번호 재요청 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("회원가입 인증번호 재요청 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 재요청 : *Error*")
-            WebDriver.tearDown()
 
     #핀코드 등록 및 회원가입 테스트
     def test_Join(self):
         main = Main()
         join = JoIn()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         base = basemethod()
         info = InFo()
         result_join = Result_Join()
@@ -589,18 +605,16 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 결과 : FAIL")
             result_join.reports.append("회원가입 결과 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("회원가입 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 결과 : *Error*")
-            WebDriver.tearDown()
 
     #로그아웃
     def test_LogOut(self):
         main = Main()
         join = JoIn()
         seting = Seting()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         base = basemethod()
         info = InFo()
         result_join = Result_Join()
@@ -615,18 +629,16 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그아웃 결과 : FAIL")
             result_join.reports.append("로그아웃 결과 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("로그아웃 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그아웃 결과 : *Error*")
-            WebDriver.tearDown()
 
     #회원탈퇴
     def test_Withdraw(self):
         main = Main()
         join = JoIn()
         seting = Seting()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         base = basemethod()
         info = InFo()
         result_join = Result_Join()
@@ -643,11 +655,9 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("탈퇴하기 결과 : FAIL")
             result_join.reports.append("탈퇴하기 결과 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("탈퇴하기 에러 발생 : {}".format(str(e)))
             result_join.reports.append("탈퇴하기 결과 : *Error*")
-            WebDriver.tearDown()
         time.sleep(5)
         join.appStart()
         join.start_Onboarding()

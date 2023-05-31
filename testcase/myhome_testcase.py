@@ -18,9 +18,31 @@ from testscript.myhome_testscript.myhome import MyHome
 
 class MyHome_Testcase(unittest.TestCase):
 
+    # @classmethod
+    # def setUpClass(cls):
+    #     print("더보기 TestCase_A 시작")
+    #
+    # @classmethod
+    # def tearDownClass(cls):
+    #     print("더보기 TestCase_A완료")
+    #
+    #
+    # def setUp(self):
+    #     base = basemethod()
+    #     base.scroll(1)
+    #     base.scroll(0.93)
+    #
+    def tearDown(self):
+        base = basemethod()
+        base.android_Back()
+        time.sleep(1)
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
+
     # 마이홈 비교대출 배너 테스트
     def test_ComPariSonLoan(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
@@ -131,7 +153,7 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 대출 진단 배너 테스트
     def test_LoanDiagnosisBanner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
@@ -274,7 +296,7 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 내 대출 배너 테스트
     def test_Loan_Banner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
@@ -360,13 +382,13 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 내 현금 자산 배너 테스트
     def test_Cash_Assets_Banner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
-        base.scroll(0.6)
+        base.scroll(1)
         time.sleep(2)
         verification_list = [("내 현금자산 3", home.cash_assets_banner),
                              ("입출금 2", home.cash_assets_banner_a),
@@ -400,7 +422,7 @@ class MyHome_Testcase(unittest.TestCase):
             result_myhome.reports.append("내 현금자산 배너 진입_a : *FAIL*")
         except Exception as e:
             print("내 현금자산 배너 진입_a 에러 발생 : {}".format(str(e)))
-            result_myhome.results.append("내 현금자산 배너 진입_a : Error")
+            result_myhome.reports.append("내 현금자산 배너 진입_a : Error")
         base.android_Back()
         myhome.cash_Assets_Banner_A()
         try:
@@ -413,7 +435,7 @@ class MyHome_Testcase(unittest.TestCase):
             result_myhome.reports.append("내 현금자산 배너 진입_b : *FAIL*")
         except Exception as e:
             print("내 현금자산 배너 진입_b 에러 발생 : {}".format(str(e)))
-            result_myhome.results.append("내 현금자산 배너 진입_b : Error")
+            result_myhome.reports.append("내 현금자산 배너 진입_b : Error")
         base.android_Back()
         myhome.cash_Assets_Banner_B()
         try:
@@ -426,17 +448,18 @@ class MyHome_Testcase(unittest.TestCase):
             result_myhome.reports.append("내 현금자산 배너 진입_c : *FAIL*")
         except Exception as e:
             print("내 현금자산 배너 진입_c 에러 발생 : {}".format(str(e)))
-            result_myhome.results.append("내 현금자산 배너 진입_c : Error")
+            result_myhome.reports.append("내 현금자산 배너 진입_c : Error")
         base.android_Back()
 
     # 마이홈 상환예정 배너 테스트
     def test_Repayment_Schedule_Banner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
+        base.scroll(1)
         base.scroll(0.3)
         verification_list = [("상환 예정", home.repayment_schedule_banner),
                              ("알림 받기", home.notification_enabled_on)]
@@ -503,13 +526,14 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 오토리스 배너 테스트
     def test_Lease_Contract_Banner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         etc = Etc()
         result_myhome = Result_MyHome()
         base = basemethod()
         # results = []
+        base.scroll(1)
         base.scroll(2)
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.lease_contract_banner)
@@ -538,13 +562,15 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 자동차 대출 배너 테스차
     def test_Auto_Loan_Banner(self):
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         etc = Etc()
         info = InFo()
         result_myhome = Result_MyHome()
         base = basemethod()
+        base.scroll(1)
+        base.scroll(2)
         # results = []
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.auto_loan_banner)

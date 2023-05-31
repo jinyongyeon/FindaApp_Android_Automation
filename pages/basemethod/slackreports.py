@@ -18,7 +18,7 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*1.[AOS]회원가입 테스트 결과*\n\n\n" + data
+            'text': "*\n\n\n1.[AOS]회원가입 테스트 결과*\n\n\n" + data
         }
 
         res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
@@ -34,7 +34,7 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*2.[AOS]마이홈 테스트 결과*\n\n\n" + data
+            'text': "*\n\n\n2.[AOS]마이홈 테스트 결과*\n\n\n" + data
         }
 
         res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
@@ -51,7 +51,7 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*3.[AOS]더보기 테스트 결과*\n\n\n" + data
+            'text': "*\n\n\n3.[AOS]더보기 테스트 결과*\n\n\n" + data
         }
 
         res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
