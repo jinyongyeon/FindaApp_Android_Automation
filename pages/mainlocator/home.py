@@ -45,3 +45,17 @@ class Home:
     cash_assets_banner_a_result = '//*[@text = "저축예금"]'
     cash_assets_banner_b = '//*[@text = "예적금 1"]'
     cash_assets_banner_b_result = '//*[@text = "청년 우대형 주택청약종합저축"]'
+
+    # 상환 예정 배너
+    repayment_schedule_banner = '//*[@text = "상환 예정"]'
+    notification_enabled_on = '//*[@text = "알림 받기"]'
+    notification_enabled_off = '//*[@text = "알림받는중"]'
+    repayment_schedule = '//*[@text = "이번달 총 상환액"]'
+
+    # 장기렌트 리스 배너
+    lease_contract_banner = '//*[@text = "장기렌트·리스"]'
+
+
+    # 차 구매 대출 배너
+    auto_loan_banner = '//*[@text = "차 구매 대출"]'
+

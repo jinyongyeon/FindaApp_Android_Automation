@@ -554,11 +554,9 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 자동입력 결과 : FAIL")
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *FAIL*")
-            WebDriver.tearDown()
         except Exception as e:
             print("회원가입 인증번호 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *Error*")
-            WebDriver.tearDown()
 
         base.android_Back()
         time.sleep(3)

@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
+
+from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.result import Result_MyHome
 from pages.mainlocator import etc
@@ -127,6 +129,7 @@ class MyHome_Testcase(unittest.TestCase):
         time.sleep(2)
         base.android_Back()
 
+    # 마이홈 대출 진단 배너 테스트
     def test_LoanDiagnosisBanner(self):
         driver = WebDriver.setUp()
         myhome = MyHome()
@@ -269,6 +272,7 @@ class MyHome_Testcase(unittest.TestCase):
                                     results.append("Error")
         base.android_Back()
 
+    # 마이홈 내 대출 배너 테스트
     def test_Loan_Banner(self):
         driver = WebDriver.setUp()
         myhome = MyHome()
@@ -354,7 +358,7 @@ class MyHome_Testcase(unittest.TestCase):
         #     results.append("Error")
         # base.android_Back()
 
-
+    # 마이홈 내 현금 자산 배너 테스트
     def test_Cash_Assets_Banner(self):
         driver = WebDriver.setUp()
         myhome = MyHome()
@@ -362,7 +366,7 @@ class MyHome_Testcase(unittest.TestCase):
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
-        # base.scroll(0.6)
+        base.scroll(0.6)
         time.sleep(2)
         verification_list = [("내 현금자산 3", home.cash_assets_banner),
                              ("입출금 2", home.cash_assets_banner_a),
@@ -423,6 +427,159 @@ class MyHome_Testcase(unittest.TestCase):
         except Exception as e:
             print("내 현금자산 배너 진입_c 에러 발생 : {}".format(str(e)))
             result_myhome.results.append("내 현금자산 배너 진입_c : Error")
+        base.android_Back()
+
+    # 마이홈 상환예정 배너 테스트
+    def test_Repayment_Schedule_Banner(self):
+        driver = WebDriver.setUp()
+        myhome = MyHome()
+        home = Home()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        results = []
+        base.scroll(0.3)
+        verification_list = [("상환 예정", home.repayment_schedule_banner),
+                             ("알림 받기", home.notification_enabled_on)]
+        for text, xpath in verification_list:
+            try:
+                result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result_a.text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception as e:
+                print("상환 예정 배너 노출 에러 발생 : {}".format(str(e)))
+                results.append("Error")
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("상환 예정 배너 노출 : PASS")
+            result_myhome.reports.append("상환 예정 배너 노출 : *PASS*")
+        else:
+            print("상환 예정 배너 노출 : FAIL")
+            result_myhome.reports.append("상환 예정 배너 노출 : *FAIL*")
+
+        myhome.notification_Enabled_On()
+        try:
+            result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.notification_enabled_off)
+            self.assertIn("알림받는중", result_b.text)
+            print("상환 예정 배너 > 알림 받기 On 동작 : PASS")
+            result_myhome.reports.append("상환 예정 배너 > 알림 받기 On 동작 : *PASS*")
+        except AssertionError:
+            print("상환 예정 배너 > 알림 받기 On 동작 : FAIL")
+            result_myhome.reports.append("상환 예정 배너 > 알림 받기 On 동작 : *FAIL*")
+        except Exception as e:
+            print("상환 예정 배너 > 알림 받기 On 동작 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+        myhome.notification_Enabled_Off()
+        try:
+            result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.notification_enabled_on)
+            self.assertIn("알림 받기", result_c.text)
+            print("상환 예정 배너 > 알림 받기 Off 동작 : PASS")
+            result_myhome.reports.append("상환 예정 배너 > 알림 받기 Off 동작 : *PASS*")
+        except AssertionError:
+            print("상환 예정 배너 > 알림 받기 Off 동작 : FAIL")
+            result_myhome.reports.append("상환 예정 배너 > 알림 받기 Off 동작 : *FAIL*")
+        except Exception as e:
+            print("상환 예정 배너 > 알림 받기 Off 동작 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+
+        try:
+            myhome.loan_A()
+        except:
+            myhome.loan_B()
+
+        try:
+            result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.repayment_schedule)
+            self.assertIn("이번달 총 상환액", result_d.text)
+            print("상환 예정 배너 진입 : PASS")
+            result_myhome.reports.append("상환 예정 배너 진입 : *PASS*")
+        except AssertionError:
+            print("상환 예정 배너 진입 : FAIL")
+            result_myhome.reports.append("상환 예정 배너 진입 : *FAIL*")
+        except Exception as e:
+            print("상환 예정 배너 진입 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+        base.android_Back()
+
+    # 마이홈 오토리스 배너 테스트
+    def test_Lease_Contract_Banner(self):
+        driver = WebDriver.setUp()
+        myhome = MyHome()
+        home = Home()
+        etc = Etc()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        # results = []
+        base.scroll(2)
+        try:
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.lease_contract_banner)
+            self.assertEqual(Result_a.text, "장기렌트·리스")
+            print("장기렌트 리스 배너 노출 : PASS")
+            result_myhome.reports.append("장기렌트 리스 배너 노출 : *PASS*")
+        except AssertionError:
+            print("장기렌트 리스 배너 노출 : FAIL")
+            result_myhome.reports.append("장기렌트 리스 배너 노출 : *FAIL*")
+        except Exception as e:
+            print("장기렌트 리스 배너 노출 에러 발생 : {}".format(str(e)))
+            result_myhome.reports.append("장기렌트 리스 배너 노출 : *Error*")
+        myhome.Lease_Contract_Banner()
+        try:
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_Result)
+            self.assertEqual(Result.text, "리스렌트")
+            print("장기렌트 리스 배너 진입 : PASS")
+            result_myhome.reports.append("장기렌트 리스 배너 진입 : *PASS*")
+        except AssertionError:
+            print("장기렌트 리스 배너 진입 : FAIL")
+            result_myhome.reports.append("장기렌트 리스 배너 진입 : *FAIL*")
+        except Exception as e:
+            print("장기렌트 리스 배너 진입 에러 발생 : {}".format(str(e)))
+            result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
+        base.android_Back()
+
+    # 마이홈 자동차 대출 배너 테스차
+    def test_Auto_Loan_Banner(self):
+        driver = WebDriver.setUp()
+        myhome = MyHome()
+        home = Home()
+        etc = Etc()
+        info = InFo()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        # results = []
+        try:
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.auto_loan_banner)
+            self.assertEqual(Result_a.text, "차 구매 대출")
+            print("차 구매 대출 배너 노출 : PASS")
+            result_myhome.reports.append("차 구매 대출 배너 노출 : *PASS*")
+        except AssertionError:
+            print("차 구매 대출 배너 노출 : FAIL")
+            result_myhome.reports.append("차 구매 대출 배너 노출 : *FAIL*")
+        except Exception as e:
+            print("차 구매 대출 배너 노출 에러 발생 : {}".format(str(e)))
+            result_myhome.reports.append("차 구매 대출 배너 노출 : *Error*")
+
+        myhome.auto_Loan_Banner()
+        try:
+            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_a)
+            self.assertEqual(Result_A.text,"1분만에 내 한도 알아보기")
+            print("차 구매 대출 배너 진입 : PASS")
+            result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
+        except AssertionError:
+            print("차 구매 대출 배너 진입 : FAIL")
+            result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
+        except Exception:
+            try:
+                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
+                self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
+                print("차 구매 대출 배너 진입 : PASS")
+                result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
+            except AssertionError:
+                print("차 구매 대출 배너 진입 : FAIL")
+                result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
+            except Exception as e:
+                print("차 구매 대출 배너 진입 에러 발생 : {}".format(str(e)))
+                result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
+
         base.android_Back()
 
 

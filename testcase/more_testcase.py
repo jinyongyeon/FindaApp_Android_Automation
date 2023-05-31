@@ -288,28 +288,14 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("자동차 구매 대출 진입 : FAIL")
                 morereports.reports.append("자동차 구매 대출 진입 : *FAIL*")
-                WebDriver.tearDown()
-            # except:
-            #     pass
-        except NoSuchElementException:
-            try:
-                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
-                self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
-                print("자동차 구매 대출 진입 : PASS")
-                morereports.reports.append("자동차 구매 대출 진입 : *PASS*")
-            except AssertionError:
-                print("자동차 구매 대출 진입 : FAIL")
-                morereports.reports.append("자동차 구매 대출 진입 : *FAIL*")
-                WebDriver.tearDown()
+            except Exception as e :
+                print("자동차 구매 대출 진입 에러 발생 : {}".format(str(e)))
+                morereports.reports.append("자동차 구매 대출 진입 진입 : *Error*")
         except AssertionError:
             print("자동차 구매 대출 진입 : FAIL")
             morereports.reports.append("자동차 구매 대출 진입 : *FAIL*")
-            WebDriver.tearDown()
 
-        try:
-            more.autoLoanBack()
-        except:
-            base.android_Back()
+        base.android_Back()
 
     # 전월세 추천 진입 테스트
     def test_CharTer(self):
@@ -916,12 +902,8 @@ class MoreTestcase_C(unittest.TestCase):
         except Exception as e:
             print("장기렌트 리스 진입 에러 발생 : {}".format(str(e)))
             morereports.reports.append("장기렌트 리스 진입 : *Error*")
-        except :
-            WebDriver.tearDown()
-        try:
-            more.lease_Rent_Back()
-        except:
-            base.android_Back()
+
+        base.android_Back()
 
     # 두낫콜 약관 리스트 진입 테스트
     def test_Do_Not_Call_Terms_Of_Use(self):

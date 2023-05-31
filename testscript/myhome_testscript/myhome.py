@@ -85,3 +85,26 @@ class MyHome:
         cash_assets_banner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.cash_assets_banner_b)
         cash_assets_banner_b.click()
         time.sleep(2)
+
+    # 상환예정 배너
+    def notification_Enabled_On(self):
+        notification_enabled_on = WebDriver.driver.find_element(MobileBy.XPATH, self.home.notification_enabled_on)
+        notification_enabled_on.click()
+        time.sleep(2)
+    def notification_Enabled_Off(self):
+        notification_enabled_off = WebDriver.driver.find_element(MobileBy.XPATH, self.home.notification_enabled_off)
+        notification_enabled_off.click()
+        time.sleep(2)
+
+    # 오토리스 배너
+    def Lease_Contract_Banner(self):
+        lease_contract_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.lease_contract_banner)
+        lease_contract_banner.click()
+        time.sleep(2)
+
+    # 자동차 대출 배너
+    def auto_Loan_Banner(self):
+        auto_loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.auto_loan_banner)
+        auto_loan_banner.click()
+        time.sleep(2)
+
