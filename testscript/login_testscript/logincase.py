@@ -1,5 +1,7 @@
 import re
 import time
+from appium import webdriver
+
 from telnetlib import EC
 
 from appium.webdriver.common.mobileby import MobileBy
@@ -19,6 +21,19 @@ class JoIn:
         self.info = InFo()
         self.base = basemethod()
         self.etc = Etc()
+        # desired_caps = {
+        #     "appium:device": self.info.devices,
+        #     "platformName": "Android",
+        #     "appium:ensureWebviewsHavePages": True,
+        #     "appium:nativeWebScreenshot": True,
+        #     "appium:newCommandTimeout": 3600,
+        #     "appium:connectHardwareKeyboard": True,
+        #     'appActivity': '.ui.splash.SplashActivity',
+        #     'noReset': 'true',
+        #     "appPackage": "kr.co.finda.finda"
+        #     # "appActivity": "kr.co.finda.finda.ui.main.MainActivity"
+        # }
+        # self.wd = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
 
     #다음버튼 선택
     def join_Next(self):
@@ -31,6 +46,13 @@ class JoIn:
         FindaApp = WebDriver.driver.find_element(MobileBy.XPATH, self.main.findaapp)
         FindaApp.click()
         time.sleep(5)
+    # def appStart(self):
+    #     # WebDriver.driver.start_activity('kr.co.finda.finda', '.ui.splash.SplashActivity')
+    #     # time.sleep(5)
+    #
+    #     self.wd.start_activity('kr.co.finda.finda', '.ui.splash.SplashActivity')
+    #     time.sleep(5)
+    #     # self.wd.quit()
 
     # 핀코드 입력
     def pinCode(self):

@@ -10,7 +10,9 @@ class basemethod:
 
 
     def __init__(self):
-        self.driver = WebDriver.setUp()
+        # self.driver = WebDriver.setUp()
+        self.driver = WebDriver.driver
+
 
     # android back 키
     def android_Back(self):
