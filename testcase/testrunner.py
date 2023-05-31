@@ -71,7 +71,7 @@ resultmore = '\n\n'.join(str(i) for i in result_more.reports)
 print(resultjoin)
 print(resultmyhome)
 print(resultmore)
-
-print(SlackWebHook.join_SendSlackWebHook(resultjoin))
-print(SlackWebHook.myHome_SendSlackWebHook(resultmyhome))
-print(SlackWebHook.more_SendSlackWebHook(resultmore))
+#
+# print(SlackWebHook.join_SendSlackWebHook(resultjoin))
+# print(SlackWebHook.myHome_SendSlackWebHook(resultmyhome))
+# print(SlackWebHook.more_SendSlackWebHook(resultmore))

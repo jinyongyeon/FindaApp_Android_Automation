@@ -34,7 +34,6 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그인 : FAIL")
             result_join.reports.append("로그인 결과 : *FAIL*")
-            # WebDriver.tearDown()
         except Exception as e:
             print("로그인 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그인 : Error")
@@ -43,7 +42,7 @@ class LoginTestCase(unittest.TestCase):
     def test_Message_Certification(self):
         main = Main()
         join = JoIn()
-        driver = WebDriver.setUp()
+        # driver = WebDriver.setUp()
         result_join = Result_Join()
         # join.appStart()
         join.start_Onboarding()

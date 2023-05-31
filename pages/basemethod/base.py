@@ -37,6 +37,19 @@ class basemethod:
         action.press(x=500, y=1500).move_to(x=500, y=1500 - distance).release()
         return action.perform()
 
+    def scroll_up(self, scroll_distance):
+        # 화면 크기 얻어오기
+        screen_size = self.driver.get_window_size()
+        height = screen_size['height']
+
+        # 스크롤할 거리 계산
+        distance = int(height * scroll_distance)
+
+        # 스크롤 이벤트 생성
+        action = TouchAction(self.driver)
+        action.press(x=900, y=2200 - distance).move_to(x=900, y=2200).release()
+        return action.perform()
+
 
 # class ProviderJoinCertificateLocator(ProviderCommonMethod):
 #     #공동인증서 로케이터
