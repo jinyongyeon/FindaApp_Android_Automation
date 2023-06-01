@@ -1178,9 +1178,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("공지사항 상세 진입 : FAIL")
             moreresult.reports.append("공지사항 상세 진입 : *FAIL*")
+            base.save_screenshot('공지사항 상세 진입_fail')
         except Exception as e:
             print("공지사항 상세 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 상세 진입 : *Error*")
+            base.save_screenshot('공지사항 상세 진입_error')
 
         more.notice_In_Back()
         more.notice_Back()
@@ -1202,9 +1204,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("대출 후기 진입 : FAIL")
             moreresult.reports.append("대출 후기 진입 : *FAIL*")
+            base.save_screenshot('대출 후기 진입_fail')
         except Exception as e:
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 후기 진입 : *Error*")
+            base.save_screenshot('대출 후기 진입_error')
 
         more.loan_Reviews_Back()
 
@@ -1224,9 +1228,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("최근 알림 진입 : FAIL")
             moreresult.reports.append("최근 알림 진입 : *FAIL*")
+            base.save_screenshot('최근 알림 진입_fail')
         except Exception as e:
             print("최근 알림 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("최근 알림 진입 : *Error*")
+            base.save_screenshot('최근 알림 진입_error')
 
         more.alarm_Back()
 
