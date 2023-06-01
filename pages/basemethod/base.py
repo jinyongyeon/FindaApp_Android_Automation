@@ -2,6 +2,7 @@ import time
 from telnetlib import EC
 from appium.webdriver.common.mobileby import MobileBy
 from appium import webdriver
+import os
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -24,6 +25,8 @@ class basemethod:
     #         self.driver.press_keycode(4)
     def android_Back(self):
         self.driver.press_keycode(4)
+        time.sleep(4)
+
 
 
     def scroll(self, scroll_distance):
@@ -51,6 +54,15 @@ class basemethod:
         action = TouchAction(self.driver)
         action.press(x=900, y=2200 - distance).move_to(x=900, y=2200).release()
         return action.perform()
+
+    def save_screenshot(self, name):
+        screenshot_dir = 'screenshots'
+        if not os.path.exists(screenshot_dir):
+            os.makedirs(screenshot_dir)
+        screenshot_path = os.path.join(screenshot_dir, f'{name}.png')
+        self.driver.save_screenshot(screenshot_path)
+        print(f'Screenshot saved: {screenshot_path}')
+
 
 
 # class ProviderJoinCertificateLocator(ProviderCommonMethod):

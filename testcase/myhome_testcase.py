@@ -159,7 +159,7 @@ class MyHome_Testcase(unittest.TestCase):
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
-        verification_list_a = [("30일 안에 대출 갈아타기\n지금 도전하세요", home.loandiagnosisbanner_a),
+        verification_list_a = [("30일 대출 챌린지\n지금 도전하세요", home.loandiagnosisbanner_a),
                              ("챌린지 시작하기", home.loandiagnosisbanner_aa)]
         verification_list_b = [("늘어난 대출이자에\n힘드신가요?", home.loandiagnosisbanner_b),
                              ("클릭 한번에 대출 관리 시작하기", home.loandiagnosisbanner_bb)]
@@ -172,7 +172,7 @@ class MyHome_Testcase(unittest.TestCase):
                     myhome.loanDiagnosisBanner_A()
                 except AssertionError:
                     results.append("FAIL")
-        except:
+        except :
             try:
                 for text, xpath in verification_list_b:
                     try:
@@ -182,7 +182,7 @@ class MyHome_Testcase(unittest.TestCase):
                         myhome.loanDiagnosisBanner_B()
                     except AssertionError:
                         results.append("FAIL")
-            except:
+            except :
                 try:
                     result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_c)
                     self.assertIn("한도조회 누적 달성 1회", result_c.text)
@@ -190,7 +190,7 @@ class MyHome_Testcase(unittest.TestCase):
                     myhome.loanDiagnosisBanner_C()
                 except AssertionError:
                     results.append("FAIL")
-                except:
+                except Exception:
                     try:
                         result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_d)
                         self.assertIn("한도조회 누적 달성 2회", result_d.text)
@@ -198,7 +198,7 @@ class MyHome_Testcase(unittest.TestCase):
                         myhome.loanDiagnosisBanner_D()
                     except AssertionError:
                         results.append("FAIL")
-                    except:
+                    except Exception:
                         try:
                             result_e = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_e)
                             self.assertIn("한도조회 누적 달성 3회", result_e.text)
@@ -206,7 +206,7 @@ class MyHome_Testcase(unittest.TestCase):
                             myhome.loanDiagnosisBanner_E()
                         except AssertionError:
                             results.append("FAIL")
-                        except:
+                        except Exception:
                             try:
                                 result_f = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_f)
                                 self.assertIn("한도조회 누적 달성 4회", result_f.text)
@@ -233,7 +233,7 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("대출진단 배너 진입 : FAIL")
             result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-        except:
+        except Exception:
             try:
                 result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
                 self.assertIn("챌린지 시작하기", result_B.text)
@@ -242,7 +242,7 @@ class MyHome_Testcase(unittest.TestCase):
             except AssertionError:
                 print("대출진단 배너 진입 : FAIL")
                 result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-            except:
+            except Exception:
                 try:
                     result_C = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge)
                     self.assertIn("30일 대환 챌린지", result_C.text)
@@ -251,7 +251,7 @@ class MyHome_Testcase(unittest.TestCase):
                 except AssertionError:
                     print("대출진단 배너 진입 : FAIL")
                     result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-                except:
+                except Exception:
                     try:
                         result_D = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_a)
                         self.assertIn("챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!", result_D.text)
@@ -260,7 +260,7 @@ class MyHome_Testcase(unittest.TestCase):
                     except AssertionError:
                         print("대출진단 배너 진입 : FAIL")
                         result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-                    except:
+                    except Exception:
                         try:
                             result_E = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_b)
                             self.assertIn("당신은 Lv.1 될성부른 꿈나무", result_E.text)
@@ -269,7 +269,7 @@ class MyHome_Testcase(unittest.TestCase):
                         except AssertionError:
                             print("대출진단 배너 진입 : FAIL")
                             result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-                        except:
+                        except Exception:
                             try:
                                 result_F = WebDriver.driver.find_element(MobileBy.XPATH,
                                                                          home.refinance_loan_challenge_c)
@@ -279,7 +279,7 @@ class MyHome_Testcase(unittest.TestCase):
                             except AssertionError:
                                 print("대출진단 배너 진입 : FAIL")
                                 result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
-                            except:
+                            except Exception:
                                 try:
                                     result_G = WebDriver.driver.find_element(MobileBy.XPATH,
                                                                              home.refinance_loan_challenge_d)

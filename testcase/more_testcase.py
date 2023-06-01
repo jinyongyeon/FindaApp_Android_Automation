@@ -1,3 +1,4 @@
+import os
 import time
 import unittest
 
@@ -13,6 +14,8 @@ from pages.basemethod.result import Result_More
 from testscript.more_testscript.see_more import More
 from pages.basemethod.base import basemethod
 from appium import webdriver
+
+
 
 
 
@@ -39,7 +42,6 @@ class MoreTestcase_A(unittest.TestCase):
         more.etcIn()
         base.scroll_up(0.8)
 
-
     # 더보기 진입 테스트
     def test_Check_More_Tab(self):
         # driver = WebDriver.setUpClass()
@@ -56,16 +58,22 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("더보기 탭 진입 : FAIL")
             moreresult.reports.append("더보기 탭 진입 : *FAIL*")
+            base.save_screenshot('더보기 탭 진입_fail')
+        except Exception as e:
+            print("더보기 탭 진입 에러 발생 : {}".format(str(e)))
+            moreresult.reports.append("더보기 탭 진입 : *Error*")
+            base.save_screenshot('더보기 탭 진입_error')
 
 
 
     # 내대출 진입 테스트
     def test_Myloan_In(self):
         # driver = WebDriver.setUpCalss()
+        base = basemethod()
         more = More()
         etc = Etc()
         more.myLoan()
-        morereports = Result_More()
+        moreresult = Result_More()
         results = []
         verification_list = [("내 현금흐름", etc.myloan_Result_a),
                              ("대출", etc.myloan_Result_b),
@@ -84,10 +92,12 @@ class MoreTestcase_A(unittest.TestCase):
         print(results)
         if all(result == "PASS" for result in results):
             print("내 대출 진입 : PASS")
-            morereports.reports.append("내 대출 진입 : *PASS*")
+            moreresult.reports.append("내 대출 진입 : *PASS*")
         else:
             print("내 대출 진입 : FAIL")
-            morereports.reports.append("내 대출 진입 : *FAIL*")
+            moreresult.reports.append("내 대출 진입 : *FAIL*")
+            base.save_screenshot('내 대출 진입_fail')
+
         more.myLoanBack()
 
     # 채팅문의 진입 테스트
@@ -95,18 +105,22 @@ class MoreTestcase_A(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        base = basemethod()
+        moreresult = Result_More()
         more.chatTing()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.chatting_Result)
             self.assertIn("채널톡 이용중",Result.text)
             print("채널톡 진입 : PASS")
-            morereports.reports.append("채널톡 진입 : *PASS*")
+            moreresult.reports.append("채널톡 진입 : *PASS*")
         except AssertionError:
             print("채널톡 진입 : FAIL")
-            morereports.reports.append("채널톡 진입 : *FAIL*")
-        except :
-            pass
+            moreresult.reports.append("채널톡 진입 : *FAIL*")
+            base.save_screenshot('채널톡 진입_fail')
+        except Exception as e:
+            print("채널톡 진입 에러 발생 : {}".format(str(e)))
+            moreresult.reports.append("채널톡 진입 : *Error*")
+            base.save_screenshot('채널톡 진입_error')
         more.chatTingExit()
 
     # 자주묻는 질문 진입 및 상세 페이지 노출 테스트
@@ -114,8 +128,9 @@ class MoreTestcase_A(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
+        base = basemethod()
         more.qnA()
-        morereports = Result_More()
+        moreresult = Result_More()
         results = []
         verification_list = [("정말 이 조건 그대로 대출 가능한가요?", etc.qna_a),
                              ("신청하면 대출금은 언제 입금이 되나요?", etc.qna_b),
@@ -129,15 +144,16 @@ class MoreTestcase_A(unittest.TestCase):
                 results.append("PASS")
             except AssertionError:
                 results.append("FAIL")
-            except:
-                pass
+            except Exception:
+                results.append("Error")
         print(results)
         if all(result == "PASS" for result in results):
             print("자주 묻는 질문 진입 : PASS")
-            morereports.reports.append("자주 묻는 질문 진입 : *PASS*")
+            moreresult.reports.append("자주 묻는 질문 진입 : *PASS*")
         else:
             print("자주 묻는 질문 진입 : FAIL")
-            morereports.reports.append("자주 묻는 질문 진입 : *FAIL*")
+            moreresult.reports.append("자주 묻는 질문 진입 : *FAIL*")
+            base.save_screenshot('자주 묻는 질문 진입_fail')
 
         more.qna_Click_A()
         try:
@@ -146,8 +162,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-        except :
-            pass
+            base.save_screenshot('자주 묻는 질문 진입_A_fail')
+        except Exception:
+            results.append("Error")
+            base.save_screenshot('자주 묻는 질문 진입_A_error')
         more.qna_Click_B()
         try:
             Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_b)
@@ -155,8 +173,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-        except :
-            pass
+            base.save_screenshot('자주 묻는 질문 진입_B_fail')
+        except Exception:
+            results.append("Error")
+            base.save_screenshot('자주 묻는 질문 진입_B_error')
         more.qna_Click_C()
         try:
             Result_C = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_c)
@@ -164,8 +184,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-        except :
-            pass
+            base.save_screenshot('자주 묻는 질문 진입_C_fail')
+        except Exception:
+            results.append("Error")
+            base.save_screenshot('자주 묻는 질문 진입_C_error')
         more.qna_Click_D()
         try:
             Result_D = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_d)
@@ -173,8 +195,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-        except :
-            pass
+            base.save_screenshot('자주 묻는 질문 진입_D_fail')
+        except Exception:
+            results.append("Error")
+            base.save_screenshot('자주 묻는 질문 진입_D_error')
         more.qna_Click_E()
         try:
             Result_E = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_e)
@@ -182,15 +206,18 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-        except :
-            pass
+            base.save_screenshot('자주 묻는 질문 진입_E_fail')
+        except Exception:
+            results.append("Error")
+            base.save_screenshot('자주 묻는 질문 진입_E_error')
         print(results)
         if all(result == "PASS" for result in results):
             print("자주 묻는 질문 상세 항목 노출 : PASS")
-            morereports.reports.append("자주 묻는 질문 상세 항목 노출 : *PASS*")
+            moreresult.reports.append("자주 묻는 질문 상세 항목 노출 : *PASS*")
         else:
             print("자주 묻는 질문 상세 항목 노출 : FAIL")
-            morereports.reports.append("자주 묻는 질문 상세 항목 노출 : *FAIL*")
+            moreresult.reports.append("자주 묻는 질문 상세 항목 노출 : *FAIL*")
+
         more.qna_Click_E()
         more.qnaBack()
 
@@ -200,29 +227,31 @@ class MoreTestcase_A(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.refinancing_Loan_Advance_Application()
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_advance_application_Result_a)
             self.assertEqual(Result_A.text,"출시되면 알림 받기")
             print("대출 갈아타기 사전신청 진입 : PASS")
-            morereports.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
+            moreresult.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
         except AssertionError:
             print("대출 갈아타기 사전신청 진입 : FAIL")
-            morereports.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
+            moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
+            base.save_screenshot('대출 갈아타기 사전신청 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_advance_application_Result_b)
                 self.assertEqual(Result_B.text,"사전신청 완료")
                 print("대출 갈아타기 사전신청 진입 : PASS")
-                morereports.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
+                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
             except AssertionError:
                 print("대출 갈아타기 사전신청 진입 : FAIL")
-                morereports.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
+                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
+                base.save_screenshot('대출 갈아타기 사전신청 진입_fail')
             except Exception as e:
                 print("대출 갈아타기 사전신청 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("대출 갈아타기 사전신청 진입 : *Error*")
-
+                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *Error*")
+                base.save_screenshot('대출 갈아타기 사전신청 진입_error')
         base.android_Back()
 
 
@@ -232,29 +261,32 @@ class MoreTestcase_A(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.comPariSonLoan()
 
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
             self.assertEqual(Result_A.text,"오늘의 내 최저금리 알아보기")
             print("대출 한 번에 비교 진입 : PASS")
-            morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
+            moreresult.reports.append("대출 한 번에 비교 진입 : *PASS*")
         except AssertionError:
             print("대출 한 번에 비교 진입 : FAIL")
-            morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
+            moreresult.reports.append("대출 한 번에 비교 진입 : *FAIL*")
+            base.save_screenshot('대출 한 번에 비교 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
                 self.assertIn("오늘입금" , Result_B.text)
                 print("대출 한 번에 비교 진입 : PASS")
-                morereports.reports.append("대출 한 번에 비교 진입 : *PASS*")
+                moreresult.reports.append("대출 한 번에 비교 진입 : *PASS*")
             except AssertionError:
                 print("대출 한 번에 비교 진입 : FAIL")
-                morereports.reports.append("대출 한 번에 비교 진입 : *FAIL*")
+                moreresult.reports.append("대출 한 번에 비교 진입 : *FAIL*")
+                base.save_screenshot('대출 한 번에 비교 진입_fail')
             except Exception as e:
                 print("대출 한 번에 비교 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("대출 한 번에 비교 진입 : *Error*")
+                moreresult.reports.append("대출 한 번에 비교 진입 : *Error*")
+                base.save_screenshot('대출 한 번에 비교 진입_error')
 
         base.android_Back()
 
@@ -265,29 +297,31 @@ class MoreTestcase_A(unittest.TestCase):
         etc = Etc()
         info = InFo()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.autoLoan()
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_a)
             self.assertEqual(Result_A.text,"1분만에 내 한도 알아보기")
             print("자동차 구매 대출 진입 : PASS")
-            morereports.reports.append("자동차 구매 대출 진입 : *PASS*")
+            moreresult.reports.append("자동차 구매 대출 진입 : *PASS*")
         except AssertionError:
             print("자동차 구매 대출 진입 : FAIL")
-            morereports.reports.append("자동차 구매 대출 진입 : *FAIL*")
+            moreresult.reports.append("자동차 구매 대출 진입 : *FAIL*")
+            base.save_screenshot('자동차 구매 대출 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
                 self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
                 print("자동차 구매 대출 진입 : PASS")
-                morereports.reports.append("자동차 구매 대출 진입 : *PASS*")
+                moreresult.reports.append("자동차 구매 대출 진입 : *PASS*")
             except AssertionError:
                 print("자동차 구매 대출 진입 : FAIL")
-                morereports.reports.append("자동차 구매 대출 진입 : *FAIL*")
+                moreresult.reports.append("자동차 구매 대출 진입 : *FAIL*")
+                base.save_screenshot('자동차 구매 대출 진입_fail')
             except Exception as e:
                 print("자동차 구매 대출 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("자동차 구매 대출 진입 진입 : *Error*")
-
+                moreresult.reports.append("자동차 구매 대출 진입 : *Error*")
+                base.save_screenshot('자동차 구매 대출 진입_error')
 
         base.android_Back()
 
@@ -297,29 +331,31 @@ class MoreTestcase_A(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.charTer()
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_Result_a)
             self.assertEqual(Result_A.text,"전월세대출 맞춤추천")
             print("전월세 추천 진입 : PASS")
-            morereports.reports.append("전월세 추천 진입 : *PASS*")
+            moreresult.reports.append("전월세 추천 진입 : *PASS*")
         except AssertionError:
             print("전월세 추천 진입 : FAIL")
-            morereports.reports.append("전월세 추천 진입 : *FAIL*")
+            moreresult.reports.append("전월세 추천 진입 : *FAIL*")
+            base.save_screenshot('전월세 추천 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_Result_b)
                 self.assertEqual(Result_B.text,"1:1 맞춤형 전월세대출 가이드")
                 print("전월세 추천 진입 : PASS")
-                morereports.reports.append("전월세 추천 진입 : *PASS*")
+                moreresult.reports.append("전월세 추천 진입 : *PASS*")
             except AssertionError:
                 print("전월세 추천 진입 : FAIL")
-                morereports.reports.append("전월세 추천 진입 : *FAIL*")
+                moreresult.reports.append("전월세 추천 진입 : *FAIL*")
+                base.save_screenshot('전월세 추천 진입_fail')
             except Exception as e:
                 print("전월세 추천 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("전월세 추천 진입 진입 : *Error*")
-
+                moreresult.reports.append("전월세 추천 진입 : *Error*")
+                base.save_screenshot('전월세 추천 진입_error')
         try:
             more.charTerBack()
         except:
@@ -331,29 +367,31 @@ class MoreTestcase_A(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.change_Loan()
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_a)
             self.assertEqual(Result_A.text,"매주 한도조회하면 내 레벨도 함께 높아져요")
             print("30일 대출 챌린지 진입 : PASS")
-            morereports.reports.append("30일 대출 챌린지 진입 : *PASS*")
+            moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
         except AssertionError:
             print("30일 대출 챌린지 진입 : FAIL")
-            morereports.reports.append("30일 대출 챌린지 진입 : *FAIL*")
+            moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
+            base.save_screenshot('30일 대출 챌린지 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_b)
                 self.assertEqual(Result_B.text,"30일 대환 챌린지 Beta")
                 print("30일 대출 챌린지 진입 : PASS")
-                morereports.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
             except AssertionError:
                 print("30일 대출 챌린지 진입 : FAIL")
-                morereports.reports.append("30일 대출 챌린지 진입 : *FAIL*")
+                moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
+                base.save_screenshot('30일 대출 챌린지 진입_fail')
             except Exception as e:
                 print("30일 대출 챌린지 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("30일 대출 챌린지 진입 진입 : *Error*")
-
+                moreresult.reports.append("30일 대출 챌린지 진입 진입 : *Error*")
+                base.save_screenshot('30일 대출 챌린지 진입_error')
         try:
             more.change_Loan_Back()
         except:
@@ -364,7 +402,8 @@ class MoreTestcase_A(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        moreresult = Result_More()
+        base = basemethod()
         more.myLoan_B()
         results = []
         verification_list = [("내 현금흐름", etc.myloan_Result_a),
@@ -384,54 +423,12 @@ class MoreTestcase_A(unittest.TestCase):
         print(results)
         if all(result == "PASS" for result in results):
             print("내 대출_B 진입 : PASS")
-            morereports.reports.append("내 대출_B 진입 : *PASS*")
+            moreresult.reports.append("내 대출_B 진입 : *PASS*")
         else:
             print("내 대출_B 진입 : FAIL")
-            morereports.reports.append("내 대출_B 진입 : *FAIL*")
-        # try:
-        #     Result_a = driver.find_element(MobileBy.XPATH, etc.myloan_Result_a)
-        # except:
-        #     results.append("FAIL")
-        # else:
-        #     if Result_a.text == "내 현금흐름":
-        #         results.append("PASS")
-        #     else:
-        #         results.append("FAIL")
-        #
-        # try:
-        #     Result_b = driver.find_element(MobileBy.XPATH, etc.myloan_Result_b)
-        # except:
-        #     results.append("FAIL")
-        # else:
-        #     if Result_b.text == "대출":
-        #         results.append("PASS")
-        #     else:
-        #         results.append("FAIL")
-        #
-        # try:
-        #     Result_c = driver.find_element(MobileBy.XPATH, etc.myloan_Result_c)
-        # except:
-        #     results.append("FAIL")
-        # else:
-        #     if Result_c.text == "입출금":
-        #         results.append("PASS")
-        #     else:
-        #         results.append("FAIL")
-        #
-        # try:
-        #     Result_d = driver.find_element(MobileBy.XPATH, etc.myloan_Result_d)
-        # except:
-        #     results.append("FAIL")
-        # else:
-        #     if Result_d.text == "예적금":
-        #         results.append("PASS")
-        #     else:
-        #         results.append("FAIL")
-        #
-        # if "FAIL" not in results:
-        #     print("내 대출 진입 : PASS")
-        # else:
-        #     print("내 대출 진입 : FAIL")
+            moreresult.reports.append("내 대출_B 진입 : *FAIL*")
+            base.save_screenshot('내 대출_B 진입_fail')
+
         more.myLoanBack()
 
     # 상환일정 진입 테스트
@@ -439,7 +436,7 @@ class MoreTestcase_A(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        moreresult = Result_More()
         base = basemethod()
         base.scroll(0.1)
         time.sleep(2)
@@ -448,24 +445,27 @@ class MoreTestcase_A(unittest.TestCase):
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
             self.assertEqual(Result_A.text,"이번달 총 상환액")
             print("상환일정 진입 : PASS")
-            morereports.reports.append("상환일정 진입 : *PASS*")
+            moreresult.reports.append("상환일정 진입 : *PASS*")
         except AssertionError:
             print("상환일정 진입 : FAIL")
-            morereports.reports.append("상환일정 진입 : *FAIL*")
+            moreresult.reports.append("상환일정 진입 : *FAIL*")
+            base.save_screenshot('상환일정 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_b)
                 self.assertEqual(Result_B.text,"상환 일정이 없습니다.")
                 print("상환일정 진입 : PASS")
-                morereports.reports.append("상환일정 진입 : *PASS*")
+                moreresult.reports.append("상환일정 진입 : *PASS*")
             except AssertionError:
                 print("상환일정 진입 : FAIL")
-                morereports.reports.append("상환일정 진입 : *FAIL*")
+                moreresult.reports.append("상환일정 진입 : *FAIL*")
+                base.save_screenshot('상환일정 진입_fail')
             except Exception as e:
                 print("상환일정 진입 에러 발생 : {}".format(str(e)))
-                morereports.reports.append("상환일정 진입 진입 : *Error*")
-        more.amortization_Schedule_back()
+                moreresult.reports.append("상환일정 진입 진입 : *Error*")
+                base.save_screenshot('상환일정 진입_error')
 
+        more.amortization_Schedule_back()
 
 class MoreTestcase_B(unittest.TestCase):
 
@@ -497,7 +497,7 @@ class MoreTestcase_B(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        moreresult = Result_More()
         base = basemethod()
         time.sleep(1)
         more.credit_Score()
@@ -505,21 +505,25 @@ class MoreTestcase_B(unittest.TestCase):
         #     more.credit_Score()
         #     time.sleep(10)
         #     print("신용점수 진입 : PASS")
-        #     morereports.reports.append("신용점수 진입 : *PASS*")
+        #     moreresult.reports.append("신용점수 진입 : *PASS*")
         # except :
         #     print("신용점수 진입 : FAIL")
-        #     morereports.reports.append("신용점수 진입 : *FAIL*")
+        #     moreresult.reports.append("신용점수 진입 : *FAIL*")
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
             self.assertEqual("내 신용점수", Result.text)
             print("신용점수 진입 : PASS")
-            morereports.reports.append("신용점수 진입 : *PASS*")
+            moreresult.reports.append("신용점수 진입 : *PASS*")
         except AssertionError:
             print("신용점수 진입 : FAIL")
-            morereports.reports.append("신용점수 진입 : *FAIL*")
+            moreresult.reports.append("신용점수 진입 : *FAIL*")
+            base.save_screenshot('신용점수 진입_fail')
+
         except Exception as e:
             print("신용점수 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("신용점수 진입 : *Error*")
+            moreresult.reports.append("신용점수 진입 : *Error*")
+            base.save_screenshot('신용점수 진입_error')
+
         try:
             more.credit_Score_Back()
         except:
@@ -531,29 +535,29 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.improve_Credit_Score()
         time.sleep(10)
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.improve_credit_score_Result_a)
             self.assertEqual(Result_A.text,"신용점수 올리고\n대출이자 낮춰봐요")
             print("신용점수 올리기 진입 : PASS")
-            morereports.reports.append("신용점수 올리기 진입 : *PASS*")
+            moreresult.reports.append("신용점수 올리기 진입 : *PASS*")
         except AssertionError:
             print("신용점수 올리기 진입 : FAIL")
-            morereports.reports.append("신용점수 올리기 진입 : *FAIL*")
+            moreresult.reports.append("신용점수 올리기 진입 : *FAIL*")
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.improve_credit_score_Result_b)
                 self.assertEqual(Result_B.text, "최근 6개월내 신용점수 올리기를\n이용했어요")
                 print("신용점수 올리기 진입 : PASS")
-                morereports.reports.append("신용점수 올리기 진입 : *PASS*")
+                moreresult.reports.append("신용점수 올리기 진입 : *PASS*")
             except AssertionError:
                 print("신용점수 올리기 진입 : FAIL")
-                morereports.reports.append("신용점수 올리기 진입 : *FAIL*")
+                moreresult.reports.append("신용점수 올리기 진입 : *FAIL*")
             except Exception as e:
                 print("신용점수 올리기 진입 에러 발생_1 : {}".format(str(e)))
-                morereports.reports.append("신용점수 올리기 진입 : *Error*")
+                moreresult.reports.append("신용점수 올리기 진입 : *Error*")
 
 
 
@@ -566,20 +570,20 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.credit_Analysis()
         # time.sleep(10)
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_analysis_Result)
             self.assertEqual(Result_a.text, "신용점수 상승 전략")
             print("신용점수 상승 전략 진입 : PASS")
-            morereports.reports.append("신용점수 상승 전략 진입 : *PASS*")
+            moreresult.reports.append("신용점수 상승 전략 진입 : *PASS*")
         except AssertionError:
             print("신용점수 상승 전략 진입 : FAIL")
-            morereports.reports.append("신용점수 상승 전략 진입 : *FAIL*")
+            moreresult.reports.append("신용점수 상승 전략 진입 : *FAIL*")
         except Exception as e:
             print("신용점수 상승 전략 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("신용점수 상승 전략 진입 : *Error*")
+            moreresult.reports.append("신용점수 상승 전략 진입 : *Error*")
         # more.credit_Analysis_Back()
         base.android_Back()
 
@@ -589,19 +593,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.credit_History()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_history_Result)
             self.assertIn("신용점수 히스토리", Result.text)
             print("신용점수 히스트리 진입 : PASS")
-            morereports.reports.append("신용점수 히스트리 진입 : *PASS*")
+            moreresult.reports.append("신용점수 히스트리 진입 : *PASS*")
         except AssertionError:
             print("신용점수 히스트리 진입 : FAIL")
-            morereports.reports.append("신용점수 히스트리 진입 : *FAIL")
+            moreresult.reports.append("신용점수 히스트리 진입 : *FAIL")
         except Exception as e:
             print("신용점수 히스트리 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("신용점수 히스트리 진입 : *Error*")
+            moreresult.reports.append("신용점수 히스트리 진입 : *Error*")
         # more.credit_History_Back()
         base.android_Back()
 
@@ -611,19 +615,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.extra_Money()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.extra_money_Result)
             self.assertEqual(Result.text, "상환할 여윳돈이 생기셨나요?")
             print("여윳돈 계산기 진입 : PASS")
-            morereports.reports.append("여윳돈 계산기 진입 : *PASS*")
+            moreresult.reports.append("여윳돈 계산기 진입 : *PASS*")
         except AssertionError:
             print("여윳돈 계산기 진입 : FAIL")
-            morereports.reports.append("여윳돈 계산기 진입 : *FAIL*")
+            moreresult.reports.append("여윳돈 계산기 진입 : *FAIL*")
         except Exception as e:
             print("여윳돈 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("여윳돈 계산기 진입 : *Error*")
+            moreresult.reports.append("여윳돈 계산기 진입 : *Error*")
 
         try:
             more.extra_Money_Back()
@@ -636,19 +640,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.dsR()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.dsr_Result)
             self.assertEqual(Result.text, "DSR 계산기")
             print("DSR 계산기 진입 : PASS")
-            morereports.reports.append("DSR 계산기 진입 : *PASS*")
+            moreresult.reports.append("DSR 계산기 진입 : *PASS*")
         except AssertionError:
             print("DSR 계산기 진입 : FAIL")
-            morereports.reports.append("DSR 계산기 진입 : *FAIL*")
+            moreresult.reports.append("DSR 계산기 진입 : *FAIL*")
         except Exception as e:
             print("DSR 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("DSR 계산기 진입 : *Error*")
+            moreresult.reports.append("DSR 계산기 진입 : *Error*")
         try:
             more.dsr_Back()
         except:
@@ -660,19 +664,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.interest()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.interest_Result)
             self.assertEqual(Result.text, "대출이자 계산기")
             print("대출이자 계산기 진입 : PASS")
-            morereports.reports.append("대출이자 계산기 진입 : *PASS*")
+            moreresult.reports.append("대출이자 계산기 진입 : *PASS*")
         except AssertionError:
             print("대출이자 계산기 진입 : FAIL")
-            morereports.reports.append("대출이자 계산기 진입 : *FAIL*")
+            moreresult.reports.append("대출이자 계산기 진입 : *FAIL*")
         except Exception as e:
             print("대출이자 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("대출이자 계산기 진입 : *Error*")
+            moreresult.reports.append("대출이자 계산기 진입 : *Error*")
         try:
             more.interest_Back()
         except:
@@ -684,19 +688,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.year_End_Settlement()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.year_end_settlement_Result)
             self.assertEqual(Result.text, "카드 및 현금 소비액 소득공제")
             print("연말정산 계산기 진입 : PASS")
-            morereports.reports.append("연말정산 계산기 진입 : *PASS*")
+            moreresult.reports.append("연말정산 계산기 진입 : *PASS*")
         except AssertionError:
             print("연말정산 계산기 진입 : FAIL")
-            morereports.reports.append("연말정산 계산기 진입 : *FAIL*")
+            moreresult.reports.append("연말정산 계산기 진입 : *FAIL*")
         except Exception as e:
             print("연말정산 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("연말정산 계산기 진입 : *Error*")
+            moreresult.reports.append("연말정산 계산기 진입 : *Error*")
 
         try:
             more.year_End_Settlement_Back()
@@ -709,19 +713,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.charter_Vs_Monthly_Rent()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_vs_monthly_rent_Result)
             self.assertEqual(Result.text, "전세 vs 월세 계산기")
             print("전세 vs 월세 계산기 진입 : PASS")
-            morereports.reports.append("전세 vs 월세 계산기 진입 : *PASS*")
+            moreresult.reports.append("전세 vs 월세 계산기 진입 : *PASS*")
         except AssertionError:
             print("전세 vs 월세 계산기 진입 : FAIL")
-            morereports.reports.append("전세 vs 월세 계산기 진입 : *FAIL*")
+            moreresult.reports.append("전세 vs 월세 계산기 진입 : *FAIL*")
         except Exception as e:
             print("전세 vs 월세 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("전세 vs 월세 계산기 진입 : *Error*")
+            moreresult.reports.append("전세 vs 월세 계산기 진입 : *Error*")
         try:
             more.charter_Vs_Monthly_Rent_Back()
         except:
@@ -733,19 +737,19 @@ class MoreTestcase_B(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.refinancing_Loan()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result)
             self.assertIn("대출 갈아타기 계산기" , Result.text)
             print("대출 갈아타기 계산기 진입 : PASS")
-            morereports.reports.append("대출 갈아타기 계산기 진입 : *PASS*")
+            moreresult.reports.append("대출 갈아타기 계산기 진입 : *PASS*")
         except AssertionError:
             print("대출 갈아타기 계산기 진입 : FAIL")
-            morereports.reports.append("대출 갈아타기 계산기 진입 : *FAIL*")
+            moreresult.reports.append("대출 갈아타기 계산기 진입 : *FAIL*")
         except Exception as e:
             print("대출 갈아타기 계산기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("대출 갈아타기 계산기 진입 : *Error*")
+            moreresult.reports.append("대출 갈아타기 계산기 진입 : *Error*")
         try:
             more.refinancing_Loan_Back()
         except:
@@ -782,7 +786,7 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        moreresult = Result_More()
         base = basemethod()
         more.lease_Rent()
         time.sleep(3)
@@ -790,14 +794,14 @@ class MoreTestcase_C(unittest.TestCase):
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_Result)
             self.assertEqual(Result.text, "리스렌트")
             print("장기렌트 리스 진입 : PASS")
-            morereports.reports.append("장기렌트 리스 진입 : *PASS*")
+            moreresult.reports.append("장기렌트 리스 진입 : *PASS*")
         except AssertionError:
             print("장기렌트 리스 진입 : FAIL")
-            morereports.reports.append("장기렌트 리스 진입 : *FAIL*")
+            moreresult.reports.append("장기렌트 리스 진입 : *FAIL*")
             WebDriver.tearDown()
         except Exception as e:
             print("장기렌트 리스 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("장기렌트 리스 진입 : *Error*")
+            moreresult.reports.append("장기렌트 리스 진입 : *Error*")
 
         base.android_Back()
 
@@ -806,12 +810,13 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
+        base = basemethod()
         more.do_Not_Call()
         more.do_Net_Call_Cta()
         more.terms_Of_Use_A()
         more.terms_Of_Use_B()
         more.terms_Of_Use_C()
-        morereports = Result_More()
+        moreresult = Result_More()
         results = []
         verification_list = [("연락중지청구(Do-not-call) 서비스 이용약관", etc.do_not_call_a_a),
                              ("개인정보 수집·이용에 대한 동의", etc.do_not_call_a_b),
@@ -837,10 +842,10 @@ class MoreTestcase_C(unittest.TestCase):
         print(results)
         if all(result == "PASS" for result in results):
             print("두낫콜 약관 노출 : PASS")
-            morereports.reports.append("두낫콜 약관 노출 : *PASS*")
+            moreresult.reports.append("두낫콜 약관 노출 : *PASS*")
         else:
             print("두낫콜 약관 노출 : FAIL")
-            morereports.reports.append("두낫콜 약관 노출 : *FAIL*")
+            moreresult.reports.append("두낫콜 약관 노출 : *FAIL*")
 
         more.terms_Of_Use_Aa()
         try:
@@ -955,10 +960,10 @@ class MoreTestcase_C(unittest.TestCase):
         print(results)
         if all(result == "PASS" for result in results):
             print("두낫콜 약관 페이지 진입 노출 : PASS")
-            morereports.reports.append("두낫콜 약관 페이지 진입 노출 : *PASS*")
+            moreresult.reports.append("두낫콜 약관 페이지 진입 노출 : *PASS*")
         else:
             print("두낫콜 약관 페이지 진입 노출 : FAIL")
-            morereports.reports.append("두낫콜 약관 페이지 진입 노출 : *FAIL*")
+            moreresult.reports.append("두낫콜 약관 페이지 진입 노출 : *FAIL*")
         more.do_Not_Call_Back()
 
     # 대출금 갚아주는 보험 진입 테스트
@@ -967,20 +972,20 @@ class MoreTestcase_C(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.insurance()
         time.sleep(15)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.insurance_Result)
             self.assertEqual(Result.text,"BNP파리바 카디프생명")
             print("대출금 갚아주는 보험 진입 : PASS")
-            morereports.reports.append("대출금 갚아주는 보험 진입 : *PASS*")
+            moreresult.reports.append("대출금 갚아주는 보험 진입 : *PASS*")
         except AssertionError:
             print("대출금 갚아주는 보험 진입 : FAIL")
-            morereports.reports.append("대출금 갚아주는 보험 진입 : *FAIL*")
+            moreresult.reports.append("대출금 갚아주는 보험 진입 : *FAIL*")
         except Exception as e:
             print("대출금 갚아주는 보험 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("대출금 갚아주는 보험 진입 : *Error*")
+            moreresult.reports.append("대출금 갚아주는 보험 진입 : *Error*")
 
         base.android_Back()
 
@@ -989,7 +994,7 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        moreresult = Result_More()
         base = basemethod()
         more.deposit_And_Savings()
         time.sleep(10)
@@ -997,13 +1002,13 @@ class MoreTestcase_C(unittest.TestCase):
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.deposit_and_savings_Result)
             self.assertEqual(Result.text,"예적금 비교")
             print("예적금 비교 진입 : PASS")
-            morereports.reports.append("예적금 비교 진입 : *PASS*")
+            moreresult.reports.append("예적금 비교 진입 : *PASS*")
         except AssertionError:
             print("예적금 비교 진입 : FAIL")
-            morereports.reports.append("예적금 비교 진입 : *FAIL*")
+            moreresult.reports.append("예적금 비교 진입 : *FAIL*")
         except Exception as e:
             print("예적금 비교 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("예적금 비교 진입 : *Error*")
+            moreresult.reports.append("예적금 비교 진입 : *Error*")
         base.android_Back()
 
 
@@ -1013,19 +1018,19 @@ class MoreTestcase_C(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.finda_Post()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.finda_post_Result)
             self.assertEqual(Result.text,"핀다포스트")
             print("핀다 포스트 진입 : PASS")
-            morereports.reports.append("핀다 포스트 진입 : *PASS*")
+            moreresult.reports.append("핀다 포스트 진입 : *PASS*")
         except AssertionError:
             print("핀다 포스트 진입 : FAIL")
-            morereports.reports.append("핀다 포스트 진입 : *FAIL*")
+            moreresult.reports.append("핀다 포스트 진입 : *FAIL*")
         except Exception as e:
             print("핀다 포스트 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("핀다 포스트 진입 : *Error*")
+            moreresult.reports.append("핀다 포스트 진입 : *Error*")
 
         try:
             more.finda_Post_Back()
@@ -1039,19 +1044,19 @@ class MoreTestcase_C(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.my_Phorn()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.my_phorn_Result)
             self.assertEqual(Result.text,"내 폰 보호하기")
             print("내 폰 지키미 진입 : PASS")
-            morereports.reports.append("내 폰 지키미 진입 : *PASS*")
+            moreresult.reports.append("내 폰 지키미 진입 : *PASS*")
         except AssertionError:
             print("내 폰 지키미 진입 : FAIL")
-            morereports.reports.append("내 폰 지키미 진입 : *FAIL*")
+            moreresult.reports.append("내 폰 지키미 진입 : *FAIL*")
         except Exception as e:
             print("내 폰 지키미 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("내 폰 지키미 진입 : *Error*")
+            moreresult.reports.append("내 폰 지키미 진입 : *Error*")
 
         try:
             more.my_Phorn_Back()
@@ -1064,19 +1069,19 @@ class MoreTestcase_C(unittest.TestCase):
         more = More()
         etc = Etc()
         base = basemethod()
-        morereports = Result_More()
+        moreresult = Result_More()
         more.event()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.event_Result)
             self.assertEqual(Result.text,"진행 중인 이벤트")
             print("이벤트 진입 : PASS")
-            morereports.reports.append("이벤트 진입 : *PASS*")
+            moreresult.reports.append("이벤트 진입 : *PASS*")
         except AssertionError:
             print("이벤트 진입 : FAIL")
-            morereports.reports.append("이벤트 진입 : *FAIL*")
+            moreresult.reports.append("이벤트 진입 : *FAIL*")
         except Exception as e:
             print("이벤트 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("이벤트 진입 : *Error*")
+            moreresult.reports.append("이벤트 진입 : *Error*")
 
         try:
             more.event_Back()
@@ -1088,19 +1093,20 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        base = basemethod()
+        moreresult = Result_More()
         more.notice()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_Result)
             self.assertEqual(Result.text,"공지사항")
             print("공지사항 진입 : PASS")
-            morereports.reports.append("공지사항 진입 : *PASS*")
+            moreresult.reports.append("공지사항 진입 : *PASS*")
         except AssertionError:
             print("공지사항 진입 : FAIL")
-            morereports.reports.append("공지사항 진입 : *FAIL*")
+            moreresult.reports.append("공지사항 진입 : *FAIL*")
         except Exception as e:
             print("공지사항 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("공지사항 진입 : *Error*")
+            moreresult.reports.append("공지사항 진입 : *Error*")
 
         time.sleep(2)
 
@@ -1109,13 +1115,13 @@ class MoreTestcase_C(unittest.TestCase):
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_in_Result)
             self.assertEqual(Result.text,"안녕하세요 핀다입니다.")
             print("공지사항 상세 진입 : PASS")
-            morereports.reports.append("공지사항 상세 진입 : *PASS*")
+            moreresult.reports.append("공지사항 상세 진입 : *PASS*")
         except AssertionError:
             print("공지사항 상세 진입 : FAIL")
-            morereports.reports.append("공지사항 상세 진입 : *FAIL*")
+            moreresult.reports.append("공지사항 상세 진입 : *FAIL*")
         except Exception as e:
             print("공지사항 상세 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("공지사항 상세 진입 : *Error*")
+            moreresult.reports.append("공지사항 상세 진입 : *Error*")
 
         more.notice_In_Back()
         more.notice_Back()
@@ -1125,20 +1131,21 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        base = basemethod()
+        moreresult = Result_More()
         more.loan_Reviews()
         time.sleep(15)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
             self.assertIn("핀다 신용대출 신청 서비스로\n대출받으신 고객님들의 후기입니다.", Result.text)
             print("대출 후기 진입 : PASS")
-            morereports.reports.append("대출 후기 진입 : *PASS*")
+            moreresult.reports.append("대출 후기 진입 : *PASS*")
         except AssertionError:
             print("대출 후기 진입 : FAIL")
-            morereports.reports.append("대출 후기 진입 : *FAIL*")
+            moreresult.reports.append("대출 후기 진입 : *FAIL*")
         except Exception as e:
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("대출 후기 진입 : *Error*")
+            moreresult.reports.append("대출 후기 진입 : *Error*")
 
         more.loan_Reviews_Back()
 
@@ -1147,19 +1154,20 @@ class MoreTestcase_C(unittest.TestCase):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
-        morereports = Result_More()
+        base = basemethod()
+        moreresult = Result_More()
         more.alarm()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.alarm_Result)
             self.assertEqual(Result.text,"최근 알림")
             print("최근 알림 진입 : PASS")
-            morereports.reports.append("최근 알림 진입 : *PASS*")
+            moreresult.reports.append("최근 알림 진입 : *PASS*")
         except AssertionError:
             print("최근 알림 진입 : FAIL")
-            morereports.reports.append("최근 알림 진입 : *FAIL*")
+            moreresult.reports.append("최근 알림 진입 : *FAIL*")
         except Exception as e:
             print("최근 알림 진입 에러 발생 : {}".format(str(e)))
-            morereports.reports.append("최근 알림 진입 : *Error*")
+            moreresult.reports.append("최근 알림 진입 : *Error*")
 
         more.alarm_Back()
 
