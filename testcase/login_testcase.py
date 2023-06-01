@@ -51,7 +51,8 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("MO인증 결과 : FAIL")
             result_join.reports.append("MO인증 결과 : *FAIL*")
-        except :
+            base.save_screenshot('MO인증 결과_fail')
+        except Exception:
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, main.mo_Result)
                 self.assertEqual(Result.text, '이름 입력')
@@ -60,10 +61,11 @@ class JoInTestCase(unittest.TestCase):
             except AssertionError:
                 print("MO인증 결과 : FAIL")
                 result_join.reports.append("MO인증 결과 : *FAIL*")
+                base.save_screenshot('MO인증 결과_fail')
             except Exception as e:
                 print("MO인증 에러 발생 : {}".format(str(e)))
                 result_join.reports.append("MO인증 결과 : *Error*")
-
+                base.save_screenshot('MO인증 결과_error')
     #유심내용 자동입력 테스트
     def test_Enter_Personal_Information(self):
         main = Main()
@@ -84,9 +86,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("유심내용 자동입력 결과 : FAIL")
             result_join.reports.append("유심내용 자동입력 결과 : *FAIL*")
+            base.save_screenshot('유심내용 자동입력 결과_fail')
         except Exception as e:
             print("유심내용 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("유심내용 자동입력 결과 : *Error*")
+            base.save_screenshot('유심내용 자동입력 결과_error')
 
     #회원가입 약관 동의 진입 테스트
     def test_Membership_Terms_And_Conditions(self):
@@ -126,6 +130,8 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출 결과 : FAIL")
             results.append("FAIL")
+            base.save_screenshot('회원가입 약관 노출 결과_fail')
+
         join.membership_Terms_And_Conditions_A()
         verification_list_a = [("서비스 이용약관 동의", main.membership_terms_and_conditions_aa),
                              ("개인정보 제3자 제공 동의", main.membership_terms_and_conditions_ab),
@@ -147,7 +153,10 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_1 : FAIL")
             results.append("FAIL")
+            base.save_screenshot('회원가입 약관 노출_1_fail')
+
         join.membership_Terms_And_Conditions_Aa()
+
         try:
             Result_aa = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_aa_Result)
             self.assertIn("서비스 이용약관", Result_aa.text)
@@ -156,23 +165,17 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_aa : FAIL")
-        except:
-            try:
-                Result_aa = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_aa_Result)
-                self.assertIn("서비스 이용약관", Result_aa.text)
-                print("회원가입 약관 진입_aa : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_aa : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_aa 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_aa_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_aa 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_aa_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_Ab()
+
         try:
             Result_ab = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ab_Result)
             self.assertIn("개인정보_제3자_제공_동의", Result_ab.text)
@@ -181,44 +184,30 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ab : FAIL")
-        except:
-            try:
-                Result_ab = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_ab_Result)
-                self.assertIn("개인정보_제3자_제공_동의", Result_ab.text)
-                print("회원가입 약관 진입_ab : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_ab : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_ab 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ab_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_ab 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ab_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_Ac()
+
         try:
-            Result_ac = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ac_Result)
+            Result_ac = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_ac_Result)
             self.assertIn("개인정보 수집 및 이용 동의", Result_ac.text)
             print("회원가입 약관 진입_ac : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ac : FAIL")
-        except:
-            try:
-                Result_ac = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_ac_Result)
-                self.assertIn("개인정보 수집 및 이용 동의", Result_ac.text)
-                print("회원가입 약관 진입_ac : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_ac : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_ac 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ac_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_ac 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ac_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -245,78 +234,65 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_2 : FAIL")
             results.append("FAIL")
+            base.save_screenshot('회원가입 약관 노출_2_fail')
+
         join.membership_Terms_And_Conditions_Ba()
+
         try:
-            Result_ba = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ba_Result)
+            Result_ba = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_ba_Result)
             self.assertIn("KCB 올크레딧 이용약관", Result_ba.text)
             print("회원가입 약관 진입_ba : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ba : FAIL")
-        except:
-            try:
-                Result_ba = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_ba_Result)
-                self.assertIn("KCB 올크레딧 이용약관", Result_ba.text)
-                print("회원가입 약관 진입_ba : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_ba : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_ba 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ba_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_ba 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ba_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_Bb()
+
         try:
-            Result_bb = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_bb_Result)
+            Result_bb = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_bb_Result)
             self.assertIn("개인(신용)정보_수집∙이용_동의(KCB)", Result_bb.text)
             print("회원가입 약관 진입_bb : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_bb : FAIL")
-        except:
-            try:
-                Result_bb = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_bb_Result)
-                self.assertIn("개인(신용)정보_수집∙이용_동의(KCB)", Result_bb.text)
-                print("회원가입 약관 진입_bb : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_bb : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_bb 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_bb_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_bb 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_bb_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_Bc()
+
         try:
-            Result_bc = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_bc_Result)
+            Result_bc = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_bc_Result)
             self.assertIn("개인(신용)정보_제3자_제공_동의(KCB)", Result_bc.text)
             print("회원가입 약관 진입_bc : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_bc : FAIL")
-        except:
-            try:
-                Result_bc = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_bc_Result)
-                self.assertIn("개인(신용)정보_제3자_제공_동의(KCB)", Result_bc.text)
-                print("회원가입 약관 진입_bc : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_bc : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_bc 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_bc_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_bc 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_bc_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -348,128 +324,101 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_3 : FAIL")
             results.append("FAIL")
+            base.save_screenshot('회원가입 약관 노출_3_fail')
+
         join.membership_Terms_And_Conditions_ca()
+
         try:
-            Result_ca = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ca_Result)
+            Result_ca = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_ca_Result)
             self.assertIn("통신사 이용약관", Result_ca.text)
             print("회원가입 약관 진입_ca : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ca : FAIL")
-        except:
-            try:
-                Result_ca = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_ca_Result)
-                self.assertIn("통신사 이용약관", Result_ca.text)
-                print("회원가입 약관 진입_ca : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_ca : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_ca 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ca_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_ca 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ca_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_cb()
+
         try:
-            Result_cb = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_cb_Result)
+            Result_cb = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_cb_Result)
             self.assertIn("고유식별정보처리 동의", Result_cb.text)
             print("회원가입 약관 진입_cb : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cb : FAIL")
-        except:
-            try:
-                Result_cb = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_cb_Result)
-                self.assertIn("고유식별정보처리 동의", Result_cb.text)
-                print("회원가입 약관 진입_cb : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_cb : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_cb 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cb_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_cb 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cb_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_cc()
         try:
-            Result_cc = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_cc_Result)
+            Result_cc = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_cc_Result)
             self.assertIn("개인정보 제3자 제공 동의", Result_cc.text)
             print("회원가입 약관 진입_cc : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cc : FAIL")
-        except:
-            try:
-                Result_cc = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_cc_Result)
-                self.assertIn("개인정보 제3자 제공 동의", Result_cc.text)
-                print("회원가입 약관 진입_cc : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_cc : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_cc 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cc_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_cc 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cc_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_cd()
+
         try:
-            Result_cd = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_cd_Result)
+            Result_cd = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_cd_Result)
             self.assertIn("개인정보 수집/이용/취급 위탁동의", Result_cd.text)
             print("회원가입 약관 진입_cd : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cd : FAIL")
-        except:
-            try:
-                Result_cd = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_cd_Result)
-                self.assertIn("개인정보 수집/이용/취급 위탁동의", Result_cd.text)
-                print("회원가입 약관 진입_cd : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_cd : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_cd 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cd_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_cd 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_cd_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
         join.membership_Terms_And_Conditions_ce()
+
         try:
-            Result_ce = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ce_Result)
+            Result_ce = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_ce_Result)
             self.assertIn("본인확인서비스 이용약관", Result_ce.text)
             print("회원가입 약관 진입_ce : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ce : FAIL")
-        except:
-            try:
-                Result_ce = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_ce_Result)
-                self.assertIn("본인확인서비스 이용약관", Result_ce.text)
-                print("회원가입 약관 진입_ce : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_ce : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_ce 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ce_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_ce 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_ce_error')
+
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -484,32 +433,29 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 약관 노출_4 : FAIL")
             results.append("FAIL")
+            base.save_screenshot('회원가입 약관 노출_4_fail')
         except Exception as e:
             print("회원가입 약관 노출_4 에러 발생 : {}".format(str(e)))
             results.append("Error")
+            base.save_screenshot('회원가입 약관 노출_4_error')
+
 
         join.membership_Terms_And_Conditions_da()
+
         try:
-            Result_da = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_da_Result)
+            Result_da = WebDriver.driver.find_element(MobileBy.XPATH,
+                                                      main.membership_terms_and_conditions_da_Result)
             self.assertIn("마케팅 정보 수신동의", Result_da.text)
             print("회원가입 약관 진입_da : PASS")
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_da : FAIL")
-        except:
-            try:
-                Result_da = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                          main.membership_terms_and_conditions_da_Result)
-                self.assertIn("마케팅 정보 수신동의", Result_da.text)
-                print("회원가입 약관 진입_da : PASS")
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-                print("회원가입 약관 진입_da : FAIL")
-            except Exception as e:
-                print("회원가입 약관 진입_da 에러 발생 : {}".format(str(e)))
-                results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_da_fail')
+        except Exception as e:
+            print("회원가입 약관 진입_da 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('회원가입 약관 진입_da_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -552,9 +498,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 자동입력 결과 : FAIL")
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *FAIL*")
+            base.save_screenshot('회원가입 인증번호 자동입력 결과_fail')
         except Exception as e:
             print("회원가입 인증번호 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *Error*")
+            base.save_screenshot('회원가입 인증번호 자동입력 결과_error')
 
         base.android_Back()
         time.sleep(3)
@@ -568,9 +516,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 재요청 : FAIL")
             result_join.reports.append("회원가입 인증번호 재요청 : *FAIL*")
+            base.save_screenshot('회원가입 인증번호 재요청_fail')
         except Exception as e:
             print("회원가입 인증번호 재요청 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 재요청 : *Error*")
+            base.save_screenshot('회원가입 인증번호 재요청_error')
 
     #핀코드 등록 및 회원가입 테스트
     def test_Join(self):
@@ -603,10 +553,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 결과 : FAIL")
             result_join.reports.append("회원가입 결과 : *FAIL*")
+            base.save_screenshot('회원가입 결과_fail')
         except Exception as e:
             print("회원가입 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 결과 : *Error*")
-
+            base.save_screenshot('회원가입 결과_error')
 
 class LoginTestCase(unittest.TestCase):
 
@@ -630,9 +581,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그인 : FAIL")
             result_join.reports.append("로그인 결과 : *FAIL*")
+            base.save_screenshot('로그인 결과_fail')
         except Exception as e:
             print("로그인 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그인 : Error")
+            base.save_screenshot('로그인 결과_error')
 
     #로그아웃
     def test_LogOut(self):
@@ -654,9 +607,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그아웃 결과 : FAIL")
             result_join.reports.append("로그아웃 결과 : *FAIL*")
+            base.save_screenshot('로그아웃 결과_fail')
         except Exception as e:
             print("로그아웃 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그아웃 결과 : *Error*")
+            base.save_screenshot('로그아웃 결과_error')
 
     #회원탈퇴
     def test_Withdraw(self):
@@ -682,9 +637,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("탈퇴하기 결과 : FAIL")
             result_join.reports.append("탈퇴하기 결과 : *FAIL*")
+            base.save_screenshot('탈퇴하기 결과_fail')
         except Exception as e:
             print("탈퇴하기 에러 발생 : {}".format(str(e)))
             result_join.reports.append("탈퇴하기 결과 : *Error*")
+            base.save_screenshot('탈퇴하기 결과_error')
         time.sleep(5)
         join.appStart()
         join.start_Onboarding()
