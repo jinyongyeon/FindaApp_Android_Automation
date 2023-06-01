@@ -18,6 +18,10 @@ class Result_MyHome:
 
     reports= []
 
+class Result_loan:
+
+    reports= []
+
 
 
 

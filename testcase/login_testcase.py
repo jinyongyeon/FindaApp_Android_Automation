@@ -51,7 +51,7 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("MO인증 결과 : FAIL")
             result_join.reports.append("MO인증 결과 : *FAIL*")
-            base.save_screenshot('MO인증 결과_fail')
+            base.save_screenshot('MO인증결과_fail')
         except Exception:
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, main.mo_Result)
@@ -61,11 +61,11 @@ class JoInTestCase(unittest.TestCase):
             except AssertionError:
                 print("MO인증 결과 : FAIL")
                 result_join.reports.append("MO인증 결과 : *FAIL*")
-                base.save_screenshot('MO인증 결과_fail')
+                base.save_screenshot('MO인증결과_fail')
             except Exception as e:
                 print("MO인증 에러 발생 : {}".format(str(e)))
                 result_join.reports.append("MO인증 결과 : *Error*")
-                base.save_screenshot('MO인증 결과_error')
+                base.save_screenshot('MO인증결과_error')
     #유심내용 자동입력 테스트
     def test_Enter_Personal_Information(self):
         main = Main()
@@ -86,11 +86,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("유심내용 자동입력 결과 : FAIL")
             result_join.reports.append("유심내용 자동입력 결과 : *FAIL*")
-            base.save_screenshot('유심내용 자동입력 결과_fail')
+            base.save_screenshot('유심내용자동입력결과_fail')
         except Exception as e:
             print("유심내용 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("유심내용 자동입력 결과 : *Error*")
-            base.save_screenshot('유심내용 자동입력 결과_error')
+            base.save_screenshot('유심내용자동입력결과_error')
 
     #회원가입 약관 동의 진입 테스트
     def test_Membership_Terms_And_Conditions(self):
@@ -130,7 +130,7 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출 결과 : FAIL")
             results.append("FAIL")
-            base.save_screenshot('회원가입 약관 노출 결과_fail')
+            base.save_screenshot('회원가입약관노출결과_fail')
 
         join.membership_Terms_And_Conditions_A()
         verification_list_a = [("서비스 이용약관 동의", main.membership_terms_and_conditions_aa),
@@ -153,7 +153,7 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_1 : FAIL")
             results.append("FAIL")
-            base.save_screenshot('회원가입 약관 노출_1_fail')
+            base.save_screenshot('회원가입약관노출_1_fail')
 
         join.membership_Terms_And_Conditions_Aa()
 
@@ -165,11 +165,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_aa : FAIL")
-            base.save_screenshot('회원가입 약관 진입_aa_fail')
+            base.save_screenshot('회원가입약관진입_aa_fail')
         except Exception as e:
             print("회원가입 약관 진입_aa 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_aa_error')
+            base.save_screenshot('회원가입약관진입_aa_error')
 
         time.sleep(3)
         base.android_Back()
@@ -184,11 +184,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ab : FAIL")
-            base.save_screenshot('회원가입 약관 진입_ab_fail')
+            base.save_screenshot('회원가입약관진입_ab_fail')
         except Exception as e:
             print("회원가입 약관 진입_ab 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_ab_error')
+            base.save_screenshot('회원가입약관진입_ab_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -203,11 +203,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ac : FAIL")
-            base.save_screenshot('회원가입 약관 진입_ac_fail')
+            base.save_screenshot('회원가입약관진입_ac_fail')
         except Exception as e:
             print("회원가입 약관 진입_ac 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_ac_error')
+            base.save_screenshot('회원가입약관진입_ac_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -234,7 +234,7 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_2 : FAIL")
             results.append("FAIL")
-            base.save_screenshot('회원가입 약관 노출_2_fail')
+            base.save_screenshot('회원가입약관노출_2_fail')
 
         join.membership_Terms_And_Conditions_Ba()
 
@@ -247,11 +247,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ba : FAIL")
-            base.save_screenshot('회원가입 약관 진입_ba_fail')
+            base.save_screenshot('회원가입약관진입_ba_fail')
         except Exception as e:
             print("회원가입 약관 진입_ba 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_ba_error')
+            base.save_screenshot('회원가입약관진입_ba_error')
 
         time.sleep(3)
         base.android_Back()
@@ -267,11 +267,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_bb : FAIL")
-            base.save_screenshot('회원가입 약관 진입_bb_fail')
+            base.save_screenshot('회원가입약관진입_bb_fail')
         except Exception as e:
             print("회원가입 약관 진입_bb 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_bb_error')
+            base.save_screenshot('회원가입약관진입_bb_error')
 
         time.sleep(3)
         base.android_Back()
@@ -287,11 +287,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_bc : FAIL")
-            base.save_screenshot('회원가입 약관 진입_bc_fail')
+            base.save_screenshot('회원가입약관진입_bc_fail')
         except Exception as e:
             print("회원가입 약관 진입_bc 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_bc_error')
+            base.save_screenshot('회원가입약관진입_bc_error')
 
         time.sleep(3)
         base.android_Back()
@@ -324,7 +324,7 @@ class JoInTestCase(unittest.TestCase):
         else:
             print("회원가입 약관 노출_3 : FAIL")
             results.append("FAIL")
-            base.save_screenshot('회원가입 약관 노출_3_fail')
+            base.save_screenshot('회원가입약관노출_3_fail')
 
         join.membership_Terms_And_Conditions_ca()
 
@@ -337,11 +337,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ca : FAIL")
-            base.save_screenshot('회원가입 약관 진입_ca_fail')
+            base.save_screenshot('회원가입약관진입_ca_fail')
         except Exception as e:
             print("회원가입 약관 진입_ca 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_ca_error')
+            base.save_screenshot('회원가입약관진입_ca_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -356,11 +356,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cb : FAIL")
-            base.save_screenshot('회원가입 약관 진입_cb_fail')
+            base.save_screenshot('회원가입약관진입_cb_fail')
         except Exception as e:
             print("회원가입 약관 진입_cb 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_cb_error')
+            base.save_screenshot('회원가입약관진입_cb_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -374,11 +374,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cc : FAIL")
-            base.save_screenshot('회원가입 약관 진입_cc_fail')
+            base.save_screenshot('회원가입약관진입_cc_fail')
         except Exception as e:
             print("회원가입 약관 진입_cc 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_cc_error')
+            base.save_screenshot('회원가입약관진입_cc_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -393,11 +393,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_cd : FAIL")
-            base.save_screenshot('회원가입 약관 진입_cd_fail')
+            base.save_screenshot('회원가입약관진입_cd_fail')
         except Exception as e:
             print("회원가입 약관 진입_cd 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_cd_error')
+            base.save_screenshot('회원가입약관진입_cd_error')
 
         time.sleep(3)
         base.android_Back()
@@ -413,11 +413,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_ce : FAIL")
-            base.save_screenshot('회원가입 약관 진입_ce_fail')
+            base.save_screenshot('회원가입약관진입_ce_fail')
         except Exception as e:
             print("회원가입 약관 진입_ce 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_ce_error')
+            base.save_screenshot('회원가입약관진입_ce_error')
 
         time.sleep(3)
         base.android_Back()
@@ -433,11 +433,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 약관 노출_4 : FAIL")
             results.append("FAIL")
-            base.save_screenshot('회원가입 약관 노출_4_fail')
+            base.save_screenshot('회원가입약관노출_4_fail')
         except Exception as e:
             print("회원가입 약관 노출_4 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 노출_4_error')
+            base.save_screenshot('회원가입약관노출_4_error')
 
 
         join.membership_Terms_And_Conditions_da()
@@ -451,11 +451,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             results.append("FAIL")
             print("회원가입 약관 진입_da : FAIL")
-            base.save_screenshot('회원가입 약관 진입_da_fail')
+            base.save_screenshot('회원가입약관진입_da_fail')
         except Exception as e:
             print("회원가입 약관 진입_da 에러 발생 : {}".format(str(e)))
             results.append("Error")
-            base.save_screenshot('회원가입 약관 진입_da_error')
+            base.save_screenshot('회원가입약관진입_da_error')
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
@@ -498,11 +498,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 자동입력 결과 : FAIL")
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *FAIL*")
-            base.save_screenshot('회원가입 인증번호 자동입력 결과_fail')
+            base.save_screenshot('회원가입인증번호자동입력결과_fail')
         except Exception as e:
             print("회원가입 인증번호 자동입력 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *Error*")
-            base.save_screenshot('회원가입 인증번호 자동입력 결과_error')
+            base.save_screenshot('회원가입인증번호자동입력결과_error')
 
         base.android_Back()
         time.sleep(3)
@@ -516,11 +516,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 인증번호 재요청 : FAIL")
             result_join.reports.append("회원가입 인증번호 재요청 : *FAIL*")
-            base.save_screenshot('회원가입 인증번호 재요청_fail')
+            base.save_screenshot('회원가입인증번호재요청_fail')
         except Exception as e:
             print("회원가입 인증번호 재요청 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 인증번호 재요청 : *Error*")
-            base.save_screenshot('회원가입 인증번호 재요청_error')
+            base.save_screenshot('회원가입인증번호재요청_error')
 
     #핀코드 등록 및 회원가입 테스트
     def test_Join(self):
@@ -553,11 +553,11 @@ class JoInTestCase(unittest.TestCase):
         except AssertionError:
             print("회원가입 결과 : FAIL")
             result_join.reports.append("회원가입 결과 : *FAIL*")
-            base.save_screenshot('회원가입 결과_fail')
+            base.save_screenshot('회원가입결과_fail')
         except Exception as e:
             print("회원가입 에러 발생 : {}".format(str(e)))
             result_join.reports.append("회원가입 결과 : *Error*")
-            base.save_screenshot('회원가입 결과_error')
+            base.save_screenshot('회원가입결과_error')
 
 class LoginTestCase(unittest.TestCase):
 
@@ -581,11 +581,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그인 : FAIL")
             result_join.reports.append("로그인 결과 : *FAIL*")
-            base.save_screenshot('로그인 결과_fail')
+            base.save_screenshot('로그인결과_fail')
         except Exception as e:
             print("로그인 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그인 : Error")
-            base.save_screenshot('로그인 결과_error')
+            base.save_screenshot('로그인결과_error')
 
     #로그아웃
     def test_LogOut(self):
@@ -607,11 +607,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("로그아웃 결과 : FAIL")
             result_join.reports.append("로그아웃 결과 : *FAIL*")
-            base.save_screenshot('로그아웃 결과_fail')
+            base.save_screenshot('로그아웃결과_fail')
         except Exception as e:
             print("로그아웃 에러 발생 : {}".format(str(e)))
             result_join.reports.append("로그아웃 결과 : *Error*")
-            base.save_screenshot('로그아웃 결과_error')
+            base.save_screenshot('로그아웃결과_error')
 
     #회원탈퇴
     def test_Withdraw(self):
@@ -637,11 +637,11 @@ class LoginTestCase(unittest.TestCase):
         except AssertionError:
             print("탈퇴하기 결과 : FAIL")
             result_join.reports.append("탈퇴하기 결과 : *FAIL*")
-            base.save_screenshot('탈퇴하기 결과_fail')
+            base.save_screenshot('탈퇴하기결과_fail')
         except Exception as e:
             print("탈퇴하기 에러 발생 : {}".format(str(e)))
             result_join.reports.append("탈퇴하기 결과 : *Error*")
-            base.save_screenshot('탈퇴하기 결과_error')
+            base.save_screenshot('탈퇴하기결과_error')
         time.sleep(5)
         join.appStart()
         join.start_Onboarding()

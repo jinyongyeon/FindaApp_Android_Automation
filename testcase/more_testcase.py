@@ -58,11 +58,11 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("더보기 탭 진입 : FAIL")
             moreresult.reports.append("더보기 탭 진입 : *FAIL*")
-            base.save_screenshot('더보기 탭 진입_fail')
+            base.save_screenshot('더보기탭진입_fail')
         except Exception as e:
             print("더보기 탭 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("더보기 탭 진입 : *Error*")
-            base.save_screenshot('더보기 탭 진입_error')
+            base.save_screenshot('더보기탭진입_error')
 
 
 
@@ -96,7 +96,7 @@ class MoreTestcase_A(unittest.TestCase):
         else:
             print("내 대출 진입 : FAIL")
             moreresult.reports.append("내 대출 진입 : *FAIL*")
-            base.save_screenshot('내 대출 진입_fail')
+            base.save_screenshot('내대출진입_fail')
 
         more.myLoanBack()
 
@@ -116,11 +116,11 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("채널톡 진입 : FAIL")
             moreresult.reports.append("채널톡 진입 : *FAIL*")
-            base.save_screenshot('채널톡 진입_fail')
+            base.save_screenshot('채널톡진입_fail')
         except Exception as e:
             print("채널톡 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("채널톡 진입 : *Error*")
-            base.save_screenshot('채널톡 진입_error')
+            base.save_screenshot('채널톡진입_error')
         more.chatTingExit()
 
     # 자주묻는 질문 진입 및 상세 페이지 노출 테스트
@@ -153,7 +153,7 @@ class MoreTestcase_A(unittest.TestCase):
         else:
             print("자주 묻는 질문 진입 : FAIL")
             moreresult.reports.append("자주 묻는 질문 진입 : *FAIL*")
-            base.save_screenshot('자주 묻는 질문 진입_fail')
+            base.save_screenshot('자주묻는질문진입_fail')
 
         more.qna_Click_A()
         try:
@@ -162,10 +162,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('자주 묻는 질문 진입_A_fail')
+            base.save_screenshot('자주묻는질문진입_A_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('자주 묻는 질문 진입_A_error')
+            base.save_screenshot('자주묻는질문진입_A_error')
         more.qna_Click_B()
         try:
             Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_b)
@@ -173,10 +173,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('자주 묻는 질문 진입_B_fail')
+            base.save_screenshot('자주묻는질문진입_B_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('자주 묻는 질문 진입_B_error')
+            base.save_screenshot('자주묻는질문진입_B_error')
         more.qna_Click_C()
         try:
             Result_C = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_c)
@@ -184,10 +184,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('자주 묻는 질문 진입_C_fail')
+            base.save_screenshot('자주묻는질문진입_C_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('자주 묻는 질문 진입_C_error')
+            base.save_screenshot('자주묻는질문진입_C_error')
         more.qna_Click_D()
         try:
             Result_D = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_d)
@@ -195,10 +195,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('자주 묻는 질문 진입_D_fail')
+            base.save_screenshot('자주묻는질문진입_D_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('자주 묻는 질문 진입_D_error')
+            base.save_screenshot('자주묻는질문진입_D_error')
         more.qna_Click_E()
         try:
             Result_E = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_Result_e)
@@ -206,10 +206,10 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('자주 묻는 질문 진입_E_fail')
+            base.save_screenshot('자주묻는질문진입_E_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('자주 묻는 질문 진입_E_error')
+            base.save_screenshot('자주묻는질문진입_E_error')
         print(results)
         if all(result == "PASS" for result in results):
             print("자주 묻는 질문 상세 항목 노출 : PASS")
@@ -237,7 +237,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("대출 갈아타기 사전신청 진입 : FAIL")
             moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
-            base.save_screenshot('대출 갈아타기 사전신청 진입_fail')
+            base.save_screenshot('대출갈아타기사전신청진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_advance_application_Result_b)
@@ -247,11 +247,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("대출 갈아타기 사전신청 진입 : FAIL")
                 moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
-                base.save_screenshot('대출 갈아타기 사전신청 진입_fail')
+                base.save_screenshot('대출갈아타기사전신청진입_fail')
             except Exception as e:
                 print("대출 갈아타기 사전신청 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("대출 갈아타기 사전신청 진입 : *Error*")
-                base.save_screenshot('대출 갈아타기 사전신청 진입_error')
+                base.save_screenshot('대출갈아타기사전신청진입_error')
         base.android_Back()
 
 
@@ -272,7 +272,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("대출 한 번에 비교 진입 : FAIL")
             moreresult.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-            base.save_screenshot('대출 한 번에 비교 진입_fail')
+            base.save_screenshot('대출한번에비교진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
@@ -282,11 +282,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("대출 한 번에 비교 진입 : FAIL")
                 moreresult.reports.append("대출 한 번에 비교 진입 : *FAIL*")
-                base.save_screenshot('대출 한 번에 비교 진입_fail')
+                base.save_screenshot('대출한번에비교진입_fail')
             except Exception as e:
                 print("대출 한 번에 비교 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("대출 한 번에 비교 진입 : *Error*")
-                base.save_screenshot('대출 한 번에 비교 진입_error')
+                base.save_screenshot('대출한번에비교진입_error')
 
         base.android_Back()
 
@@ -307,7 +307,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("자동차 구매 대출 진입 : FAIL")
             moreresult.reports.append("자동차 구매 대출 진입 : *FAIL*")
-            base.save_screenshot('자동차 구매 대출 진입_fail')
+            base.save_screenshot('자동차구매대출진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
@@ -317,11 +317,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("자동차 구매 대출 진입 : FAIL")
                 moreresult.reports.append("자동차 구매 대출 진입 : *FAIL*")
-                base.save_screenshot('자동차 구매 대출 진입_fail')
+                base.save_screenshot('자동차구매대출진입_fail')
             except Exception as e:
                 print("자동차 구매 대출 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("자동차 구매 대출 진입 : *Error*")
-                base.save_screenshot('자동차 구매 대출 진입_error')
+                base.save_screenshot('자동차구매대출진입_error')
 
         base.android_Back()
 
@@ -341,7 +341,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("전월세 추천 진입 : FAIL")
             moreresult.reports.append("전월세 추천 진입 : *FAIL*")
-            base.save_screenshot('전월세 추천 진입_fail')
+            base.save_screenshot('전월세추천진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_Result_b)
@@ -351,11 +351,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("전월세 추천 진입 : FAIL")
                 moreresult.reports.append("전월세 추천 진입 : *FAIL*")
-                base.save_screenshot('전월세 추천 진입_fail')
+                base.save_screenshot('전월세추천진입_fail')
             except Exception as e:
                 print("전월세 추천 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("전월세 추천 진입 : *Error*")
-                base.save_screenshot('전월세 추천 진입_error')
+                base.save_screenshot('전월세추천진입_error')
         try:
             more.charTerBack()
         except:
@@ -377,7 +377,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("30일 대출 챌린지 진입 : FAIL")
             moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-            base.save_screenshot('30일 대출 챌린지 진입_fail')
+            base.save_screenshot('30일대출챌린지진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_b)
@@ -387,11 +387,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("30일 대출 챌린지 진입 : FAIL")
                 moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                base.save_screenshot('30일 대출 챌린지 진입_fail')
+                base.save_screenshot('30일대출챌린지진입_fail')
             except Exception as e:
                 print("30일 대출 챌린지 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("30일 대출 챌린지 진입 진입 : *Error*")
-                base.save_screenshot('30일 대출 챌린지 진입_error')
+                base.save_screenshot('30일대출챌린지진입_error')
         try:
             more.change_Loan_Back()
         except:
@@ -427,7 +427,7 @@ class MoreTestcase_A(unittest.TestCase):
         else:
             print("내 대출_B 진입 : FAIL")
             moreresult.reports.append("내 대출_B 진입 : *FAIL*")
-            base.save_screenshot('내 대출_B 진입_fail')
+            base.save_screenshot('내대출_B진입_fail')
 
         more.myLoanBack()
 
@@ -449,7 +449,7 @@ class MoreTestcase_A(unittest.TestCase):
         except AssertionError:
             print("상환일정 진입 : FAIL")
             moreresult.reports.append("상환일정 진입 : *FAIL*")
-            base.save_screenshot('상환일정 진입_fail')
+            base.save_screenshot('상환일정진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_b)
@@ -459,11 +459,11 @@ class MoreTestcase_A(unittest.TestCase):
             except AssertionError:
                 print("상환일정 진입 : FAIL")
                 moreresult.reports.append("상환일정 진입 : *FAIL*")
-                base.save_screenshot('상환일정 진입_fail')
+                base.save_screenshot('상환일정진입_fail')
             except Exception as e:
                 print("상환일정 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("상환일정 진입 진입 : *Error*")
-                base.save_screenshot('상환일정 진입_error')
+                base.save_screenshot('상환일정진입_error')
 
         more.amortization_Schedule_back()
 
@@ -517,11 +517,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("신용점수 진입 : FAIL")
             moreresult.reports.append("신용점수 진입 : *FAIL*")
-            base.save_screenshot('신용점수 진입_fail')
+            base.save_screenshot('신용점수진입_fail')
         except Exception as e:
             print("신용점수 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("신용점수 진입 : *Error*")
-            base.save_screenshot('신용점수 진입_error')
+            base.save_screenshot('신용점수진입_error')
 
         try:
             more.credit_Score_Back()
@@ -545,7 +545,7 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("신용점수 올리기 진입 : FAIL")
             moreresult.reports.append("신용점수 올리기 진입 : *FAIL*")
-            base.save_screenshot('신용점수 올리기 진입_fail')
+            base.save_screenshot('신용점수올리기진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.improve_credit_score_Result_b)
@@ -555,11 +555,11 @@ class MoreTestcase_B(unittest.TestCase):
             except AssertionError:
                 print("신용점수 올리기 진입 : FAIL")
                 moreresult.reports.append("신용점수 올리기 진입 : *FAIL*")
-                base.save_screenshot('신용점수 올리기 진입_fail')
+                base.save_screenshot('신용점수올리기진입_fail')
             except Exception as e:
                 print("신용점수 올리기 진입 에러 발생_1 : {}".format(str(e)))
                 moreresult.reports.append("신용점수 올리기 진입 : *Error*")
-                base.save_screenshot('신용점수 올리기 진입_error')
+                base.save_screenshot('신용점수올리기진입_error')
         # more.improve_Credit_Score_Back()
         base.android_Back()
 
@@ -580,11 +580,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("신용점수 상승 전략 진입 : FAIL")
             moreresult.reports.append("신용점수 상승 전략 진입 : *FAIL*")
-            base.save_screenshot('신용점수 상승 전략 진입_fail')
+            base.save_screenshot('신용점수상승전략진입_fail')
         except Exception as e:
             print("신용점수 상승 전략 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("신용점수 상승 전략 진입 : *Error*")
-            base.save_screenshot('신용점수 상승 전략 진입_error')
+            base.save_screenshot('신용점수상승전략진입_error')
 
         # more.credit_Analysis_Back()
         base.android_Back()
@@ -605,11 +605,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("신용점수 히스트리 진입 : FAIL")
             moreresult.reports.append("신용점수 히스트리 진입 : *FAIL")
-            base.save_screenshot('신용점수 히스트리 진입_fail')
+            base.save_screenshot('신용점수히스트리진입_fail')
         except Exception as e:
             print("신용점수 히스트리 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("신용점수 히스트리 진입 : *Error*")
-            base.save_screenshot('신용점수 히스트리 진입_error')
+            base.save_screenshot('신용점수히스트리진입_error')
         # more.credit_History_Back()
         base.android_Back()
 
@@ -629,10 +629,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("여윳돈 계산기 진입 : FAIL")
             moreresult.reports.append("여윳돈 계산기 진입 : *FAIL*")
-            base.save_screenshot('여윳돈 계산기 진입_fail')
+            base.save_screenshot('여윳돈계산기진입_fail')
         except Exception as e:
             print("여윳돈 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("여윳돈 계산기 진입 : *Error*")
+            base.save_screenshot('여윳돈계산기진입_error')
 
         try:
             more.extra_Money_Back()
@@ -655,11 +656,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("DSR 계산기 진입 : FAIL")
             moreresult.reports.append("DSR 계산기 진입 : *FAIL*")
-            base.save_screenshot('DSR 계산기 진입_fail')
+            base.save_screenshot('DSR계산기진입_fail')
         except Exception as e:
             print("DSR 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("DSR 계산기 진입 : *Error*")
-            base.save_screenshot('DSR 계산기 진입_error')
+            base.save_screenshot('DSR계산기진입_error')
 
         try:
             more.dsr_Back()
@@ -682,12 +683,12 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("대출이자 계산기 진입 : FAIL")
             moreresult.reports.append("대출이자 계산기 진입 : *FAIL*")
-            base.save_screenshot('대출이자 계산기 진입_fail')
+            base.save_screenshot('대출이자계산기진입_fail')
 
         except Exception as e:
             print("대출이자 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출이자 계산기 진입 : *Error*")
-            base.save_screenshot('대출이자 계산기 진입_error')
+            base.save_screenshot('대출이자계산기진입_error')
 
         try:
             more.interest_Back()
@@ -710,11 +711,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("연말정산 계산기 진입 : FAIL")
             moreresult.reports.append("연말정산 계산기 진입 : *FAIL*")
-            base.save_screenshot('연말정산 계산기 진입_fail')
+            base.save_screenshot('연말정산계산기진입_fail')
         except Exception as e:
             print("연말정산 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("연말정산 계산기 진입 : *Error*")
-            base.save_screenshot('연말정산 계산기 진입_error')
+            base.save_screenshot('연말정산계산기진입_error')
 
         try:
             more.year_End_Settlement_Back()
@@ -737,11 +738,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("전세 vs 월세 계산기 진입 : FAIL")
             moreresult.reports.append("전세 vs 월세 계산기 진입 : *FAIL*")
-            base.save_screenshot('전세 vs 월세 계산기 진입_fail')
+            base.save_screenshot('전세vs월세계산기진입_fail')
         except Exception as e:
             print("전세 vs 월세 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("전세 vs 월세 계산기 진입 : *Error*")
-            base.save_screenshot('전세 vs 월세 계산기 진입_error')
+            base.save_screenshot('전세vs월세계산기진입_error')
         try:
             more.charter_Vs_Monthly_Rent_Back()
         except:
@@ -763,11 +764,11 @@ class MoreTestcase_B(unittest.TestCase):
         except AssertionError:
             print("대출 갈아타기 계산기 진입 : FAIL")
             moreresult.reports.append("대출 갈아타기 계산기 진입 : *FAIL*")
-            base.save_screenshot('대출 갈아타기 계산기 진입_fail')
+            base.save_screenshot('대출갈아타기계산기진입_fail')
         except Exception as e:
             print("대출 갈아타기 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 갈아타기 계산기 진입 : *Error*")
-            base.save_screenshot('대출 갈아타기 계산기 진입_error')
+            base.save_screenshot('대출갈아타기계산기진입_error')
 
         try:
             more.refinancing_Loan_Back()
@@ -817,11 +818,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("장기렌트 리스 진입 : FAIL")
             moreresult.reports.append("장기렌트 리스 진입 : *FAIL*")
-            base.save_screenshot('장기렌트 리스 진입_fail')
+            base.save_screenshot('장기렌트리스진입_fail')
         except Exception as e:
             print("장기렌트 리스 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("장기렌트 리스 진입 : *Error*")
-            base.save_screenshot('장기렌트 리스 진입_error')
+            base.save_screenshot('장기렌트리스진입_error')
 
 
         base.android_Back()
@@ -867,7 +868,7 @@ class MoreTestcase_C(unittest.TestCase):
         else:
             print("두낫콜 약관 노출 : FAIL")
             moreresult.reports.append("두낫콜 약관 노출 : *FAIL*")
-            base.save_screenshot('두낫콜 약관 노출_fail')
+            base.save_screenshot('두낫콜약관노출_fail')
 
 
         more.terms_Of_Use_Aa()
@@ -877,10 +878,10 @@ class MoreTestcase_C(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Aa_fail')
+            base.save_screenshot('두낫콜약관진입_Aa_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Aa_error')
+            base.save_screenshot('두낫콜약관진입_Aa_error')
         more.terms_Of_Use_Webview_Exit()
 
         more.terms_Of_Use_Ab()
@@ -890,10 +891,10 @@ class MoreTestcase_C(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Ab_fail')
+            base.save_screenshot('두낫콜약관진입_Ab_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Ab_error')
+            base.save_screenshot('두낫콜약관진입_Ab_error')
 
         more.terms_Of_Use_Webview_Exit()
 
@@ -904,10 +905,10 @@ class MoreTestcase_C(unittest.TestCase):
             results.append("PASS")
         except AssertionError:
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Ac_fail')
+            base.save_screenshot('두낫콜약관진입_Ac_fail')
         except Exception:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Ac_error')
+            base.save_screenshot('두낫콜약관진입_Ac_error')
 
         more.terms_Of_Use_Webview_Exit()
 
@@ -916,10 +917,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_b_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_a.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Ba_fail')
+            base.save_screenshot('두낫콜약관진입_Ba_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Ba_error')
+            base.save_screenshot('두낫콜약관진입_Ba_error')
         except Exception:
             results.append("PASS")
 
@@ -930,10 +931,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_b_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_b.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Bb_fail')
+            base.save_screenshot('두낫콜약관진입_Bb_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Bb_error')
+            base.save_screenshot('두낫콜약관진입_Bb_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -943,10 +944,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_b_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_c.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Bc_fail')
+            base.save_screenshot('두낫콜약관진입_Bc_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Bc_error')
+            base.save_screenshot('두낫콜약관진입_Bc_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -956,10 +957,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_b_d = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_d.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Bd_fail')
+            base.save_screenshot('두낫콜약관진입_Bd_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Bd_error')
+            base.save_screenshot('두낫콜약관진입_Bd_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -969,10 +970,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_c_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_a.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Ca_fail')
+            base.save_screenshot('두낫콜약관진입_Ca_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Ca_error')
+            base.save_screenshot('두낫콜약관진입_Ca_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -982,10 +983,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_c_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_b.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Cb_fail')
+            base.save_screenshot('두낫콜약관진입_Cb_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Cb_error')
+            base.save_screenshot('두낫콜약관진입_Cb_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -995,10 +996,10 @@ class MoreTestcase_C(unittest.TestCase):
             Result_c_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_c.text)
             results.append("FAIL")
-            base.save_screenshot('두낫콜 약관 진입_Cc_fail')
+            base.save_screenshot('두낫콜약관진입_Cc_fail')
         except AssertionError:
             results.append("Error")
-            base.save_screenshot('두낫콜 약관 진입_Cc_error')
+            base.save_screenshot('두낫콜약관진입_Cc_error')
         except Exception:
             results.append("PASS")
         more.terms_Of_Use_Webview_Exit()
@@ -1029,11 +1030,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("대출금 갚아주는 보험 진입 : FAIL")
             moreresult.reports.append("대출금 갚아주는 보험 진입 : *FAIL*")
-            base.save_screenshot('대출금 갚아주는 보험 진입_fail')
+            base.save_screenshot('대출금갚아주는보험진입_fail')
         except Exception as e:
             print("대출금 갚아주는 보험 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출금 갚아주는 보험 진입 : *Error*")
-            base.save_screenshot('대출금 갚아주는 보험 진입_error')
+            base.save_screenshot('대출금갚아주는보험진입_error')
 
         base.android_Back()
 
@@ -1054,11 +1055,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("예적금 비교 진입 : FAIL")
             moreresult.reports.append("예적금 비교 진입 : *FAIL*")
-            base.save_screenshot('예적금 비교 진입_fail')
+            base.save_screenshot('예적금비교진입_fail')
         except Exception as e:
             print("예적금 비교 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("예적금 비교 진입 : *Error*")
-            base.save_screenshot('예적금 비교 진입_error')
+            base.save_screenshot('예적금비교진입_error')
 
         base.android_Back()
 
@@ -1079,11 +1080,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("핀다 포스트 진입 : FAIL")
             moreresult.reports.append("핀다 포스트 진입 : *FAIL*")
-            base.save_screenshot('핀다 포스트 진입_fail')
+            base.save_screenshot('핀다포스트진입_fail')
         except Exception as e:
             print("핀다 포스트 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("핀다 포스트 진입 : *Error*")
-            base.save_screenshot('핀다 포스트 진입_error')
+            base.save_screenshot('핀다포스트진입_error')
 
         try:
             more.finda_Post_Back()
@@ -1107,11 +1108,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("내 폰 지키미 진입 : FAIL")
             moreresult.reports.append("내 폰 지키미 진입 : *FAIL*")
-            base.save_screenshot('내 폰 지키미 진입_fail')
+            base.save_screenshot('내폰지키미진입_fail')
         except Exception as e:
             print("내 폰 지키미 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("내 폰 지키미 진입 : *Error*")
-            base.save_screenshot('내 폰 지키미 진입_error')
+            base.save_screenshot('내폰지키미진입_error')
 
         try:
             more.my_Phorn_Back()
@@ -1134,11 +1135,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("이벤트 진입 : FAIL")
             moreresult.reports.append("이벤트 진입 : *FAIL*")
-            base.save_screenshot('이벤트 진입_fail')
+            base.save_screenshot('이벤트진입_fail')
         except Exception as e:
             print("이벤트 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("이벤트 진입 : *Error*")
-            base.save_screenshot('이벤트 진입_error')
+            base.save_screenshot('이벤트진입_error')
 
         try:
             more.event_Back()
@@ -1161,11 +1162,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("공지사항 진입 : FAIL")
             moreresult.reports.append("공지사항 진입 : *FAIL*")
-            base.save_screenshot('공지사항 진입_fail')
+            base.save_screenshot('공지사항진입_fail')
         except Exception as e:
             print("공지사항 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 진입 : *Error*")
-            base.save_screenshot('공지사항 진입_error')
+            base.save_screenshot('공지사항진입_error')
         time.sleep(2)
         more.notice_In()
         try:
@@ -1176,11 +1177,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("공지사항 상세 진입 : FAIL")
             moreresult.reports.append("공지사항 상세 진입 : *FAIL*")
-            base.save_screenshot('공지사항 상세 진입_fail')
+            base.save_screenshot('공지사항상세진입_fail')
         except Exception as e:
             print("공지사항 상세 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 상세 진입 : *Error*")
-            base.save_screenshot('공지사항 상세 진입_error')
+            base.save_screenshot('공지사항상세진입_error')
         more.notice_In_Back()
         more.notice_Back()
 
@@ -1201,11 +1202,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("대출 후기 진입 : FAIL")
             moreresult.reports.append("대출 후기 진입 : *FAIL*")
-            base.save_screenshot('대출 후기 진입_fail')
+            base.save_screenshot('대출후기진입_fail')
         except Exception as e:
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 후기 진입 : *Error*")
-            base.save_screenshot('대출 후기 진입_error')
+            base.save_screenshot('대출후기진입_error')
         more.loan_Reviews_Back()
 
     # 최근 알림 진입 테스트
@@ -1224,11 +1225,11 @@ class MoreTestcase_C(unittest.TestCase):
         except AssertionError:
             print("최근 알림 진입 : FAIL")
             moreresult.reports.append("최근 알림 진입 : *FAIL*")
-            base.save_screenshot('최근 알림 진입_fail')
+            base.save_screenshot('최근알림진입_fail')
         except Exception as e:
             print("최근 알림 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("최근 알림 진입 : *Error*")
-            base.save_screenshot('최근 알림 진입_error')
+            base.save_screenshot('최근알림진입_error')
         more.alarm_Back()
 
 if __name__ == '__main__':
