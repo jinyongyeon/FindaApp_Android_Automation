@@ -1166,9 +1166,7 @@ class MoreTestcase_C(unittest.TestCase):
             print("공지사항 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 진입 : *Error*")
             base.save_screenshot('공지사항 진입_error')
-
         time.sleep(2)
-
         more.notice_In()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_in_Result)
@@ -1183,7 +1181,6 @@ class MoreTestcase_C(unittest.TestCase):
             print("공지사항 상세 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 상세 진입 : *Error*")
             base.save_screenshot('공지사항 상세 진입_error')
-
         more.notice_In_Back()
         more.notice_Back()
 
@@ -1209,7 +1206,6 @@ class MoreTestcase_C(unittest.TestCase):
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 후기 진입 : *Error*")
             base.save_screenshot('대출 후기 진입_error')
-
         more.loan_Reviews_Back()
 
     # 최근 알림 진입 테스트
@@ -1233,9 +1229,7 @@ class MoreTestcase_C(unittest.TestCase):
             print("최근 알림 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("최근 알림 진입 : *Error*")
             base.save_screenshot('최근 알림 진입_error')
-
         more.alarm_Back()
-
 
 if __name__ == '__main__':
     unittest.main()

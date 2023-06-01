@@ -109,6 +109,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("비교대출 배너 노출 : FAIL")
             result_myhome.reports.append("비교대출 배너 노출 : *FAIL*")
+            base.save_screenshot('비교대출 배너 노출_fail')
 
         try:
             myhome.comPariSonLoan_In_a()
@@ -136,6 +137,7 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("비교 대출 배너 진입 : FAIL")
             result_myhome.reports.append("비교 대출 배너 진입 : *FAIL*")
+            base.save_screenshot('비교 대출 배너 진입_fail')
         except :
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
@@ -145,9 +147,11 @@ class MyHome_Testcase(unittest.TestCase):
             except AssertionError:
                 print("비교 대출 배너 진입 : FAIL")
                 result_myhome.reports.append("비교 대출 배너 진입 : *FAIL*")
+                base.save_screenshot('비교 대출 배너 진입_fail')
             except Exception as e:
                 print("비교 대출 배너 진입 에러 발생 : {}".format(str(e)))
                 result_myhome.reports.append("비교 대출 배너 진입 : *Error*")
+                base.save_screenshot('비교 대출 배너 진입_error')
         time.sleep(2)
         base.android_Back()
 
@@ -224,6 +228,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("대출진단 배너 노출 : FAIL")
             result_myhome.reports.append("대출진단 배너 노출 : *FAIL*")
+            base.save_screenshot('대출진단 배너 노출_fail')
 
         try:
             result_A = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_a)
@@ -233,6 +238,7 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("대출진단 배너 진입 : FAIL")
             result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+            base.save_screenshot('대출진단 배너 진입_fail')
         except Exception:
             try:
                 result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
@@ -242,6 +248,7 @@ class MyHome_Testcase(unittest.TestCase):
             except AssertionError:
                 print("대출진단 배너 진입 : FAIL")
                 result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                base.save_screenshot('대출진단 배너 진입_fail')
             except Exception:
                 try:
                     result_C = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge)
@@ -251,6 +258,7 @@ class MyHome_Testcase(unittest.TestCase):
                 except AssertionError:
                     print("대출진단 배너 진입 : FAIL")
                     result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                    base.save_screenshot('대출진단 배너 진입_fail')
                 except Exception:
                     try:
                         result_D = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_a)
@@ -260,6 +268,7 @@ class MyHome_Testcase(unittest.TestCase):
                     except AssertionError:
                         print("대출진단 배너 진입 : FAIL")
                         result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                        base.save_screenshot('대출진단 배너 진입_fail')
                     except Exception:
                         try:
                             result_E = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_b)
@@ -269,6 +278,7 @@ class MyHome_Testcase(unittest.TestCase):
                         except AssertionError:
                             print("대출진단 배너 진입 : FAIL")
                             result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                            base.save_screenshot('대출진단 배너 진입_fail')
                         except Exception:
                             try:
                                 result_F = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -279,6 +289,7 @@ class MyHome_Testcase(unittest.TestCase):
                             except AssertionError:
                                 print("대출진단 배너 진입 : FAIL")
                                 result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                                base.save_screenshot('대출진단 배너 진입_fail')
                             except Exception:
                                 try:
                                     result_G = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -289,9 +300,11 @@ class MyHome_Testcase(unittest.TestCase):
                                 except AssertionError:
                                     print("대출진단 배너 진입 : FAIL")
                                     result_myhome.reports.append("대출진단 배너 진입 : *FAIL*")
+                                    base.save_screenshot('대출진단 배너 진입_fail')
                                 except Exception as e:
                                     print("대출진단 배너 진입 에러 발생 : {}".format(str(e)))
                                     results.append("Error")
+                                    base.save_screenshot('대출진단 배너 진입_error')
         base.android_Back()
 
     # 마이홈 내 대출 배너 테스트
@@ -327,6 +340,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("내 대출 배너 노출 : FAIL")
             result_myhome.reports.append("내 대출 배너 노출 : *FAIL*")
+            base.save_screenshot('내 대출 배너 노출_fail')
 
         myhome.loan_Banner()
         verification_list_a = [("내 현금흐름", etc.myloan_Result_a),
@@ -350,6 +364,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("내 대출 배너 진입 : FAIL")
             result_myhome.reports.append("내 대출 배너 진입 : *FAIL*")
+            base.save_screenshot('내 대출 배너 진입_fail')
         base.android_Back()
         # myhome.loan_A
         # try:
@@ -410,6 +425,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("내 현금자산 배너 노출 : FAIL")
             result_myhome.reports.append("내 현금자산 배너 노출 : *FAIL*")
+            base.save_screenshot('내 현금자산 배너 노출_fail')
 
         myhome.cash_Assets_Banner()
         try:
@@ -420,9 +436,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("내 현금자산 배너 진입_a : FAIL")
             result_myhome.reports.append("내 현금자산 배너 진입_a : *FAIL*")
+            base.save_screenshot('내 현금자산 배너 진입_a_fail')
         except Exception as e:
             print("내 현금자산 배너 진입_a 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_a : Error")
+            base.save_screenshot('내 현금자산 배너 진입_a_error')
         base.android_Back()
         myhome.cash_Assets_Banner_A()
         try:
@@ -433,9 +451,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("내 현금자산 배너 진입_b : FAIL")
             result_myhome.reports.append("내 현금자산 배너 진입_b : *FAIL*")
+            base.save_screenshot('내 현금자산 배너 진입_b_fail')
         except Exception as e:
             print("내 현금자산 배너 진입_b 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_b : Error")
+            base.save_screenshot('내 현금자산 배너 진입_b_error')
         base.android_Back()
         myhome.cash_Assets_Banner_B()
         try:
@@ -446,9 +466,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("내 현금자산 배너 진입_c : FAIL")
             result_myhome.reports.append("내 현금자산 배너 진입_c : *FAIL*")
+            base.save_screenshot('내 현금자산 배너 진입_c_fail')
         except Exception as e:
             print("내 현금자산 배너 진입_c 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_c : Error")
+            base.save_screenshot('내 현금자산 배너 진입_c_error')
         base.android_Back()
 
     # 마이홈 상환예정 배너 테스트
@@ -480,6 +502,7 @@ class MyHome_Testcase(unittest.TestCase):
         else:
             print("상환 예정 배너 노출 : FAIL")
             result_myhome.reports.append("상환 예정 배너 노출 : *FAIL*")
+            base.save_screenshot('상환 예정 배너 노출_fail')
 
         myhome.notification_Enabled_On()
         try:
@@ -490,9 +513,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("상환 예정 배너 > 알림 받기 On 동작 : FAIL")
             result_myhome.reports.append("상환 예정 배너 > 알림 받기 On 동작 : *FAIL*")
+            base.save_screenshot('상환 예정 배너 > 알림 받기 On 동작_fail')
         except Exception as e:
             print("상환 예정 배너 > 알림 받기 On 동작 에러 발생 : {}".format(str(e)))
             results.append("Error")
+            base.save_screenshot('상환 예정 배너 > 알림 받기 On 동작_error')
         myhome.notification_Enabled_Off()
         try:
             result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.notification_enabled_on)
@@ -502,9 +527,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("상환 예정 배너 > 알림 받기 Off 동작 : FAIL")
             result_myhome.reports.append("상환 예정 배너 > 알림 받기 Off 동작 : *FAIL*")
+            base.save_screenshot('상환 예정 배너 > 알림 받기 Off 동작_fail')
         except Exception as e:
             print("상환 예정 배너 > 알림 받기 Off 동작 에러 발생 : {}".format(str(e)))
             results.append("Error")
+            base.save_screenshot('상환 예정 배너 > 알림 받기 Off 동작_error')
 
         try:
             myhome.loan_A()
@@ -519,9 +546,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("상환 예정 배너 진입 : FAIL")
             result_myhome.reports.append("상환 예정 배너 진입 : *FAIL*")
+            base.save_screenshot('상환 예정 배너 진입_fail')
         except Exception as e:
             print("상환 예정 배너 진입 에러 발생 : {}".format(str(e)))
             results.append("Error")
+            base.save_screenshot('상환 예정 배너 진입_error')
         base.android_Back()
 
     # 마이홈 오토리스 배너 테스트
@@ -543,9 +572,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("장기렌트 리스 배너 노출 : FAIL")
             result_myhome.reports.append("장기렌트 리스 배너 노출 : *FAIL*")
+            base.save_screenshot('장기렌트 리스 배너 노출_fail')
         except Exception as e:
             print("장기렌트 리스 배너 노출 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("장기렌트 리스 배너 노출 : *Error*")
+            base.save_screenshot('장기렌트 리스 배너 노출_error')
         myhome.Lease_Contract_Banner()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_Result)
@@ -555,9 +586,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("장기렌트 리스 배너 진입 : FAIL")
             result_myhome.reports.append("장기렌트 리스 배너 진입 : *FAIL*")
+            base.save_screenshot('장기렌트 리스 배너 진입_fail')
         except Exception as e:
             print("장기렌트 리스 배너 진입 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
+            base.save_screenshot('장기렌트 리스 배너 진입_error')
         base.android_Back()
 
     # 마이홈 자동차 대출 배너 테스차
@@ -580,9 +613,11 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("차 구매 대출 배너 노출 : FAIL")
             result_myhome.reports.append("차 구매 대출 배너 노출 : *FAIL*")
+            base.save_screenshot('차 구매 대출 배너 노출_fail')
         except Exception as e:
             print("차 구매 대출 배너 노출 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("차 구매 대출 배너 노출 : *Error*")
+            base.save_screenshot('차 구매 대출 배너 노출_error')
 
         myhome.auto_Loan_Banner()
         try:
@@ -593,6 +628,7 @@ class MyHome_Testcase(unittest.TestCase):
         except AssertionError:
             print("차 구매 대출 배너 진입 : FAIL")
             result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
+            base.save_screenshot('차 구매 대출 배너 진입_fail')
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
@@ -602,10 +638,11 @@ class MyHome_Testcase(unittest.TestCase):
             except AssertionError:
                 print("차 구매 대출 배너 진입 : FAIL")
                 result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
+                base.save_screenshot('차 구매 대출 배너 진입_fail')
             except Exception as e:
                 print("차 구매 대출 배너 진입 에러 발생 : {}".format(str(e)))
                 result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
-
+                base.save_screenshot('차 구매 대출 배너 진입_error')
         base.android_Back()
 
 
