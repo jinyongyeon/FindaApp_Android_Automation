@@ -48,3 +48,32 @@ class Loan:
     auto_loan_terms_next = '//*[@text = "다음"]'
 
     auto_loan_certification_number = '//*[@text = "주민등록번호 뒷자리 입력"]'
+
+    auto_loan_rrn = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText/android.view.View'
+
+    auto_loan_annual_income = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText/android.view.View'
+
+    auto_loan_new = '//*[@text = "새로운 대출 받기"]'
+
+    auto_loan_newcar = '//*[@text = "신차"]'
+
+    auto_loan_result = '//*[@text = "님의\n가장 좋은 대출 조건이에요."]'
+
+    auto_loan_result_a = '//*[@text = "아쉽게도\n신청이 어려워요"]'
+
+    auto_loan_detail = '//*[@text = "하나은행"]'
+
+    auto_loan_detail_result = '//*[@text = "조회결과"]'
+
+    auto_loan_application = '//*[@text = "대출 신청하기"]'
+
+    auto_loan_application_r_a = '//*[@text = "하나은행 홈페이지로\n이동할게요"]'
+    auto_loan_application_r_b = '//*[@text = "대출 신청"]'
+    auto_loan_application_r_c = '//*[@text = "서류 제출"]'
+    auto_loan_application_r_d = '//*[@text = "약정 및 입금"]'
+    auto_loan_application_r_e = '//*[@text = "출고 확인"]'
+    auto_loan_application_r_f = '//*[@text = "진행을 위해 이런 서류들이 필요해요!"]'
+
+    auto_loan_url_r = '//*[@text = "하나은행 X 핀다"]'
+
+    auto_loan_application_exit = '//*[@text = "나가기"]'

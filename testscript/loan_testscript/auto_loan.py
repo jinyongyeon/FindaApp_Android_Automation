@@ -1,10 +1,13 @@
 import time
 from telnetlib import EC
+import requests
+
 
 from appium.webdriver.common.mobileby import MobileBy
 
 from selenium.webdriver.support.wait import WebDriverWait
 
+from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.mainlocator.etc import Etc
 from pages.mainlocator.loan import Loan
@@ -15,6 +18,8 @@ class Auto_Loan:
     # 초기화
     def __init__(self):
         self.loan = Loan()
+        self.info = InFo()
+
 
     # 자동차 대출 약관
     def autoLoan_Terms_Of_Use(self):
@@ -97,3 +102,92 @@ class Auto_Loan:
         auto_loan_terms_next = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_terms_next)
         auto_loan_terms_next.click()
         time.sleep(2)
+
+    # 주민등록번호 뒷자리 입력
+    def auto_Loan_Rrn(self):
+        auto_loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_rrn)
+        # auto_loan_rrn.send_keys("0")
+        auto_loan_rrn.click()
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(8)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(14)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(9)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(9)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(9)
+        time.sleep(2)
+    def auto_Loan_Annual_Income(self):
+        auto_loan_annual_income = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_annual_income)
+        auto_loan_annual_income.click()
+        WebDriver.driver.press_keycode(8)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+    def auto_Loan_New(self):
+        auto_loan_new = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_new)
+        auto_loan_new.click()
+        time.sleep(1)
+    def auto_Loan_Newcar(self):
+        auto_loan_newcar = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_newcar)
+        auto_loan_newcar.click()
+        time.sleep(1)
+    def auto_Loan_Detail(self):
+        auto_loan_detail = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_detail)
+        auto_loan_detail.click()
+        time.sleep(1)
+    def auto_Loan_Application(self):
+        auto_loan_application = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_application)
+        auto_loan_application.click()
+        time.sleep(1)
+    def auto_Loan_Application_Exit(self):
+        auto_loan_application_exit = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_application_exit)
+        auto_loan_application_exit.click()
+        time.sleep(1)
+
+
+    # def auto_Loan_New_UsedCar(self):
+    #     # API 엔드포인트 URL
+    #     url = "https://stg-service-api.finda.co.kr/autoloan/v1/application"
+    #
+    #     # 요청 헤더 설정 (필요에 따라 사용)
+    #     headers = {
+    #
+    #     }
+    #
+    #     # 요청 본문 데이터 (필요에 따라 사용)
+    #     data = {
+    #         "key1": "value1",
+    #         "key2": "value2"
+    #     }
+    #
+    #     try:
+    #         # GET 요청
+    #         response = requests.get(url, headers=headers, json=data)
+    #
+    #         # POST 요청
+    #         # response = requests.post(url, headers=headers, json=data)
+    #
+    #         # 응답 상태 코드 확인
+    #         if response.status_code == 200:
+    #             # 응답 데이터 가져오기
+    #             result = response.json()
+    #             # 결과 처리
+    #             print(result)
+    #         else:
+    #             print("요청 실패:", response.status_code)
+    #
+    #     except :
+    #         print("요청 실패:", response.status_code)
+
+    # def auto_Loan_existing_NewCar(self):
+
+    # def auto_Loan_existing_UsedCar(self):
+
