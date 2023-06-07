@@ -554,6 +554,16 @@ class Auto_Loan_Testcase(unittest.TestCase):
                 base.save_screenshot('오토론중고차대환대출조회_error')
         base.android_Back()
 
+class Test_Testcase(unittest.TestCase):
+
+    def test_test(self):
+        loan = Loan()
+        base = basemethod()
+        loanresult = Result_loan()
+        autoloan = Auto_Loan()
+        myhome = MyHome()
+        autoloan.auto_Loan_New_UsedCar()
+
 
 if __name__ == '__main__':
     unittest.main()

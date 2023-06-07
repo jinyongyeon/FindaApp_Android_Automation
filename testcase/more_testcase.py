@@ -221,37 +221,37 @@ class MoreTestcase_A(unittest.TestCase):
         more.qna_Click_E()
         more.qnaBack()
 
-    # 대출 갈아타기 사전신청 테스트
-    def test_Refinancing_Loan_Advance_Application(self):
+    # 대출 갈아타기 테스트
+    def test_Refinancing_Loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        more.refinancing_Loan_Advance_Application()
+        more.refinancing_Loan()
         try:
-            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_advance_application_Result_a)
-            self.assertEqual(Result_A.text,"출시되면 알림 받기")
-            print("대출 갈아타기 사전신청 진입 : PASS")
-            moreresult.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
+            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result_a)
+            self.assertEqual(Result_A.text,"대출 갈아타러 가기")
+            print("대출 갈아타기 진입 : PASS")
+            moreresult.reports.append("대출 갈아타기 진입 : *PASS*")
         except AssertionError:
-            print("대출 갈아타기 사전신청 진입 : FAIL")
-            moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
-            base.save_screenshot('대출갈아타기사전신청진입_fail')
+            print("대출 갈아타기 진입 : FAIL")
+            moreresult.reports.append("대출 갈아타기 진입 : *FAIL*")
+            base.save_screenshot('대출갈아타기진입_fail')
         except Exception:
             try:
-                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_advance_application_Result_b)
-                self.assertEqual(Result_B.text,"사전신청 완료")
-                print("대출 갈아타기 사전신청 진입 : PASS")
-                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *PASS*")
+                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result_b)
+                self.assertEqual(Result_B.text,"매월 부담되는 이자를\n지금 바로 줄이고 싶다면?")
+                print("대출 갈아타기 진입 : PASS")
+                moreresult.reports.append("대출 갈아타기 진입 : *PASS*")
             except AssertionError:
-                print("대출 갈아타기 사전신청 진입 : FAIL")
-                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *FAIL*")
-                base.save_screenshot('대출갈아타기사전신청진입_fail')
+                print("대출 갈아타기 진입 : FAIL")
+                moreresult.reports.append("대출 갈아타기 진입 : *FAIL*")
+                base.save_screenshot('대출갈아타기진입_fail')
             except Exception as e:
                 print("대출 갈아타기 사전신청 진입 에러 발생 : {}".format(str(e)))
-                moreresult.reports.append("대출 갈아타기 사전신청 진입 : *Error*")
-                base.save_screenshot('대출갈아타기사전신청진입_error')
+                moreresult.reports.append("대출 갈아타기 진입 : *Error*")
+                base.save_screenshot('대출갈아타기진입_error')
         base.android_Back()
 
 

@@ -112,10 +112,10 @@ class More:
         qna_back.click()
         time.sleep(2)
 
-    # 대출 갈아타기 사전신청
-    def refinancing_Loan_Advance_Application(self):
-        refinancing_loan_advance_application = WebDriver.driver.find_element(MobileBy.XPATH, Etc.refinancing_loan_advance_application)
-        refinancing_loan_advance_application.click()
+    # 대출 갈아타기
+    def refinancing_Loan(self):
+        refinancing_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.refinancing_loan)
+        refinancing_loan.click()
         time.sleep(4)
 
     # 대출 한 번에 비교 진입
