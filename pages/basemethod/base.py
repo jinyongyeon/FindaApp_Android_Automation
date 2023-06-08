@@ -1,6 +1,6 @@
 import time
-import re
-import json
+# import re
+# import json
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
@@ -132,25 +132,25 @@ class basemethod:
             print("요청 실패:", str(e))
 
 
-    def user_Id_Get(self):
-        # network_logs = self.driver.stop_recording_network()
-        # for log in network_logs:
-        #     if log['method'] == 'POST' and log['url'] == 'https://service-api.finda.co.kr/account/v4/user/login':
-        #         response_data = log['response']['body']
-        #         # 필요한 API 응답 파라미터 값을 추출하여 리스트에 저장
-        #         parameter_value = response_data['userId']
-        #         self.info.user_id.append(parameter_value)
-        # print(self.info.user_id)
-        print("시작")
-        log_data = """[통신 로그 데이터]"""  # 앱의 통신 로그 데이터를 문자열 형식으로 가져옵니다.
-
-        api_response = re.search(r'"POST/account/v4/user/login"\s*:\s*({.*?})', log_data)
-        print(api_response)
-        response_data = json.loads(api_response.group(1))
-        print(response_data)
-
-        user_id = response_data["userId"]
-        print(user_id)
+    # def user_Id_Get(self):
+    #     # network_logs = self.driver.stop_recording_network()
+    #     # for log in network_logs:
+    #     #     if log['method'] == 'POST' and log['url'] == 'https://service-api.finda.co.kr/account/v4/user/login':
+    #     #         response_data = log['response']['body']
+    #     #         # 필요한 API 응답 파라미터 값을 추출하여 리스트에 저장
+    #     #         parameter_value = response_data['userId']
+    #     #         self.info.user_id.append(parameter_value)
+    #     # print(self.info.user_id)
+    #     print("시작")
+    #     log_data = """[통신 로그 데이터]"""  # 앱의 통신 로그 데이터를 문자열 형식으로 가져옵니다.
+    #
+    #     api_response = re.search(r'"POST/account/v4/user/login"\s*:\s*({.*?})', log_data)
+    #     print(api_response)
+    #     response_data = json.loads(api_response.group(1))
+    #     print(response_data)
+    #
+    #     user_id = response_data["userId"]
+    #     print(user_id)
 
 
 

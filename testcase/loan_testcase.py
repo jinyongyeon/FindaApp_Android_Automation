@@ -566,8 +566,6 @@ class Test_Testcase(unittest.TestCase):
         myhome = MyHome()
 
         # base.user_Id_Get()
-
-
         base.user_Token_Get()
         base.user_TxSeqNo_Get()
 
