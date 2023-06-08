@@ -113,9 +113,9 @@ class More:
         time.sleep(2)
 
     # 대출 갈아타기
-    def refinancing_Loan(self):
-        refinancing_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.refinancing_loan)
-        refinancing_loan.click()
+    def transfer_Loan(self):
+        transfer_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.transfer_loan)
+        transfer_loan.click()
         time.sleep(4)
 
     # 대출 한 번에 비교 진입

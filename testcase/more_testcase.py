@@ -228,9 +228,9 @@ class MoreTestcase_A(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        more.refinancing_Loan()
+        more.transfer_Loan()
         try:
-            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result_a)
+            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.transfer_loan_Result_a)
             self.assertEqual(Result_A.text,"대출 갈아타러 가기")
             print("대출 갈아타기 진입 : PASS")
             moreresult.reports.append("대출 갈아타기 진입 : *PASS*")
@@ -240,7 +240,7 @@ class MoreTestcase_A(unittest.TestCase):
             base.save_screenshot('대출갈아타기진입_fail')
         except Exception:
             try:
-                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result_b)
+                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.transfer_loan_Result_b)
                 self.assertEqual(Result_B.text,"매월 부담되는 이자를\n지금 바로 줄이고 싶다면?")
                 print("대출 갈아타기 진입 : PASS")
                 moreresult.reports.append("대출 갈아타기 진입 : *PASS*")

@@ -8,5 +8,9 @@ class InFo:
     rrn_b = "1"
     rrn = "017222"
     phone_number = "01042434533"
+    user_id = []
+    usertoken = []
+    txseqno = []
+
 
 

@@ -58,9 +58,9 @@ class Etc:
     qna_back = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Image"
 
     # 대출 갈아타기
-    refinancing_loan = '//*[@text = "대출 갈아타기"]'
-    refinancing_loan_Result_a = '//*[@text = "대출 갈아타러 가기"]'
-    refinancing_loan_Result_b = '//*[@text = "매월 부담되는 이자를\n지금 바로 줄이고 싶다면?"]'
+    transfer_loan = '//*[@text = "대출 갈아타기"]'
+    transfer_loan_Result_a = '//*[@text = "대출 갈아타러 가기"]'
+    transfer_loan_Result_b = '//*[@text = "매월 부담되는 이자를\n지금 바로 줄이고 싶다면?"]'
 
     # 대출 한 번에 비교
     comparison_loan = '//*[@text = "대출 한 번에 비교"]'

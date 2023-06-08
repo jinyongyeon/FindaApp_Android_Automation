@@ -153,48 +153,35 @@ class Auto_Loan:
         time.sleep(1)
 
 
-    def auto_Loan_New_UsedCar(self):
-        # API 엔드포인트 URL
-        url = "https://stg-service-api.finda.co.kr/account/v1/user/token"
-
-        # 요청 헤더 설정 (필요에 따라 사용)
-        headers = {
-            "Content-Type" : "application/json"
-        }
-
-        # 요청 본문 데이터 (필요에 따라 사용)
-        data = {
-            "userId": 2000936,
-            "encryptedPincode": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203"
-
-        }
-
-
-        try:
-            # GET 요청
-            # response = requests.get(url, headers=headers, json=data)
-
-            # POST 요청
-            response = requests.post(url, headers=headers, json=data)
-
-            # 응답 상태 코드 확인
-
-            # print(response.json)
-
-            result = response.json()
-            print(result)
-
-            # if response.status_code == 200:
-            #     # 응답 데이터 가져오기
-            #     result = response.json()
-            #     # 결과 처리
-            #     print(result)
-            # else:
-            #     print("요청 실패:", response.status_code)
-
-
-        except Exception as e:
-            print("요청 실패:", str(e))
+    # def auto_Loan_New_UsedCar(self):
+    #     # API 엔드포인트 URL
+    #     url = "https://stg-service-api.finda.co.kr/account/v1/user/token"
+    #
+    #     # 요청 헤더 설정 (필요에 따라 사용)
+    #     headers = { "Content-Type" : "application/json"
+    #                 }
+    #     # 요청 본문 데이터 (필요에 따라 사용)
+    #     data = {
+    #         "userId": 2000936,
+    #         "encryptedPincode": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203"
+    #     }
+    #     try:
+    #         # GET 요청
+    #         # response = requests.get(url, headers=headers, json=data)
+    #         # POST 요청
+    #         response = requests.post(url, headers=headers, json=data)
+    #         # 응답 상태 코드 확인
+    #         result = response.json()
+    #         print(result)
+    #         # if response.status_code == 200:
+    #         #     # 응답 데이터 가져오기
+    #         #     result = response.json()
+    #         #     # 결과 처리
+    #         #     print(result)
+    #         # else:
+    #         #     print("요청 실패:", response.status_code)
+    #     except Exception as e:
+    #         print("요청 실패:", str(e))
 
     # def auto_Loan_existing_NewCar(self):
 

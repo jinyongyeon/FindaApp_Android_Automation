@@ -7,6 +7,7 @@ from pages.basemethod.result import Result_loan
 from pages.mainlocator.loan import Loan
 from testscript.loan_testscript.auto_loan import Auto_Loan
 from pages.basemethod.base import basemethod
+from testscript.login_testscript.logincase import JoIn
 from testscript.myhome_testscript.myhome import MyHome
 
 
@@ -559,10 +560,17 @@ class Test_Testcase(unittest.TestCase):
     def test_test(self):
         loan = Loan()
         base = basemethod()
+        join = JoIn()
         loanresult = Result_loan()
         autoloan = Auto_Loan()
         myhome = MyHome()
-        autoloan.auto_Loan_New_UsedCar()
+
+        # base.user_Id_Get()
+
+
+        base.user_Token_Get()
+        base.user_TxSeqNo_Get()
+
 
 
 if __name__ == '__main__':
