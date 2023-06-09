@@ -1,15 +1,11 @@
 import time
-from telnetlib import EC
+
 import requests
-
-
 from appium.webdriver.common.mobileby import MobileBy
 
-from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
-from pages.mainlocator.etc import Etc
 from pages.mainlocator.loan import Loan
 
 
@@ -153,36 +149,242 @@ class Auto_Loan:
         time.sleep(1)
 
 
-    # def auto_Loan_New_UsedCar(self):
-    #     # API 엔드포인트 URL
-    #     url = "https://stg-service-api.finda.co.kr/account/v1/user/token"
-    #
-    #     # 요청 헤더 설정 (필요에 따라 사용)
-    #     headers = { "Content-Type" : "application/json"
-    #                 }
-    #     # 요청 본문 데이터 (필요에 따라 사용)
-    #     data = {
-    #         "userId": 2000936,
-    #         "encryptedPincode": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203"
-    #     }
-    #     try:
-    #         # GET 요청
-    #         # response = requests.get(url, headers=headers, json=data)
-    #         # POST 요청
-    #         response = requests.post(url, headers=headers, json=data)
-    #         # 응답 상태 코드 확인
-    #         result = response.json()
-    #         print(result)
-    #         # if response.status_code == 200:
-    #         #     # 응답 데이터 가져오기
-    #         #     result = response.json()
-    #         #     # 결과 처리
-    #         #     print(result)
-    #         # else:
-    #         #     print("요청 실패:", response.status_code)
-    #     except Exception as e:
-    #         print("요청 실패:", str(e))
+    def auto_Loan_New_UsedCar(self):
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/autoloan/v1/application"
 
-    # def auto_Loan_existing_NewCar(self):
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+            "annualSalary": 10000000,
+            "applicationTerms": [
+                {
+                    "termsId": 265,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 266,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 267,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 268,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 276,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 300,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 301,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 302,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 303,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 304,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 305,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 306,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 307,
+                    "termsYn": "true"
+                }
+            ],
+            "autoReleaseDate": ''.join(self.info.day),
+            "idToken": ''.join(self.info.idtoken),
+            "loanAutoType": "USED",
+            "loanCategoryType": "NEW",
+            "rrn": ''.join(self.info.rrnfull)
+        }
+        try:
 
-    # def auto_Loan_existing_UsedCar(self):
+            response = requests.post(url, headers=headers, json=data)
+            result = response.json()
+            print(result)
+
+        except Exception as e:
+            print("요청 실패:", str(e))
+
+    def auto_Loan_existing_NewCar(self):
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/autoloan/v1/application"
+
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+            "annualSalary": 10000000,
+            "applicationTerms": [
+                {
+                    "termsId": 265,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 266,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 267,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 268,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 276,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 300,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 301,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 302,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 303,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 304,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 305,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 306,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 307,
+                    "termsYn": "true"
+                }
+            ],
+            "autoNo": ''.join(self.info.autoNo),
+            "idToken": ''.join(self.info.idtoken),
+            "loanAutoType": "NEW",
+            "loanCategoryType": "REDEMP",
+            "rrn": ''.join(self.info.rrnfull)
+        }
+        try:
+
+            response = requests.post(url, headers=headers, json=data)
+            result = response.json()
+            print(result)
+
+        except Exception as e:
+            print("요청 실패:", str(e))
+
+    def auto_Loan_existing_UsedCar(self):
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/autoloan/v1/application"
+
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+            "annualSalary": 10000000,
+            "applicationTerms": [
+                {
+                    "termsId": 265,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 266,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 267,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 268,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 276,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 300,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 301,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 302,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 303,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 304,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 305,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 306,
+                    "termsYn": "true"
+                },
+                {
+                    "termsId": 307,
+                    "termsYn": "true"
+                }
+            ],
+            "autoNo": ''.join(self.info.autoNo),
+            "idToken": ''.join(self.info.idtoken),
+            "loanAutoType": "USED",
+            "loanCategoryType": "REDEMP",
+            "rrn": ''.join(self.info.rrnfull)
+        }
+        try:
+
+            response = requests.post(url, headers=headers, json=data)
+            result = response.json()
+            print(result)
+
+        except Exception as e:
+            print("요청 실패:", str(e))

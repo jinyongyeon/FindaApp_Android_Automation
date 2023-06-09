@@ -1,7 +1,9 @@
-from pages.basemethod.result import Result_More, Result_Join, Result_MyHome
+from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan
 from pages.basemethod.slackreports import SlackWebHook
 
 import unittest
+
+from testcase.loan_testcase import Auto_Loan_Testcase
 from testcase.login_testcase import LoginTestCase, JoInTestCase
 from testcase.more_testcase import MoreTestcase_A
 from testcase.more_testcase import MoreTestcase_B
@@ -56,22 +58,37 @@ suite.addTest(JoInTestCase('test_Membership_Terms_And_Conditions'))
 suite.addTest(JoInTestCase('test_Certification_Number'))
 suite.addTest(JoInTestCase('test_Join'))
 suite.addTest(LoginTestCase('test_Withdraw'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_New_NewCar_Terms'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_New_NewCar_Certification_Number'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_New'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_Detail'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_Application'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_New_UsedCar'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_existing_NewCar'))
+suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_existing_UsedCar'))
 
 runner = unittest.TextTestRunner()
 runner.run(suite)
+
+
 result_more = Result_More()
 result_join = Result_Join()
 result_myhome = Result_MyHome()
+result_autoloan = Result_loan()
 slackwebhook = SlackWebHook()
-
+#
 resultjoin = '\n\n'.join(str(i) for i in result_join.reports)
 resultmyhome = '\n\n'.join(str(i) for i in result_myhome.reports)
 resultmore = '\n\n'.join(str(i) for i in result_more.reports)
+resultautoloan = '\n\n'.join(str(i) for i in result_autoloan.reports)
+
 
 print(resultjoin)
 print(resultmyhome)
 print(resultmore)
+print(resultautoloan)
 #
 print(SlackWebHook.join_SendSlackWebHook(resultjoin))
 print(SlackWebHook.myHome_SendSlackWebHook(resultmyhome))
 print(SlackWebHook.more_SendSlackWebHook(resultmore))
+print(SlackWebHook.autoloan_SendSlackWebHook(resultautoloan))

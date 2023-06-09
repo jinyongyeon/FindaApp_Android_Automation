@@ -1,11 +1,7 @@
-import os
 import time
 import unittest
 
-from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
-from selenium.common import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -13,7 +9,6 @@ from pages.mainlocator.etc import Etc
 from pages.basemethod.result import Result_More
 from testscript.more_testscript.see_more import More
 from pages.basemethod.base import basemethod
-from appium import webdriver
 
 
 
@@ -44,7 +39,6 @@ class MoreTestcase_A(unittest.TestCase):
 
     # 더보기 진입 테스트
     def test_Check_More_Tab(self):
-        # driver = WebDriver.setUpClass()
         more = More()
         base = basemethod()
         etc = Etc()

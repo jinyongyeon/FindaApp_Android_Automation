@@ -60,14 +60,15 @@ from config.info import InFo
     #         cls.driver.press_keycode(4)
 
 class WebDriver:
-
+    info = InFo()
     desired_caps = {
-        "appium:device": InFo.devices,
+        "appium:device": info.devices,
         "platformName": "Android",
         "appium:ensureWebviewsHavePages": True,
         "appium:nativeWebScreenshot": True,
         "appium:newCommandTimeout": 3600,
-        "appium:connectHardwareKeyboard": True
+        "appium:connectHardwareKeyboard": True,
+        "autoGrantPermissions" : True
         # 'appActivity': '.ui.splash.SplashActivity',
         # 'noReset': 'true',
         # "appPackage": "kr.co.finda.finda"

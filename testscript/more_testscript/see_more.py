@@ -1,9 +1,7 @@
 import time
-from telnetlib import EC
 
 from appium.webdriver.common.mobileby import MobileBy
 
-from selenium.webdriver.support.wait import WebDriverWait
 
 from drivers.aos_webdrivers import WebDriver
 from pages.mainlocator.etc import Etc

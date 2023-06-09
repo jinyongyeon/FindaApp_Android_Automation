@@ -2,12 +2,9 @@ import re
 import time
 import subprocess
 
-from appium import webdriver
 
-from telnetlib import EC
 
 from appium.webdriver.common.mobileby import MobileBy
-from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -225,6 +222,12 @@ class JoIn:
         mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
         mms_dele.click()
         time.sleep(5)
+        self.base.android_Back()
+        time.sleep(2)
+        self.base.android_Back()
+        time.sleep(2)
+        self.base.android_Back()
+        time.sleep(2)
 
     #인증번호 재요청
     def re_Request_Verification_Code(self):

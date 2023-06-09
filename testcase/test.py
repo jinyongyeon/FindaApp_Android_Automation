@@ -7,3 +7,5 @@ join = JoIn()
 
 
 join.appStart()
+
+print("test")

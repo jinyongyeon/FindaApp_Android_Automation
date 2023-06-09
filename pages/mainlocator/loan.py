@@ -1,5 +1,4 @@
-
-
+from config.info import InFo
 
 
 class Loan:
@@ -57,7 +56,7 @@ class Loan:
 
     auto_loan_newcar = '//*[@text = "신차"]'
 
-    auto_loan_result = '//*[@text = "님의\n가장 좋은 대출 조건이에요."]'
+    auto_loan_result = '//*[@text = "'+InFo.name+'님의\n가장 좋은 대출 조건이에요."]'
 
     auto_loan_result_a = '//*[@text = "아쉽게도\n신청이 어려워요"]'
 

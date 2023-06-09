@@ -2,12 +2,16 @@ import time
 import unittest
 
 from appium.webdriver.common.mobileby import MobileBy
+
+from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
+from pages.basemethod.base import basemethod
 from pages.basemethod.result import Result_loan
 from pages.mainlocator.loan import Loan
 from testscript.loan_testscript.auto_loan import Auto_Loan
-from pages.basemethod.base import basemethod
 from testscript.login_testscript.logincase import JoIn
+from testscript.more_testscript.see_more import More
+from testscript.more_testscript.seting import Seting
 from testscript.myhome_testscript.myhome import MyHome
 
 
@@ -325,6 +329,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         autoloan = Auto_Loan()
         myhome = MyHome()
+        info = InFo()
         myhome.auto_Loan_Banner()
         autoloan.autoLoan_Terms_Of_Use()
         autoloan.auto_Loan_Terms_All()
@@ -343,7 +348,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         time.sleep(60)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
-            self.assertIn("님의\n가장 좋은 대출 조건이에요.", Result.text)
+            self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result.text)
             print("오토론 신차 신규 대출 조회(조회성공) : PASS")
             loanresult.reports.append("오토론 신차 신규 대출 조회(조회성공) : PASS")
         except AssertionError:
@@ -452,14 +457,27 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base = basemethod()
         loanresult = Result_loan()
         autoloan = Auto_Loan()
+        info = InFo()
         myhome = MyHome()
-
-
-
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        more.etcIn()
+        seting.setingIn()
+        base.scroll(2)
+        base.user_Id_Get()
+        base.user_Token_Get()
+        base.user_TxSeqNo_Get()
+        join.join_Mms()
+        base.user_idToken_Get()
+        autoloan.auto_Loan_New_UsedCar()
+        base.android_Back()
+        base.android_Back()
+        base.scroll(2)
         myhome.auto_Loan_Banner()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
-            self.assertIn("님의\n가장 좋은 대출 조건이에요.", Result.text)
+            self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
             print("오토론 중고차 신규 대출 조회 : PASS")
             loanresult.reports.append("오토론 중고차 신규 대출 조회(조회성공) : PASS")
         except AssertionError:
@@ -488,14 +506,13 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base = basemethod()
         loanresult = Result_loan()
         autoloan = Auto_Loan()
+        info = InFo()
         myhome = MyHome()
-
-
-
+        autoloan.auto_Loan_existing_NewCar()
         myhome.auto_Loan_Banner()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
-            self.assertIn("님의\n가장 좋은 대출 조건이에요.", Result.text)
+            self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
             print("오토론 신차 대환 대출 조회 : PASS")
             loanresult.reports.append("오토론 신차 대환 대출 조회(조회성공) : PASS")
         except AssertionError:
@@ -524,15 +541,13 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base = basemethod()
         loanresult = Result_loan()
         autoloan = Auto_Loan()
+        info = InFo()
         myhome = MyHome()
-
-
-
-
+        autoloan.auto_Loan_existing_UsedCar()
         myhome.auto_Loan_Banner()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
-            self.assertIn("님의\n가장 좋은 대출 조건이에요.", Result.text)
+            self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
             print("오토론 중고차 대환 대출 조회 : PASS")
             loanresult.reports.append("오토론 중고차 대환 대출 조회(조회성공) : PASS")
         except AssertionError:
@@ -555,19 +570,28 @@ class Auto_Loan_Testcase(unittest.TestCase):
                 base.save_screenshot('오토론중고차대환대출조회_error')
         base.android_Back()
 
-class Test_Testcase(unittest.TestCase):
-
-    def test_test(self):
-        loan = Loan()
-        base = basemethod()
-        join = JoIn()
-        loanresult = Result_loan()
-        autoloan = Auto_Loan()
-        myhome = MyHome()
-
-        # base.user_Id_Get()
-        base.user_Token_Get()
-        base.user_TxSeqNo_Get()
+# class Test_Testcase(unittest.TestCase):
+#
+#     def test_test(self):
+#         loan = Loan()
+#         base = basemethod()
+#         join = JoIn()
+#         more = More()
+#         seting = Seting()
+#         loanresult = Result_loan()
+#         autoloan = Auto_Loan()
+#         myhome = MyHome()
+#         more.etcIn()
+#         seting.setingIn()
+#         base.scroll(2)
+#         base.user_Id_Get()
+#         base.user_Token_Get()
+#         base.user_TxSeqNo_Get()
+#         join.join_Mms()
+#         base.user_idToken_Get()
+#         autoloan.auto_Loan_New_UsedCar()
+#         base.android_Back()
+#         base.android_Back()
 
 
 
