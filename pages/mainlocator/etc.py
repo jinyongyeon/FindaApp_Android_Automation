@@ -44,7 +44,7 @@ class Etc:
 
     # 자주묻는 질문 > 질문 항목
     qna_a = '//*[@text = "정말 이 조건 그대로 대출 가능한가요?"]'
-    qna_Result_a = '네, 가능합니다. 고객님께서 입력해주신 정보의 정확도 등에 따라 금융사 최종심사에 일부 차이가 발생할 수 있지만, 정확한 정보 입력 후 공동인증서를 연동하여 조회하셨다면 실제 심사결과에 부합하는 조건을 받아보실 수 있습니다.'
+    qna_Result_a = '네, 가능합니다. 고객님께서 입력해주신 정보의 정확도 등에 따라 금융사 최종심사에 일부 차이가 발생할 수 있지만, 정확한 정보 입력 후 공동인증서를 연동하여 조회하셨다면 실제심사결과에 부합하는 조건을 받아보실 수 있습니다.'
     qna_b = '//*[@text = "신청하면 대출금은 언제 입금이 되나요?"]'
     qna_Result_b = '대출이 확정된 후 대출금이 입금되기까지는 금융사마다 차이가 존재합니다. 빠르게 처리가 이루어지는 경우 입금까지 5분이내에 입금이 이루어지며, 고객과의 전화통화 이후 대출이 진행되는 경우에는 몇 시간에서 1~2영업일 가량 소요되기도 합니다. 일반적으로는 금융사의 영업일/영업시간 내에만 입금이 진행되지만, 주말/공휴일을 포함하여 24시간 대출금 입금이 가능한 금융사 또한 존재합니다.'
     qna_c = '//*[@text = "대출 조건은 언제까지 유효한가요?"]'
@@ -126,7 +126,7 @@ class Etc:
     credit_score = '//*[@text = "신용점수"]'
 
     # 신용점수 페이지 진입 결과
-    credit_score_Result = '//*[@text = "내 신용점수"]'
+    credit_score_Result = '//*[@text = "신용관"]'
 
     # 신용관리 > 신용점수 뒤로가기
     credit_score_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
@@ -155,6 +155,7 @@ class Etc:
 
     # 신용관리 > 신용점수 히스트리 진입 결과
     credit_history_Result = '//*[@text = "신용점수 히스토리"]'
+    # credit_history_Result = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView'
 
     # 신용관리 > 신용점수 히스트리 뒤로가기
     credit_history_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -288,6 +289,8 @@ class Etc:
     # 대출금 갚아주는 보험
     insurance = '//*[@text = "대출금 갚아주는 보험"]'
 
+    insuranceweb = '//*[@text = "예상 보험료 확인하러 가기"]'
+
     # 대출금 갚아주는 보험 결과
     insurance_Result = '//*[@text = "BNP파리바 카디프생명"]'
 
@@ -335,11 +338,11 @@ class Etc:
     # 내폰 지키미 > 뒤로가기
     my_phorn_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[1]'
 
-    # 이벤트
-    event = '//*[@text = "이벤트"]'
+    # 돈되는 혜택
+    event = '//*[@text = "돈되는 혜택"]'
 
-    # 이벤트 결과
-    event_Result = '//*[@text = "진행 중인 이벤트"]'
+    # 돈되는 혜택 결과
+    event_Result = '//*[@text = "돈되는 혜택"]'
 
     # 이벤트 나가기
     event_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'

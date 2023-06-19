@@ -433,10 +433,15 @@ class More:
         except :
             pass
 
-    # 대출금 갚아주는 보험
+    # 대출금 갚아주는 보험 진입
     def insurance(self):
         insurance = WebDriver.driver.find_element(MobileBy.XPATH, Etc.insurance)
         insurance.click()
+        time.sleep(2)
+
+    def insurance_Web(self):
+        insuranceweb = WebDriver.driver.find_element(MobileBy.XPATH, Etc.insuranceweb)
+        insuranceweb.click()
         time.sleep(2)
 
     # 예적금 비교 진입
@@ -475,7 +480,7 @@ class More:
         my_phorn_back.click()
         time.sleep(2)
 
-    # 이벤트 진입
+    # 돈되는 혜택 진입
     def event(self):
         event = WebDriver.driver.find_element(MobileBy.XPATH, Etc.event)
         event.click()

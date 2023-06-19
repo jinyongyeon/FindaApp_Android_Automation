@@ -462,6 +462,8 @@ class Auto_Loan_Testcase(unittest.TestCase):
         join = JoIn()
         more = More()
         seting = Seting()
+        join.join_Mms_delete()
+        time.sleep(3)
         more.etcIn()
         seting.setingIn()
         base.scroll(2)
@@ -570,29 +572,44 @@ class Auto_Loan_Testcase(unittest.TestCase):
                 base.save_screenshot('오토론중고차대환대출조회_error')
         base.android_Back()
 
-# class Test_Testcase(unittest.TestCase):
-#
-#     def test_test(self):
-#         loan = Loan()
-#         base = basemethod()
-#         join = JoIn()
-#         more = More()
-#         seting = Seting()
-#         loanresult = Result_loan()
-#         autoloan = Auto_Loan()
-#         myhome = MyHome()
-#         more.etcIn()
-#         seting.setingIn()
-#         base.scroll(2)
-#         base.user_Id_Get()
-#         base.user_Token_Get()
-#         base.user_TxSeqNo_Get()
-#         join.join_Mms()
-#         base.user_idToken_Get()
-#         autoloan.auto_Loan_New_UsedCar()
-#         base.android_Back()
-#         base.android_Back()
+class Loan_Comparison_Testcase(unittest.TestCase):
 
+    def setUp(self):
+        base = basemethod()
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
+
+
+    def tearDown(self):
+        base = basemethod()
+        base.android_Back()
+        base.android_Back()
+
+    def test_AutoLoan_In(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        autoloan = Auto_Loan()
+        myhome = MyHome()
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
 
 
 if __name__ == '__main__':

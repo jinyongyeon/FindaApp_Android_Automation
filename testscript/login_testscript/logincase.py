@@ -76,7 +76,7 @@ class JoIn:
     def malicious_App_Search(self):
         malicious_app_search_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.malicious_app_search_button)
         malicious_app_search_button.click()
-        time.sleep(15)
+        time.sleep(20)
 
     # MO인증 동작
     def message_Certification(self):
@@ -195,6 +195,37 @@ class JoIn:
         membership_terms_and_conditions_all.click()
         check = WebDriver.driver.find_element(MobileBy.XPATH, self.main.check)
         check.click()
+
+    #회원가입 인증번호 초기화
+    def join_Mms_delete(self):
+        WebDriver.driver.start_activity("com.samsung.android.messaging", "com.android.mms.ui.ConversationComposer")
+        time.sleep(3)
+        latest_message = WebDriver.driver.find_element(MobileBy.XPATH,'//android.widget.Button[@content-desc="검색"]')
+        latest_message.click()
+        time.sleep(2)
+        search_field = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text ="검색"]')
+        search_field.send_keys("02-708-100")
+        message_button = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text= "02-708-1007"]')
+        message_button.click()
+        time.sleep(5)
+        mms_set = WebDriver.driver.find_element(MobileBy.XPATH, '//android.widget.ImageButton[@content-desc="대화 설정"]')
+        mms_set.click()
+        time.sleep(2)
+        mms_del = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="메시지 삭제"]')
+        mms_del.click()
+        time.sleep(2)
+        mms_all_del = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="전체"]')
+        mms_all_del.click()
+        time.sleep(2)
+        mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
+        mms_dele.click()
+        time.sleep(5)
+        self.base.android_Back()
+        time.sleep(2)
+        self.base.android_Back()
+        time.sleep(2)
+        self.base.android_Back()
+        time.sleep(2)
 
     #회원가입 인증번호 리스트 저장 => 사용함
     def join_Mms(self):
