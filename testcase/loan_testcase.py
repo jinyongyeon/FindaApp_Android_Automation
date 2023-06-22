@@ -9,6 +9,7 @@ from pages.basemethod.base import basemethod
 from pages.basemethod.result import Result_loan
 from pages.mainlocator.loan import Loan
 from testscript.loan_testscript.auto_loan import Auto_Loan
+from testscript.loan_testscript.loan_comparison import ComparisonLoan
 from testscript.login_testscript.logincase import JoIn
 from testscript.more_testscript.see_more import More
 from testscript.more_testscript.seting import Seting
@@ -579,21 +580,24 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.scroll_up(0.8)
         base.scroll_up(0.8)
 
-
     def tearDown(self):
         base = basemethod()
         base.android_Back()
         base.android_Back()
+        base.android_Back()
 
-    def test_AutoLoan_In(self):
+
+
+    # 비교대출 약관 페이지 진입 테스트
+    def test_loan_Terms_And_Conditions(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
         more = More()
         seting = Seting()
         loanresult = Result_loan()
-        autoloan = Auto_Loan()
         myhome = MyHome()
+        comparisonloan = ComparisonLoan()
         try:
             myhome.comPariSonLoan_In_a()
         except :
@@ -610,6 +614,602 @@ class Loan_Comparison_Testcase(unittest.TestCase):
                             myhome.comPariSonLoan_In_e()
                         except Exception as e:
                             print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        comparisonloan.loan_In()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        results = []
+        results_a = []
+        verification_list = [("본인인증 필수 항목 모두 동의", loan.loan_terms_and_conditions_A_result),
+                             ("핀다 필수 항목 모두 동의", loan.loan_terms_and_conditions_B_result),
+                             ("금융기관 필수 항목 모두 동의", loan.loan_terms_and_conditions_C_result),
+                             ("서비스 이용 안내 수신 동의 (선택)", loan.loan_terms_and_conditions_D_result)]
+        for text, xpath in verification_list:
+            try:
+                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result.text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception:
+                results.append("Error")
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("비교대출 약관 노출 : PASS")
+            loanresult.reports.append("비교대출 약관 노출 : *PASS*")
+        else:
+            print("비교대출 약관 노출 : FAIL")
+            loanresult.reports.append("비교대출 약관 노출 : *FAIL*")
+            base.save_screenshot('비교대출약관노출_fail')
+        comparisonloan.loan_Terms_And_Conditions_A()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Aa()
+            Result_Aa = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Aa_result)
+            self.assertEqual(Result_Aa.text, "통신사 이용약관")
+            print("비교대출 약관 Aa 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Aa 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Aa_fail')
+        except Exception as e:
+            print("비교대출 약관 Aa 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Aa_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ab()
+            Result_Ab = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ab_result)
+            self.assertEqual(Result_Ab.text, "개인정보 수집/이용/취급 위탁동의")
+            print("비교대출 약관 Ab 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ab 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ab_fail')
+        except Exception as e:
+            print("비교대출 약관 Ab 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ab_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ac()
+            Result_Ac = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ac_result)
+            self.assertEqual(Result_Ac.text, "고유식별정보처리 동의")
+            print("비교대출 약관 Ac 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ac 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ac_fail')
+        except Exception as e:
+            print("비교대출 약관 Ac 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ac_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ad()
+            Result_Ad = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ad_result)
+            self.assertEqual(Result_Ad.text, "KCB휴대폰 본인확인 이용약관")
+            print("비교대출 약관 Ad 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ad 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ad_fail')
+        except Exception as e:
+            print("비교대출 약관 Ad 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ad_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ae()
+            Result_Ae = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ae_result)
+            self.assertEqual(Result_Ae.text, "개인정보 제3자 제공 동의")
+            print("비교대출 약관 Ae 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ae 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ae_fail')
+        except Exception as e:
+            print("비교대출 약관 Ae 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ae_error')
+        base.android_Back()
+        comparisonloan.loan_Terms_And_Conditions_A()
+        comparisonloan.loan_Terms_And_Conditions_B()
+        base.scroll(0.065)
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ba()
+            Result_Ba = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ba_result)
+            self.assertEqual(Result_Ba.text, "개인(신용)정보 수집·이용·제공 동의서(FINDA)")
+            print("비교대출 약관 Ba 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ba 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ba_fail')
+        except Exception as e:
+            print("비교대출 약관 Ba 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ba_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Bb()
+            Result_Bb = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bb_result)
+            self.assertEqual(Result_Bb.text, "서비스 이용 약관 [대출비교]")
+            print("비교대출 약관 Bb 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Bb 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Bb_fail')
+        except Exception as e:
+            print("비교대출 약관 Bb 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Bb_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Bc()
+            Result_Bc = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bc_result)
+            self.assertEqual(Result_Bc.text, "[간편인증] 서비스 이용 약관 동의")
+            print("비교대출 약관 Bc 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Bc 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Bc_fail')
+        except Exception as e:
+            print("비교대출 약관 Bc 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Bc_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Bd()
+            Result_Bd = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bd_result)
+            self.assertEqual(Result_Bd.text, "[간편인증] 개인정보 이용 동의")
+            print("비교대출 약관 Bd 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Bd 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Bd_fail')
+        except Exception as e:
+            print("비교대출 약관 Bd 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Bd_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Be()
+            Result_Be = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Be_result)
+            self.assertEqual(Result_Be.text, "[간편인증] 제3자 정보제공 동의")
+            print("비교대출 약관 Be 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Be 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Be_fail')
+        except Exception as e:
+            print("비교대출 약관 Be 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Be_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Bf()
+            Result_Bf = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bf_result)
+            self.assertEqual(Result_Bf.text, "[간편인증] 고유식별번호처리 동의")
+            print("비교대출 약관 Bf 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Bf 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Bf_fail')
+        except Exception as e:
+            print("비교대출 약관 Bf 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Bf_error')
+        base.android_Back()
+        comparisonloan.loan_Terms_And_Conditions_B()
+        comparisonloan.loan_Terms_And_Conditions_C()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ca()
+            Result_Ca = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ca_result)
+            self.assertEqual(Result_Ca.text, "개인(신용)정보 수집·이용·제공 동의서(금융기관 용)")
+            print("비교대출 약관 Ca 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ca 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ca_fail')
+        except Exception as e:
+            print("비교대출 약관 Ca 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ca_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cb()
+            Result_Cb = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cb_result)
+            self.assertEqual(Result_Cb.text, "개인(신용)정보 수집·이용·제공·조회 동의서(금융기관 용)")
+            print("비교대출 약관 Cb 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cb 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cb_fail')
+        except Exception as e:
+            print("비교대출 약관 Cb 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cb_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cc()
+            Result_Cc = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cc_result)
+            self.assertEqual(Result_Cc.text, "고유식별정보 수집·이용·제공·조회 동의서")
+            print("비교대출 약관 Cc 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cc 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cc_fail')
+        except Exception as e:
+            print("비교대출 약관 Cc 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cc_error')
+        base.android_Back()
+        base.scroll(0.25)
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cd()
+            Result_Cd = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cd_result)
+            self.assertEqual(Result_Cd.text, "개인(신용)정보 조회 동의서(서민금융진흥원)")
+            print("비교대출 약관 Cd 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cd 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cd_fail')
+        except Exception as e:
+            print("비교대출 약관 Cd 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cd_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ce()
+            Result_Ce = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ce_result)
+            self.assertEqual(Result_Ce.text, "개인정보 수집·이용·제공 동의서(서민금융진흥원)")
+            print("비교대출 약관 Ce 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ce 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ce_fail')
+        except Exception as e:
+            print("비교대출 약관 Ce 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ce_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cf()
+            Result_Cf = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cf_result)
+            self.assertEqual(Result_Cf.text, "계약 체결이행 등을 위한 상세 동의서(개인금융성 신용보험용)[비교대출]")
+            print("비교대출 약관 Cf 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cf 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cf_fail')
+        except Exception as e:
+            print("비교대출 약관 Cf 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cf_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cg()
+            Result_Cg = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cg_result)
+            self.assertEqual(Result_Cg.text, "개인(신용)정보 제3자 제공 동의서 [토스뱅크][비교대출]")
+            print("비교대출 약관 Cg 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cg 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cg_fail')
+        except Exception as e:
+            print("비교대출 약관 Cg 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cg_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ch()
+            Result_Ch = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ch_result)
+            self.assertEqual(Result_Ch.text, "개인(신용)정보 제3자 제공 동의서 [중소기업중앙회][비교대출]")
+            print("비교대출 약관 Ch 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ch 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ch_fail')
+        except Exception as e:
+            print("비교대출 약관 Ch 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ch_error')
+        base.android_Back()
+        base.scroll(0.25)
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ci()
+            Result_Ci = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ci_result)
+            self.assertEqual(Result_Ci.text, "개인(신용)정보 제3자 제공 동의서 [OPENAPI][비교대출]")
+            print("비교대출 약관 Ci 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ci 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ci_fail')
+        except Exception as e:
+            print("비교대출 약관 Ci 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ci_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cj()
+            Result_Cj = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cj_result)
+            self.assertEqual(Result_Cj.text, "개인(신용)정보 수집 이용 제공 조회 동의서 [서민금융진흥원][비교대출]")
+            print("비교대출 약관 Cj 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cj 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cj_fail')
+        except Exception as e:
+            print("비교대출 약관 Cj 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cj_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Ck()
+            Result_Ck = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ck_result)
+            self.assertEqual(Result_Ck.text, "개인(신용)정보 제 3자 제공 조회 동의서 [대안정보이용][비교대출]")
+            print("비교대출 약관 Ck 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Ck 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Ck_fail')
+        except Exception as e:
+            print("비교대출 약관 Ck 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Ck_error')
+        base.android_Back()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cl()
+            Result_Cl = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cl_result)
+            self.assertEqual(Result_Cl.text, "고유식별정보 수집∙이용 동의서[KCB대안신용평가모델]")
+            print("비교대출 약관 Cl 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cl 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cl_fail')
+        except Exception as e:
+            print("비교대출 약관 Cl 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cl_error')
+        base.android_Back()
+        base.scroll(0.25)
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Cm()
+            Result_Cm = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cm_result)
+            self.assertEqual(Result_Cm.text, "개인(신용)정보 이용 및 제3자 제공 동의서[KCB대안신용평가모델]")
+            print("비교대출 약관 Cm 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Cm 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Cm_fail')
+        except Exception as e:
+            print("비교대출 약관 Cm 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Cm_error')
+        base.android_Back()
+        comparisonloan.loan_Terms_And_Conditions_D()
+        try:
+            comparisonloan.loan_Terms_And_Conditions_Da()
+            Result_Da = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Da_result)
+            self.assertEqual(Result_Da.text, "개인정보 제3자 제공 동의(대출안심플랜)")
+            print("비교대출 약관 Da 진입 : PASS")
+            results_a.append("PASS")
+        except AssertionError:
+            print("비교대출 약관 Da 진입 : FAIL")
+            results_a.append("FAIL")
+            base.save_screenshot('비교대출약관Da_fail')
+        except Exception as e:
+            print("비교대출 약관 Da 진입 에러 발생 : {}".format(str(e)))
+            results_a.append("Error")
+            base.save_screenshot('비교대출약관Da_error')
+        base.android_Back()
+        print(results_a)
+        if all(result == "PASS" for result in results_a):
+            print("비교대출 약관 진입 결과 : PASS")
+            loanresult.reports.append("비교대출 약관 진입 결과 : *PASS*")
+        else:
+            print("비교대출 약관 진입 결과 : FAIL")
+            loanresult.reports.append("비교대출 약관 진입 결과 : *FAIL*")
+
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 인증번호 자동 입력 및 재전송 테스트
+    def test_loan_comparison_verification_code(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        comparisonloan.loan_In()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        comparisonloan.loan_Terms_And_Conditions_All()
+        comparisonloan.check_Loan()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        try:
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.comparison_loan_verification_result)
+            self.assertEqual(Result_a.text, "주민등록번호 뒷자리 입력")
+            print("비교대출 인증번호 자동입력 결과 : PASS")
+            loanresult.reports.append("비교대출 인증번호 자동입력 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 인증번호 자동입력 결과 : FAIL")
+            loanresult.reports.append("비교대출 인증번호 자동입력 결과 : *FAIL*")
+            base.save_screenshot('비교대출인증번호자동입력_fail')
+        except Exception as e:
+            print("비교대출 인증번호 자동입력 결과 에러 발생 : {}".format(str(e)))
+            loanresult.reports.append("비교대출 인증번호 자동입력 결과 : *Error*")
+            base.save_screenshot('비교대출인증번호자동입력_error')
+        base.android_Back()
+        base.android_Back()
+        comparisonloan.comparison_Loan_Verification_Resend()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        try:
+            Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.comparison_loan_verification_result)
+            self.assertEqual(Result_b.text, "주민등록번호 뒷자리 입력")
+            print("비교대출 인증번호 재요청 결과 : PASS")
+            loanresult.reports.append("비교대출 인증번호 재요청 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 인증번호 재요청 결과 : FAIL")
+            loanresult.reports.append("비교대출 인증번호 재요청 결과 : *FAIL*")
+            base.save_screenshot('비교대출인증번호재요청_fail')
+        except Exception as e:
+            print("비교대출 인증번호 재요청 결과 에러 발생 : {}".format(str(e)))
+            loanresult.reports.append("비교대출 인증번호 재요청 결과 : *Error*")
+            base.save_screenshot('비교대출인증번호재요청_error')
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 주민번호 적합서 검사 테스트
+    def test_rrn_Validation_Check(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        results = []
+        comparisonloan = ComparisonLoan()
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        comparisonloan.loan_In()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        comparisonloan.loan_Terms_And_Conditions_All()
+        comparisonloan.check_Loan()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        comparisonloan.rrn_Fail_Input()
+        comparisonloan.next_Loan()
+        try:
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.rrn_validation_fail_result)
+            self.assertEqual(Result_a.text, "주민등록번호를 다시 한 번 확인해주세요.")
+            print("비교대출 주민등록번호 적합성 실패 결과 : PASS")
+            results.append("PASS")
+        except AssertionError:
+            print("비교대출 주민등록번호 적합성 실패 결과 : FAIL")
+            results.append("FAIL")
+            base.save_screenshot('비교대출주민번호적합성실패_fail')
+        except Exception as e:
+            print("비교대출 주민등록번호 적합성 실패 결과 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('비교대출주민번호적합성실패_error')
+        comparisonloan.check_Loan()
+        base.android_Back()
+        comparisonloan.comparison_Loan_Verification_Resend()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        comparisonloan.rrn_Pass_Input()
+        comparisonloan.next_Loan()
+        try:
+            Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.rrn_validation_pass_result)
+            self.assertEqual(Result_b.text, "소득 정보 입력")
+            print("비교대출 주민등록번호 적합성 성공 결과 : PASS")
+            results.append("PASS")
+        except AssertionError:
+            print("비교대출 주민등록번호 적합성 성공 결과 : FAIL")
+            results.append("FAIL")
+            base.save_screenshot('비교대출주민번호적합성성공_fail')
+        except Exception as e:
+            print("비교대출 주민등록번호 적합성 성공 결과 에러 발생 : {}".format(str(e)))
+            results.append("Error")
+            base.save_screenshot('비교대출주민번호적합성성공_error')
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("비교대출 주민등록번호 적합성 검사 결과 : PASS")
+            loanresult.reports.append("비교대출 주민등록번호 적합성 검사 결과 : *PASS*")
+        else:
+            print("비교대출 주민등록번호 적합성 검사 결과 : FAIL")
+            loanresult.reports.append("비교대출 주민등록번호 적합성 검사 결과 : *FAIL*")
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
+
+
+
+
+class test_Testcase(unittest.TestCase):
+
+    def test_test(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+
 
 
 if __name__ == '__main__':

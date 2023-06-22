@@ -16,7 +16,6 @@ class Auto_Loan:
         self.loan = Loan()
         self.info = InFo()
 
-
     # 자동차 대출 약관
     def autoLoan_Terms_Of_Use(self):
         auto_loan_inquiry = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_inquiry)
@@ -116,6 +115,8 @@ class Auto_Loan:
         time.sleep(1)
         WebDriver.driver.press_keycode(9)
         time.sleep(2)
+
+    #오토론 연소득 입력
     def auto_Loan_Annual_Income(self):
         auto_loan_annual_income = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_annual_income)
         auto_loan_annual_income.click()

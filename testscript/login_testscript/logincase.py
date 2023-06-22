@@ -20,19 +20,6 @@ class JoIn:
         self.info = InFo()
         self.base = basemethod()
         self.etc = Etc()
-        # desired_caps = {
-        #     "appium:device": self.info.devices,
-        #     "platformName": "Android",
-        #     "appium:ensureWebviewsHavePages": True,
-        #     "appium:nativeWebScreenshot": True,
-        #     "appium:newCommandTimeout": 3600,
-        #     "appium:connectHardwareKeyboard": True,
-        #     'appActivity': '.ui.splash.SplashActivity',
-        #     'noReset': 'true',
-        #     "appPackage": "kr.co.finda.finda"
-        #     # "appActivity": "kr.co.finda.finda.ui.main.MainActivity"
-        # }
-        # self.wd = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
 
     #다음버튼 선택
     def join_Next(self):
@@ -46,18 +33,10 @@ class JoIn:
             ['adb', 'shell', 'am', 'force-stop', f'{"kr.co.finda.finda"}'])
         time.sleep(3)
 
-        # WebDriver_B.set_run_with_app(True)
-        # WebDriver_B.quit()
-        # WebDriver_B.set_run_with_app(False)
-
     # 앱 실행
     def appStart(self):
         self.result = subprocess.run(['adb', 'shell', 'am', 'start', '-n',f'{"kr.co.finda.finda"}/{".ui.splash.SplashActivity"}'])
         time.sleep(5)
-        # FindaApp = WebDriver.driver.find_element(MobileBy.XPATH, self.main.findaapp)
-        # FindaApp.click()
-        # time.sleep(5)
-
 
     # 핀코드 입력
     def pinCode(self):
