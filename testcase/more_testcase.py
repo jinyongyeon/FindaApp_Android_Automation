@@ -363,7 +363,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.change_Loan()
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.change_loan_Result_a)
-            self.assertEqual(Result_A.text,"매주 한도조회하면 내 레벨도 함께 높아져요")
+            self.assertEqual(Result_A.text,"내 대출 계좌 연결하기")
             print("30일 대출 챌린지 진입 : PASS")
             moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
         except AssertionError:

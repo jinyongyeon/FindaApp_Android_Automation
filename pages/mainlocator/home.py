@@ -11,7 +11,7 @@ class Home:
     loans_e = '//*[@text = "대출 이어서 진행하기"]'
 
     # 마이홈 대출진단 배너
-    loandiagnosisbanner_a = '//*[@text = "30일 안에 대출 갈아타기\n지금 도전하세요"]'
+    loandiagnosisbanner_a = '//*[@text = "30일 대출 챌린지\n지금 도전하세요"]'
     loandiagnosisbanner_aa = '//*[@text = "챌린지 시작하기"]'
     loandiagnosisbanner_b = '//*[@text = "늘어난 대출이자에\n힘드신가요?"]'
     loandiagnosisbanner_bb = '//*[@text = "클릭 한번에 대출 관리 시작하기"]'

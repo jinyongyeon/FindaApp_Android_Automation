@@ -102,7 +102,7 @@ class Etc:
     change_loan = '//*[@text = "30일 대출 챌린지"]'
 
     # 30일 안에 대출 갈아타기 결과
-    change_loan_Result_a = '//*[@text = "매주 한도조회하면 내 레벨도 함께 높아져요"]'
+    change_loan_Result_a = '//*[@text = "내 대출 계좌 연결하기"]'
     change_loan_Result_b = '//*[@text = "30일 대환 챌린지 Beta"]'
 
     # 30일 안에 대출 갈아타기 뒤로가기

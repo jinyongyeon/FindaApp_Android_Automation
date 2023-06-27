@@ -1,6 +1,6 @@
 import time
 
-import requests
+
 from appium.webdriver.common.mobileby import MobileBy
 
 
@@ -202,6 +202,7 @@ class ComparisonLoan:
         comparison_loan_verification_resend.click()
         time.sleep(2)
 
+    # 잘못된 주민번호 뒷자리 입력
     def rrn_Fail_Input(self):
         WebDriver.driver.press_keycode(8)
         time.sleep(1)
@@ -218,6 +219,7 @@ class ComparisonLoan:
         WebDriver.driver.press_keycode(14)
         time.sleep(1)
 
+    # 정상적인 주민번호 뒷자리 입력
     def rrn_Pass_Input(self):
         WebDriver.driver.press_keycode(8)
         time.sleep(1)
@@ -233,3 +235,114 @@ class ComparisonLoan:
         time.sleep(1)
         WebDriver.driver.press_keycode(9)
         time.sleep(2)
+
+    # 소득 정보 직장인선택
+    def office_Workers(self):
+        office_workers = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.office_workers)
+        office_workers.click()
+        time.sleep(2)
+
+    # 직장명 핀다 입력
+    def company_Name_Input(self):
+        company_name_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_name_input)
+        company_name_input.send_keys("핀다")
+
+    #검색 버튼 선택
+    def search(self):
+        search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
+        search.click()
+        time.sleep(3)
+
+    # 핀다선택
+    def company_Number(self):
+        company_number = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_number)
+        company_number.click()
+        time.sleep(3)
+
+    def full_Time(self):
+        full_time = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.full_time)
+        full_time.click()
+        time.sleep(2)
+
+    def workplace_Insurance(self):
+        workplace_insurance = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.workplace_insurance)
+        workplace_insurance.click()
+        time.sleep(3)
+
+    def annual_Income_Input(self):
+        # annual_income = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.annual_income)
+        # annual_income.click()
+        WebDriver.driver.press_keycode(14)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+
+    def my_House_APT(self):
+        my_house = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.my_house)
+        my_house.click()
+        time.sleep(2)
+        APT = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.APT)
+        APT.click()
+        time.sleep(2)
+
+    def address_Search(self):
+        address_search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_search)
+        address_search.click()
+        time.sleep(2)
+        address_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_input)
+        address_input.send_keys("한강메트로자이")
+        search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
+        search.click()
+        home_address = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.home_address)
+        home_address.click()
+        area = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.area)
+        area.click()
+
+    def no_Certificate(self):
+        no_certificate = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.no_certificate)
+        no_certificate.click()
+        time.sleep(100)
+
+    def type_Of_Loan(self):
+        type_of_loan = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.type_of_loan)
+        type_of_loan.click()
+        time.sleep(2)
+
+    def secured_Loan(self):
+        try:
+            secured_loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a)
+            secured_loan_a.click()
+            time.sleep(2)
+            secured_loan_a_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a_look)
+            secured_loan_a_look.click()
+            time.sleep(3)
+        except:
+            try:
+                secured_loan_b = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_b)
+                secured_loan_b.click()
+                time.sleep(2)
+                secured_loan_b_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_b_look)
+                secured_loan_b_look.click()
+                time.sleep(3)
+            except:
+                try:
+                    secured_loan_c = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_c)
+                    secured_loan_c.click()
+                    time.sleep(2)
+                    secured_loan_c_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_c_look)
+                    secured_loan_c_look.click()
+                    time.sleep(3)
+                except:
+                    try:
+                        secured_loan_d = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_d)
+                        secured_loan_d.click()
+                        time.sleep(2)
+                        secured_loan_d_look = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.secured_loan_d_look)
+                        secured_loan_d_look.click()
+                        time.sleep(3)
+                    except:
+                        print("주택 담보대출 없음")

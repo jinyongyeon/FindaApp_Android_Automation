@@ -1040,7 +1040,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 인증번호 자동 입력 및 재전송 테스트
-    def test_loan_comparison_verification_code(self):
+    def test_loan_Comparison_Verification_Code(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1195,6 +1195,107 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
 
+    # 비교대출 후담대 조회 및 열람 테스트
+    def test_loan_Comparison_APT_Secured_Loan(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        comparisonloan.loan_In()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        comparisonloan.loan_Terms_And_Conditions_All()
+        comparisonloan.check_Loan()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        comparisonloan.rrn_Pass_Input()
+        comparisonloan.next_Loan()
+        comparisonloan.office_Workers()
+        comparisonloan.company_Name_Input()
+        comparisonloan.search()
+        base.scroll(1)
+        comparisonloan.company_Number()
+        comparisonloan.full_Time()
+        comparisonloan.check_Loan()
+        comparisonloan.workplace_Insurance()
+        comparisonloan.annual_Income_Input()
+        comparisonloan.check_Loan()
+        comparisonloan.my_House_APT()
+        comparisonloan.check_Loan()
+        comparisonloan.address_Search()
+        comparisonloan.check_Loan()
+        comparisonloan.no_Certificate()
+        verification_list = [("최저금리", loan.safe_number_result_a),
+                             ("최대한도", loan.safe_number_result_b),
+                             ("오늘입금", loan.safe_number_result_c),
+                             ("계좌개설 없음", loan.safe_number_result_d),
+                             ("금리 낮은순", loan.safe_number_result_e)]
+        for text, xpath in verification_list:
+            try:
+                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result.text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception:
+                results.append("Error")
+
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("안심번호 결과 : PASS")
+            loanresult.reports.append("안심번호 결과 : *PASS*")
+        else:
+            print("안심번호 결과 : FAIL")
+            loanresult.reports.append("안심번호 결과 : *FAIL*")
+            base.save_screenshot('안심번호결과_fail')
+        comparisonloan.type_Of_Loan()
+        comparisonloan.secured_Loan()
+        try:
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.secured_loan_result_a)
+            self.assertEqual(Result_a.text, "아파트담보대출")
+            print("비교대출 후담대 조회 및 열람 결과 : PASS")
+            loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 후담대 조회 및 열람 결과 : FAIL")
+            loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *FAIL*")
+            base.save_screenshot('비교대출후담대결과_fail')
+        except Exception:
+            try:
+                Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.secured_loan_result_b)
+                self.assertEqual(Result_b.text, "주택담보대출")
+                print("비교대출 후담대 조회 및 열람 결과 : PASS")
+                loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *PASS*")
+            except AssertionError:
+                print("비교대출 후담대 조회 및 열람 결과 : FAIL")
+                loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *FAIL*")
+                base.save_screenshot('비교대출후담대결과_fail')
+            except Exception as e:
+                print("비교대출 후담대 조회 및 열람 결과 에러 발생 : {}".format(str(e)))
+                loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *Error*")
+                base.save_screenshot('비교대출후담대결과_error')
+
 
 
 
@@ -1209,6 +1310,15 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
+
+
+
+
+
+
+
+
+
 
 
 

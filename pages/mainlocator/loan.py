@@ -171,3 +171,50 @@ class Loan:
     rrn_validation_fail_result = '//*[@text = "주민등록번호를 다시 한 번 확인해주세요."]'
     rrn_validation_pass_result = '//*[@text = "소득 정보 입력"]'
 
+    # 소득정보 : 직장인
+    office_workers = '//*[@text = "직장인"]'
+    company_name_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText'
+    search = '//*[@text = "검색"]'
+    company_number = '//*[@text = "1618700209"]'
+    full_time = '//*[@text = "정규직"]'
+    workplace_insurance = '//*[@text = "직장의료보험"]'
+    annual_income = '//*[@text = "연소득(세전) 입력"]'
+
+    #후담대 정보
+    my_house = '//*[@text = "자가"]'
+    APT = '//*[@text = "아파트에요"]'
+    address_search = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]'
+    address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.EditText'
+    home_address = '//*[@text = "김포시 걸포동 한강메트로자이2단지"]'
+    area = '//*[@text = "45 평 (149.00 ㎡)"]'
+
+    no_certificate = '//*[@text = "인증서 없이 대출 조회하기"]'
+
+    #대출 종류
+    type_of_loan = '//*[@text = "대출종류"]'
+
+    #주택담보대출
+    secured_loan_a = '//*[@text = "주택 담보대출 1"]'
+    secured_loan_a_look = '//*[@text = "1개 결과 보기"]'
+    secured_loan_b = '//*[@text = "주택 담보대출 2"]'
+    secured_loan_b_look = '//*[@text = "2개 결과 보기"]'
+    secured_loan_c = '//*[@text = "주택 담보대출 3"]'
+    secured_loan_c_look = '//*[@text = "3개 결과 보기"]'
+    secured_loan_d = '//*[@text = "주택 담보대출 4"]'
+    secured_loan_d_look = '//*[@text = "4개 결과 보기"]'
+
+    secured_loan_result_a = '//*[@text = "아파트담보대출"]'
+    secured_loan_result_b = '//*[@text = "주택담보대출"]'
+
+    safe_number_result_a = '//*[@text = "최저금리"]'
+    safe_number_result_b = '//*[@text = "최대한도"]'
+    safe_number_result_c = '//*[@text = "오늘입금"]'
+    safe_number_result_d = '//*[@text = "계좌개설 없음"]'
+    safe_number_result_e = '//*[@text = "금리 낮은순"]'
+
+
+
+
+
+
+
