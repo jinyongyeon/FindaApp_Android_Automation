@@ -3,7 +3,7 @@ from pages.basemethod.slackreports import SlackWebHook
 
 import unittest
 
-from testcase.loan_testcase import Auto_Loan_Testcase
+from testcase.loan_testcase import Auto_Loan_Testcase, Loan_Comparison_Testcase
 from testcase.login_testcase import LoginTestCase, JoInTestCase
 from testcase.more_testcase import MoreTestcase_A
 from testcase.more_testcase import MoreTestcase_B
@@ -66,6 +66,14 @@ suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_Application'))
 suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_New_UsedCar'))
 suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_existing_NewCar'))
 suite.addTest(Auto_Loan_Testcase('test_Auto_Loan_existing_UsedCar'))
+suite.addTest(Loan_Comparison_Testcase('test_loan_Terms_And_Conditions'))
+suite.addTest(Loan_Comparison_Testcase('test_loan_Comparison_Verification_Code'))
+suite.addTest(Loan_Comparison_Testcase('test_rrn_Validation_Check'))
+suite.addTest(Loan_Comparison_Testcase('test_loan_Comparison_APT_Secured_Loan'))
+suite.addTest(Loan_Comparison_Testcase('test_office_Worker_Loan_No_Certificate'))
+suite.addTest(Loan_Comparison_Testcase('test_Unemployed_Loan'))
+suite.addTest(Loan_Comparison_Testcase('test_Auto_Loan_In'))
+
 
 runner = unittest.TextTestRunner()
 runner.run(suite)
@@ -87,6 +95,7 @@ print(resultjoin)
 print(resultmyhome)
 print(resultmore)
 print(resultautoloan)
+
 
 print(SlackWebHook.join_SendSlackWebHook(resultjoin))
 print(SlackWebHook.myHome_SendSlackWebHook(resultmyhome))

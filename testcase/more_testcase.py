@@ -767,6 +767,35 @@ class MoreTestcase_B(unittest.TestCase):
         except:
             base.android_Back()
 
+    # 청년도약계좌 계산기 진입 테스트
+    def test_youth_Leap_Account(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        base.scroll(0.1)
+        more.youth_Leap_Account()
+        try:
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.youth_leap_account_result)
+            self.assertIn("청년도약계좌 계산기" , Result.text)
+            print("청년도약계좌 계산기 진입 : PASS")
+            moreresult.reports.append("청년도약계좌 계산기 진입 : *PASS*")
+        except AssertionError:
+            print("청년도약계좌 계산기 진입 : FAIL")
+            moreresult.reports.append("청년도약계좌 계산기 진입 : *FAIL*")
+            base.save_screenshot('청년도약계좌계산기진입_fail')
+        except Exception as e:
+            print("청년도약계좌 계산기 진입 에러 발생 : {}".format(str(e)))
+            moreresult.reports.append("청년도약계좌 계산기 진입 : *Error*")
+            base.save_screenshot('청년도약계좌계산기진입_error')
+        base.android_Back()
+
+
+
+
+
+
+
 class MoreTestcase_C(unittest.TestCase):
 
     # @classmethod

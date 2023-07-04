@@ -259,16 +259,25 @@ class ComparisonLoan:
         company_number.click()
         time.sleep(3)
 
+    # 정규직 선택
     def full_Time(self):
         full_time = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.full_time)
         full_time.click()
         time.sleep(2)
 
+    # 보험 정보 입력
+        # 직장의료보험
     def workplace_Insurance(self):
         workplace_insurance = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.workplace_insurance)
         workplace_insurance.click()
         time.sleep(3)
+        # 지역의료보험
+    def region_Insurance(self):
+        region_insurance = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.region_insurance)
+        region_insurance.click()
+        time.sleep(3)
 
+    # 연봉정보 입력
     def annual_Income_Input(self):
         # annual_income = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.annual_income)
         # annual_income.click()
@@ -281,6 +290,13 @@ class ComparisonLoan:
         WebDriver.driver.press_keycode(7)
         time.sleep(1)
 
+    # 전/월세 선택
+    def monthly_Rent(self):
+        monthly_rent = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.monthly_rent)
+        monthly_rent.click()
+        time.sleep(2)
+
+    # 후담대 선택
     def my_House_APT(self):
         my_house = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.my_house)
         my_house.click()
@@ -289,6 +305,7 @@ class ComparisonLoan:
         APT.click()
         time.sleep(2)
 
+    # 아파트 검색
     def address_Search(self):
         address_search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_search)
         address_search.click()
@@ -302,16 +319,19 @@ class ComparisonLoan:
         area = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.area)
         area.click()
 
+    # 인증서 없이 결과 조회하기
     def no_Certificate(self):
         no_certificate = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.no_certificate)
         no_certificate.click()
         time.sleep(100)
 
+    # 대출 종류필터 선택
     def type_Of_Loan(self):
         type_of_loan = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.type_of_loan)
         type_of_loan.click()
         time.sleep(2)
 
+    # 주택 담보대출 필터 선택
     def secured_Loan(self):
         try:
             secured_loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a)
@@ -346,3 +366,31 @@ class ComparisonLoan:
                         time.sleep(3)
                     except:
                         print("주택 담보대출 없음")
+
+    # 조회 결과 페이지 > 다시 조회하기 선택
+    def lookup_Again(self):
+        lookup_again = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.lookup_again)
+        lookup_again.click()
+        time.sleep(2)
+        lookup_again_a = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.lookup_again_a)
+        lookup_again_a.click()
+        time.sleep(2)
+
+    # 기타(무직, 주부등..)선택
+    def unemployed(self):
+        unemployed = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.unemployed)
+        unemployed.click()
+        time.sleep(2)
+        unemployed_a = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.unemployed_a)
+        unemployed_a.click()
+        time.sleep(2)
+
+    # 자동차 구입 선택
+    def auto_Loan_In(self):
+        auto_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan)
+        auto_loan.click()
+        time.sleep(2)
+        auto_loan_In = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_In)
+        auto_loan_In.click()
+        time.sleep(2)
+

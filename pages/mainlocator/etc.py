@@ -214,6 +214,10 @@ class Etc:
     # 계산기 > 대출 갈아타기 계산기 뒤로가기
     refinancing_loan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ListView/android.view.View/android.widget.Button'
 
+    # 계산기 > 청년도약계좌 계산기
+    youth_leap_account = '//*[@text = "청년도약계좌 계산기"]'
+    youth_leap_account_result = '//*[@text = "청년도약계좌 계산기"]'
+
     # 부가서비스 > 장기렌트 리스 진입
     lease_rent = '//*[@text = "장기렌트 리스"]'
 

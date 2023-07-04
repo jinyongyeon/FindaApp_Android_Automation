@@ -1,11 +1,26 @@
+# import os
+from multiprocessing import Process
+# from appium.webdriver.appium_service import AppiumService
 
-from drivers.aos_webdrivers import WebDriver
-from testscript.login_testscript.logincase import JoIn
+from pages.basemethod.base import basemethod
 
-webdriver = WebDriver()
-join = JoIn()
+base = basemethod()
+process = Process(target=base.appium_Run)
+
+# 프로세스를 시작합니다.
+process.start()
+
+# 병렬로 실행되는 동안 다른 작업을 수행할 수 있습니다.
+
+# 프로세스가 종료될 때까지 대기합니다.
+# process.join()
+# import subprocess
+
+# from appium.webdriver.appium_service import AppiumService
 
 
-join.appStart()
 
-print("test")
+
+
+# print(appium_Run())
+# print("test")

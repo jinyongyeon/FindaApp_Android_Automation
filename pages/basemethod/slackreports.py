@@ -61,14 +61,14 @@ class SlackWebHook:
             return 'error'
 
 
-    # 오토론 테스트 결과
+    # 비교대출+오토론 테스트 결과
     def autoloan_SendSlackWebHook(data):
         headers = {
             'Content-type': 'application/json'
         }
 
         data = {
-            'text': "*\n\n\n4.[AOS]오토론 테스트 결과*\n\n\n" + data
+            'text': "*\n\n\n4.[AOS]비교대출+오토론 테스트 결과*\n\n\n" + data
         }
 
         res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
@@ -77,3 +77,4 @@ class SlackWebHook:
             return 'ok'
         else:
             return 'error'
+

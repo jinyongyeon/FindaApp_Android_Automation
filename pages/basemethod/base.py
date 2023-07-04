@@ -1,8 +1,10 @@
 import time
 import re
 import json
+import subprocess
 
 import requests
+from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
 from appium import webdriver
 import os
@@ -22,8 +24,9 @@ class basemethod:
         self.info = InFo()
         self.main = Main()
 
-
-
+    def appium_Run(self):
+        appium_service = AppiumService()
+        appium_service.start(args=['-a', '127.0.0.1', '-p', '4724', '-pa', '/wd/hub'])
 
     def android_Back(self):
         self.driver.press_keycode(4)

@@ -7,6 +7,7 @@ from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.base import basemethod
 from pages.basemethod.result import Result_loan
+from pages.mainlocator.etc import Etc
 from pages.mainlocator.loan import Loan
 from testscript.loan_testscript.auto_loan import Auto_Loan
 from testscript.loan_testscript.loan_comparison import ComparisonLoan
@@ -1038,6 +1039,9 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
         base.android_Back()
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
 
     # 비교대출 인증번호 자동 입력 및 재전송 테스트
     def test_loan_Comparison_Verification_Code(self):
@@ -1073,6 +1077,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         comparisonloan.check_Loan()
         time.sleep(5)
         comparisonloan.next_Loan()
+        time.sleep(5)
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.comparison_loan_verification_result)
             self.assertEqual(Result_a.text, "주민등록번호 뒷자리 입력")
@@ -1091,6 +1096,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         comparisonloan.comparison_Loan_Verification_Resend()
         time.sleep(5)
         comparisonloan.next_Loan()
+        time.sleep(5)
         try:
             Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.comparison_loan_verification_result)
             self.assertEqual(Result_b.text, "주민등록번호 뒷자리 입력")
@@ -1110,6 +1116,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
         base.android_Back()
+        base.android_Back()
 
     # 비교대출 주민번호 적합서 검사 테스트
     def test_rrn_Validation_Check(self):
@@ -1122,6 +1129,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         myhome = MyHome()
         results = []
         comparisonloan = ComparisonLoan()
+        time.sleep(3)
         try:
             myhome.comPariSonLoan_In_a()
         except :
@@ -1148,6 +1156,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         comparisonloan.next_Loan()
         comparisonloan.rrn_Fail_Input()
         comparisonloan.next_Loan()
+        time.sleep(3)
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.rrn_validation_fail_result)
             self.assertEqual(Result_a.text, "주민등록번호를 다시 한 번 확인해주세요.")
@@ -1166,8 +1175,10 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         comparisonloan.comparison_Loan_Verification_Resend()
         time.sleep(5)
         comparisonloan.next_Loan()
+        time.sleep(3)
         comparisonloan.rrn_Pass_Input()
         comparisonloan.next_Loan()
+        time.sleep(3)
         try:
             Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.rrn_validation_pass_result)
             self.assertEqual(Result_b.text, "소득 정보 입력")
@@ -1194,8 +1205,10 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
         base.android_Back()
+        base.android_Back()
 
-    # 비교대출 후담대 조회 및 열람 테스트
+
+    # 비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트
     def test_loan_Comparison_APT_Secured_Loan(self):
         loan = Loan()
         base = basemethod()
@@ -1247,6 +1260,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         comparisonloan.address_Search()
         comparisonloan.check_Loan()
         comparisonloan.no_Certificate()
+        time.sleep(3)
         verification_list = [("최저금리", loan.safe_number_result_a),
                              ("최대한도", loan.safe_number_result_b),
                              ("오늘입금", loan.safe_number_result_c),
@@ -1266,12 +1280,17 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         if all(result == "PASS" for result in results):
             print("안심번호 결과 : PASS")
             loanresult.reports.append("안심번호 결과 : *PASS*")
+            print("직장인 대출 조회 (직장의료보험 선택) -인증서 사용안함 결과 : PASS")
+            loanresult.reports.append("직장인 대출 조회 (직장의료보험 선택) -인증서 사용안함 결과 : *PASS*")
         else:
             print("안심번호 결과 : FAIL")
             loanresult.reports.append("안심번호 결과 : *FAIL*")
-            base.save_screenshot('안심번호결과_fail')
+            print("직장인 대출 조회 (직장의료보험 선택) -인증서 사용안함 결과 : FAIL")
+            loanresult.reports.append("직장인 대출 조회 (직장의료보험 선택) -인증서 사용안함 결과 : *FAIL*")
+            base.save_screenshot('안심번호결과&직장인대출조회_인증서사용안함_fail')
         comparisonloan.type_Of_Loan()
         comparisonloan.secured_Loan()
+        time.sleep(3)
         try:
             Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.secured_loan_result_a)
             self.assertEqual(Result_a.text, "아파트담보대출")
@@ -1295,7 +1314,222 @@ class Loan_Comparison_Testcase(unittest.TestCase):
                 print("비교대출 후담대 조회 및 열람 결과 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *Error*")
                 base.save_screenshot('비교대출후담대결과_error')
+        base.android_Back()
+        base.android_Back()
 
+
+    # 직장인 대출 조회  (지역의료보험 선택) 테스트
+    def test_office_Worker_Loan_No_Certificate(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        base.scroll(2)
+        base.scroll(2)
+        base.scroll(2)
+        comparisonloan.lookup_Again()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        comparisonloan.loan_Terms_And_Conditions_All()
+        comparisonloan.check_Loan()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        comparisonloan.rrn_Pass_Input()
+        comparisonloan.next_Loan()
+        comparisonloan.office_Workers()
+        comparisonloan.company_Name_Input()
+        comparisonloan.search()
+        base.scroll(1)
+        comparisonloan.company_Number()
+        comparisonloan.full_Time()
+        comparisonloan.check_Loan()
+        comparisonloan.region_Insurance()
+        comparisonloan.annual_Income_Input()
+        comparisonloan.check_Loan()
+        comparisonloan.monthly_Rent()
+        comparisonloan.check_Loan()
+        time.sleep(100)
+        verification_list = [("최저금리", loan.safe_number_result_a),
+                             ("최대한도", loan.safe_number_result_b),
+                             ("오늘입금", loan.safe_number_result_c),
+                             ("계좌개설 없음", loan.safe_number_result_d),
+                             ("금리 낮은순", loan.safe_number_result_e)]
+        for text, xpath in verification_list:
+            try:
+                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result.text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception:
+                results.append("Error")
+
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("직장인 대출 조회  (지역의료보험 선택) 결과 : PASS")
+            loanresult.reports.append("직장인 대출 조회  (지역의료보험 선택) 결과 : *PASS*")
+        else:
+            print("직장인 대출 조회  (지역의료보험 선택) 결과 : FAIL")
+            loanresult.reports.append("직장인 대출 조회  (지역의료보험 선택) 결과 : *FAIL*")
+            base.save_screenshot('직장인대출조회(지역의료보험선택)_fail')
+        base.android_Back()
+        base.android_Back()
+
+    # 직장인 외 대출 조회
+    def test_Unemployed_Loan(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except:
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except:
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        base.scroll(2)
+        base.scroll(2)
+        base.scroll(2)
+        comparisonloan.lookup_Again()
+        comparisonloan.living_Expenses()
+        comparisonloan.next_Loan()
+        comparisonloan.next_Loan()
+        comparisonloan.loan_Terms_And_Conditions_All()
+        comparisonloan.check_Loan()
+        time.sleep(5)
+        comparisonloan.next_Loan()
+        comparisonloan.rrn_Pass_Input()
+        comparisonloan.next_Loan()
+        comparisonloan.unemployed()
+        comparisonloan.check_Loan()
+        comparisonloan.monthly_Rent()
+        comparisonloan.check_Loan()
+        time.sleep(100)
+        verification_list = [("최저금리", loan.safe_number_result_a),
+                             ("최대한도", loan.safe_number_result_b),
+                             ("오늘입금", loan.safe_number_result_c),
+                             ("계좌개설 없음", loan.safe_number_result_d),
+                             ("금리 낮은순", loan.safe_number_result_e)]
+        for text, xpath in verification_list:
+            try:
+                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result.text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception:
+                results.append("Error")
+
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("직장인 외 대출 조회 결과 : PASS")
+            loanresult.reports.append("직장인 외 대출 조회 결과 : *PASS*")
+        else:
+            print("직장인 외 대출 조회 결과 : FAIL")
+            loanresult.reports.append("직장인 외 대출 조회 결과 : *FAIL*")
+            base.save_screenshot('직장인외대출조회_fail')
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 내 자동차대출 선택 시 오토론 이동
+    def test_Auto_Loan_In(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        info = InFo()
+        etc = Etc()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except:
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except:
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        base.scroll(2)
+        base.scroll(2)
+        base.scroll(2)
+        comparisonloan.lookup_Again()
+        time.sleep(3)
+        comparisonloan.auto_Loan_In()
+        time.sleep(3)
+        try:
+            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_a)
+            self.assertEqual(Result_A.text,"1분만에 내 한도 알아보기")
+            print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : PASS")
+            loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : FAIL")
+            loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *FAIL*")
+            base.save_screenshot('자동차대출선택시오토론이동결과_fail')
+        except Exception:
+            try:
+                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
+                self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
+                print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : PASS")
+                loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *PASS*")
+            except AssertionError:
+                print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : FAIL")
+                loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *FAIL*")
+                base.save_screenshot('자동차대출선택시오토론이동결과_fail')
+            except Exception as e:
+                print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : {}".format(str(e)))
+                loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *Error*")
+                base.save_screenshot('자동차대출선택시오토론이동결과_error')
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
 
 
 
@@ -1310,8 +1544,12 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-
-
+        try:
+            a= WebDriver.driver.find_element(MobileBy.XPATH,loan.a)
+            # a.click()
+            print(a)
+        except :
+            print("실패")
 
 
 

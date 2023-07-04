@@ -327,6 +327,13 @@ class More:
         refinancing_loan_back.click()
         time.sleep(2)
 
+    # 계산기 > 청년도약계좌 계산기 진입
+    def youth_Leap_Account(self):
+        youth_leap_account = WebDriver.driver.find_element(MobileBy.XPATH, Etc.youth_leap_account)
+        youth_leap_account.click()
+        time.sleep(2)
+
+
     # 부가서비스 > 장기렌트 리스 진입
     def lease_Rent(self):
         lease_rent = WebDriver.driver.find_element(MobileBy.XPATH, Etc.lease_rent)

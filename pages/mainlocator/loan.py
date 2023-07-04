@@ -88,8 +88,12 @@ class Loan:
     # 비교대출 온보딩페이지 CTA버튼
     loan_in = '//*[@text = "오늘의 내 최저금리 알아보기"]'
 
-    # 대출 목적 생활비
+    # 대출 목적
+    #생활비
     living_expenses = '//*[@text = "생활비"]'
+    # 자동차 구입
+    auto_loan = '//*[@text = "자동차구입"]'
+    auto_loan_In = '//*[@text = "이동"]'
 
     # 대출 희망 금액
     loan_amount = '//*[@text = "희망 금액 입력"]'
@@ -178,10 +182,13 @@ class Loan:
     company_number = '//*[@text = "1618700209"]'
     full_time = '//*[@text = "정규직"]'
     workplace_insurance = '//*[@text = "직장의료보험"]'
+    region_insurance = '//*[@text = "지역의료보험"]'
+
     annual_income = '//*[@text = "연소득(세전) 입력"]'
 
     #후담대 정보
     my_house = '//*[@text = "자가"]'
+    monthly_rent = '//*[@text = "전/월세"]'
     APT = '//*[@text = "아파트에요"]'
     address_search = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]'
     address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.EditText'
@@ -203,18 +210,27 @@ class Loan:
     secured_loan_d = '//*[@text = "주택 담보대출 4"]'
     secured_loan_d_look = '//*[@text = "4개 결과 보기"]'
 
+    #후담대 조회 결과
     secured_loan_result_a = '//*[@text = "아파트담보대출"]'
     secured_loan_result_b = '//*[@text = "주택담보대출"]'
 
+    # 대출조회 결과
     safe_number_result_a = '//*[@text = "최저금리"]'
     safe_number_result_b = '//*[@text = "최대한도"]'
     safe_number_result_c = '//*[@text = "오늘입금"]'
     safe_number_result_d = '//*[@text = "계좌개설 없음"]'
     safe_number_result_e = '//*[@text = "금리 낮은순"]'
 
+    # 다시 조회하기
+    lookup_again = '//*[@text = "다시 조회하기"]'
+    lookup_again_a= '//*[@text = "다시 대출 알아보기"]'
+
+    # 기타(무직,주부등..)
+    unemployed = '//*[@text = "기타"]'
+    unemployed_a = '//*[@text = "연소득이 없어요."]'
 
 
-
+    a = '//*[contains(text(), "심의필")]'
 
 
 
