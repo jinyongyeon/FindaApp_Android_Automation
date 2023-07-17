@@ -1207,7 +1207,6 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
 
-
     # 비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트
     def test_loan_Comparison_APT_Secured_Loan(self):
         loan = Loan()
@@ -1316,7 +1315,6 @@ class Loan_Comparison_Testcase(unittest.TestCase):
                 base.save_screenshot('비교대출후담대결과_error')
         base.android_Back()
         base.android_Back()
-
 
     # 직장인 대출 조회  (지역의료보험 선택) 테스트
     def test_office_Worker_Loan_No_Certificate(self):
@@ -1545,11 +1543,11 @@ class test_Testcase(unittest.TestCase):
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
         try:
-            a= WebDriver.driver.find_element(MobileBy.XPATH,loan.a)
-            # a.click()
-            print(a)
-        except :
-            print("실패")
+            a = WebDriver.driver.find_element(MobileBy.XPATH,loan.a)
+            self.assertIn("심의필",a.text)
+            print("성공")
+        except Exception as e:
+            print("실패 : {}".format(str(e)))
 
 
 

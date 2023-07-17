@@ -230,7 +230,7 @@ class Loan:
     unemployed_a = '//*[@text = "연소득이 없어요."]'
 
 
-    a = '//*[contains(text(), "심의필")]'
-
+    a = "//*[contains(text(), '심의필')]"
+    # a = "//*[@text = '신청 즉시 입금']"
 
 

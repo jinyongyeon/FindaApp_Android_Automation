@@ -246,7 +246,6 @@ class MoreTestcase_A(unittest.TestCase):
                 base.save_screenshot('대출갈아타기진입_error')
         base.android_Back()
 
-
     # 대출 한 번에 비교 진입 테스트
     def test_ComPariSonLoan(self):
         # driver = WebDriver.setUpCalss()
@@ -1061,7 +1060,6 @@ class MoreTestcase_C(unittest.TestCase):
         base.android_Back()
         base.android_Back()
 
-
     # 예적금 비교 진입 테스트
     def test_Deposit_And_Savings(self):
         # driver = WebDriver.setUpCalss()
@@ -1086,7 +1084,6 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('예적금비교진입_error')
 
         base.android_Back()
-
 
     # 핀다 포스트 진입 테스트
     def test_Finda_Post(self):
@@ -1114,7 +1111,6 @@ class MoreTestcase_C(unittest.TestCase):
             more.finda_Post_Back()
         except:
             base.android_Back()
-
 
     # 내 폰 지키미 진입 테스트
     def test_My_Phorn(self):
