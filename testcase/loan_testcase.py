@@ -1427,40 +1427,229 @@ class Loan_Comparison_Testcase(unittest.TestCase):
                         except Exception as e:
                             print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
         try:
-            deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-            deposit_today.click()
+            financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+            financial_sector_a.click()
         except:
             try:
                 base.scroll(0.7)
                 time.sleep(3)
-                deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-                deposit_today.click()
+                financial_sector_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                financial_sector_b.click()
             except:
                 try:
                     base.scroll(0.7)
                     time.sleep(3)
-                    deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-                    deposit_today.click()
+                    financial_sector_c = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                    financial_sector_c.click()
                 except:
                     try:
                         base.scroll(0.7)
                         time.sleep(3)
-                        deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-                        deposit_today.click()
+                        financial_sector_d = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                        financial_sector_d.click()
                     except:
                         try:
                             base.scroll(0.7)
                             time.sleep(3)
-                            deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-                            deposit_today.click()
+                            financial_sector_e = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                            financial_sector_e.click()
                         except:
                             try:
                                 base.scroll(0.7)
                                 time.sleep(3)
-                                deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
-                                deposit_today.click()
+                                financial_sector_f = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                                financial_sector_f.click()
                             except Exception as e:
-                                print("비교대출 오늘입금 태그 대출 상세 진입 실패 : {}".format(str(e)))
+                                print("비교대출 대출상세페이지 진입 실패 : {}".format(str(e)))
+
+        try:
+            time.sleep(4)
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.comparison_loan_detail)
+            self.assertEqual(Result.text, "대출 신청하기")
+            print("비교대출 대출상세페이지 진입 결과 : PASS")
+            loanresult.reports.append("비교대출 대출상세페이지 진입 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 대출상세페이지 진입 결과 : FAIL")
+            loanresult.reports.append("비교대출 대출상세페이지 진입 결과 : *FAIL*")
+            base.save_screenshot('비교대출대출상세페이지진입결과_fail')
+        except Exception as e:
+            print("비교대출 대출상세페이지 진입 결과 : {}".format(str(e)))
+            loanresult.reports.append("비교대출 대출상세페이지 진입 결과 : *Error*")
+            base.save_screenshot('비교대출대출상세페이지진입결과_error')
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트
+    def test_Comparison_Loan_Detail_Certification(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except:
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except:
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        try:
+            financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+            financial_sector_a.click()
+        except:
+            try:
+                base.scroll(0.7)
+                time.sleep(3)
+                financial_sector_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                financial_sector_b.click()
+            except:
+                try:
+                    base.scroll(0.7)
+                    time.sleep(3)
+                    financial_sector_c = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                    financial_sector_c.click()
+                except:
+                    try:
+                        base.scroll(0.7)
+                        time.sleep(3)
+                        financial_sector_d = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                        financial_sector_d.click()
+                    except:
+                        try:
+                            base.scroll(0.7)
+                            time.sleep(3)
+                            financial_sector_e = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                            financial_sector_e.click()
+                        except:
+                            try:
+                                base.scroll(0.7)
+                                time.sleep(3)
+                                financial_sector_f = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                                financial_sector_f.click()
+                            except Exception as e:
+                                print("비교대출 대출상세페이지 진입 실패 : {}".format(str(e)))
+        base.scroll(2)
+        base.scroll(2)
+        base.scroll(2)
+        try:
+            time.sleep(4)
+            Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.certification_a)
+            self.assertIn("심의필" , Result_a.text)
+            print("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
+            loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *PASS*")
+        except:
+            try:
+                time.sleep(4)
+                Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.certification_b)
+                self.assertIn("심사필", Result_b.text)
+                print("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
+                loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *PASS*")
+            except AssertionError:
+                print("비교대출 대출상세페이지_심의필 노출 결과 : FAIL")
+                loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *FAIL*")
+                base.save_screenshot('비교대출대출상세페이지_심의필노출결과_fail')
+            except Exception as e:
+                print("비교대출 대출상세페이지_심의필 노출 결과 : {}".format(str(e)))
+                loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *Error*")
+                base.save_screenshot('비교대출대출상세페이지_심의필노출결과_error')
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 대출신청하기 테스트
+    def test_Loan_Application(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except:
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except:
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        try:
+            financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+            financial_sector_a.click()
+        except:
+            try:
+                base.scroll(0.7)
+                time.sleep(3)
+                financial_sector_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                financial_sector_b.click()
+            except:
+                try:
+                    base.scroll(0.7)
+                    time.sleep(3)
+                    financial_sector_c = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                    financial_sector_c.click()
+                except:
+                    try:
+                        base.scroll(0.7)
+                        time.sleep(3)
+                        financial_sector_d = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                        financial_sector_d.click()
+                    except:
+                        try:
+                            base.scroll(0.7)
+                            time.sleep(3)
+                            financial_sector_e = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                            financial_sector_e.click()
+                        except:
+                            try:
+                                base.scroll(0.7)
+                                time.sleep(3)
+                                financial_sector_f = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+                                financial_sector_f.click()
+                            except Exception as e:
+                                print("비교대출 대출상세페이지 진입 실패 : {}".format(str(e)))
+        time.sleep(5)
+        comparisonloan.loan_Application()
+
+        try:
+            time.sleep(5)
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_application_result)
+            self.assertEqual(Result.text , "안내사항")
+            print("비교대출 대출신청 결과 : PASS")
+            loanresult.reports.append("비교대출 대출신청 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 대출신청 결과 : FAIL")
+            loanresult.reports.append("비교대출 대출신청 결과 : *FAIL*")
+            base.save_screenshot('비교대출대출신청결과_fail')
+        except Exception as e:
+            print("비교대출 대출신청 결과 : {}".format(str(e)))
+            loanresult.reports.append("비교대출 대출신청 결과 : *Error*")
+            base.save_screenshot('비교대출대출신청결과_error')
+        base.android_Back()
+        base.android_Back()
+        base.android_Back()
 
     # 직장인 대출 조회  (지역의료보험 선택) 테스트
     def test_office_Worker_Loan_No_Certificate(self):
@@ -1688,11 +1877,21 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-        # try:
-        #     financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
-        #     financial_sector_a.click()
-        # except:
 
+        try:
+            time.sleep(5)
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_application_result)
+            self.assertEqual(Result.text , "안내사항")
+            print("비교대출 대출신청 결과 : PASS")
+            loanresult.reports.append("비교대출 대출신청 결과 : *PASS*")
+        except AssertionError:
+            print("비교대출 대출신청 결과 : FAIL")
+            loanresult.reports.append("비교대출 대출신청 결과 : *FAIL*")
+            base.save_screenshot('비교대출대출신청결과_fail')
+        except Exception as e:
+            print("비교대출 대출신청 결과 : {}".format(str(e)))
+            loanresult.reports.append("비교대출 대출신청 결과 : *Error*")
+            base.save_screenshot('비교대출대출신청결과_error')
 
 
 

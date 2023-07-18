@@ -230,8 +230,14 @@ class Loan:
     unemployed_a = '//*[@text = "연소득이 없어요."]'
 
 
-    deposit_today = "//*[@text, '오늘입금']"
+    deposit_today = "//*[@text = '오늘입금']"
     financial_sector = "//*[@text = '1금융권']"
+    comparison_loan_detail = "//*[@text = '대출 신청하기']"
+    certification_a = "//*[contains(@text, '심의필')]"
+    certification_b = "//*[contains(@text, '심사필')]"
+    loan_application_result = "//*[contains(@text, '안내')]"
+
+
 
     # a = "//*[@text = '다올저축은행 준법감시인 심의필 제202307-00015호(23.07.11~24.07.10)']"
 

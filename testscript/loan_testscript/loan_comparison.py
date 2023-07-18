@@ -385,6 +385,12 @@ class ComparisonLoan:
         unemployed_a.click()
         time.sleep(2)
 
+    #비교대출 신청하기
+    def loan_Application(self):
+        comparison_loan_detail = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_detail)
+        comparison_loan_detail.click()
+
+
     # 자동차 구입 선택
     def auto_Loan_In(self):
         auto_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan)
