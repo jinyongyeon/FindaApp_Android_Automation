@@ -1316,6 +1316,152 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
         base.android_Back()
 
+    # 오늘 입금 태그 확인 테스트
+    def test_Check_Deposit_Today(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except :
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except :
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        try:
+            Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+            self.assertEqual(Result_A.text, "오늘입금")
+            print("비교대출 오늘입금 태그노출 결과 : PASS")
+            loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+        except:
+            try:
+                base.scroll(0.7)
+                time.sleep(3)
+                Result_B = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                self.assertEqual(Result_B.text, "오늘입금")
+                print("비교대출 오늘입금 태그노출 결과 : PASS")
+                loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+            except:
+                try:
+                    base.scroll(0.7)
+                    time.sleep(3)
+                    Result_C = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                    self.assertEqual(Result_C.text, "오늘입금")
+                    print("비교대출 오늘입금 태그노출 결과 : PASS")
+                    loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+                except:
+                    try:
+                        base.scroll(0.7)
+                        time.sleep(3)
+                        Result_D = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                        self.assertEqual(Result_D.text, "오늘입금")
+                        print("비교대출 오늘입금 태그노출 결과 : PASS")
+                        loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+                    except:
+                        try:
+                            base.scroll(0.7)
+                            time.sleep(3)
+                            Result_E = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                            self.assertEqual(Result_E.text, "오늘입금")
+                            print("비교대출 오늘입금 태그노출 결과 : PASS")
+                            loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+                        except:
+                            try:
+                                base.scroll(0.7)
+                                time.sleep(3)
+                                Result_F = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                                self.assertEqual(Result_F.text, "오늘입금")
+                                print("비교대출 오늘입금 태그노출 결과 : PASS")
+                                loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *PASS*")
+                            except AssertionError:
+                                print("비교대출 오늘입금 태그노출 결과 : FAIL")
+                                loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *FAIL*")
+                                base.save_screenshot('비교대출오늘입금태그노출결과_fail')
+                            except Exception as e:
+                                print("비교대출 오늘입금 태그노출 결과 : {}".format(str(e)))
+                                loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *Error*")
+                                base.save_screenshot('비교대출오늘입금태그노출결과_error')
+        base.android_Back()
+        base.android_Back()
+
+    # 비교대출 > 대출 상세 페이지 진입 테스트
+    def test_Comparison_Loan_Detail(self):
+        loan = Loan()
+        base = basemethod()
+        join = JoIn()
+        more = More()
+        seting = Seting()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        try:
+            myhome.comPariSonLoan_In_a()
+        except:
+            try:
+                myhome.comPariSonLoan_In_b()
+            except:
+                try:
+                    myhome.comPariSonLoan_In_c()
+                except:
+                    try:
+                        myhome.comPariSonLoan_In_d()
+                    except:
+                        try:
+                            myhome.comPariSonLoan_In_e()
+                        except Exception as e:
+                            print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+        try:
+            deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+            deposit_today.click()
+        except:
+            try:
+                base.scroll(0.7)
+                time.sleep(3)
+                deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                deposit_today.click()
+            except:
+                try:
+                    base.scroll(0.7)
+                    time.sleep(3)
+                    deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                    deposit_today.click()
+                except:
+                    try:
+                        base.scroll(0.7)
+                        time.sleep(3)
+                        deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                        deposit_today.click()
+                    except:
+                        try:
+                            base.scroll(0.7)
+                            time.sleep(3)
+                            deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                            deposit_today.click()
+                        except:
+                            try:
+                                base.scroll(0.7)
+                                time.sleep(3)
+                                deposit_today = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
+                                deposit_today.click()
+                            except Exception as e:
+                                print("비교대출 오늘입금 태그 대출 상세 진입 실패 : {}".format(str(e)))
+
     # 직장인 대출 조회  (지역의료보험 선택) 테스트
     def test_office_Worker_Loan_No_Certificate(self):
         loan = Loan()
@@ -1542,15 +1688,10 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-        try:
-            a = WebDriver.driver.find_element(MobileBy.XPATH,loan.a)
-            self.assertIn("심의필",a.text)
-            print("성공")
-        except Exception as e:
-            print("실패 : {}".format(str(e)))
-
-
-
+        # try:
+        #     financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
+        #     financial_sector_a.click()
+        # except:
 
 
 
