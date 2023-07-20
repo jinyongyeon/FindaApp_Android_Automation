@@ -1,10 +1,11 @@
 import requests
 import json
 
+from config.info import InFo
 
 # 웹훅 들어갈 주소
-
-slack_webhook_url = 'https://hooks.slack.com/services/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'
+info = InFo()
+slack_webhook_url = info.slack_webhook_url
 
 
 class SlackWebHook:

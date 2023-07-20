@@ -38,7 +38,7 @@ class MoreTestcase_A(unittest.TestCase):
         base.scroll_up(0.8)
 
     # 더보기 진입 테스트
-    def test_Check_More_Tab(self):
+    def test_check_more_tab(self):
         more = More()
         base = basemethod()
         etc = Etc()
@@ -59,7 +59,7 @@ class MoreTestcase_A(unittest.TestCase):
             base.save_screenshot('더보기탭진입_error')
 
     # 내대출 진입 테스트
-    def test_Myloan_In(self):
+    def test_myloan_in(self):
         # driver = WebDriver.setUpCalss()
         base = basemethod()
         more = More()
@@ -93,7 +93,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.myLoanBack()
 
     # 채팅문의 진입 테스트
-    def test_ChatTing(self):
+    def test_chat_ting(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -116,7 +116,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.chatTingExit()
 
     # 자주묻는 질문 진입 및 상세 페이지 노출 테스트
-    def test_Qna(self):
+    def test_qna(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -214,7 +214,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.qnaBack()
 
     # 대출 갈아타기 테스트
-    def test_Refinancing_Loan(self):
+    def test_refinancing_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -247,7 +247,7 @@ class MoreTestcase_A(unittest.TestCase):
         base.android_Back()
 
     # 대출 한 번에 비교 진입 테스트
-    def test_ComPariSonLoan(self):
+    def test_comparison_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -282,7 +282,7 @@ class MoreTestcase_A(unittest.TestCase):
         base.android_Back()
 
     # 자동차 구매 대출 진입 테스트
-    def test_AutoLoan(self):
+    def test_auto_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -317,7 +317,7 @@ class MoreTestcase_A(unittest.TestCase):
         base.android_Back()
 
     # 전월세 추천 진입 테스트
-    def test_CharTer(self):
+    def test_charter(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -353,7 +353,7 @@ class MoreTestcase_A(unittest.TestCase):
             base.android_Back()
 
     # 30일 대출 챌린지 진입 테스트
-    def test_Change_Loan(self):
+    def test_change_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -389,7 +389,7 @@ class MoreTestcase_A(unittest.TestCase):
             base.android_Back()
 
     # 내대출_B 진입 테스트
-    def test_Myloan_B(self):
+    def test_my_loan_b(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -423,7 +423,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.myLoanBack()
 
     # 상환일정 진입 테스트
-    def test_Amortization_Schedule(self):
+    def test_amortization_schedule(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -484,7 +484,7 @@ class MoreTestcase_B(unittest.TestCase):
         base.scroll_up(0.8)
 
     # 신용점수 진입 테스트
-    def test_Credit_Score(self):
+    def test_credit_score(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -520,7 +520,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 신용점수 올리기 진입 테스트
-    def test_Improve_Credit_Score(self):
+    def test_improve_credit_score(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -555,7 +555,7 @@ class MoreTestcase_B(unittest.TestCase):
         base.android_Back()
 
     # 신용점수 상승 전략 진입 테스트
-    def test_Credit_Analysis(self):
+    def test_credit_analysis(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -581,7 +581,7 @@ class MoreTestcase_B(unittest.TestCase):
         base.android_Back()
 
     # 신용관리 > 신용점수 히스토리 진입 테스트
-    def test_Credit_History(self):
+    def test_credit_history(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -605,7 +605,7 @@ class MoreTestcase_B(unittest.TestCase):
         base.android_Back()
 
     # 계산기 > 여윳돈 계산기 진입 테스트
-    def test_Extra_Money(self):
+    def test_extra_money(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -632,7 +632,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 계산기 > DSR 계산기 진입 테스트
-    def test_Dsr(self):
+    def test_dsr(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -659,7 +659,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 계산기 > 대출이자 계산기 진입 테스트
-    def test_Interest(self):
+    def test_interest(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -687,7 +687,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 계산기 > 연말정산 계산기 진입 테스트
-    def test_Year_End_Settlement(self):
+    def test_year_end_settlement(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -714,7 +714,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 계산기 > 전세 vs 월세 계산기 진입 테스트
-    def test_Charter_Vs_Monthly_Rent(self):
+    def test_charter_vs_monthly_rent(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -740,7 +740,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 계산기 > 대출 갈아타기 계산기 진입 테스트
-    def test_Refinancing_Loan(self):
+    def test_refinancing_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -767,7 +767,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.android_Back()
 
     # 청년도약계좌 계산기 진입 테스트
-    def test_youth_Leap_Account(self):
+    def test_youth_leap_account(self):
         more = More()
         etc = Etc()
         base = basemethod()
@@ -822,7 +822,7 @@ class MoreTestcase_C(unittest.TestCase):
         base.scroll_up(0.8)
 
     # 장기렌트 리스 진입 테스트
-    def test_Lease_Rent(self):
+    def test_lease_rent(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -848,7 +848,7 @@ class MoreTestcase_C(unittest.TestCase):
         base.android_Back()
 
     # 두낫콜 약관 리스트 진입 테스트
-    def test_Do_Not_Call_Terms_Of_Use(self):
+    def test_do_not_call_terms_of_use(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1034,7 +1034,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.do_Not_Call_Back()
 
     # 대출금 갚아주는 보험 진입 테스트
-    def test_Insurance(self):
+    def test_insurance(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1061,7 +1061,7 @@ class MoreTestcase_C(unittest.TestCase):
         base.android_Back()
 
     # 예적금 비교 진입 테스트
-    def test_Deposit_And_Savings(self):
+    def test_deposit_and_savings(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1086,7 +1086,7 @@ class MoreTestcase_C(unittest.TestCase):
         base.android_Back()
 
     # 핀다 포스트 진입 테스트
-    def test_Finda_Post(self):
+    def test_finda_post(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1113,7 +1113,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.android_Back()
 
     # 내 폰 지키미 진입 테스트
-    def test_My_Phorn(self):
+    def test_my_phorn(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1140,7 +1140,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.android_Back()
 
     # 이벤트 진입 테스트
-    def test_Event(self):
+    def test_event(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1167,7 +1167,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.android_Back()
 
     # 공지사항 진입 테스트
-    def test_Notice(self):
+    def test_notice(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1206,7 +1206,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.notice_Back()
 
     # 대출 후기 진입 테스트
-    def test_loan_Reviews(self):
+    def test_loan_reviews(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
@@ -1230,7 +1230,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.loan_Reviews_Back()
 
     # 최근 알림 진입 테스트
-    def test_Alarm(self):
+    def test_alarm(self):
         # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()

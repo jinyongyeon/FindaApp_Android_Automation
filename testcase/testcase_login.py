@@ -12,7 +12,7 @@ from testscript.login_testscript.logincase import JoIn
 from testscript.more_testscript.see_more import More
 from testscript.more_testscript.seting import Seting
 
-class JoInTestCase(unittest.TestCase):
+class JoinTestCase(unittest.TestCase):
     # @classmethod
     # def setUpClass(cls):
     #     print("더보기 TestCase_A 시작")
@@ -33,7 +33,7 @@ class JoInTestCase(unittest.TestCase):
 
 
     #MO인증 테스트
-    def test_Message_Certification(self):
+    def test_message_certification(self):
         main = Main()
         join = JoIn()
         # driver = WebDriver.setUp()
@@ -68,7 +68,7 @@ class JoInTestCase(unittest.TestCase):
                 result_join.reports.append("MO인증 결과 : *Error*")
                 base.save_screenshot('MO인증결과_error')
     #유심내용 자동입력 테스트
-    def test_Enter_Personal_Information(self):
+    def test_enter_personal_information(self):
         main = Main()
         join = JoIn()
         # driver = WebDriver.setUp()
@@ -94,7 +94,7 @@ class JoInTestCase(unittest.TestCase):
             base.save_screenshot('유심내용자동입력결과_error')
 
     #회원가입 약관 동의 진입 테스트
-    def test_Membership_Terms_And_Conditions(self):
+    def test_membership_terms_and_conditions(self):
         main = Main()
         join = JoIn()
         # driver = WebDriver.setUp()
@@ -469,7 +469,7 @@ class JoInTestCase(unittest.TestCase):
             result_join.reports.append("회원가입 약관 목록 노출 및 진입 결과 : *FAIL*")
 
     #인증번호 수신 및 자동입력, 재요청 테스트
-    def test_Certification_Number(self):
+    def test_certification_number(self):
         main = Main()
         join = JoIn()
         # driver = WebDriver.setUp()
@@ -524,7 +524,7 @@ class JoInTestCase(unittest.TestCase):
             base.save_screenshot('회원가입인증번호재요청_error')
 
     #핀코드 등록 및 회원가입 테스트
-    def test_Join(self):
+    def test_join(self):
         main = Main()
         join = JoIn()
         # driver = WebDriver.setUp()
@@ -563,7 +563,7 @@ class JoInTestCase(unittest.TestCase):
 class LoginTestCase(unittest.TestCase):
 
     # 핀코드 로그인 테스트
-    def test_Check_In(self):
+    def test_check_in(self):
         main = Main()
         join = JoIn()
         result_join = Result_Join()
@@ -589,7 +589,7 @@ class LoginTestCase(unittest.TestCase):
             base.save_screenshot('로그인결과_error')
 
     #로그아웃
-    def test_LogOut(self):
+    def test_log_out(self):
         main = Main()
         join = JoIn()
         seting = Seting()
@@ -615,7 +615,7 @@ class LoginTestCase(unittest.TestCase):
             base.save_screenshot('로그아웃결과_error')
 
     #회원탈퇴
-    def test_Withdraw(self):
+    def test_withdraw(self):
         main = Main()
         join = JoIn()
         seting = Seting()

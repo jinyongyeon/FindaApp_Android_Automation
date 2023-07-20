@@ -41,7 +41,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.scroll_up(0.8)
 
     # 마이홈 비교대출 배너 테스트
-    def test_ComPariSonLoan(self):
+    def test_comparison_loan(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -156,7 +156,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 마이홈 대출 진단 배너 테스트
-    def test_LoanDiagnosisBanner(self):
+    def test_loan_diagnosis_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -308,7 +308,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 마이홈 내 대출 배너 테스트
-    def test_Loan_Banner(self):
+    def test_loan_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -396,7 +396,7 @@ class MyHome_Testcase(unittest.TestCase):
         # base.android_Back()
 
     # 마이홈 내 현금 자산 배너 테스트
-    def test_Cash_Assets_Banner(self):
+    def test_cash_assets_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -474,7 +474,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 마이홈 상환예정 배너 테스트
-    def test_Repayment_Schedule_Banner(self):
+    def test_repayment_schedule_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -554,7 +554,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 마이홈 오토리스 배너 테스트
-    def test_Lease_Contract_Banner(self):
+    def test_lease_contract_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
@@ -594,7 +594,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 마이홈 자동차 대출 배너 테스차
-    def test_Auto_Loan_Banner(self):
+    def test_auto_loan_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()

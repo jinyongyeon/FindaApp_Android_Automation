@@ -17,7 +17,7 @@ from testscript.more_testscript.seting import Seting
 from testscript.myhome_testscript.myhome import MyHome
 
 
-class Auto_Loan_Testcase(unittest.TestCase):
+class AutoLoanTestcase(unittest.TestCase):
 
     def setUp(self):
         base = basemethod()
@@ -36,7 +36,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.scroll_up(0.8)
 
     # 오토론 약관 테스트
-    def test_Auto_Loan_New_NewCar_Terms(self):
+    def test_auto_loan_new_new_car_terms(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -295,7 +295,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 인증번호 자동입력 테스트
-    def test_Auto_Loan_New_NewCar_Certification_Number(self):
+    def test_auto_loan_new_new_car_certification_number(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -325,7 +325,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 신차 신규 대출 조회 테스트
-    def test_Auto_Loan_New(self):
+    def test_auto_loan_new(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -374,7 +374,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 대출 상세 진입
-    def test_Auto_Loan_Detail(self):
+    def test_auto_loan_detail(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -398,7 +398,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 대출 신청하기 및 홈페이지 진입
-    def test_Auto_Loan_Application(self):
+    def test_auto_loan_application(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -454,7 +454,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 중고차 신규 대출 조회 테스트
-    def test_Auto_Loan_New_UsedCar(self):
+    def test_auto_loan_new_used_car(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -505,7 +505,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 신차 대환 대출 조회 테스트
-    def test_Auto_Loan_existing_NewCar(self):
+    def test_auto_loan_existing_new_car(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -540,7 +540,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오토론 중고차 대환 대출 조회 테스트
-    def test_Auto_Loan_existing_UsedCar(self):
+    def test_auto_loan_existing_used_car(self):
         loan = Loan()
         base = basemethod()
         loanresult = Result_loan()
@@ -574,7 +574,7 @@ class Auto_Loan_Testcase(unittest.TestCase):
                 base.save_screenshot('오토론중고차대환대출조회_error')
         base.android_Back()
 
-class Loan_Comparison_Testcase(unittest.TestCase):
+class LoanComparisonTestcase(unittest.TestCase):
 
     def setUp(self):
         base = basemethod()
@@ -590,7 +590,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
 
 
     # 비교대출 약관 페이지 진입 테스트
-    def test_loan_Terms_And_Conditions(self):
+    def test_loan_terms_and_conditions(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1044,7 +1044,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 인증번호 자동 입력 및 재전송 테스트
-    def test_loan_Comparison_Verification_Code(self):
+    def test_loan_comparison_verification_code(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1119,7 +1119,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 주민번호 적합서 검사 테스트
-    def test_rrn_Validation_Check(self):
+    def test_rrn_validation_check(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1208,7 +1208,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트
-    def test_loan_Comparison_APT_Secured_Loan(self):
+    def test_loan_comparison_apt_secured_loan(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1317,7 +1317,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 오늘 입금 태그 확인 테스트
-    def test_Check_Deposit_Today(self):
+    def test_check_deposit_today(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1400,7 +1400,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 > 대출 상세 페이지 진입 테스트
-    def test_Comparison_Loan_Detail(self):
+    def test_comparison_loan_detail(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1480,7 +1480,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트
-    def test_Comparison_Loan_Detail_Certification(self):
+    def test_comparison_loan_detail_certification(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1569,7 +1569,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 대출신청하기 테스트
-    def test_Loan_Application(self):
+    def test_loan_application(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1652,7 +1652,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 직장인 대출 조회  (지역의료보험 선택) 테스트
-    def test_office_Worker_Loan_No_Certificate(self):
+    def test_office_worker_loan_no_certificate(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1731,7 +1731,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 직장인 외 대출 조회
-    def test_Unemployed_Loan(self):
+    def test_unemployed_loan(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1802,7 +1802,7 @@ class Loan_Comparison_Testcase(unittest.TestCase):
         base.android_Back()
 
     # 비교대출 내 자동차대출 선택 시 오토론 이동
-    def test_Auto_Loan_In(self):
+    def test_auto_loan_in(self):
         loan = Loan()
         base = basemethod()
         join = JoIn()
@@ -1878,20 +1878,7 @@ class test_Testcase(unittest.TestCase):
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
 
-        try:
-            time.sleep(5)
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_application_result)
-            self.assertEqual(Result.text , "안내사항")
-            print("비교대출 대출신청 결과 : PASS")
-            loanresult.reports.append("비교대출 대출신청 결과 : *PASS*")
-        except AssertionError:
-            print("비교대출 대출신청 결과 : FAIL")
-            loanresult.reports.append("비교대출 대출신청 결과 : *FAIL*")
-            base.save_screenshot('비교대출대출신청결과_fail')
-        except Exception as e:
-            print("비교대출 대출신청 결과 : {}".format(str(e)))
-            loanresult.reports.append("비교대출 대출신청 결과 : *Error*")
-            base.save_screenshot('비교대출대출신청결과_error')
+
 
 
 
