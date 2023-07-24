@@ -626,7 +626,7 @@ class LoginTestCase(unittest.TestCase):
         more = More()
         join.appStart()
         join.pinCode()
-        more.etcIn()
+        more.etc_in()
         seting.setingIn()
         base.scroll(2)
         join.withdrawal()

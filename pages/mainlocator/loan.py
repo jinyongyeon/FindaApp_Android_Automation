@@ -237,7 +237,7 @@ class Loan:
     certification_b = "//*[contains(@text, '심사필')]"
     loan_application_result = "//*[contains(@text, '안내')]"
 
-
+    a = "//*[contains(@text, '카디프')]"
 
     # a = "//*[@text = '다올저축은행 준법감시인 심의필 제202307-00015호(23.07.11~24.07.10)']"
 

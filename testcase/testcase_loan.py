@@ -466,7 +466,7 @@ class AutoLoanTestcase(unittest.TestCase):
         seting = Seting()
         join.join_Mms_delete()
         time.sleep(3)
-        more.etcIn()
+        more.etc_in()
         seting.setingIn()
         base.scroll(2)
         base.user_Id_Get()
@@ -1873,10 +1873,22 @@ class test_Testcase(unittest.TestCase):
         base = basemethod()
         join = JoIn()
         more = More()
+        etc = Etc()
         seting = Seting()
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
+        Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_application_r_a)
+        print(Result_A.text)
+        # try:
+        #     Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_result_a)
+        #     print(Result_A.text)
+        #     self.assertIn("고객님께서 입력해주신 정보의 정확도", Result_A.text)
+        #     print("PASS")
+        # except AssertionError:
+        #     print("FAIL")
+        # except Exception:
+        #     print("Error")
 
 
 
