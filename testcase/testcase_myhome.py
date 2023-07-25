@@ -34,7 +34,7 @@ class MyHome_Testcase(unittest.TestCase):
     #
     def tearDown(self):
         base = basemethod()
-        base.android_Back()
+        base.android_back()
         time.sleep(1)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
@@ -153,7 +153,7 @@ class MyHome_Testcase(unittest.TestCase):
                 result_myhome.reports.append("비교 대출 배너 진입 : *Error*")
                 base.save_screenshot('비교대출배너진입_error')
         time.sleep(2)
-        base.android_Back()
+        base.android_back()
 
     # 마이홈 대출 진단 배너 테스트
     def test_loan_diagnosis_banner(self):
@@ -305,7 +305,7 @@ class MyHome_Testcase(unittest.TestCase):
                                     print("대출진단 배너 진입 에러 발생 : {}".format(str(e)))
                                     results.append("Error")
                                     base.save_screenshot('대출진단배너진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 마이홈 내 대출 배너 테스트
     def test_loan_banner(self):
@@ -365,7 +365,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("내 대출 배너 진입 : FAIL")
             result_myhome.reports.append("내 대출 배너 진입 : *FAIL*")
             base.save_screenshot('내대출배너진입_fail')
-        base.android_Back()
+        base.android_back()
         # myhome.loan_A
         # try:
         #     result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loan_a)
@@ -441,7 +441,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("내 현금자산 배너 진입_a 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_a : Error")
             base.save_screenshot('내현금자산배너진입_a_error')
-        base.android_Back()
+        base.android_back()
         myhome.cash_Assets_Banner_A()
         try:
             result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_a_result)
@@ -456,7 +456,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("내 현금자산 배너 진입_b 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_b : Error")
             base.save_screenshot('내현금자산배너진입_b_error')
-        base.android_Back()
+        base.android_back()
         myhome.cash_Assets_Banner_B()
         try:
             result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_b_result)
@@ -471,7 +471,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("내 현금자산 배너 진입_c 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("내 현금자산 배너 진입_c : Error")
             base.save_screenshot('내현금자산배너진입_c_error')
-        base.android_Back()
+        base.android_back()
 
     # 마이홈 상환예정 배너 테스트
     def test_repayment_schedule_banner(self):
@@ -551,7 +551,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("상환 예정 배너 진입 에러 발생 : {}".format(str(e)))
             results.append("Error")
             base.save_screenshot('상환예정배너진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 마이홈 오토리스 배너 테스트
     def test_lease_contract_banner(self):
@@ -591,7 +591,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("장기렌트 리스 배너 진입 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
             base.save_screenshot('장기렌트리스배너진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 마이홈 자동차 대출 배너 테스차
     def test_auto_loan_banner(self):
@@ -643,7 +643,7 @@ class MyHome_Testcase(unittest.TestCase):
                 print("차 구매 대출 배너 진입 에러 발생 : {}".format(str(e)))
                 result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
                 base.save_screenshot('차구매대출배너진입_error')
-        base.android_Back()
+        base.android_back()
 
 
 

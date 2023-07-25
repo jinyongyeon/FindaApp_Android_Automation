@@ -10,9 +10,8 @@ slack_webhook_url = info.slack_webhook_url
 
 class SlackWebHook:
 
-
     # 로그인 테스트 결과
-    def join_SendSlackWebHook(data):
+    def join_send_slack_webhook(data):
         headers = {
             'Content-type': 'application/json'
         }
@@ -28,7 +27,7 @@ class SlackWebHook:
         else:
             return 'error'
 
-    def myHome_SendSlackWebHook(data):
+    def my_home_send_slack_webhook(data):
         headers = {
             'Content-type': 'application/json'
         }
@@ -45,7 +44,7 @@ class SlackWebHook:
             return 'error'
 
     # 더보기 테스트 결과
-    def more_SendSlackWebHook(data):
+    def more_send_slack_webhook(data):
         headers = {
             'Content-type': 'application/json'
         }
@@ -61,9 +60,8 @@ class SlackWebHook:
         else:
             return 'error'
 
-
     # 비교대출+오토론 테스트 결과
-    def autoloan_SendSlackWebHook(data):
+    def auto_loan_send_slack_webhook(data):
         headers = {
             'Content-type': 'application/json'
         }

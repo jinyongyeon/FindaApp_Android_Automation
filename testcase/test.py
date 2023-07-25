@@ -5,7 +5,7 @@ from multiprocessing import Process
 from pages.basemethod.base import basemethod
 
 base = basemethod()
-process = Process(target=base.appium_Run)
+process = Process(target=base.appium_run)
 
 # 프로세스를 시작합니다.
 process.start()

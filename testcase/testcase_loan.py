@@ -27,8 +27,8 @@ class AutoLoanTestcase(unittest.TestCase):
 
     def tearDown(self):
         base = basemethod()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
         time.sleep(1)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
@@ -86,7 +86,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관Aa진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_ab()
         time.sleep(6)
@@ -100,7 +100,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관Ab진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_ac()
         time.sleep(6)
@@ -114,7 +114,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관Ac진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_ad()
         time.sleep(6)
@@ -128,7 +128,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관Ad진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_ae()
         time.sleep(6)
@@ -142,7 +142,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관Ae진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_a_unfold()
         autoloan.auto_loan_terms_b_unfold()
@@ -170,7 +170,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관ba진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_bb()
         time.sleep(6)
@@ -184,7 +184,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관bb진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_b_unfold()
         autoloan.auto_loan_terms_c_unfold()
@@ -216,7 +216,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관ca진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_cb()
         time.sleep(6)
@@ -230,7 +230,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관cb진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_cc()
         time.sleep(6)
@@ -244,7 +244,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관cc진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_cd()
         time.sleep(6)
@@ -258,7 +258,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관cd진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_ce()
         time.sleep(6)
@@ -272,7 +272,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관ce진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         autoloan.auto_loan_terms_cf()
         time.sleep(6)
@@ -286,7 +286,7 @@ class AutoLoanTestcase(unittest.TestCase):
         except Exception:
             results_a.append("Error")
             base.save_screenshot('자동차대출약관cf진입_error')
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         print(results)
         if all(result == "PASS" for result in results):
@@ -303,7 +303,7 @@ class AutoLoanTestcase(unittest.TestCase):
         else:
             print("자동차 대출 약관 진입 결과 : FAIL")
             loanresult.reports.append("자동차 대출 약관 진입 결과 : *FAIL*")
-        base.android_Back()
+        base.android_back()
 
     # 오토론 인증번호 자동입력 테스트
     def test_auto_loan_new_new_car_certification_number(self):
@@ -331,9 +331,9 @@ class AutoLoanTestcase(unittest.TestCase):
             print("오토론 인증번호 자동입력 에러 발생 : {}".format(str(e)))
             loanresult.reports.append("오토론 인증번호 자동입력 : Error")
             base.save_screenshot('오토론인증번호자동입력_error')
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
     # 오토론 신차 신규 대출 조회 테스트
     def test_auto_loan_new(self):
@@ -382,7 +382,7 @@ class AutoLoanTestcase(unittest.TestCase):
                 print("오토론 신차 신규 대출 조회 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("오토론 신차 신규 대출 조회 : Error")
                 base.save_screenshot('오토론신차신규대출조회_error')
-        base.android_Back()
+        base.android_back()
 
     # 오토론 대출 상세 진입
     def test_auto_loan_detail(self):
@@ -406,7 +406,7 @@ class AutoLoanTestcase(unittest.TestCase):
             print("오토론 대출 상세 진입 에러 발생 : {}".format(str(e)))
             loanresult.reports.append("오토론 대출 상세 진입 : Error")
             base.save_screenshot('오토론대출상세진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 오토론 대출 신청하기 및 홈페이지 진입
     def test_auto_loan_application(self):
@@ -458,11 +458,11 @@ class AutoLoanTestcase(unittest.TestCase):
             print("오토론 대출 신청 하나은행 홈페이지 진입 에러 발생 : {}".format(str(e)))
             loanresult.reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : Error")
             base.save_screenshot('오토론대출신청_하나은행홈페이지진입_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
         autoloan.auto_loan_application_exit()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 오토론 중고차 신규 대출 조회 테스트
     def test_auto_loan_new_used_car(self):
@@ -480,14 +480,14 @@ class AutoLoanTestcase(unittest.TestCase):
         more.etc_in()
         seting.setingIn()
         base.scroll(2)
-        base.user_Id_Get()
-        base.user_Token_Get()
-        base.user_TxSeqNo_Get()
+        base.user_id_get()
+        base.user_token_get()
+        base.user_txseqno_get()
         join.join_mms()
-        base.user_idToken_Get()
+        base.user_idtoken_get()
         autoloan.auto_loan_new_used_car()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
         base.scroll(2)
         myhome.auto_Loan_Banner()
         try:
@@ -513,7 +513,7 @@ class AutoLoanTestcase(unittest.TestCase):
                 print("오토론 중고차 신규 대출 조회 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("오토론 중고차 신규 대출 조회 : Error")
                 base.save_screenshot('오토론중고차신규대출조회_error')
-        base.android_Back()
+        base.android_back()
 
     # 오토론 신차 대환 대출 조회 테스트
     def test_auto_loan_existing_new_car(self):
@@ -548,7 +548,7 @@ class AutoLoanTestcase(unittest.TestCase):
                 print("오토론 신차 대환 대출 조회 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("오토론 신차 대환 대출 조회 : Error")
                 base.save_screenshot('오토론신차대환대출조회_error')
-        base.android_Back()
+        base.android_back()
 
     # 오토론 중고차 대환 대출 조회 테스트
     def test_auto_loan_existing_used_car(self):
@@ -583,7 +583,7 @@ class AutoLoanTestcase(unittest.TestCase):
                 print("오토론 중고차 대환 대출 조회 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("오토론 중고차 대환 대출 조회 : Error")
                 base.save_screenshot('오토론중고차대환대출조회_error')
-        base.android_Back()
+        base.android_back()
 
 class LoanComparisonTestcase(unittest.TestCase):
 
@@ -594,9 +594,9 @@ class LoanComparisonTestcase(unittest.TestCase):
 
     def tearDown(self):
         base = basemethod()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
 
 
@@ -668,7 +668,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Aa 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Aa_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ab()
             Result_Ab = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ab_result)
@@ -683,7 +683,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ab 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ab_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ac()
             Result_Ac = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ac_result)
@@ -698,7 +698,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ac 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ac_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ad()
             Result_Ad = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ad_result)
@@ -713,7 +713,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ad 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ad_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ae()
             Result_Ae = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ae_result)
@@ -728,7 +728,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ae 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ae_error')
-        base.android_Back()
+        base.android_back()
         comparisonloan.loan_terms_and_conditions_a()
         comparisonloan.loan_terms_and_conditions_b()
         base.scroll(0.065)
@@ -746,7 +746,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ba 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ba_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_bb()
             Result_Bb = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bb_result)
@@ -761,7 +761,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Bb 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Bb_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_bc()
             Result_Bc = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bc_result)
@@ -776,7 +776,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Bc 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Bc_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_bd()
             Result_Bd = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bd_result)
@@ -791,7 +791,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Bd 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Bd_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_be()
             Result_Be = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Be_result)
@@ -806,7 +806,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Be 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Be_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_bf()
             Result_Bf = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Bf_result)
@@ -821,7 +821,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Bf 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Bf_error')
-        base.android_Back()
+        base.android_back()
         comparisonloan.loan_terms_and_conditions_b()
         comparisonloan.loan_terms_and_conditions_c()
         try:
@@ -838,7 +838,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ca 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ca_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cb()
             Result_Cb = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cb_result)
@@ -853,7 +853,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cb 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cb_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cc()
             Result_Cc = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cc_result)
@@ -868,7 +868,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cc 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cc_error')
-        base.android_Back()
+        base.android_back()
         base.scroll(0.25)
         try:
             comparisonloan.loan_terms_and_conditions_cd()
@@ -884,7 +884,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cd 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cd_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ce()
             Result_Ce = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ce_result)
@@ -899,7 +899,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ce 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ce_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cf()
             Result_Cf = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cf_result)
@@ -914,7 +914,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cf 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cf_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cg()
             Result_Cg = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cg_result)
@@ -929,7 +929,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cg 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cg_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ch()
             Result_Ch = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ch_result)
@@ -944,7 +944,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ch 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ch_error')
-        base.android_Back()
+        base.android_back()
         base.scroll(0.25)
         try:
             comparisonloan.loan_terms_and_conditions_ci()
@@ -960,7 +960,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ci 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ci_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cj()
             Result_Cj = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cj_result)
@@ -975,7 +975,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cj 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cj_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_ck()
             Result_Ck = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Ck_result)
@@ -990,7 +990,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Ck 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Ck_error')
-        base.android_Back()
+        base.android_back()
         try:
             comparisonloan.loan_terms_and_conditions_cl()
             Result_Cl = WebDriver.driver.find_element(MobileBy.XPATH, loan.loan_terms_and_conditions_Cl_result)
@@ -1005,7 +1005,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cl 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cl_error')
-        base.android_Back()
+        base.android_back()
         base.scroll(0.25)
         try:
             comparisonloan.loan_terms_and_conditions_cm()
@@ -1021,7 +1021,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Cm 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Cm_error')
-        base.android_Back()
+        base.android_back()
         comparisonloan.loan_terms_and_conditions_d()
         try:
             comparisonloan.loan_terms_and_conditions_da()
@@ -1037,7 +1037,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 Da 진입 에러 발생 : {}".format(str(e)))
             results_a.append("Error")
             base.save_screenshot('비교대출약관Da_error')
-        base.android_Back()
+        base.android_back()
         print(results_a)
         if all(result == "PASS" for result in results_a):
             print("비교대출 약관 진입 결과 : PASS")
@@ -1046,13 +1046,13 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 약관 진입 결과 : FAIL")
             loanresult.reports.append("비교대출 약관 진입 결과 : *FAIL*")
 
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 인증번호 자동 입력 및 재전송 테스트
     def test_loan_comparison_verification_code(self):
@@ -1102,8 +1102,8 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 인증번호 자동입력 결과 에러 발생 : {}".format(str(e)))
             loanresult.reports.append("비교대출 인증번호 자동입력 결과 : *Error*")
             base.save_screenshot('비교대출인증번호자동입력_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
         comparisonloan.comparison_loan_verification_resend()
         time.sleep(5)
         comparisonloan.next_loan()
@@ -1121,13 +1121,13 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 인증번호 재요청 결과 에러 발생 : {}".format(str(e)))
             loanresult.reports.append("비교대출 인증번호 재요청 결과 : *Error*")
             base.save_screenshot('비교대출인증번호재요청_error')
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 주민번호 적합서 검사 테스트
     def test_rrn_validation_check(self):
@@ -1182,7 +1182,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('비교대출주민번호적합성실패_error')
         comparisonloan.check_loan()
-        base.android_Back()
+        base.android_back()
         comparisonloan.comparison_loan_verification_resend()
         time.sleep(5)
         comparisonloan.next_loan()
@@ -1210,13 +1210,13 @@ class LoanComparisonTestcase(unittest.TestCase):
         else:
             print("비교대출 주민등록번호 적합성 검사 결과 : FAIL")
             loanresult.reports.append("비교대출 주민등록번호 적합성 검사 결과 : *FAIL*")
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트
     def test_loan_comparison_apt_secured_loan(self):
@@ -1324,8 +1324,8 @@ class LoanComparisonTestcase(unittest.TestCase):
                 print("비교대출 후담대 조회 및 열람 결과 에러 발생 : {}".format(str(e)))
                 loanresult.reports.append("비교대출 후담대 조회 및 열람 결과 : *Error*")
                 base.save_screenshot('비교대출후담대결과_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 오늘 입금 태그 확인 테스트
     def test_check_deposit_today(self):
@@ -1407,8 +1407,8 @@ class LoanComparisonTestcase(unittest.TestCase):
                                 print("비교대출 오늘입금 태그노출 결과 : {}".format(str(e)))
                                 loanresult.reports.append("비교대출 오늘입금 태그노출 결과 : *Error*")
                                 base.save_screenshot('비교대출오늘입금태그노출결과_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 > 대출 상세 페이지 진입 테스트
     def test_comparison_loan_detail(self):
@@ -1487,8 +1487,8 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 대출상세페이지 진입 결과 : {}".format(str(e)))
             loanresult.reports.append("비교대출 대출상세페이지 진입 결과 : *Error*")
             base.save_screenshot('비교대출대출상세페이지진입결과_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트
     def test_comparison_loan_detail_certification(self):
@@ -1576,8 +1576,8 @@ class LoanComparisonTestcase(unittest.TestCase):
                 print("비교대출 대출상세페이지_심의필 노출 결과 : {}".format(str(e)))
                 loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *Error*")
                 base.save_screenshot('비교대출대출상세페이지_심의필노출결과_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 대출신청하기 테스트
     def test_loan_application(self):
@@ -1658,9 +1658,9 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("비교대출 대출신청 결과 : {}".format(str(e)))
             loanresult.reports.append("비교대출 대출신청 결과 : *Error*")
             base.save_screenshot('비교대출대출신청결과_error')
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
     # 직장인 대출 조회  (지역의료보험 선택) 테스트
     def test_office_worker_loan_no_certificate(self):
@@ -1738,8 +1738,8 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("직장인 대출 조회  (지역의료보험 선택) 결과 : FAIL")
             loanresult.reports.append("직장인 대출 조회  (지역의료보험 선택) 결과 : *FAIL*")
             base.save_screenshot('직장인대출조회(지역의료보험선택)_fail')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 직장인 외 대출 조회
     def test_unemployed_loan(self):
@@ -1809,8 +1809,8 @@ class LoanComparisonTestcase(unittest.TestCase):
             print("직장인 외 대출 조회 결과 : FAIL")
             loanresult.reports.append("직장인 외 대출 조회 결과 : *FAIL*")
             base.save_screenshot('직장인외대출조회_fail')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 비교대출 내 자동차대출 선택 시 오토론 이동
     def test_auto_loan_in(self):
@@ -1871,9 +1871,9 @@ class LoanComparisonTestcase(unittest.TestCase):
                 print("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : {}".format(str(e)))
                 loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *Error*")
                 base.save_screenshot('자동차대출선택시오토론이동결과_error')
-        base.android_Back()
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
+        base.android_back()
 
 
 

@@ -114,7 +114,7 @@ runner.run(suite_c)
 
 result_auto_loan = Result_loan()
 result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
-print(SlackWebHook.autoloan_SendSlackWebHook(result_auto_loan))
+print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))
 
 
 

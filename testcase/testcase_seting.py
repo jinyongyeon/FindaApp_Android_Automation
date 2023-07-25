@@ -11,12 +11,7 @@ from pages.basemethod.result import Result_More
 from testscript.more_testscript.see_more import More
 from pages.basemethod.base import basemethod
 
-
-
-
 class Seting_Testcase(unittest.TestCase):
-
-
 
     # 설정 > 내정보 수정 테스트
     def test_my_info(self):

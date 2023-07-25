@@ -173,7 +173,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_aa_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_ab()
 
@@ -191,7 +191,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_ab_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_ac()
 
@@ -210,7 +210,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_ac_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_a()
         time.sleep(1)
@@ -255,7 +255,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_ba_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_bb()
 
@@ -275,7 +275,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_bb_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_bc()
 
@@ -295,7 +295,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_bc_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_b()
         time.sleep(2)
@@ -344,7 +344,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_ca_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_cb()
 
@@ -363,7 +363,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_cb_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_cc()
         try:
@@ -381,7 +381,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_cc_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_cd()
 
@@ -401,7 +401,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_cd_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_ce()
 
@@ -421,7 +421,7 @@ class JoinTestCase(unittest.TestCase):
             base.save_screenshot('회원가입약관진입_ce_error')
 
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_c_a()
         time.sleep(1)
@@ -457,7 +457,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관진입_da_error')
         time.sleep(3)
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.membership_terms_and_conditions_d()
         if all(result == "PASS" for result in results):
@@ -504,7 +504,7 @@ class JoinTestCase(unittest.TestCase):
             result_join.reports.append("회원가입 인증번호 자동입력 결과 : *Error*")
             base.save_screenshot('회원가입인증번호자동입력결과_error')
 
-        base.android_Back()
+        base.android_back()
         time.sleep(3)
         join.re_request_verification_code()
         join.join_next()

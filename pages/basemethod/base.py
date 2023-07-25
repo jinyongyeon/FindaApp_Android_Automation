@@ -1,47 +1,34 @@
 import time
-import re
-import json
-import subprocess
-
 import requests
 from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
-from appium import webdriver
 import os
-
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from appium.webdriver.common.touch_action import TouchAction
-
 from pages.mainlocator.main import Main
 
 
 class basemethod:
-
 
     def __init__(self):
         self.driver = WebDriver.driver
         self.info = InFo()
         self.main = Main()
 
-    def appium_Run(self):
+    def appium_run(self):
         appium_service = AppiumService()
         appium_service.start(args=['-a', '127.0.0.1', '-p', '4724', '-pa', '/wd/hub'])
 
-    def android_Back(self):
+    def android_back(self):
         self.driver.press_keycode(4)
         time.sleep(4)
 
-
-
     def scroll(self, scroll_distance):
-
         screen_size = self.driver.get_window_size()
         height = screen_size['height']
-
         # 스크롤할 거리 계산
         distance = int(height * scroll_distance)
-
         # 스크롤 이벤트 생성
         action = TouchAction(self.driver)
         action.press(x=500, y=1500).move_to(x=500, y=1500 - distance).release()
@@ -51,10 +38,8 @@ class basemethod:
         # 화면 크기 얻어오기
         screen_size = self.driver.get_window_size()
         height = screen_size['height']
-
         # 스크롤할 거리 계산
         distance = int(height * scroll_distance)
-
         # 스크롤 이벤트 생성
         action = TouchAction(self.driver)
         action.press(x=900, y=2200 - distance).move_to(x=900, y=2200).release()
@@ -68,10 +53,9 @@ class basemethod:
         self.driver.save_screenshot(screenshot_path)
         print(f'Screenshot saved: {screenshot_path}')
 
-    def user_Token_Get(self):
+    def user_token_get(self):
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/account/v1/user/token"
-
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
             "Content-Type" : "application/json"
@@ -95,11 +79,9 @@ class basemethod:
         except Exception as e:
             print("요청 실패:", str(e))
 
-    def user_TxSeqNo_Get(self):
-
+    def user_txseqno_get(self):
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/idcert/v1/ids"
-
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
             "Content-Type" : "application/json",
@@ -127,18 +109,15 @@ class basemethod:
         except Exception as e:
             print("요청 실패:", str(e))
 
-
-    def user_Id_Get(self):
+    def user_id_get(self):
         element = WebDriver.driver.find_element(MobileBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.ScrollView/android.widget.TextView[3]")
         text = element.text
         print(text)
         self.info.user_id = ''.join(filter(str.isdigit, text))
 
-
-    def user_idToken_Get(self):
+    def user_idtoken_get(self):
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/idcert/v1/ids"
-
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
             "Content-Type" : "application/json",

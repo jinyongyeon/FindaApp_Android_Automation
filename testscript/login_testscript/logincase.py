@@ -197,11 +197,11 @@ class JoIn:
         mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
         mms_dele.click()
         time.sleep(5)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
 
     # 회원 가입 > 인증 번호 리스트 저장 => 사용함
@@ -230,11 +230,11 @@ class JoIn:
         mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
         mms_dele.click()
         time.sleep(5)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
-        self.base.android_Back()
+        self.base.android_back()
         time.sleep(2)
 
     # 인증 번호 재요청

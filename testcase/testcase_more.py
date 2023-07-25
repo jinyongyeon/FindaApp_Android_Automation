@@ -33,7 +33,7 @@ class MoreTestcase_A(unittest.TestCase):
     def tearDown(self):
         base = basemethod()
         more = More()
-        base.android_Back()
+        base.android_back()
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
@@ -114,7 +114,7 @@ class MoreTestcase_A(unittest.TestCase):
             print("채널톡 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("채널톡 진입 : *Error*")
             base.save_screenshot('채널톡진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 자주묻는 질문 진입 및 상세 페이지 노출 테스트
     def test_qna(self):
@@ -245,7 +245,7 @@ class MoreTestcase_A(unittest.TestCase):
                 print("대출 갈아타기 사전신청 진입 에러 발생 : {}".format(str(e)))
                 moreresult.reports.append("대출 갈아타기 진입 : *Error*")
                 base.save_screenshot('대출갈아타기진입_error')
-        base.android_Back()
+        base.android_back()
 
     # 대출 한 번에 비교 진입 테스트
     def test_comparison_loan(self):
@@ -280,7 +280,7 @@ class MoreTestcase_A(unittest.TestCase):
                 moreresult.reports.append("대출 한 번에 비교 진입 : *Error*")
                 base.save_screenshot('대출한번에비교진입_error')
 
-        base.android_Back()
+        base.android_back()
 
     # 자동차 구매 대출 진입 테스트
     def test_auto_loan(self):
@@ -315,7 +315,7 @@ class MoreTestcase_A(unittest.TestCase):
                 moreresult.reports.append("자동차 구매 대출 진입 : *Error*")
                 base.save_screenshot('자동차구매대출진입_error')
 
-        base.android_Back()
+        base.android_back()
 
     # 전월세 추천 진입 테스트
     def test_charter(self):
@@ -351,7 +351,7 @@ class MoreTestcase_A(unittest.TestCase):
         try:
             more.charter_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 30일 대출 챌린지 진입 테스트
     def test_change_loan(self):
@@ -441,7 +441,7 @@ class MoreTestcase_A(unittest.TestCase):
         try:
             more.change_loan_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 내대출_B 진입 테스트
     def test_my_loan_b(self):
@@ -531,7 +531,7 @@ class MoreTestcase_B(unittest.TestCase):
     def tearDown(self):
         base = basemethod()
         more = More()
-        base.android_Back()
+        base.android_back()
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
@@ -572,7 +572,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.credit_score_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 신용점수 올리기 진입 테스트
     def test_improve_credit_score(self):
@@ -607,7 +607,7 @@ class MoreTestcase_B(unittest.TestCase):
                 moreresult.reports.append("신용점수 올리기 진입 : *Error*")
                 base.save_screenshot('신용점수올리기진입_error')
         # more.improve_Credit_Score_Back()
-        base.android_Back()
+        base.android_back()
 
     # 신용점수 상승 전략 진입 테스트
     def test_credit_analysis(self):
@@ -633,7 +633,7 @@ class MoreTestcase_B(unittest.TestCase):
             base.save_screenshot('신용점수상승전략진입_error')
 
         # more.credit_Analysis_Back()
-        base.android_Back()
+        base.android_back()
 
     # 신용관리 > 신용점수 히스토리 진입 테스트
     def test_credit_history(self):
@@ -657,7 +657,7 @@ class MoreTestcase_B(unittest.TestCase):
             moreresult.reports.append("신용점수 히스트리 진입 : *Error*")
             base.save_screenshot('신용점수히스트리진입_error')
         # more.credit_History_Back()
-        base.android_Back()
+        base.android_back()
 
     # 계산기 > 여윳돈 계산기 진입 테스트
     def test_extra_money(self):
@@ -684,7 +684,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.extra_money_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 계산기 > DSR 계산기 진입 테스트
     def test_dsr(self):
@@ -711,7 +711,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.dsr_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 계산기 > 대출이자 계산기 진입 테스트
     def test_interest(self):
@@ -739,7 +739,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.interest_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 계산기 > 연말정산 계산기 진입 테스트
     def test_year_end_settlement(self):
@@ -766,7 +766,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.year_end_settlement_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 계산기 > 전세 vs 월세 계산기 진입 테스트
     def test_charter_vs_monthly_rent(self):
@@ -792,7 +792,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.charter_vs_monthly_rent_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 계산기 > 대출 갈아타기 계산기 진입 테스트
     def test_refinancing_loan(self):
@@ -819,7 +819,7 @@ class MoreTestcase_B(unittest.TestCase):
         try:
             more.refinancing_loan_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 청년도약계좌 계산기 진입 테스트
     def test_youth_leap_account(self):
@@ -842,7 +842,7 @@ class MoreTestcase_B(unittest.TestCase):
             print("청년도약계좌 계산기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("청년도약계좌 계산기 진입 : *Error*")
             base.save_screenshot('청년도약계좌계산기진입_error')
-        base.android_Back()
+        base.android_back()
 
 
 
@@ -869,7 +869,7 @@ class MoreTestcase_C(unittest.TestCase):
     def tearDown(self):
         base = basemethod()
         more = More()
-        base.android_Back()
+        base.android_back()
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
@@ -899,8 +899,7 @@ class MoreTestcase_C(unittest.TestCase):
             moreresult.reports.append("장기렌트 리스 진입 : *Error*")
             base.save_screenshot('장기렌트리스진입_error')
 
-
-        base.android_Back()
+        base.android_back()
 
     # 두낫콜 약관 리스트 진입 테스트
     def test_do_not_call_terms_of_use(self):
@@ -1111,8 +1110,8 @@ class MoreTestcase_C(unittest.TestCase):
             print("대출금 갚아주는 보험 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출금 갚아주는 보험 진입 : *Error*")
             base.save_screenshot('대출금갚아주는보험진입_error')
-        base.android_Back()
-        base.android_Back()
+        base.android_back()
+        base.android_back()
 
     # 예적금 비교 진입 테스트
     def test_deposit_and_savings(self):
@@ -1137,7 +1136,7 @@ class MoreTestcase_C(unittest.TestCase):
             moreresult.reports.append("예적금 비교 진입 : *Error*")
             base.save_screenshot('예적금비교진입_error')
 
-        base.android_Back()
+        base.android_back()
 
     # 핀다 포스트 진입 테스트
     def test_finda_post(self):
@@ -1164,7 +1163,7 @@ class MoreTestcase_C(unittest.TestCase):
         try:
             more.finda_post_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 내 폰 지키미 진입 테스트
     def test_my_phorn(self):
@@ -1191,7 +1190,7 @@ class MoreTestcase_C(unittest.TestCase):
         try:
             more.my_phorn_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 이벤트 진입 테스트
     def test_event(self):
@@ -1218,7 +1217,7 @@ class MoreTestcase_C(unittest.TestCase):
         try:
             more.event_back()
         except:
-            base.android_Back()
+            base.android_back()
 
     # 공지사항 진입 테스트
     def test_notice(self):
