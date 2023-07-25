@@ -16,23 +16,22 @@ class ComparisonLoan:
         self.info = InFo()
 
     # 다음 버튼
-    def next_Loan(self):
+    def next_loan(self):
         next_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.next_loan)
         next_loan.click()
 
     # 확인 버튼
-    def check_Loan(self):
+    def check_loan(self):
         check_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check_loan)
         check_loan.click()
 
-
-            # 비교대출 온보딩 페이지에서 대출 목정페이지로 진입
-    def loan_In(self):
+    # 비교 대출 온보딩 페이지 에서 대출 목적 페이지로 진입
+    def loan_in(self):
         loan_in = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_in)
         loan_in.click()
 
     # 생활비 선택 및 대출 희망금액 입력
-    def living_Expenses(self):
+    def living_expenses(self):
         living_expenses = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.living_expenses)
         living_expenses.click()
         loan_amount = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_amount)
@@ -46,164 +45,164 @@ class ComparisonLoan:
         WebDriver.driver.press_keycode(7)
         time.sleep(1)
 
-    #비교대출 약관
-    def loan_Terms_And_Conditions_A(self):
+    # 비교 대출 약관
+    def loan_terms_and_conditions_a(self):
         loan_terms_and_conditions_A = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_A)
         loan_terms_and_conditions_A.click()
         time.sleep(2)
 
-    def loan_Terms_And_Conditions_Aa(self):
+    def loan_terms_and_conditions_aa(self):
         loan_terms_and_conditions_Aa = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Aa)
         loan_terms_and_conditions_Aa.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ab(self):
+    def loan_terms_and_conditions_ab(self):
         loan_terms_and_conditions_Ab = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ab)
         loan_terms_and_conditions_Ab.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ac(self):
+    def loan_terms_and_conditions_ac(self):
         loan_terms_and_conditions_Ac = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ac)
         loan_terms_and_conditions_Ac.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ad(self):
+    def loan_terms_and_conditions_ad(self):
         loan_terms_and_conditions_Ad = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ad)
         loan_terms_and_conditions_Ad.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ae(self):
+    def loan_terms_and_conditions_ae(self):
         loan_terms_and_conditions_Ae = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ae)
         loan_terms_and_conditions_Ae.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_B(self):
+    def loan_terms_and_conditions_b(self):
         loan_terms_and_conditions_B = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_B)
         loan_terms_and_conditions_B.click()
         time.sleep(2)
 
-    def loan_Terms_And_Conditions_Ba(self):
+    def loan_terms_and_conditions_ba(self):
         loan_terms_and_conditions_Ba = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ba)
         loan_terms_and_conditions_Ba.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Bb(self):
+    def loan_terms_and_conditions_bb(self):
         loan_terms_and_conditions_Bb = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Bb)
         loan_terms_and_conditions_Bb.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Bc(self):
+    def loan_terms_and_conditions_bc(self):
         loan_terms_and_conditions_Bc = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Bc)
         loan_terms_and_conditions_Bc.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Bd(self):
+    def loan_terms_and_conditions_bd(self):
         loan_terms_and_conditions_Bd = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Bd)
         loan_terms_and_conditions_Bd.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Be(self):
+    def loan_terms_and_conditions_be(self):
         loan_terms_and_conditions_Be = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Be)
         loan_terms_and_conditions_Be.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Bf(self):
+    def loan_terms_and_conditions_bf(self):
         loan_terms_and_conditions_Bf = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Bf)
         loan_terms_and_conditions_Bf.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_C(self):
+    def loan_terms_and_conditions_c(self):
         loan_terms_and_conditions_C = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_C)
         loan_terms_and_conditions_C.click()
         time.sleep(2)
 
-    def loan_Terms_And_Conditions_Ca(self):
+    def loan_terms_and_conditions_ca(self):
         loan_terms_and_conditions_Ca = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ca)
         loan_terms_and_conditions_Ca.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cb(self):
+    def loan_terms_and_conditions_cb(self):
         loan_terms_and_conditions_Cb = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cb)
         loan_terms_and_conditions_Cb.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cc(self):
+    def loan_terms_and_conditions_cc(self):
         loan_terms_and_conditions_Cc = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cc)
         loan_terms_and_conditions_Cc.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cd(self):
+    def loan_terms_and_conditions_cd(self):
         loan_terms_and_conditions_Cd = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cd)
         loan_terms_and_conditions_Cd.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ce(self):
+    def loan_terms_and_conditions_ce(self):
         loan_terms_and_conditions_Ce = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ce)
         loan_terms_and_conditions_Ce.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cf(self):
+    def loan_terms_and_conditions_cf(self):
         loan_terms_and_conditions_Cf = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cf)
         loan_terms_and_conditions_Cf.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cg(self):
+    def loan_terms_and_conditions_cg(self):
         loan_terms_and_conditions_Cg = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cg)
         loan_terms_and_conditions_Cg.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ch(self):
+    def loan_terms_and_conditions_ch(self):
         loan_terms_and_conditions_Ch = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ch)
         loan_terms_and_conditions_Ch.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ci(self):
+    def loan_terms_and_conditions_ci(self):
         loan_terms_and_conditions_Ci = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ci)
         loan_terms_and_conditions_Ci.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cj(self):
+    def loan_terms_and_conditions_cj(self):
         loan_terms_and_conditions_Cj = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cj)
         loan_terms_and_conditions_Cj.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Ck(self):
+    def loan_terms_and_conditions_ck(self):
         loan_terms_and_conditions_Ck = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ck)
         loan_terms_and_conditions_Ck.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cl(self):
+    def loan_terms_and_conditions_cl(self):
         loan_terms_and_conditions_Cl = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cl)
         loan_terms_and_conditions_Cl.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_Cm(self):
+    def loan_terms_and_conditions_cm(self):
         loan_terms_and_conditions_Cm = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cm)
         loan_terms_and_conditions_Cm.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_D(self):
+    def loan_terms_and_conditions_d(self):
         loan_terms_and_conditions_D = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_D)
         loan_terms_and_conditions_D.click()
         time.sleep(2)
 
-    def loan_Terms_And_Conditions_Da(self):
+    def loan_terms_and_conditions_da(self):
         loan_terms_and_conditions_Da = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Da)
         loan_terms_and_conditions_Da.click()
         time.sleep(5)
 
-    def loan_Terms_And_Conditions_All(self):
+    def loan_terms_and_conditions_all(self):
         loan_terms_and_conditions_all = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_all)
         loan_terms_and_conditions_all.click()
         time.sleep(2)
 
-    def comparison_Loan_Verification_Resend(self):
+    def comparison_loan_verification_resend(self):
         comparison_loan_verification_resend = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_verification_resend)
         comparison_loan_verification_resend.click()
         time.sleep(2)
 
-    # 잘못된 주민번호 뒷자리 입력
-    def rrn_Fail_Input(self):
+    # 잘못된 주민등록번호 뒷자리 입력
+    def rrn_fail_input(self):
         WebDriver.driver.press_keycode(8)
         time.sleep(1)
         WebDriver.driver.press_keycode(7)
@@ -220,7 +219,7 @@ class ComparisonLoan:
         time.sleep(1)
 
     # 정상적인 주민번호 뒷자리 입력
-    def rrn_Pass_Input(self):
+    def rrn_pass_input(self):
         WebDriver.driver.press_keycode(8)
         time.sleep(1)
         WebDriver.driver.press_keycode(7)
@@ -237,50 +236,49 @@ class ComparisonLoan:
         time.sleep(2)
 
     # 소득 정보 직장인선택
-    def office_Workers(self):
+    def office_workers(self):
         office_workers = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.office_workers)
         office_workers.click()
         time.sleep(2)
 
     # 직장명 핀다 입력
-    def company_Name_Input(self):
+    def company_name_input(self):
         company_name_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_name_input)
         company_name_input.send_keys("핀다")
 
-    #검색 버튼 선택
+    # 검색 버튼 선택
     def search(self):
         search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
         search.click()
         time.sleep(3)
 
     # 핀다선택
-    def company_Number(self):
+    def company_number(self):
         company_number = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_number)
         company_number.click()
         time.sleep(3)
 
     # 정규직 선택
-    def full_Time(self):
+    def full_time(self):
         full_time = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.full_time)
         full_time.click()
         time.sleep(2)
 
     # 보험 정보 입력
-        # 직장의료보험
-    def workplace_Insurance(self):
+    # 직장의료보험
+    def workplace_insurance(self):
         workplace_insurance = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.workplace_insurance)
         workplace_insurance.click()
         time.sleep(3)
-        # 지역의료보험
-    def region_Insurance(self):
+
+    # 지역의료보험
+    def region_insurance(self):
         region_insurance = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.region_insurance)
         region_insurance.click()
         time.sleep(3)
 
     # 연봉정보 입력
-    def annual_Income_Input(self):
-        # annual_income = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.annual_income)
-        # annual_income.click()
+    def annualincome_input(self):
         WebDriver.driver.press_keycode(14)
         time.sleep(1)
         WebDriver.driver.press_keycode(7)
@@ -291,13 +289,13 @@ class ComparisonLoan:
         time.sleep(1)
 
     # 전/월세 선택
-    def monthly_Rent(self):
+    def monthly_rent(self):
         monthly_rent = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.monthly_rent)
         monthly_rent.click()
         time.sleep(2)
 
     # 후담대 선택
-    def my_House_APT(self):
+    def my_house_apt(self):
         my_house = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.my_house)
         my_house.click()
         time.sleep(2)
@@ -306,7 +304,7 @@ class ComparisonLoan:
         time.sleep(2)
 
     # 아파트 검색
-    def address_Search(self):
+    def address_search(self):
         address_search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_search)
         address_search.click()
         time.sleep(2)
@@ -320,19 +318,19 @@ class ComparisonLoan:
         area.click()
 
     # 인증서 없이 결과 조회하기
-    def no_Certificate(self):
+    def no_certificate(self):
         no_certificate = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.no_certificate)
         no_certificate.click()
         time.sleep(100)
 
     # 대출 종류필터 선택
-    def type_Of_Loan(self):
+    def type_of_loan(self):
         type_of_loan = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.type_of_loan)
         type_of_loan.click()
         time.sleep(2)
 
     # 주택 담보대출 필터 선택
-    def secured_Loan(self):
+    def secured_loan(self):
         try:
             secured_loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a)
             secured_loan_a.click()
@@ -368,7 +366,7 @@ class ComparisonLoan:
                         print("주택 담보대출 없음")
 
     # 조회 결과 페이지 > 다시 조회하기 선택
-    def lookup_Again(self):
+    def lookup_again(self):
         lookup_again = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.lookup_again)
         lookup_again.click()
         time.sleep(2)
@@ -386,13 +384,13 @@ class ComparisonLoan:
         time.sleep(2)
 
     #비교대출 신청하기
-    def loan_Application(self):
+    def loan_application(self):
         comparison_loan_detail = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_detail)
         comparison_loan_detail.click()
 
 
     # 자동차 구입 선택
-    def auto_Loan_In(self):
+    def auto_loan_in(self):
         auto_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan)
         auto_loan.click()
         time.sleep(2)

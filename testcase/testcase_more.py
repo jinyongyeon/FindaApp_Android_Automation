@@ -102,8 +102,8 @@ class MoreTestcase_A(unittest.TestCase):
         moreresult = Result_More()
         more.chatting()
         try:
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.chatting_Result)
-            self.assertIn("채널톡 이용중",Result.text)
+            result = WebDriver.driver.find_element(MobileBy.XPATH, etc.chatting_result)
+            self.assertEqual(result.text, "채널톡 이용중")
             print("채널톡 진입 : PASS")
             moreresult.reports.append("채널톡 진입 : *PASS*")
         except AssertionError:
@@ -114,7 +114,7 @@ class MoreTestcase_A(unittest.TestCase):
             print("채널톡 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("채널톡 진입 : *Error*")
             base.save_screenshot('채널톡진입_error')
-        more.chatting_exit()
+        base.android_Back()
 
     # 자주묻는 질문 진입 및 상세 페이지 노출 테스트
     def test_qna(self):
@@ -886,7 +886,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.lease_rent()
         time.sleep(3)
         try:
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_Result)
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_result)
             self.assertEqual(Result.text, "리스렌트")
             print("장기렌트 리스 진입 : PASS")
             moreresult.reports.append("장기렌트 리스 진입 : *PASS*")
@@ -909,10 +909,10 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         more.do_not_call()
-        more.do_Net_Call_Cta()
-        more.terms_Of_Use_A()
-        more.terms_Of_Use_B()
-        more.terms_Of_Use_C()
+        more.do_net_call_cta()
+        more.terms_of_use_a()
+        more.terms_of_use_b()
+        more.terms_of_use_c()
         moreresult = Result_More()
         results = []
         verification_list = [("연락중지청구(Do-not-call) 서비스 이용약관", etc.do_not_call_a_a),
@@ -945,8 +945,7 @@ class MoreTestcase_C(unittest.TestCase):
             moreresult.reports.append("두낫콜 약관 노출 : *FAIL*")
             base.save_screenshot('두낫콜약관노출_fail')
 
-
-        more.terms_Of_Use_Aa()
+        more.terms_of_use_aa()
         try:
             Result_a_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_a_Result)
             self.assertIn("두낫콜 본인확인",Result_a_a.text)
@@ -957,9 +956,9 @@ class MoreTestcase_C(unittest.TestCase):
         except Exception:
             results.append("Error")
             base.save_screenshot('두낫콜약관진입_Aa_error')
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Ab()
+        more.terms_of_use_ab()
         try:
             Result_a_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_a_Result)
             self.assertIn("두낫콜 본인확인",Result_a_b.text)
@@ -971,9 +970,9 @@ class MoreTestcase_C(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('두낫콜약관진입_Ab_error')
 
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Ac()
+        more.terms_of_use_ac()
         try:
             Result_a_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_a_Result)
             self.assertIn("두낫콜 본인확인",Result_a_c.text)
@@ -985,9 +984,9 @@ class MoreTestcase_C(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('두낫콜약관진입_Ac_error')
 
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Ba()
+        more.terms_of_use_ba()
         try:
             Result_b_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_a.text)
@@ -999,9 +998,9 @@ class MoreTestcase_C(unittest.TestCase):
         except Exception:
             results.append("PASS")
 
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Bb()
+        more.terms_of_use_bb()
         try:
             Result_b_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_b.text)
@@ -1012,9 +1011,9 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Bb_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Bc()
+        more.terms_of_use_bc()
         try:
             Result_b_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_c.text)
@@ -1025,9 +1024,9 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Bc_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Bd()
+        more.terms_of_use_bd()
         try:
             Result_b_d = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
             self.assertIn("사이트에 연결할 수 없음",Result_b_d.text)
@@ -1038,9 +1037,9 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Bd_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Ca()
+        more.terms_of_use_ca()
         try:
             Result_c_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_a.text)
@@ -1051,9 +1050,9 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Ca_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Cb()
+        more.terms_of_use_cb()
         try:
             Result_c_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_b.text)
@@ -1064,9 +1063,9 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Cb_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
-        more.terms_Of_Use_Cc()
+        more.terms_of_use_cc()
         try:
             Result_c_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_c_Result)
             self.assertIn("페이지를 찾을 수 없습니다",Result_c_c.text)
@@ -1077,7 +1076,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Cc_error')
         except Exception:
             results.append("PASS")
-        more.terms_Of_Use_Webview_Exit()
+        more.terms_of_use_webview_exit()
 
         print(results)
         if all(result == "PASS" for result in results):
@@ -1086,7 +1085,7 @@ class MoreTestcase_C(unittest.TestCase):
         else:
             print("두낫콜 약관 페이지 진입 노출 : FAIL")
             moreresult.reports.append("두낫콜 약관 페이지 진입 노출 : *FAIL*")
-        more.do_Not_Call_Back()
+        more.do_not_call_back()
 
     # 대출금 갚아주는 보험 진입 테스트
     def test_insurance(self):
@@ -1097,7 +1096,7 @@ class MoreTestcase_C(unittest.TestCase):
         moreresult = Result_More()
         more.insurance()
         time.sleep(2)
-        more.insurance_Web()
+        more.insurance_web()
         time.sleep(15)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.insurance_Result)
@@ -1122,7 +1121,7 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         moreresult = Result_More()
         base = basemethod()
-        more.deposit_And_Savings()
+        more.deposit_and_savings()
         time.sleep(10)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.deposit_and_savings_Result)
@@ -1147,7 +1146,7 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        more.finda_Post()
+        more.finda_post()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.finda_post_Result)
             self.assertEqual(Result.text,"핀다포스트")
@@ -1163,7 +1162,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('핀다포스트진입_error')
 
         try:
-            more.finda_Post_Back()
+            more.finda_post_back()
         except:
             base.android_Back()
 
@@ -1174,7 +1173,7 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        more.my_Phorn()
+        more.my_phorn()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.my_phorn_Result)
             self.assertEqual(Result.text,"내 폰 보호하기")
@@ -1190,7 +1189,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('내폰지키미진입_error')
 
         try:
-            more.my_Phorn_Back()
+            more.my_phorn_back()
         except:
             base.android_Back()
 
@@ -1217,7 +1216,7 @@ class MoreTestcase_C(unittest.TestCase):
             base.save_screenshot('돈되는혜택진입_error')
 
         try:
-            more.event_Back()
+            more.event_back()
         except:
             base.android_Back()
 
@@ -1243,7 +1242,7 @@ class MoreTestcase_C(unittest.TestCase):
             moreresult.reports.append("공지사항 진입 : *Error*")
             base.save_screenshot('공지사항진입_error')
         time.sleep(2)
-        more.notice_In()
+        more.notice_in()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_in_Result)
             self.assertEqual(Result.text,"안녕하세요 핀다입니다.")
@@ -1257,8 +1256,8 @@ class MoreTestcase_C(unittest.TestCase):
             print("공지사항 상세 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("공지사항 상세 진입 : *Error*")
             base.save_screenshot('공지사항상세진입_error')
-        more.notice_In_Back()
-        more.notice_Back()
+        more.notice_in_back()
+        more.notice_back()
 
     # 대출 후기 진입 테스트
     def test_loan_reviews(self):
@@ -1267,7 +1266,7 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        more.loan_Reviews()
+        more.loan_reviews()
         time.sleep(15)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
@@ -1282,7 +1281,7 @@ class MoreTestcase_C(unittest.TestCase):
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 후기 진입 : *Error*")
             base.save_screenshot('대출후기진입_error')
-        more.loan_Reviews_Back()
+        more.loan_reviews_back()
 
     # 최근 알림 진입 테스트
     def test_alarm(self):
@@ -1304,7 +1303,7 @@ class MoreTestcase_C(unittest.TestCase):
             print("최근 알림 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("최근 알림 진입 : *Error*")
             base.save_screenshot('최근알림진입_error')
-        more.alarm_Back()
+        more.alarm_back()
 
 if __name__ == '__main__':
     unittest.main()

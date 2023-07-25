@@ -100,7 +100,7 @@ class MyHome:
     def Lease_Contract_Banner(self):
         lease_contract_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.lease_contract_banner)
         lease_contract_banner.click()
-        time.sleep(2)
+        time.sleep(7)
 
     # 자동차 대출 배너
     def auto_Loan_Banner(self):

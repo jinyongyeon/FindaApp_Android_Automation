@@ -28,7 +28,7 @@ class Etc:
     chatting = '//*[@text = "1:1 채팅문의"]'
 
      # 1:1 채팅문의 진입 결과
-    chatting_Result = '//*[@text = "채널톡 이용중"]'
+    chatting_result = "//*[contains(@text, '채널톡')]"
      # 1:1 채팅 닫기
     chatting_exit = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView"
 
@@ -99,7 +99,7 @@ class Etc:
 
 
     # 나의 금융정보 > 내 대출 진입
-    myloan_B = '//*[@index = "0" and @text = "내 대출"]'
+    myloan_b = '//*[@index = "0" and @text = "내 대출"]'
 
     # 나의 금융정보 > 상환일정
     amortization_schedule = '//*[@text = "상환일정"]'
@@ -211,7 +211,7 @@ class Etc:
     lease_rent = '//*[@text = "장기렌트 리스"]'
 
     # 부가서비스 > 장기렌트 리스 진입 결과
-    lease_rent_Result = '//*[@text = "리스렌트"]'
+    lease_rent_result = '//*[@text = "리스렌트"]'
 
     # 부가서비스 > 장기렌트 리스 뒤로가기
     lease_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'

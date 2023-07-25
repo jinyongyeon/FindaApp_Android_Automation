@@ -13,12 +13,13 @@ from pages.basemethod.base import basemethod
 
 
 
+
 class Seting_Testcase(unittest.TestCase):
 
 
 
     # 설정 > 내정보 수정 테스트
-    def test_My_Info(self):
+    def test_my_info(self):
         driver = WebDriver.driver()
 
 

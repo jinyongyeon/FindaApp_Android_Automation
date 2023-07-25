@@ -579,7 +579,7 @@ class MyHome_Testcase(unittest.TestCase):
             base.save_screenshot('장기렌트리스배너노출_error')
         myhome.Lease_Contract_Banner()
         try:
-            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_Result)
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_result)
             self.assertEqual(Result.text, "리스렌트")
             print("장기렌트 리스 배너 진입 : PASS")
             result_myhome.reports.append("장기렌트 리스 배너 진입 : *PASS*")

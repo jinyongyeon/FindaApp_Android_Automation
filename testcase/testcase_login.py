@@ -24,11 +24,11 @@ class JoinTestCase(unittest.TestCase):
     #
     def setUp(self):
         join = JoIn()
-        join.appStart()
+        join.app_start()
 
     def tearDown(self):
         join = JoIn()
-        join.appQuit()
+        join.app_quit()
 
 
 
@@ -39,11 +39,11 @@ class JoinTestCase(unittest.TestCase):
         # driver = WebDriver.setUp()
         result_join = Result_Join()
         base = basemethod()
-        join.appQuit()
-        join.appStart()
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
+        join.app_quit()
+        join.app_start()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.mo_Result)
             self.assertEqual(Result.text, '이름 입력')
@@ -75,10 +75,10 @@ class JoinTestCase(unittest.TestCase):
         result_join = Result_Join()
         base = basemethod()
         info = InFo()
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
-        join.enter_Personal_Information()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
+        join.enter_personal_information()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.phone_number_Result)
             self.assertEqual(Result.text,info.phone_number)
@@ -105,11 +105,11 @@ class JoinTestCase(unittest.TestCase):
         results_b = []
         results_c = []
         results_d = []
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
-        join.enter_Personal_Information()
-        join.join_Next()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
+        join.enter_personal_information()
+        join.join_next()
         verification_list = [("핀다 필수 항목 모두 동의", main.membership_terms_and_conditions_a_Result),
                              ("제휴사 필수 항목 모두 동의", main.membership_terms_and_conditions_b_Result),
                              ("본인인증 필수 항목 모두 동의", main.membership_terms_and_conditions_c_Result),
@@ -133,7 +133,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("FAIL")
             base.save_screenshot('회원가입약관노출결과_fail')
 
-        join.membership_Terms_And_Conditions_A()
+        join.membership_terms_and_conditions_a()
         verification_list_a = [("서비스 이용약관 동의", main.membership_terms_and_conditions_aa),
                              ("개인정보 제3자 제공 동의", main.membership_terms_and_conditions_ab),
                              ("개인정보 수집 및 이용 동의", main.membership_terms_and_conditions_ac)]
@@ -156,7 +156,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("FAIL")
             base.save_screenshot('회원가입약관노출_1_fail')
 
-        join.membership_Terms_And_Conditions_Aa()
+        join.membership_terms_and_conditions_aa()
 
         try:
             Result_aa = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_aa_Result)
@@ -175,7 +175,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_Ab()
+        join.membership_terms_and_conditions_ab()
 
         try:
             Result_ab = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_ab_Result)
@@ -193,7 +193,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_Ac()
+        join.membership_terms_and_conditions_ac()
 
         try:
             Result_ac = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -212,9 +212,9 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_A()
+        join.membership_terms_and_conditions_a()
         time.sleep(1)
-        join.membership_Terms_And_Conditions_B()
+        join.membership_terms_and_conditions_b()
         verification_list_b = [("KCB 신용조회 서비스 이용 약관 동의", main.membership_terms_and_conditions_ba),
                              ("개인(신용)정보 수집∙이용 동의(KCB)", main.membership_terms_and_conditions_bb),
                              ("개인(신용)정보 제3자 제공 동의(KCB)", main.membership_terms_and_conditions_bc)]
@@ -237,7 +237,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("FAIL")
             base.save_screenshot('회원가입약관노출_2_fail')
 
-        join.membership_Terms_And_Conditions_Ba()
+        join.membership_terms_and_conditions_ba()
 
         try:
             Result_ba = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -257,7 +257,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_Bb()
+        join.membership_terms_and_conditions_bb()
 
         try:
             Result_bb = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -277,7 +277,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_Bc()
+        join.membership_terms_and_conditions_bc()
 
         try:
             Result_bc = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -297,9 +297,9 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_B()
+        join.membership_terms_and_conditions_b()
         time.sleep(2)
-        join.membership_Terms_And_Conditions_C()
+        join.membership_terms_and_conditions_c()
         time.sleep(3)
         base.scroll(0.1)
         time.sleep(4)
@@ -327,7 +327,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("FAIL")
             base.save_screenshot('회원가입약관노출_3_fail')
 
-        join.membership_Terms_And_Conditions_ca()
+        join.membership_terms_and_conditions_ca()
 
         try:
             Result_ca = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -346,7 +346,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_cb()
+        join.membership_terms_and_conditions_cb()
 
         try:
             Result_cb = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -365,7 +365,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_cc()
+        join.membership_terms_and_conditions_cc()
         try:
             Result_cc = WebDriver.driver.find_element(MobileBy.XPATH,
                                                       main.membership_terms_and_conditions_cc_Result)
@@ -383,7 +383,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_cd()
+        join.membership_terms_and_conditions_cd()
 
         try:
             Result_cd = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -403,7 +403,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_ce()
+        join.membership_terms_and_conditions_ce()
 
         try:
             Result_ce = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -423,9 +423,9 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_C_A()
+        join.membership_terms_and_conditions_c_a()
         time.sleep(1)
-        join.membership_Terms_And_Conditions_D()
+        join.membership_terms_and_conditions_d()
         try:
             Result_d = WebDriver.driver.find_element(MobileBy.XPATH, main.membership_terms_and_conditions_da)
             self.assertIn("마케팅 정보 수신 동의", Result_d.text)
@@ -440,8 +440,7 @@ class JoinTestCase(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('회원가입약관노출_4_error')
 
-
-        join.membership_Terms_And_Conditions_da()
+        join.membership_terms_and_conditions_da()
 
         try:
             Result_da = WebDriver.driver.find_element(MobileBy.XPATH,
@@ -460,7 +459,7 @@ class JoinTestCase(unittest.TestCase):
         time.sleep(3)
         base.android_Back()
         time.sleep(3)
-        join.membership_Terms_And_Conditions_D()
+        join.membership_terms_and_conditions_d()
         if all(result == "PASS" for result in results):
             print("회원가입 약관 목록 노출 및 진입 결과 : PASS")
             result_join.reports.append("회원가입 약관 목록 노출 및 진입 결과 : *PASS*")
@@ -475,15 +474,15 @@ class JoinTestCase(unittest.TestCase):
         # driver = WebDriver.setUp()
         result_join = Result_Join()
         base = basemethod()
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
-        join.enter_Personal_Information()
-        join.join_Next()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
+        join.enter_personal_information()
+        join.join_next()
         time.sleep(2)
-        join.membership_Terms_And_Conditions_All()
+        join.membership_terms_and_conditions_all()
         time.sleep(5)
-        join.join_Next()
+        join.join_next()
         time.sleep(3)
         # join.join_Next()
         # time.sleep(3)
@@ -507,8 +506,8 @@ class JoinTestCase(unittest.TestCase):
 
         base.android_Back()
         time.sleep(3)
-        join.re_Request_Verification_Code()
-        join.join_Next()
+        join.re_request_verification_code()
+        join.join_next()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.pincode_in_Result)
             self.assertEqual(Result.text, "사용할 비밀번호를 입력해주세요")
@@ -533,19 +532,19 @@ class JoinTestCase(unittest.TestCase):
         result_join = Result_Join()
         result_join = Result_Join()
         base = basemethod()
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
-        join.enter_Personal_Information()
-        join.join_Next()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
+        join.enter_personal_information()
+        join.join_next()
         time.sleep(2)
-        join.membership_Terms_And_Conditions_All()
+        join.membership_terms_and_conditions_all()
         time.sleep(5)
-        join.join_Next()
+        join.join_next()
         time.sleep(3)
-        join.use_Fingerprint()
-        join.pinCode()
-        join.pinCode()
+        join.use_fingerprint()
+        join.pin_code()
+        join.pin_code()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
             self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
@@ -570,9 +569,9 @@ class LoginTestCase(unittest.TestCase):
         # driver = WebDriver.setUp()
         base = basemethod()
         info = InFo()
-        join.appStart()
+        join.app_start()
         # join.appQuit()
-        join.pinCode()
+        join.pin_code()
         time.sleep(3)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
@@ -599,7 +598,7 @@ class LoginTestCase(unittest.TestCase):
         result_join = Result_Join()
         seting.setingIn()
         base.scroll(2)
-        join.logOut()
+        join.log_out()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, main.logout_Result)
             self.assertEqual(Result.text, '안심하세요. 개인정보 보호 중')
@@ -624,8 +623,8 @@ class LoginTestCase(unittest.TestCase):
         info = InFo()
         result_join = Result_Join()
         more = More()
-        join.appStart()
-        join.pinCode()
+        join.app_start()
+        join.pin_code()
         more.etc_in()
         seting.setingIn()
         base.scroll(2)
@@ -644,19 +643,19 @@ class LoginTestCase(unittest.TestCase):
             result_join.reports.append("탈퇴하기 결과 : *Error*")
             base.save_screenshot('탈퇴하기결과_error')
         time.sleep(5)
-        join.appStart()
-        join.start_Onboarding()
-        join.malicious_App_Search()
-        join.message_Certification()
-        join.enter_Personal_Information()
-        join.join_Next()
-        join.membership_Terms_And_Conditions_All()
+        join.app_start()
+        join.start_onboarding()
+        join.malicious_app_search()
+        join.message_certification()
+        join.enter_personal_information()
+        join.join_next()
+        join.membership_terms_and_conditions_all()
         time.sleep(6)
-        join.join_Next()
-        join.use_Fingerprint()
-        join.pinCode()
+        join.join_next()
+        join.use_fingerprint()
+        join.pin_code()
         time.sleep(1)
-        join.pinCode()
+        join.pin_code()
 
 
 if __name__ == '__main__':

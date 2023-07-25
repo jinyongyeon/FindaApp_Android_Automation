@@ -1,11 +1,7 @@
 import re
 import time
 import subprocess
-
-
-
 from appium.webdriver.common.mobileby import MobileBy
-
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.base import basemethod
@@ -21,47 +17,46 @@ class JoIn:
         self.base = basemethod()
         self.etc = Etc()
 
-    #다음버튼 선택
-    def join_Next(self):
+    # 다음버튼 선택
+    def join_next(self):
         next_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.next_button)
         next_button.click()
         time.sleep(2)
 
     # 앱 종료
-    def appQuit(self):
+    def app_quit(self):
         self.result = subprocess.run(
             ['adb', 'shell', 'am', 'force-stop', f'{"kr.co.finda.finda"}'])
         time.sleep(3)
 
     # 앱 실행
-    def appStart(self):
+    def app_start(self):
         self.result = subprocess.run(['adb', 'shell', 'am', 'start', '-n',f'{"kr.co.finda.finda"}/{".ui.splash.SplashActivity"}'])
         time.sleep(5)
 
     # 핀코드 입력
-    def pinCode(self):
+    def pin_code(self):
         pincode = WebDriver.driver.find_element(MobileBy.XPATH, self.main.pincode)
         for i in range(6):
             pincode.click()
             time.sleep(1)
 
-    #온보딩 페이지 시작하기 버튼 선택
-    def start_Onboarding(self):
+    # 온보딩 페이지 시작하기 버튼 선택
+    def start_onboarding(self):
         start_onboarding = WebDriver.driver.find_element(MobileBy.XPATH, self.main.start_onboarding)
         start_onboarding.click()
         time.sleep(2)
 
-
-# -----------------------------------------------------------------------------------------------------------------------------------------
-    #악성앱 찾기 버튼 선택
-    def malicious_App_Search(self):
+    # -----------------------------------------------------------------------------------------------------------------------------------------
+    # 악성앱 찾기 버튼 선택
+    def malicious_app_search(self):
         time.sleep(1)
         # malicious_app_search_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.malicious_app_search_button)
         # malicious_app_search_button.click()
         # time.sleep(20)
 
-    # MO인증 동작
-    def message_Certification(self):
+    # MO 인증 동작
+    def message_certification(self):
         message_certification = WebDriver.driver.find_element(MobileBy.XPATH, self.main.message_certification)
         message_certification.click()
         time.sleep(5)
@@ -69,8 +64,8 @@ class JoIn:
         send_message.click()
         time.sleep(10)
 
-    # 개인정보 입력
-    def enter_Personal_Information(self):
+    # 개인 정보 입력
+    def enter_personal_information(self):
         name = WebDriver.driver.find_element(MobileBy.XPATH, self.main.name)
         name.send_keys(self.info.name)
         next_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.next_button)
@@ -85,101 +80,101 @@ class JoIn:
         time.sleep(2)
         # next_button.click()
 
-    #회원가입 약관 진입
-    def membership_Terms_And_Conditions_A(self):
+    # 회원 가입 약관 진입
+    def membership_terms_and_conditions_a(self):
         membership_terms_and_conditions_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_a)
         membership_terms_and_conditions_a.click()
         time.sleep(1)
 
-    def membership_Terms_And_Conditions_B(self):
+    def membership_terms_and_conditions_b(self):
         membership_terms_and_conditions_b = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_b)
         membership_terms_and_conditions_b.click()
         time.sleep(1)
 
-    def membership_Terms_And_Conditions_C(self):
+    def membership_terms_and_conditions_c(self):
         membership_terms_and_conditions_c = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_c)
         membership_terms_and_conditions_c.click()
         time.sleep(1)
 
-    def membership_Terms_And_Conditions_C_A(self):
+    def membership_terms_and_conditions_c_a(self):
         membership_terms_and_conditions_c_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_c_a)
         membership_terms_and_conditions_c_a.click()
         time.sleep(1)
 
-    def membership_Terms_And_Conditions_D(self):
+    def membership_terms_and_conditions_d(self):
         membership_terms_and_conditions_d = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_d)
         membership_terms_and_conditions_d.click()
         time.sleep(1)
 
-    def membership_Terms_And_Conditions_Aa(self):
+    def membership_terms_and_conditions_aa(self):
         membership_terms_and_conditions_aa = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_aa)
         membership_terms_and_conditions_aa.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_Ab(self):
+    def membership_terms_and_conditions_ab(self):
         membership_terms_and_conditions_ab = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ab)
         membership_terms_and_conditions_ab.click()
         time.sleep(5)
         
-    def membership_Terms_And_Conditions_Ac(self):
+    def membership_terms_and_conditions_ac(self):
         membership_terms_and_conditions_ac = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ac)
         membership_terms_and_conditions_ac.click()
         time.sleep(5)
         
-    def membership_Terms_And_Conditions_Ba(self):
+    def membership_terms_and_conditions_ba(self):
         membership_terms_and_conditions_ba = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ba)
         membership_terms_and_conditions_ba.click()
         time.sleep(5)
         
-    def membership_Terms_And_Conditions_Bb(self):
+    def membership_terms_and_conditions_bb(self):
         membership_terms_and_conditions_bb = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_bb)
         membership_terms_and_conditions_bb.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_Bc(self):
+    def membership_terms_and_conditions_bc(self):
         membership_terms_and_conditions_bc = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_bc)
         membership_terms_and_conditions_bc.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_ca(self):
+    def membership_terms_and_conditions_ca(self):
         membership_terms_and_conditions_ca = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ca)
         membership_terms_and_conditions_ca.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_cb(self):
+    def membership_terms_and_conditions_cb(self):
         membership_terms_and_conditions_cb = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cb)
         membership_terms_and_conditions_cb.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_cc(self):
+    def membership_terms_and_conditions_cc(self):
         membership_terms_and_conditions_cc = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cc)
         membership_terms_and_conditions_cc.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_cd(self):
+    def membership_terms_and_conditions_cd(self):
         membership_terms_and_conditions_cd = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cd)
         membership_terms_and_conditions_cd.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_ce(self):
+    def membership_terms_and_conditions_ce(self):
         membership_terms_and_conditions_ce = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ce)
         membership_terms_and_conditions_ce.click()
         time.sleep(5)
 
-    def membership_Terms_And_Conditions_da(self):
+    def membership_terms_and_conditions_da(self):
         membership_terms_and_conditions_da = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_da)
         membership_terms_and_conditions_da.click()
         time.sleep(5)
 
-    #회원가입 > 약관 동의 후 확인 버튼 선택
-    def membership_Terms_And_Conditions_All(self):
+    # 회원 가입 > 약관 동의 후 확인 버튼 선택
+    def membership_terms_and_conditions_all(self):
         membership_terms_and_conditions_all = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_all)
         membership_terms_and_conditions_all.click()
         check = WebDriver.driver.find_element(MobileBy.XPATH, self.main.check)
         check.click()
 
-    #회원가입 인증번호 초기화
-    def join_Mms_delete(self):
+    # 회원 가입 > 인증 번호 초기화
+    def join_mms_delete(self):
         WebDriver.driver.start_activity("com.samsung.android.messaging", "com.android.mms.ui.ConversationComposer")
         time.sleep(3)
         latest_message = WebDriver.driver.find_element(MobileBy.XPATH,'//android.widget.Button[@content-desc="검색"]')
@@ -209,8 +204,8 @@ class JoIn:
         self.base.android_Back()
         time.sleep(2)
 
-    #회원가입 인증번호 리스트 저장 => 사용함
-    def join_Mms(self):
+    # 회원 가입 > 인증 번호 리스트 저장 => 사용함
+    def join_mms(self):
         WebDriver.driver.start_activity("com.samsung.android.messaging", "com.android.mms.ui.ConversationComposer")
         time.sleep(3)
         latest_message = WebDriver.driver.find_element(MobileBy.XPATH,'//android.widget.Button[@content-desc="검색"]')
@@ -242,34 +237,27 @@ class JoIn:
         self.base.android_Back()
         time.sleep(2)
 
-    #인증번호 재요청
-    def re_Request_Verification_Code(self):
+    # 인증 번호 재요청
+    def re_request_verification_code(self):
         Re_request_verification_code = WebDriver.driver.find_element(MobileBy.XPATH, self.main.Re_request_verification_code)
         Re_request_verification_code.click()
         time.sleep(5)
 
-    #지문인증 사용여부 선택
-    def use_Fingerprint(self):
+    # 지문 인증 사용 여부 선택
+    def use_fingerprint(self):
         use_fingerprint = WebDriver.driver.find_element(MobileBy.XPATH, self.main.use_fingerprint)
         use_fingerprint.click()
 
-    #로그아웃
-    def logOut(self):
+    # 로그 아웃
+    def log_out(self):
         logout = WebDriver.driver.find_element(MobileBy.XPATH, self.main.logout)
         logout.click()
         time.sleep(2)
         logout_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.logout)
         logout_a.click()
 
-    #회원탈퇴
+    # 회원 탈퇴
     def withdrawal(self):
-        # etc_in = WebDriver.driver.find_element(MobileBy.XPATH, self.etc.etc)
-        # etc_in.click()
-        # time.sleep(2)
-        # seting_buttun = WebDriver.driver.find_element(MobileBy.XPATH, self.etc.seting_buttun)
-        # seting_buttun.click()
-        # time.sleep(2)
-        # self.base.scroll(2)
         withdrawal = WebDriver.driver.find_element(MobileBy.XPATH, self.main.withdrawal)
         withdrawal.click()
         time.sleep(2)

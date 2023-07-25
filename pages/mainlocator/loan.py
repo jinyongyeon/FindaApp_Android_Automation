@@ -18,7 +18,8 @@ class Loan:
     auto_loan_terms_ae = '//*[@text = "개인정보 제3자 동의 (KT, LGU+ 알뜰폰)"]'
     auto_loan_terms_ae_r = '//*[@text = "개인정보 제3자 제공 동의"]'
 
-    auto_loan_terms_b = '//*[@text = "핀다 필수 항목 동의"]'
+    # '//*[@text = "핀다 필수 항목 동의"]'
+    auto_loan_terms_b = "//*[contains(@text, '핀다 필수 항목 동의')]"
     auto_loan_terms_b_unfold = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[2]/android.view.View'
     auto_loan_terms_ba = '//*[@text = "오토론 서비스 이용약관"]'
     auto_loan_terms_ba_r = '//*[@text = "서비스 이용 약관 [오토론]"]'
