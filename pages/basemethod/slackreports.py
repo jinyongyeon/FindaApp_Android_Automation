@@ -77,3 +77,19 @@ class SlackWebHook:
         else:
             return 'error'
 
+    # 웹훅 테스트
+    def test_slack_webhook(data):
+        headers = {
+            'Content-type': 'application/json'
+        }
+
+        data = {
+            'text': data
+        }
+
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
+
+        if res.status_code == 200:
+            return 'ok'
+        else:
+            return 'error'

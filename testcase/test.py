@@ -1,3 +1,3 @@
 from pages.basemethod.slackreports import SlackWebHook
 
-print(SlackWebHook.auto_loan_send_slack_webhook("테스트"))
+print(SlackWebHook.test_slack_webhook("아림님 고생하셨습니다 ㅠㅠㅠ"))

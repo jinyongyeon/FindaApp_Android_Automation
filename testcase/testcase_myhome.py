@@ -645,6 +645,5 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
 
 
-
 if __name__ == '__main__':
     unittest.main()

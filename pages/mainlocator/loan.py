@@ -95,6 +95,9 @@ class Loan:
     # 자동차 구입
     auto_loan = '//*[@text = "자동차구입"]'
     auto_loan_In = '//*[@text = "이동"]'
+    # 대환대출
+    refinancing_loan = '//*[@text = "대환대출"]'
+
 
     # 대출 희망 금액
     loan_amount = '//*[@text = "희망 금액 입력"]'
@@ -238,8 +241,22 @@ class Loan:
     certification_b = "//*[contains(@text, '심사필')]"
     loan_application_result = "//*[contains(@text, '안내')]"
 
-    a = "//*[contains(@text, '카디프')]"
+    # 대환대출
 
-    # a = "//*[@text = '다올저축은행 준법감시인 심의필 제202307-00015호(23.07.11~24.07.10)']"
+    # 대출 목적 > 대환대출 > 대출 갈아타기
+    refinancing_loan_transfer = '//*[@text = "대출 갈아타기"]'
 
+    # 미입력 정보 입력
+    please_enter = '//*[@text = "입력해주세요"]'
 
+    # 직장이 없어요
+    no_job = '//*[@text = "직장이 없어요"]'
+
+    # 소유차량이 없어요
+    no_car = '//*[@text = "소유 차량이 없어요"]'
+
+    # 내 최대 한도 확인하기
+    check_max_limit = '//*[@text = "내 최대 한도 확인하기"]'
+
+    # 약관 전체 동의
+    full_terms = '//*[@text = "약관 전체 동의"]'
