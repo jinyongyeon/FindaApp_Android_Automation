@@ -127,8 +127,7 @@ class MyHome_Testcase(unittest.TestCase):
                             myhome.comPariSonLoan_In_e()
                         except Exception as e:
                             print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
-
-        time.sleep(4)
+        time.sleep(10)
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
             self.assertEqual(Result_A.text,"오늘의 내 최저금리 알아보기")
@@ -229,7 +228,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("대출진단 배너 노출 : FAIL")
             result_myhome.reports.append("대출진단 배너 노출 : *FAIL*")
             base.save_screenshot('대출진단배너노출_fail')
-
+        time.sleep(10)
         try:
             result_A = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_a)
             self.assertIn("내 대출 계좌 연결하기", result_A.text)

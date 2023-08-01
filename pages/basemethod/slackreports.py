@@ -5,7 +5,7 @@ from config.info import InFo
 
 # 웹훅 들어갈 주소
 info = InFo()
-slack_webhook_url = info.slack_webhook_url
+# slack_webhook_url = info.slack_webhook_url
 
 
 class SlackWebHook:
@@ -17,10 +17,10 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*\n\n\n1.[AOS]회원가입 테스트 결과*\n\n\n" + data
+            'text': "\n\n\n*1.[AOS]회원가입 테스트 결과*\n\n\n" + data
         }
 
-        res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
 
         if res.status_code == 200:
             return 'ok'
@@ -33,10 +33,10 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*\n\n\n2.[AOS]마이홈 테스트 결과*\n\n\n" + data
+            'text': "\n\n\n*2.[AOS]마이홈 테스트 결과*\n\n\n" + data
         }
 
-        res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
 
         if res.status_code == 200:
             return 'ok'
@@ -50,10 +50,10 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*\n\n\n3.[AOS]더보기 테스트 결과*\n\n\n" + data
+            'text': "\n\n\n*3.[AOS]더보기 테스트 결과*\n\n\n" + data
         }
 
-        res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
 
         if res.status_code == 200:
             return 'ok'
@@ -67,10 +67,10 @@ class SlackWebHook:
         }
 
         data = {
-            'text': "*\n\n\n4.[AOS]비교대출+오토론 테스트 결과*\n\n\n" + data
+            'text': "\n\n\n*4.[AOS]비교대출+오토론 테스트 결과*\n\n\n" + data
         }
 
-        res = requests.post(slack_webhook_url, headers=headers, data=json.dumps(data))
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
 
         if res.status_code == 200:
             return 'ok'

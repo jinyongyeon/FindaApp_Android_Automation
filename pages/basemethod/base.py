@@ -1,6 +1,8 @@
 import time
 import requests
-from appium.webdriver.appium_service import AppiumService
+# import subprocess
+
+# from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
 import os
 from config.info import InFo
@@ -16,9 +18,9 @@ class basemethod:
         self.info = InFo()
         self.main = Main()
 
-    def appium_run(self):
-        appium_service = AppiumService()
-        appium_service.start(args=['-a', '127.0.0.1', '-p', '4724', '-pa', '/wd/hub'])
+    # def appium_run(self):
+    #     appium_command = "appium -a 127.0.0.1 -p 4723 -pa /wd/hub"
+    #     subprocess.Popen(appium_command, shell=True)
 
     def android_back(self):
         self.driver.press_keycode(4)
@@ -68,14 +70,14 @@ class basemethod:
         }
         try:
             # POST 요청
-            response = requests.post(url, headers=headers, json=data)
+            response = requests.post(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
             # print(result)
             if 'token' in result:
                 parameter_value = result['token']
                 self.info.usertoken.append(parameter_value)
-            # print(self.info.usertoken)
+            print(self.info.usertoken)
         except Exception as e:
             print("요청 실패:", str(e))
 
@@ -98,7 +100,7 @@ class basemethod:
         }
         try:
             # POST 요청
-            response = requests.post(url, headers=headers, json=data)
+            response = requests.post(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
             print(result)
@@ -132,7 +134,7 @@ class basemethod:
         }
         try:
             # POST 요청
-            response = requests.put(url, headers=headers, json=data)
+            response = requests.put(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
             print(result)

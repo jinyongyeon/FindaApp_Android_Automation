@@ -74,7 +74,7 @@ class AutoLoanTestcase(unittest.TestCase):
             except Exception:
                 results.append("Error")
 
-        autoloan.auto_Loan_Terms_Aa()
+        autoloan.auto_loan_terms_aa()
         time.sleep(6)
         try:
             Result_ba = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_terms_aa_r)

@@ -230,7 +230,7 @@ class Auto_Loan:
         }
         try:
 
-            response = requests.post(url, headers=headers, json=data)
+            response = requests.post(url, headers=headers, json=data, verify=False)
             result = response.json()
             print(result)
 
@@ -310,7 +310,7 @@ class Auto_Loan:
         }
         try:
 
-            response = requests.post(url, headers=headers, json=data)
+            response = requests.post(url, headers=headers, json=data, verify=False)
             result = response.json()
             print(result)
 
@@ -390,7 +390,7 @@ class Auto_Loan:
         }
         try:
 
-            response = requests.post(url, headers=headers, json=data)
+            response = requests.post(url, headers=headers, json=data, verify=False)
             result = response.json()
             print(result)
 

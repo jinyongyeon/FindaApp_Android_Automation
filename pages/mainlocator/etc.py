@@ -59,7 +59,7 @@ class Etc:
     comparison_loan = '//*[@text = "대출 한 번에 비교"]'
 
     # 대출 한 번에 비교 결과
-    comparison_loan_Result_a = '//*[@text = "오늘의 내 최저금리 알아보기"]'
+    comparison_loan_Result_a = '//*[contains(@text, "알아보기")]'
     # comparison_loan_Result_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView'
     # comparison_loan_Result_b = '//*[@text = "오늘입금"]'
     comparison_loan_Result_b = '//*[@text = "오늘입금"]'
@@ -86,7 +86,7 @@ class Etc:
 
     # 전월세 추천 진입 결과
     charter_Result_a = '//*[@text = "전월세대출 맞춤추천"]'
-    charter_Result_b = '//*[@text = "1:1 맞춤형 전월세대출 가이드"]'
+    charter_Result_b = '//*[@text = "1:1 맞춤형\n전월세대출 가이드"]'
 
     # 전원세 뒤로가기
     charter_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'

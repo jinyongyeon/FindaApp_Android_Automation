@@ -337,7 +337,7 @@ class MoreTestcase_A(unittest.TestCase):
         except Exception:
             try:
                 Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_Result_b)
-                self.assertEqual(Result_B.text,"1:1 맞춤형 전월세대출 가이드")
+                self.assertEqual(Result_B.text,"1:1 맞춤형\n전월세대출 가이드")
                 print("전월세 추천 진입 : PASS")
                 moreresult.reports.append("전월세 추천 진입 : *PASS*")
             except AssertionError:
