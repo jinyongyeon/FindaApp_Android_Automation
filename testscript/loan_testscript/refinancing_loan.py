@@ -15,13 +15,18 @@ class RefinancingLoan:
         self.loan = Loan()
         self.info = InFo()
 
+    def loan_re_view_bottomsheet(self):
+        loan_re_view_bottomsheet = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_re_view_bottomsheet)
+        loan_re_view_bottomsheet.click()
+        time.sleep(3)
+
     # 대출 목적 > 대환대출 선택
     def refinancing_loan(self):
         refinancing_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.refinancing_loan)
         refinancing_loan.click()
         time.sleep(2)
 
-    # 대출 목적 > 대환대출 선택 > 대출 갈아타기 선택
+    # 대출 갈아타기 선택
     def refinancing_loan_transfer(self):
         refinancing_loan_transfer = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.refinancing_loan_transfer)
         refinancing_loan_transfer.click()

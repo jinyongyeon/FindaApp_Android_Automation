@@ -243,6 +243,9 @@ class Loan:
 
     # 대환대출
 
+    # 재한도 조회 바텀시트 호출
+    loan_re_view_bottomsheet = '//*[@text = "이전 정보로 간편하게 대출 조회하기"]'
+
     # 대출 목적 > 대환대출 > 대출 갈아타기
     refinancing_loan_transfer = '//*[@text = "대출 갈아타기"]'
 
@@ -260,3 +263,6 @@ class Loan:
 
     # 약관 전체 동의
     full_terms = '//*[@text = "약관 전체 동의"]'
+
+    # 대환 대출 결과 페이지 진입 결과
+    refinancing_loan_result = "//*[contains(@text, '바로대환')]"

@@ -1,4 +1,4 @@
-from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan
+from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan, Result_refinancing_loan
 from pages.basemethod.slackreports import SlackWebHook
 
 import unittest
@@ -19,6 +19,17 @@ suite = unittest.TestSuite()
 
 
 suite.addTest(LoginTestCase('test_check_in'))
+
+
+Result_refinancing = Result_refinancing_loan()
+result_refinancing = '\n\n'.join(str(i) for i in Result_refinancing.reports)
+print(SlackWebHook.refinancing_loan_send_slack_webhook(result_refinancing))
+
+
+
+
+
+
 suite.addTest(MyHome_Testcase('test_comparison_loan'))
 suite.addTest(MyHome_Testcase('test_loan_diagnosis_banner'))
 suite.addTest(MyHome_Testcase('test_loan_banner'))
@@ -118,5 +129,4 @@ runner.run(suite_c)
 result_auto_loan = Result_loan()
 result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
 print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))
-
 

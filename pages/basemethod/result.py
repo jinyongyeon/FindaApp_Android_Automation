@@ -22,6 +22,6 @@ class Result_loan:
 
     reports= []
 
+class Result_refinancing_loan:
 
-
-
+    reports= []

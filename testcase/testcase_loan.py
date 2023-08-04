@@ -1889,7 +1889,7 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-        Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_application_r_a)
+        Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.refinancing_loan_transfer)
         print(Result_A.text)
         # try:
         #     Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_result_a)
