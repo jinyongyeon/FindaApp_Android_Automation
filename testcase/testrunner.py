@@ -10,25 +10,18 @@ from testcase.testcase_more import MoreTestcase_B
 from testcase.testcase_more import MoreTestcase_C
 from testcase.testcase_myhome import MyHome_Testcase
 
-
-
-
-
 runner = unittest.TextTestRunner()
-suite = unittest.TestSuite()
 
+print(SlackWebHook.test_start_slack_webhook("웹훅url 테스트"))
+
+
+suite = unittest.TestSuite()
 
 suite.addTest(LoginTestCase('test_check_in'))
 
-
-Result_refinancing = Result_refinancing_loan()
-result_refinancing = '\n\n'.join(str(i) for i in Result_refinancing.reports)
-print(SlackWebHook.refinancing_loan_send_slack_webhook(result_refinancing))
-
-
-
-
-
+# Result_refinancing = Result_refinancing_loan()
+# Result_refinancing = '\n\n'.join(str(i) for i in Result_refinancing.reports)
+# print(SlackWebHook.refinancing_loan_send_slack_webhook(Result_refinancing))
 
 suite.addTest(MyHome_Testcase('test_comparison_loan'))
 suite.addTest(MyHome_Testcase('test_loan_diagnosis_banner'))
@@ -62,6 +55,7 @@ suite_a.addTest(MoreTestcase_B('test_credit_score'))
 suite_a.addTest(MoreTestcase_B('test_improve_credit_score'))
 suite_a.addTest(MoreTestcase_B('test_credit_analysis'))
 suite_a.addTest(MoreTestcase_B('test_credit_history'))
+suite_a.addTest(MoreTestcase_B('test_private_business_credit_management'))
 suite_a.addTest(MoreTestcase_B('test_extra_money'))
 suite_a.addTest(MoreTestcase_B('test_dsr'))
 suite_a.addTest(MoreTestcase_B('test_interest'))

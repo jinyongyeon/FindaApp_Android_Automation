@@ -92,7 +92,7 @@ class Etc:
     charter_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 30일 대출 챌린지
-    change_loan = '//*[@text = "30일 대출 챌린지"]'
+    change_loan = '//*[@text = "대환 챌린지"]'
 
     # 30일 안에 대출 갈아타기 뒤로가기
     change_loan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -148,6 +148,9 @@ class Etc:
 
     # 신용관리 > 신용점수 히스트리 뒤로가기
     credit_history_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
+
+    # 개인사업자 신용관리
+    private_business_credit_management = '//*[@text = "개인사업자 신용관리"]'
 
     # 계산기 > 여윳돈 계산기 진입
     extra_money = '//*[@text = "여윳돈 계산기"]'
@@ -223,13 +226,13 @@ class Etc:
     do_not_call_cta = '//*[@text = "한 번에 차단하기"]'
 
     # 두낫콜 약관 펼치기 1
-    do_not_call_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View'
+    do_not_call_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]/android.view.View'
 
     # 두낫콜 약관 펼치기 2
-    do_not_call_b = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View'
+    do_not_call_b = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[3]/android.view.View'
 
     # 두낫콜 약관 펼치기 3
-    do_not_call_c = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[6]/android.view.View'
+    do_not_call_c = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.view.View'
 
     # 연락중지청구(Do-not-call) 서비스 이용약관
     do_not_call_a_a = '//*[@text = "연락중지청구(Do-not-call) 서비스 이용약관"]'
@@ -274,7 +277,7 @@ class Etc:
     webview_exit = '//*[@content-desc = "탭 닫기"]'
 
     # 두낫콜 나가기 버튼
-    do_not_call_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]'
+    do_not_call_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]'
 
     # 두낫콜 나가기 > 중단하기 버튼
     do_not_call_stop = '//*[@text = "중단하기"]'
@@ -363,7 +366,7 @@ class Etc:
     loan_reviews = '//*[@text = "대출후기"]'
 
     # 대출후기 진입 결과
-    loan_reviews_Result = '//*[@text = "핀다 신용대출 신청 서비스로\n대출받으신 고객님들의 후기입니다."]'
+    loan_reviews_Result = "//*[contains(@text, '핀다 신용대출 신청 서비스로')]"
 
     # 대출후기 > 뒤로가기
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'

@@ -110,3 +110,20 @@ class SlackWebHook:
             return 'ok'
         else:
             return 'error'
+
+    # 안드로이드 자동화 시작 알림
+    def test_start_slack_webhook(data):
+        headers = {
+            'Content-type': 'application/json'
+        }
+
+        data = {
+            'text': data
+        }
+
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
+
+        if res.status_code == 200:
+            return 'ok'
+        else:
+            return 'error'

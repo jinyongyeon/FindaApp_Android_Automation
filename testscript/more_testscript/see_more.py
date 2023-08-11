@@ -226,6 +226,12 @@ class More:
         credit_score_back = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_score_back)
         credit_score_back.click()
 
+    # 개인사업자 신용관리
+    def private_business_credit_management(self):
+        private_business_credit_management = WebDriver.driver.find_element(MobileBy.XPATH, Etc.private_business_credit_management)
+        private_business_credit_management.click()
+        time.sleep(2)
+
     # 계산기 > 여윳돈 계산기 진입
     def extra_money(self):
         extra_money = WebDriver.driver.find_element(MobileBy.XPATH, Etc.extra_money)

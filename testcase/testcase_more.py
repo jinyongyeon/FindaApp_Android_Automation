@@ -210,9 +210,8 @@ class MoreTestcase_A(unittest.TestCase):
         else:
             print("자주 묻는 질문 상세 항목 노출 : FAIL")
             moreresult.reports.append("자주 묻는 질문 상세 항목 노출 : *FAIL*")
-
         more.qna_click_e()
-        more.qna_back()
+        base.android_back()
 
     # 대출 갈아타기 테스트
     def test_refinancing_loan(self):
@@ -353,7 +352,7 @@ class MoreTestcase_A(unittest.TestCase):
         except:
             base.android_back()
 
-    # 30일 대출 챌린지 진입 테스트
+    # 대출 챌린지 진입 테스트
     def test_change_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
@@ -362,82 +361,81 @@ class MoreTestcase_A(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         more.change_loan()
-
         try:
             result_A = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_a)
             self.assertIn("내 대출 계좌 연결하기", result_A.text)
-            print("30일 대출 챌린지 진입 : PASS")
-            moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+            print("대출 챌린지 진입 : PASS")
+            moreresult.reports.append("대출 챌린지 진입 : *PASS*")
         except AssertionError:
-            print("대출진단 배너 진입 : FAIL")
-            moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-            base.save_screenshot('30일대출챌린지진입_fail')
+            print("대출 챌린지 진입 : FAIL")
+            moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+            base.save_screenshot('대출챌린지진입_fail')
         except Exception:
             try:
                 result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
                 self.assertIn("챌린지 시작하기", result_B.text)
-                print("30일 대출 챌린지 진입 : PASS")
-                moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                print("대출 챌린지 진입 : PASS")
+                moreresult.reports.append("대출 챌린지 진입 : *PASS*")
             except AssertionError:
-                print("대출진단 배너 진입 : FAIL")
-                moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                base.save_screenshot('30일대출챌린지진입_fail')
+                print("대출 챌린지 진입 : FAIL")
+                moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                base.save_screenshot('대출챌린지진입_fail')
             except Exception:
                 try:
                     result_C = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge)
-                    self.assertIn("30일 대환 챌린지", result_C.text)
-                    print("30일 대출 챌린지 진입 : PASS")
-                    moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                    self.assertIn("대환 챌린지", result_C.text)
+                    print("대출 챌린지 진입 : PASS")
+                    moreresult.reports.append("대출 챌린지 진입 : *PASS*")
                 except AssertionError:
-                    print("대출진단 배너 진입 : FAIL")
-                    moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                    base.save_screenshot('30일대출챌린지진입_fail')
+                    print("대출 챌린지 진입 : FAIL")
+                    moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                    base.save_screenshot('대출챌린지진입_fail')
                 except Exception:
                     try:
                         result_D = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_a)
                         self.assertIn("챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!", result_D.text)
-                        print("30일 대출 챌린지 진입 : PASS")
-                        moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                        print("대출 챌린지 진입 : PASS")
+                        moreresult.reports.append("대출 챌린지 진입 : *PASS*")
                     except AssertionError:
-                        print("대출진단 배너 진입 : FAIL")
-                        moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                        base.save_screenshot('30일대출챌린지진입_fail')
+                        print("대출 챌린지 진입 : FAIL")
+                        moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                        base.save_screenshot('대출챌린지진입_fail')
                     except Exception:
                         try:
                             result_E = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_b)
                             self.assertIn("당신은 Lv.1 될성부른 꿈나무", result_E.text)
-                            print("30일 대출 챌린지 진입 : PASS")
-                            moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                            print("대출 챌린지 진입 : PASS")
+                            moreresult.reports.append("대출 챌린지 진입 : *PASS*")
                         except AssertionError:
-                            print("대출진단 배너 진입 : FAIL")
-                            moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                            base.save_screenshot('30일대출챌린지진입_fail')
+                            print("대출 챌린지 진입 : FAIL")
+                            moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                            base.save_screenshot('대출챌린지진입_fail')
                         except Exception:
                             try:
                                 result_F = WebDriver.driver.find_element(MobileBy.XPATH,
                                                                          home.refinance_loan_challenge_c)
                                 self.assertIn("당신은 Lv.2 성실한 우등생", result_F.text)
-                                print("30일 대출 챌린지 진입 : PASS")
-                                moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                                print("대출 챌린지 진입 : PASS")
+                                moreresult.reports.append("대출 챌린지 진입 : *PASS*")
                             except AssertionError:
                                 print("대출진단 배너 진입 : FAIL")
-                                moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                                base.save_screenshot('30일대출챌린지진입_fail')
+                                moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                                base.save_screenshot('대출챌린지진입_fail')
                             except Exception:
                                 try:
                                     result_G = WebDriver.driver.find_element(MobileBy.XPATH,
                                                                              home.refinance_loan_challenge_d)
                                     self.assertIn("당신은 Lv.3 만랩 마스터", result_G.text)
-                                    print("30일 대출 챌린지 진입 : PASS")
-                                    moreresult.reports.append("30일 대출 챌린지 진입 : *PASS*")
+                                    print("대출 챌린지 진입 : PASS")
+                                    moreresult.reports.append("대출 챌린지 진입 : *PASS*")
                                 except AssertionError:
                                     print("대출진단 배너 진입 : FAIL")
-                                    moreresult.reports.append("30일 대출 챌린지 진입 : *FAIL*")
-                                    base.save_screenshot('30일대출챌린지진입_fail')
+                                    moreresult.reports.append("대출 챌린지 진입 : *FAIL*")
+                                    base.save_screenshot('대출챌린지진입_fail')
                                 except Exception as e:
-                                    print("30일 대출 챌린지 진입 에러 발생 : {}".format(str(e)))
-                                    moreresult.reports.append("30일 대출 챌린지 진입 진입 : *Error*")
-                                    base.save_screenshot('30일대출챌린지진입_error')
+                                    print("대출 챌린지 진입 에러 발생 : {}".format(str(e)))
+                                    moreresult.reports.append("대출 챌린지 진입 진입 : *Error*")
+                                    base.save_screenshot('대출챌린지진입_error')
         try:
             more.change_loan_back()
         except:
@@ -540,21 +538,12 @@ class MoreTestcase_B(unittest.TestCase):
 
     # 신용점수 진입 테스트
     def test_credit_score(self):
-        # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
         moreresult = Result_More()
         base = basemethod()
         time.sleep(1)
         more.credit_score()
-        # try:
-        #     more.credit_Score()
-        #     time.sleep(10)
-        #     print("신용점수 진입 : PASS")
-        #     moreresult.reports.append("신용점수 진입 : *PASS*")
-        # except :
-        #     print("신용점수 진입 : FAIL")
-        #     moreresult.reports.append("신용점수 진입 : *FAIL*")
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
             self.assertEqual("신용관리", Result.text)
@@ -637,7 +626,6 @@ class MoreTestcase_B(unittest.TestCase):
 
     # 신용관리 > 신용점수 히스토리 진입 테스트
     def test_credit_history(self):
-        # driver = WebDriver.setUpCalss()
         more = More()
         etc = Etc()
         base = basemethod()
@@ -658,6 +646,32 @@ class MoreTestcase_B(unittest.TestCase):
             base.save_screenshot('신용점수히스트리진입_error')
         # more.credit_History_Back()
         base.android_back()
+
+    # 개인사업자 신용관리 진입 테스트
+    def test_private_business_credit_management(self):
+        more = More()
+        etc = Etc()
+        moreresult = Result_More()
+        base = basemethod()
+        time.sleep(1)
+        more.private_business_credit_management()
+        try:
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
+            self.assertEqual("신용관리", Result.text)
+            print("개인사업자 신용관리 진입 : PASS")
+            moreresult.reports.append("개인사업자 신용관리 진입 : *PASS*")
+        except AssertionError:
+            print("개인사업자 신용관리 진입 : FAIL")
+            moreresult.reports.append("개인사업자 신용관리 진입 : *FAIL*")
+            base.save_screenshot('개인사업자용관리진입_fail')
+        except Exception as e:
+            print("개인사업자 신용관리 진입 에러 발생 : {}".format(str(e)))
+            moreresult.reports.append("개인사업자 신용관리 진입 : *Error*")
+            base.save_screenshot('개인사업자용관리진입_error')
+        try:
+            more.credit_score_back()
+        except:
+            base.android_back()
 
     # 계산기 > 여윳돈 계산기 진입 테스트
     def test_extra_money(self):
@@ -801,6 +815,7 @@ class MoreTestcase_B(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
+        base.scroll(0.1)
         more.refinancing_loan()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result)
@@ -827,7 +842,7 @@ class MoreTestcase_B(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        base.scroll(0.1)
+        base.scroll(0.15)
         more.youth_leap_account()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.youth_leap_account_result)
@@ -844,12 +859,6 @@ class MoreTestcase_B(unittest.TestCase):
             base.save_screenshot('청년도약계좌계산기진입_error')
         base.android_back()
 
-
-
-
-
-
-
 class MoreTestcase_C(unittest.TestCase):
 
     # @classmethod
@@ -864,7 +873,7 @@ class MoreTestcase_C(unittest.TestCase):
     def setUp(self):
         base = basemethod()
         base.scroll(1)
-        base.scroll(1)
+        base.scroll(1.05)
 
     def tearDown(self):
         base = basemethod()
@@ -1269,7 +1278,7 @@ class MoreTestcase_C(unittest.TestCase):
         time.sleep(15)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
-            self.assertIn("핀다 신용대출 신청 서비스로\n대출받으신 고객님들의 후기입니다.", Result.text)
+            self.assertIn("대출받으신 고객님들의 후기입니다.", Result.text)
             print("대출 후기 진입 : PASS")
             moreresult.reports.append("대출 후기 진입 : *PASS*")
         except AssertionError:

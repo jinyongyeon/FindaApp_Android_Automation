@@ -195,9 +195,10 @@ class Loan:
     monthly_rent = '//*[@text = "전/월세"]'
     APT = '//*[@text = "아파트에요"]'
     address_search = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]'
-    address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.EditText'
+    address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText'
     home_address = '//*[@text = "김포시 걸포동 한강메트로자이2단지"]'
     area = '//*[@text = "45 평 (149.00 ㎡)"]'
+    check = "//*[contains(@text, '확인')]"
 
     no_certificate = '//*[@text = "인증서 없이 대출 조회하기"]'
 
@@ -219,8 +220,8 @@ class Loan:
     secured_loan_result_b = '//*[@text = "주택담보대출"]'
 
     # 대출조회 결과
-    safe_number_result_a = '//*[@text = "최저금리"]'
-    safe_number_result_b = '//*[@text = "최대한도"]'
+    safe_number_result_a = "//*[contains(@text, '최저금리')]"
+    safe_number_result_b = "//*[contains(@text, '대출가능')]"
     safe_number_result_c = '//*[@text = "오늘입금"]'
     safe_number_result_d = '//*[@text = "계좌개설 없음"]'
     safe_number_result_e = '//*[@text = "금리 낮은순"]'

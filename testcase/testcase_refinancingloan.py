@@ -26,16 +26,10 @@ class Refinancing_Loan_Testcase(unittest.TestCase):
     def test_refinancing_loan_mydata_connected(self):
         loan = Loan()
         base = basemethod()
-        join = JoIn()
-        info = InFo()
-        etc = Etc()
-        more = More()
-        seting = Seting()
         resultrefinancing = Result_refinancing_loan()
         refinancingloan = RefinancingLoan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-        results = []
         try:
             myhome.comPariSonLoan_In_a()
         except:

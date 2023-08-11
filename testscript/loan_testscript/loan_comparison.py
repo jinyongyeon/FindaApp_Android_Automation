@@ -316,6 +316,10 @@ class ComparisonLoan:
         home_address.click()
         area = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.area)
         area.click()
+        time.sleep(3)
+        check = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check)
+        check.click()
+        time.sleep(3)
 
     # 인증서 없이 결과 조회하기
     def no_certificate(self):

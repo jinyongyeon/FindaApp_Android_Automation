@@ -11,10 +11,10 @@ class Home:
     loans_e = '//*[@text = "대출 이어서 진행하기"]'
 
     # 마이홈 대출진단 배너
-    loandiagnosisbanner_a = '//*[@text = "30일 대출 챌린지\n지금 도전하세요"]'
-    loandiagnosisbanner_aa = '//*[@text = "챌린지 시작하기"]'
-    loandiagnosisbanner_b = '//*[@text = "늘어난 대출이자에\n힘드신가요?"]'
-    loandiagnosisbanner_bb = '//*[@text = "클릭 한번에 대출 관리 시작하기"]'
+    loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"
+    loandiagnosisbanner_aa = "//*[contains(@text, '시작하기')]"
+    loandiagnosisbanner_b = "//*[contains(@text, '늘어난 대출이자에')]"
+    loandiagnosisbanner_bb = "//*[contains(@text, '클릭 한번에')]"
     loandiagnosisbanner_c = '//*[@text = "한도조회 누적 달성 1회!"]'
     loandiagnosisbanner_d = '//*[@text = "한도조회 누적 달성 2회!"]'
     loandiagnosisbanner_e = '//*[@text = "한도조회 누적 달성 3회!"]'
@@ -23,7 +23,7 @@ class Home:
     # 대환대출 진입 결과
     refinanceloanfirstvisit_a = '//*[@text = "내 대출 계좌 연결하기"]'
     refinanceloanfirstvisit_b = '//*[@text = "챌린지 시작하기"]'
-    refinance_loan_challenge = '//*[@text = "30일 대환 챌린지"]'
+    refinance_loan_challenge = '//*[@text = "대환 챌린지"]'
     refinance_loan_challenge_a = '//*[@text = "챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!"]'
     refinance_loan_challenge_b = '//*[@text = "당신은 Lv.1 될성부른 꿈나무"]'
     refinance_loan_challenge_c = '//*[@text = "당신은 Lv.2 성실한 우등생"]'

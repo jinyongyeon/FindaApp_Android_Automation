@@ -1268,11 +1268,12 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan.my_house_apt()
         comparisonloan.check_loan()
         comparisonloan.address_search()
-        comparisonloan.check_loan()
+        # time.sleep(4)
+        # comparisonloan.check_loan()
         comparisonloan.no_certificate()
         time.sleep(3)
         verification_list = [("최저금리", loan.safe_number_result_a),
-                             ("최대한도", loan.safe_number_result_b),
+                             ("대출가능", loan.safe_number_result_b),
                              ("오늘입금", loan.safe_number_result_c),
                              ("계좌개설 없음", loan.safe_number_result_d),
                              ("금리 낮은순", loan.safe_number_result_e)]
@@ -1716,7 +1717,7 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan.check_loan()
         time.sleep(100)
         verification_list = [("최저금리", loan.safe_number_result_a),
-                             ("최대한도", loan.safe_number_result_b),
+                             ("대출가능", loan.safe_number_result_b),
                              ("오늘입금", loan.safe_number_result_c),
                              ("계좌개설 없음", loan.safe_number_result_d),
                              ("금리 낮은순", loan.safe_number_result_e)]
@@ -1787,7 +1788,7 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan.check_loan()
         time.sleep(100)
         verification_list = [("최저금리", loan.safe_number_result_a),
-                             ("최대한도", loan.safe_number_result_b),
+                             ("대출가능", loan.safe_number_result_b),
                              ("오늘입금", loan.safe_number_result_c),
                              ("계좌개설 없음", loan.safe_number_result_d),
                              ("금리 낮은순", loan.safe_number_result_e)]
@@ -1889,8 +1890,8 @@ class test_Testcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
-        Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.refinancing_loan_transfer)
-        print(Result_A.text)
+        comparisonloan.address_search()
+
         # try:
         #     Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.qna_result_a)
         #     print(Result_A.text)
