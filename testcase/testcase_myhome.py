@@ -516,7 +516,7 @@ class MyHome_Testcase(unittest.TestCase):
             base.save_screenshot('상환예정배너>알림받기On동작_fail')
         except Exception as e:
             print("상환 예정 배너 > 알림 받기 On 동작 에러 발생 : {}".format(str(e)))
-            results.append("Error")
+            result_myhome.reports.append("Error")
             base.save_screenshot('상환예정배너>알림받기On동작_error')
         myhome.notification_Enabled_Off()
         try:
@@ -530,7 +530,7 @@ class MyHome_Testcase(unittest.TestCase):
             base.save_screenshot('상환예정배너>알림받기Off동작_fail')
         except Exception as e:
             print("상환 예정 배너 > 알림 받기 Off 동작 에러 발생 : {}".format(str(e)))
-            results.append("Error")
+            result_myhome.reports.append("Error")
             base.save_screenshot('상환예정배너>알림받기Off동작_error')
 
         try:
@@ -549,7 +549,7 @@ class MyHome_Testcase(unittest.TestCase):
             base.save_screenshot('상환예정배너진입_fail')
         except Exception as e:
             print("상환 예정 배너 진입 에러 발생 : {}".format(str(e)))
-            results.append("Error")
+            result_myhome.reports.append("Error")
             base.save_screenshot('상환예정배너진입_error')
         base.android_back()
 

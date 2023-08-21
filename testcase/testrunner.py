@@ -12,7 +12,7 @@ from testcase.testcase_myhome import MyHome_Testcase
 
 runner = unittest.TextTestRunner()
 
-print(SlackWebHook.test_start_slack_webhook("웹훅url 테스트"))
+# print(SlackWebHook.test_start_slack_webhook("웹훅url 테스트"))
 
 
 suite = unittest.TestSuite()

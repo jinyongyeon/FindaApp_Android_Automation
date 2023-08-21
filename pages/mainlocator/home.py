@@ -31,19 +31,19 @@ class Home:
 
     # 내 대출 배너
     loan_banner = '//*[@text = "내 대출 2"]'
-    loan_a = '//*[@text = "주택도시기금 청년취업(창업) 전세자금대출"]'
+    loan_a = "//*[contains(@text, '주택도시기금 청년취업(창업)')]"
     loan_aaa = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[4]'
     loan_aa = '//*[@text = "1.3%"]'
-    loan_b = '//*[@text = "주택도시기금 버팀목전세자금(신혼가구)"]'
+    loan_b = "//*[contains(@text, '주택도시기금 버팀목전세자금')]"
     loan_bbb = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[5]'
     loan_bb = '//*[@text = "2.1%"]'
 
     # 내 현금자산 배너
-    cash_assets_banner = '//*[@text = "내 현금자산 3"]'
-    cash_assets_banner_result = '//*[@text = "진용연님의 현금자산은"]'
-    cash_assets_banner_a = '//*[@text = "입출금 2"]'
+    cash_assets_banner = "//*[contains(@text, '내 현금자산')]"
+    cash_assets_banner_result = "//*[contains(@text, '진용연님의 현금자산은')]"
+    cash_assets_banner_a = "//*[contains(@text, '입출금')]"
     cash_assets_banner_a_result = '//*[@text = "저축예금"]'
-    cash_assets_banner_b = '//*[@text = "예적금 1"]'
+    cash_assets_banner_b = "//*[contains(@text, '예적금')]"
     cash_assets_banner_b_result = '//*[@text = "청년 우대형 주택청약종합저축"]'
 
     # 상환 예정 배너

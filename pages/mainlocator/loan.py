@@ -108,7 +108,7 @@ class Loan:
     loan_terms_and_conditions_C_result = '//*[@text = "금융기관 필수 항목 모두 동의"]'
     loan_terms_and_conditions_D_result = '//*[@text = "서비스 이용 안내 수신 동의 (선택)"]'
 
-    loan_terms_and_conditions_A = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[1]/android.view.View'
+    loan_terms_and_conditions_A = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[1]/android.view.View'
     loan_terms_and_conditions_Aa = '//*[@text = "통신사 이용 약관"]'
     loan_terms_and_conditions_Aa_result = '//*[@text = "통신사 이용약관"]'
     loan_terms_and_conditions_Ab = '//*[@text = "개인정보취급동의"]'
@@ -116,11 +116,11 @@ class Loan:
     loan_terms_and_conditions_Ac = '//*[@text = "고유식별정보처리 동의"]'
     loan_terms_and_conditions_Ac_result = '//*[@text = "고유식별정보처리 동의"]'
     loan_terms_and_conditions_Ad = '//*[@text = "본인확인서비스 이용약관"]'
-    loan_terms_and_conditions_Ad_result = '//*[@text = "KCB휴대폰 본인확인 이용약관"]'
+    loan_terms_and_conditions_Ad_result = "//*[contains(@text, 'KCB휴대폰 본인확인 이용약관')]"
     loan_terms_and_conditions_Ae = '//*[@text = "개인정보 제3자 동의 (KT, LGU+ 알뜰폰)"]'
     loan_terms_and_conditions_Ae_result = '//*[@text = "개인정보 제3자 제공 동의"]'
 
-    loan_terms_and_conditions_B = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]/android.view.View'
+    loan_terms_and_conditions_B = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[2]/android.view.View'
     loan_terms_and_conditions_Ba = '//*[@text = "개인(신용)정보 수집·이용·제공 동의서(FINDA)"]'
     loan_terms_and_conditions_Ba_result = '//*[@text = "개인(신용)정보 수집·이용·제공 동의서(FINDA)"]'
     loan_terms_and_conditions_Bb = '//*[@text = "서비스 이용 약관 [비교대출]"]'
@@ -134,7 +134,7 @@ class Loan:
     loan_terms_and_conditions_Bf = '//*[@text = "간편 인증 고유식별번호처리 동의"]'
     loan_terms_and_conditions_Bf_result = '//*[@text = "[간편인증] 고유식별번호처리 동의"]'
 
-    loan_terms_and_conditions_C = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[3]/android.view.View'
+    loan_terms_and_conditions_C = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[3]/android.view.View'
     loan_terms_and_conditions_Ca = '//*[@text = "개인정보 수집·이용·제공 동의서 (금융기관 용)"]'
     loan_terms_and_conditions_Ca_result = '//*[@text = "개인(신용)정보 수집·이용·제공 동의서(금융기관 용)"]'
     loan_terms_and_conditions_Cb = '//*[@text = "개인(신용)정보 조회 동의서(금융기관 용)"]'
@@ -162,7 +162,7 @@ class Loan:
     loan_terms_and_conditions_Cm = '//*[@text = "개인(신용)정보 이용 및 제3자 제공 동의서[KCB대안신용평가모델]"]'
     loan_terms_and_conditions_Cm_result = '//*[@text = "개인(신용)정보 이용 및 제3자 제공 동의서[KCB대안신용평가모델]"]'
 
-    loan_terms_and_conditions_D = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]/android.view.View'
+    loan_terms_and_conditions_D = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[2]/android.view.View'
     loan_terms_and_conditions_Da = '//*[@text = "개인정보 제3자 제공 동의(대출안심플랜)"]'
     loan_terms_and_conditions_Da_result = '//*[@text = "개인정보 제3자 제공 동의(대출안심플랜)"]'
 

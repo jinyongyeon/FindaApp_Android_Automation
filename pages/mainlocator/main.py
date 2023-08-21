@@ -102,23 +102,26 @@ class Main:
     # 핀코드 입력 진입
     pincode_in_Result = '//*[@text ="사용할 비밀번호를 입력해주세요"]'
 
-    #인증번호 재요청
+    # 인증번호 재요청
     Re_request_verification_code = '//*[@text ="인증번호 재요청"]'
 
-    #지문인증 사용여부
+    # 지문인증 사용여부
     use_fingerprint = '//*[@text ="다음부터 지문 인증을 사용할게요."]'
 
-    #로그아웃
+    # 로그아웃
     logout = '//*[@text ="로그아웃"]'
     logout_Result = '//*[@text ="안심하세요. 개인정보 보호 중"]'
 
-    #회원탈퇴
+    # 회원탈퇴
     withdrawal = '//*[@text ="회원탈퇴"]'
 
-    #회원탈퇴_동의
+    # 회원탈퇴_동의
     withdrawal_agreement = '//*[@text ="위 내용을 모두 확인했습니다."]'
 
-    #탈퇴하기
+    # 탈퇴하기
     withdraw = '//*[@text ="탈퇴하기"]'
+
+    # 다시 로그인 하기
+    re_login = '//*[@text ="다시 로그인하기"]'
 
     withdraw_Result = '//*[@text ="원내비"]'

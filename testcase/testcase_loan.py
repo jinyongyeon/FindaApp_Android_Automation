@@ -632,6 +632,7 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan.next_loan()
         results = []
         results_a = []
+        time.sleep(4)
         verification_list = [("본인인증 필수 항목 모두 동의", loan.loan_terms_and_conditions_A_result),
                              ("핀다 필수 항목 모두 동의", loan.loan_terms_and_conditions_B_result),
                              ("금융기관 필수 항목 모두 동의", loan.loan_terms_and_conditions_C_result),
