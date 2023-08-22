@@ -13,6 +13,7 @@ from pages.mainlocator import etc
 from pages.mainlocator.etc import Etc
 from pages.mainlocator.home import Home
 from pages.basemethod.base import basemethod
+from testscript.more_testscript.see_more import More
 from testscript.myhome_testscript.myhome import MyHome
 
 
@@ -478,11 +479,12 @@ class MyHome_Testcase(unittest.TestCase):
         # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
+        more = More()
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
         base.scroll(1)
-        base.scroll(0.3)
+        base.scroll(0.6)
         verification_list = [("상환 예정", home.repayment_schedule_banner),
                              ("알림 받기", home.notification_enabled_on)]
         for text, xpath in verification_list:
@@ -532,12 +534,14 @@ class MyHome_Testcase(unittest.TestCase):
             print("상환 예정 배너 > 알림 받기 Off 동작 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("Error")
             base.save_screenshot('상환예정배너>알림받기Off동작_error')
-
         try:
             myhome.loan_A()
         except:
             myhome.loan_B()
-
+        try:
+            more.check()
+        except:
+            pass
         try:
             result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.repayment_schedule)
             self.assertIn("이번달 총 상환액", result_d.text)

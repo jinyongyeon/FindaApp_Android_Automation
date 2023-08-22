@@ -486,6 +486,10 @@ class MoreTestcase_A(unittest.TestCase):
         time.sleep(2)
         more.amortization_schedule()
         try:
+            more.check()
+        except:
+            pass
+        try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
             self.assertEqual(Result_A.text,"이번달 총 상환액")
             print("상환일정 진입 : PASS")

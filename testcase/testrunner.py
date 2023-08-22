@@ -1,4 +1,5 @@
-from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan, Result_refinancing_loan
+from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan, Result_refinancing_loan, \
+    Result_seting
 from pages.basemethod.slackreports import SlackWebHook
 
 import unittest
@@ -9,20 +10,19 @@ from testcase.testcase_more import MoreTestcase_A
 from testcase.testcase_more import MoreTestcase_B
 from testcase.testcase_more import MoreTestcase_C
 from testcase.testcase_myhome import MyHome_Testcase
+from testcase.testcase_seting import Seting_Testcase
 
 runner = unittest.TextTestRunner()
 
-# print(SlackWebHook.test_start_slack_webhook("웹훅url 테스트"))
+print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
 
 
 suite = unittest.TestSuite()
 
 suite.addTest(LoginTestCase('test_check_in'))
-
 # Result_refinancing = Result_refinancing_loan()
 # Result_refinancing = '\n\n'.join(str(i) for i in Result_refinancing.reports)
 # print(SlackWebHook.refinancing_loan_send_slack_webhook(Result_refinancing))
-
 suite.addTest(MyHome_Testcase('test_comparison_loan'))
 suite.addTest(MyHome_Testcase('test_loan_diagnosis_banner'))
 suite.addTest(MyHome_Testcase('test_loan_banner'))
@@ -80,6 +80,25 @@ result_more = Result_More()
 result_more = '\n\n'.join(str(i) for i in result_more.reports)
 print(SlackWebHook.more_send_slack_webhook(result_more))
 
+suite_d = unittest.TestSuite()
+
+suite_d.addTest(Seting_Testcase('test_my_info'))
+suite_d.addTest(Seting_Testcase('test_change_password'))
+suite_d.addTest(Seting_Testcase('test_seting_mydata'))
+suite_d.addTest(Seting_Testcase('test_seting_terms_of_use'))
+suite_d.addTest(Seting_Testcase('test_seting_privacy_policy'))
+suite_d.addTest(Seting_Testcase('test_seting_mydata_service_terms_of_use'))
+suite_d.addTest(Seting_Testcase('test_financial_consumer_protection_notice'))
+suite_d.addTest(Seting_Testcase('test_seting_version'))
+suite_d.addTest(Seting_Testcase('test_open_source_license'))
+
+runner.run(suite_d)
+
+result_seting = Result_seting()
+result_set = '\n\n'.join(str(i) for i in result_seting.reports)
+print(SlackWebHook.seting_slack_webhook(result_set))
+
+
 suite_b = unittest.TestSuite()
 
 suite_b.addTest(LoginTestCase('test_log_out'))
@@ -123,4 +142,3 @@ runner.run(suite_c)
 result_auto_loan = Result_loan()
 result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
 print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))
-

@@ -478,7 +478,7 @@ class AutoLoanTestcase(unittest.TestCase):
         join.join_mms_delete()
         time.sleep(3)
         more.etc_in()
-        seting.setingIn()
+        seting.seting_in()
         base.scroll(2)
         base.user_id_get()
         base.user_token_get()

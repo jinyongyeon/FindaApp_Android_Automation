@@ -107,6 +107,7 @@ class Etc:
     # 상환일정 진입 결과
     amortization_schedule_a = '//*[@text = "이번달 총 상환액"]'
     amortization_schedule_b = '//*[@text = "상환 일정이 없습니다."]'
+    check = '//*[@text = "확인"]'
 
     # 나의 금융정보 > 상환일정 뒤로가기
     amortization_schedule_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
@@ -381,7 +382,66 @@ class Etc:
     alarm_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
 
+    # 설정 영역 --------------------------------------
 
     # 설정 페이지
     seting_buttun = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
 
+    # 설정 > 내 정보
+    myinfo = '//*[@text = "내 정보"]'
+
+    # 설정 > 내 정보 진입 결과
+    myinfo_result_a = '//*[@text = "내 정보 확인"]'
+    myinfo_result_b = '//*[@text = "'+info.phone_number+'"]'
+    myinfo_result_c = '//*[@text = "'+info.news_agency+'"]'
+    myinfo_result_d = '//*[@text = "'+info.name+'"]'
+
+    # 설정 > 내 정보 > 수정하기
+    myinfo_edit = '//*[@text = "수정하기"]'
+
+    # 설정 > 내 정보 > 수정하기 > 본인 인증하기
+    myinfo_authenticate_yourself = '//*[@text = "본인 인증하기"]'
+
+    # 설정 > 내 정보 > 수정하기 > 본인 인증하기 동작 결과
+    myinfo_result = '//*[@text = "시작하기"]'
+
+    # 설정 > 비밀번호 변경
+    changepassword = '//*[@text = "비밀번호 변경"]'
+
+    # 설정 > 비밀번호 변경 > 현재 비밀번호 입력
+    changepassword_a = "//*[contains(@text, '현재 비밀번호')]"
+
+    # 설정 > 비밀번호 변경 > 새로운 비밀번호 입력
+    changepassword_b = "//*[contains(@text, '사용할 비밀번호')]"
+
+    # 설정 > 비밀번호 변경 > 새로운 비밀번호 재 입력
+    changepassword_c = "//*[contains(@text, '확인을 위해 재입력')]"
+
+    # 설정 > 금융 정보 관리(마이데이터)
+    seting_mtdata = '//*[@text = "금융 정보 관리 (마이데이터)"]'
+    seting_mtdata_result_a = '//*[@text = "연결내역 관리하기"]'
+    seting_mtdata_result_b = "//*[contains(@text, '마이데이터 연결로 이동합니다.')]"
+
+    # 설정 > 이용약관
+    seting_terms_of_use = '//*[@text = "이용약관"]'
+    seting_terms_of_use_result = "//*[contains(@text, '서비스 이용약관')]"
+
+    # 설정 > 개인정보 처리방침
+    seting_privacy_policy = '//*[@text = "개인정보 처리방침"]'
+    seting_privacy_policy_result = "//*[contains(@text, '개인정보처리방침')]"
+
+    # 설정 > 마이데이터 서비스 이용약관
+    seting_mydata_service_terms_of_use = '//*[@text = "마이데이터 서비스 이용약관"]'
+    seting_mydata_service_terms_of_use_result = "//*[contains(@text, '[마이데이터]')]"
+
+    # 설정 > 금융소비자보호 고지사항
+    financial_consumer_protection_notice = '//*[@text = "금융소비자보호 고지사항"]'
+    financial_consumer_protection_notice_result = "//*[contains(@text, '금융소비자보호')]"
+
+    # 설정 > 버전 정보
+    seting_version = '//*[@text = "버전 정보"]'
+    seting_version_result = "//*[contains(@text, '현재버전')]"
+
+    # 설정 > 오픈소스 라이선스
+    open_source_license = '//*[@text = "오픈소스 라이선스"]'
+    open_source_license_result = "//*[contains(@text, 'Accom')]"

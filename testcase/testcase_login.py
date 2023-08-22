@@ -596,7 +596,7 @@ class LoginTestCase(unittest.TestCase):
         more = More()
         result_join = Result_Join()
         more.etc_in()
-        seting.setingIn()
+        seting.seting_in()
         base.scroll(2)
         join.log_out()
         try:
@@ -624,7 +624,7 @@ class LoginTestCase(unittest.TestCase):
         join.app_start()
         join.pin_code()
         more.etc_in()
-        seting.setingIn()
+        seting.seting_in()
         base.scroll(2)
         join.withdrawal()
         try:

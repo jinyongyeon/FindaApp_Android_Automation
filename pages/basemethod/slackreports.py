@@ -94,6 +94,23 @@ class SlackWebHook:
         else:
             return 'error'
 
+    # 설정 테스트 결과
+    def seting_slack_webhook(data):
+        headers = {
+            'Content-type': 'application/json'
+        }
+
+        data = {
+            'text': "\n\n\n*6.[AOS]설정 테스트 결과*\n\n\n" + data
+        }
+
+        res = requests.post(info.slack_webhook_url, headers=headers, data=json.dumps(data))
+
+        if res.status_code == 200:
+            return 'ok'
+        else:
+            return 'error'
+
     # 웹훅 테스트
     def test_slack_webhook(data):
         headers = {

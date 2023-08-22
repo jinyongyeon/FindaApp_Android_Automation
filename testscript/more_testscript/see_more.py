@@ -172,6 +172,11 @@ class More:
         amortization_schedule_back.click()
         time.sleep(2)
 
+    def check(self):
+        check =WebDriver.driver.find_element(MobileBy.XPATH,Etc.check)
+        check.click()
+        time.sleep(2)
+
     # 신용 관리 > 신용 점수 진입
     def credit_score(self):
         credit_score = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_score)
