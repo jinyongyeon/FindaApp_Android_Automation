@@ -12,6 +12,7 @@ class InFo:
     news_agency = "KT" # 통신사 정보 (KT,LGU+,SKT,KT알뜰폰,등등)
     user_id = []
     usertoken = []
+
     txseqno = []
     idtoken = []
     # day = "20230725"  #오늘날짜
