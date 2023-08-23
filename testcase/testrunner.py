@@ -14,7 +14,7 @@ from testcase.testcase_seting import Seting_Testcase
 
 runner = unittest.TextTestRunner()
 
-# print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
+print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
 
 
 suite = unittest.TestSuite()
@@ -82,7 +82,7 @@ print(SlackWebHook.more_send_slack_webhook(result_more))
 
 suite_d = unittest.TestSuite()
 
-# suite_d.addTest(Seting_Testcase('test_my_info'))
+suite_d.addTest(Seting_Testcase('test_my_info'))
 suite_d.addTest(Seting_Testcase('test_change_password'))
 suite_d.addTest(Seting_Testcase('test_seting_mydata'))
 suite_d.addTest(Seting_Testcase('test_seting_terms_of_use'))
