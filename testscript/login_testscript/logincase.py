@@ -50,9 +50,11 @@ class JoIn:
     # -----------------------------------------------------------------------------------------------------------------------------------------
     # 악성앱 찾기 버튼 선택
     def malicious_app_search(self):
-        # time.sleep(1)
-        malicious_app_search_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.malicious_app_search_button)
-        malicious_app_search_button.click()
+        try:
+            malicious_app_search_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.malicious_app_search_button)
+            malicious_app_search_button.click()
+        except:
+            print("악성앱찾기서버 : FAIL")
         time.sleep(20)
 
     # MO 인증 동작
