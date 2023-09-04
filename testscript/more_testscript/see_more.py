@@ -237,6 +237,12 @@ class More:
         private_business_credit_management.click()
         time.sleep(2)
 
+    # 신용퀴즈 어워즈
+    def credit_quiz_awards(self):
+        credit_quiz_awards = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_quiz_awards)
+        credit_quiz_awards.click()
+        time.sleep(2)
+
     # 계산기 > 여윳돈 계산기 진입
     def extra_money(self):
         extra_money = WebDriver.driver.find_element(MobileBy.XPATH, Etc.extra_money)

@@ -153,6 +153,10 @@ class Etc:
     # 개인사업자 신용관리
     private_business_credit_management = '//*[@text = "개인사업자 신용관리"]'
 
+    # 신용퀴즈 어워즈
+    credit_quiz_awards = '//*[@text = "신용퀴즈 어워즈"]'
+    credit_quiz_awards_result = "//*[contains(@text, '신용퀴즈')]"
+
     # 계산기 > 여윳돈 계산기 진입
     extra_money = '//*[@text = "여윳돈 계산기"]'
 

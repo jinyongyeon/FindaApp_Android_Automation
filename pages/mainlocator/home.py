@@ -15,6 +15,8 @@ class Home:
     loandiagnosisbanner_aa = "//*[contains(@text, '시작하기')]"
     loandiagnosisbanner_b = "//*[contains(@text, '늘어난 대출이자에')]"
     loandiagnosisbanner_bb = "//*[contains(@text, '클릭 한번에')]"
+    loandiagnosisbanner_g = "//*[contains(@text, '레벨업!')]"
+    loandiagnosisbanner_gg = "//*[contains(@text, '챌린지 바로가기')]"
     loandiagnosisbanner_c = '//*[@text = "한도조회 누적 달성 1회!"]'
     loandiagnosisbanner_d = '//*[@text = "한도조회 누적 달성 2회!"]'
     loandiagnosisbanner_e = '//*[@text = "한도조회 누적 달성 3회!"]'
@@ -22,7 +24,7 @@ class Home:
 
     # 대환대출 진입 결과
     refinanceloanfirstvisit_a = '//*[@text = "내 대출 계좌 연결하기"]'
-    refinanceloanfirstvisit_b = '//*[@text = "챌린지 시작하기"]'
+    refinanceloanfirstvisit_b = "//*[contains(@text, '챌린지 시작')]"
     refinance_loan_challenge = '//*[@text = "대환 챌린지"]'
     refinance_loan_challenge_a = '//*[@text = "챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!"]'
     refinance_loan_challenge_b = '//*[@text = "당신은 Lv.1 될성부른 꿈나무"]'
@@ -33,10 +35,10 @@ class Home:
     loan_banner = '//*[@text = "내 대출 2"]'
     loan_a = "//*[contains(@text, '주택도시기금 청년취업(창업)')]"
     loan_aaa = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[4]'
-    loan_aa = '//*[@text = "1.3%"]'
+    loan_aa = '//*[@text = "1.6%"]'
     loan_b = "//*[contains(@text, '주택도시기금 버팀목전세자금')]"
     loan_bbb = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[5]'
-    loan_bb = '//*[@text = "2.1%"]'
+    loan_bb = '//*[@text = "2.4%"]'
 
     # 내 현금자산 배너
     cash_assets_banner = "//*[contains(@text, '내 현금자산')]"

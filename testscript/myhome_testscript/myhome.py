@@ -41,6 +41,12 @@ class MyHome:
         loandiagnosisbanner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_bb)
         loandiagnosisbanner_b.click()
         time.sleep(2)
+
+    def loanDiagnosisBanner_G(self):
+        loandiagnosisbanner_g = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_gg)
+        loandiagnosisbanner_g.click()
+        time.sleep(2)
+
     def loanDiagnosisBanner_C(self):
         loandiagnosisbanner_c = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_c)
         loandiagnosisbanner_c.click()

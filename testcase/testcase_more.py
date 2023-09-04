@@ -352,7 +352,7 @@ class MoreTestcase_A(unittest.TestCase):
         except:
             base.android_back()
 
-    # 대출 챌린지 진입 테스트
+    # 대환 챌린지 진입 테스트
     def test_change_loan(self):
         # driver = WebDriver.setUpCalss()
         more = More()
@@ -373,7 +373,7 @@ class MoreTestcase_A(unittest.TestCase):
         except Exception:
             try:
                 result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
-                self.assertIn("챌린지 시작하기", result_B.text)
+                self.assertIn("챌린지 시작", result_B.text)
                 print("대출 챌린지 진입 : PASS")
                 moreresult.reports.append("대출 챌린지 진입 : *PASS*")
             except AssertionError:
@@ -661,7 +661,7 @@ class MoreTestcase_B(unittest.TestCase):
         more.private_business_credit_management()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
-            self.assertEqual("신용관리", Result.text)
+            self.assertIn("신용관리", Result.text)
             print("개인사업자 신용관리 진입 : PASS")
             moreresult.reports.append("개인사업자 신용관리 진입 : *PASS*")
         except AssertionError:
@@ -676,6 +676,29 @@ class MoreTestcase_B(unittest.TestCase):
             more.credit_score_back()
         except:
             base.android_back()
+
+    # 신용퀴즈 어워즈 진입 테스트
+    def test_credit_quiz_awards(self):
+        more = More()
+        etc = Etc()
+        moreresult = Result_More()
+        base = basemethod()
+        more.credit_quiz_awards()
+        time.sleep(10)
+        try:
+            Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_quiz_awards_result)
+            self.assertIn("신용퀴즈", Result.text)
+            print("신용퀴즈 어워즈 진입 : PASS")
+            moreresult.reports.append("신용퀴즈 어워즈 진입 : *PASS*")
+        except AssertionError:
+            print("신용퀴즈 어워즈 진입 : FAIL")
+            moreresult.reports.append("신용퀴즈 어워즈 진입 : *FAIL*")
+            base.save_screenshot('신용퀴즈어워즈진입_fail')
+        except Exception as e:
+            print("신용퀴즈 어워즈 진입 에러 발생 : {}".format(str(e)))
+            moreresult.reports.append("신용퀴즈 어워즈 진입 : *Error*")
+            base.save_screenshot('신용퀴즈어워즈진입_error')
+        base.android_back()
 
     # 계산기 > 여윳돈 계산기 진입 테스트
     def test_extra_money(self):
@@ -793,6 +816,7 @@ class MoreTestcase_B(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
+        base.scroll(0.1)
         more.charter_vs_monthly_rent()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.charter_vs_monthly_rent_Result)
@@ -819,7 +843,7 @@ class MoreTestcase_B(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        base.scroll(0.1)
+        base.scroll(0.2)
         more.refinancing_loan()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result)
@@ -846,7 +870,7 @@ class MoreTestcase_B(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
-        base.scroll(0.15)
+        base.scroll(0.2)
         more.youth_leap_account()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.youth_leap_account_result)
