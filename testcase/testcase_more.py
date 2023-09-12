@@ -148,6 +148,8 @@ class MoreTestcase_A(unittest.TestCase):
             base.save_screenshot('자주묻는질문진입_fail')
 
         more.qna_click_a()
+        more.qna_click_a()
+        more.qna_click_a()
         try:
             result_a = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_result_a)
             self.assertIn("고객님께서 입력해주신 정보의 정확도", result_a.text)
@@ -1325,6 +1327,7 @@ class MoreTestcase_C(unittest.TestCase):
         etc = Etc()
         base = basemethod()
         moreresult = Result_More()
+        base.scroll(0.3)
         more.alarm()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.alarm_Result)

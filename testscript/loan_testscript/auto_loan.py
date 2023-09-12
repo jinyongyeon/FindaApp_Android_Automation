@@ -102,20 +102,8 @@ class Auto_Loan:
     # 주민등록번호 뒷자리 입력
     def auto_loan_rrn(self):
         auto_loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.auto_loan_rrn)
-        # auto_loan_rrn.send_keys("0")
-        auto_loan_rrn.click()
-        WebDriver.driver.press_keycode(7)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(8)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(14)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
-        time.sleep(2)
+        auto_loan_rrn.send_keys(self.info.autoloan_rrn)
+
 
     #오토론 연소득 입력
     def auto_loan_annual_income(self):

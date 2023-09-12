@@ -49,7 +49,7 @@ class Loan:
 
     auto_loan_certification_number = '//*[@text = "주민등록번호 뒷자리 입력"]'
 
-    auto_loan_rrn = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText/android.view.View'
+    auto_loan_rrn = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText'
 
     auto_loan_annual_income = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText/android.view.View'
 
@@ -87,7 +87,7 @@ class Loan:
     check_loan = '//*[@text = "확인"]'
 
     # 비교대출 온보딩페이지 CTA버튼
-    loan_in = '//*[@text = "오늘의 내 최저금리 알아보기"]'
+    loan_in = '//*[@text = "대출 한 번에 알아보기"]'
 
     # 대출 목적
     #생활비
@@ -157,10 +157,28 @@ class Loan:
     loan_terms_and_conditions_Cj_result = '//*[@text = "개인(신용)정보 수집 이용 제공 조회 동의서 [서민금융진흥원][비교대출]"]'
     loan_terms_and_conditions_Ck = '//*[@text = "개인(신용)정보 제 3자 제공 조회 동의서 [대안정보이용][비교대출]"]'
     loan_terms_and_conditions_Ck_result = '//*[@text = "개인(신용)정보 제 3자 제공 조회 동의서 [대안정보이용][비교대출]"]'
-    loan_terms_and_conditions_Cl = '//*[@text = "고유식별정보 수집∙이용 동의서[KCB대안신용평가모델]"]'
-    loan_terms_and_conditions_Cl_result = '//*[@text = "고유식별정보 수집∙이용 동의서[KCB대안신용평가모델]"]'
-    loan_terms_and_conditions_Cm = '//*[@text = "개인(신용)정보 이용 및 제3자 제공 동의서[KCB대안신용평가모델]"]'
-    loan_terms_and_conditions_Cm_result = '//*[@text = "개인(신용)정보 이용 및 제3자 제공 동의서[KCB대안신용평가모델]"]'
+    loan_terms_and_conditions_Cl = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용 동의서(KCB대안신용평가모델)"]'
+    loan_terms_and_conditions_Cl_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용 동의서(KCB대안신용평가모델)"]'
+    loan_terms_and_conditions_Cm = '//*[@text = "[비교대출] 개인(신용)정보 이용 및 제3자 제공 동의서(KCB대안신용평가모델)"]'
+    loan_terms_and_conditions_Cm_result = '//*[@text = "[비교대출] 개인(신용)정보 이용 및 제3자 제공 동의서(KCB대안신용평가모델)"]'
+    loan_terms_and_conditions_Cn = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공∙조회 동의서(케이뱅크)"]'
+    loan_terms_and_conditions_Cn_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공∙조회 동의서(케이뱅크)"]'
+    loan_terms_and_conditions_Co = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공 동의서(케이뱅크)"]'
+    loan_terms_and_conditions_Co_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공 동의서(케이뱅크)"]'
+    loan_terms_and_conditions_Cp = '//*[@text = "개인(신용)정보 수집∙이용 동의서(대안정보)"]'
+    loan_terms_and_conditions_Cp_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용 동의서(대안정보)"]'
+    loan_terms_and_conditions_Cq = '//*[@text = "개인(신용)정보 수집∙이용∙제공∙조회 동의서(대안정보)"]'
+    loan_terms_and_conditions_Cq_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공∙조회 동의서(대안정보)"]'
+    loan_terms_and_conditions_Cr = '//*[@text = "개인(신용)정보 제3자 제공 동의서(통신정보 신용평가반영)"]'
+    loan_terms_and_conditions_Cr_result = '//*[@text = "[비교대출] 개인(신용)정보 제3자 제공 동의서(통신정보 신용평가반영)"]'
+    loan_terms_and_conditions_Cs = '//*[@text = "개인(신용)정보 제3자 제공 동의서(대안정보)"]'
+    loan_terms_and_conditions_Cs_result = '//*[@text = "[비교대출] 개인(신용)정보 제3자 제공 동의서(대안정보)"]'
+    loan_terms_and_conditions_Ct = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공 동의서(우리은행)"]'
+    loan_terms_and_conditions_Ct_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공 동의서(우리은행)"]'
+    loan_terms_and_conditions_Cu = '//*[@text = "[비교대출] 개인(신용)정보 제3자 제공 동의서(우리은행)"]'
+    loan_terms_and_conditions_Cu_result = '//*[@text = "[비교대출] 개인(신용)정보 제3자 제공 동의서(우리은행)"]'
+    loan_terms_and_conditions_Cv = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공∙조회 동의서(우리은행)"]'
+    loan_terms_and_conditions_Cv_result = '//*[@text = "[비교대출] 개인(신용)정보 수집∙이용∙제공∙조회 동의서(우리은행)"]'
 
     loan_terms_and_conditions_D = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.widget.ScrollView/android.view.View[2]/android.view.View'
     loan_terms_and_conditions_Da = '//*[@text = "개인정보 제3자 제공 동의(대출안심플랜)"]'
@@ -174,6 +192,9 @@ class Loan:
 
     # 비교대출 인증번호 결과
     comparison_loan_verification_result = '//*[@text = "주민등록번호 뒷자리 입력"]'
+
+    # 주민등록번호 입력 영역
+    loan_rrn = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.EditText'
 
     # 주민등록번호 적합성 검사 결과
     rrn_validation_fail_result = '//*[@text = "주민등록번호를 다시 한 번 확인해주세요."]'

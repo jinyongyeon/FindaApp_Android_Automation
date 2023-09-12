@@ -181,6 +181,51 @@ class ComparisonLoan:
         loan_terms_and_conditions_Cm.click()
         time.sleep(5)
 
+    def loan_terms_and_conditions_cn(self):
+        loan_terms_and_conditions_Cn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cn)
+        loan_terms_and_conditions_Cn.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_co(self):
+        loan_terms_and_conditions_Co = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Co)
+        loan_terms_and_conditions_Co.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cp(self):
+        loan_terms_and_conditions_Cp = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cp)
+        loan_terms_and_conditions_Cp.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cq(self):
+        loan_terms_and_conditions_Cq = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cq)
+        loan_terms_and_conditions_Cq.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cr(self):
+        loan_terms_and_conditions_Cr = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cr)
+        loan_terms_and_conditions_Cr.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cs(self):
+        loan_terms_and_conditions_Cs = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cs)
+        loan_terms_and_conditions_Cs.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_ct(self):
+        loan_terms_and_conditions_Ct = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ct)
+        loan_terms_and_conditions_Ct.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cu(self):
+        loan_terms_and_conditions_Cu = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cu)
+        loan_terms_and_conditions_Cu.click()
+        time.sleep(5)
+
+    def loan_terms_and_conditions_cv(self):
+        loan_terms_and_conditions_Cv = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Cv)
+        loan_terms_and_conditions_Cv.click()
+        time.sleep(5)
+
     def loan_terms_and_conditions_d(self):
         loan_terms_and_conditions_D = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_D)
         loan_terms_and_conditions_D.click()
@@ -205,9 +250,9 @@ class ComparisonLoan:
     def rrn_fail_input(self):
         WebDriver.driver.press_keycode(8)
         time.sleep(1)
-        WebDriver.driver.press_keycode(7)
+        WebDriver.driver.press_keycode(14)
         time.sleep(1)
-        WebDriver.driver.press_keycode(8)
+        WebDriver.driver.press_keycode(14)
         time.sleep(1)
         WebDriver.driver.press_keycode(14)
         time.sleep(1)
@@ -220,20 +265,25 @@ class ComparisonLoan:
 
     # 정상적인 주민번호 뒷자리 입력
     def rrn_pass_input(self):
-        WebDriver.driver.press_keycode(8)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(7)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(8)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(14)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
-        time.sleep(1)
-        WebDriver.driver.press_keycode(9)
+        #주민등록번호 뒤 7자리
+        loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_rrn)
+        loan_rrn.send_keys(self.info.loan_rrn)
         time.sleep(2)
+
+        # WebDriver.driver.press_keycode(8)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(7)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(8)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(14)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(9)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(9)
+        # time.sleep(1)
+        # WebDriver.driver.press_keycode(9)
+        # time.sleep(2)
 
     # 소득 정보 직장인선택
     def office_workers(self):

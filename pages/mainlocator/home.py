@@ -1,6 +1,9 @@
+from config.info import InFo
+
 
 class Home:
 
+    info = InFo()
     # 마이홈 비교대출 배너
     myhome_loans_Result_a = '//*[@text = "대출 한도 조회 📌"]'
     myhome_loans_Result_b = '//*[@text = "대출 알아보기"]'
@@ -32,21 +35,17 @@ class Home:
     refinance_loan_challenge_d = '//*[@text = "당신은 Lv.3 만랩 마스터"]'
 
     # 내 대출 배너
-    loan_banner = '//*[@text = "내 대출 2"]'
-    loan_a = "//*[contains(@text, '주택도시기금 청년취업(창업)')]"
-    loan_aaa = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[4]'
-    loan_aa = '//*[@text = "1.6%"]'
-    loan_b = "//*[contains(@text, '주택도시기금 버팀목전세자금')]"
-    loan_bbb = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.widget.ScrollView/android.view.View[5]'
-    loan_bb = '//*[@text = "2.4%"]'
+    loan_banner = "//*[contains(@text, '내 대출')]"
+    # loan_a = "//*[contains(@text, '"+info.loans_data_a+"')]"
+    # loan_aa = "//*[contains(@text, '"+info.loans_data_c+"%')]"
 
     # 내 현금자산 배너
     cash_assets_banner = "//*[contains(@text, '내 현금자산')]"
-    cash_assets_banner_result = "//*[contains(@text, '진용연님의 현금자산은')]"
+    cash_assets_banner_result = "//*[contains(@text, '"+info.name+"님의 현금자산은')]"
     cash_assets_banner_a = "//*[contains(@text, '입출금')]"
-    cash_assets_banner_a_result = '//*[@text = "저축예금"]'
+    # cash_assets_banner_a_result = '//*[@text = "저축예금"]'
     cash_assets_banner_b = "//*[contains(@text, '예적금')]"
-    cash_assets_banner_b_result = '//*[@text = "청년 우대형 주택청약종합저축"]'
+    # cash_assets_banner_b_result = '//*[@text = "청년 우대형 주택청약종합저축"]'
 
     # 상환 예정 배너
     repayment_schedule_banner = '//*[@text = "상환 예정"]'

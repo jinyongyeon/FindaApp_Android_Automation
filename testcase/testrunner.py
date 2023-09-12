@@ -16,7 +16,6 @@ runner = unittest.TextTestRunner()
 
 print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
 
-
 suite = unittest.TestSuite()
 
 suite.addTest(LoginTestCase('test_check_in'))
@@ -98,7 +97,6 @@ runner.run(suite_d)
 result_seting = Result_seting()
 result_set = '\n\n'.join(str(i) for i in result_seting.reports)
 print(SlackWebHook.seting_slack_webhook(result_set))
-
 
 suite_b = unittest.TestSuite()
 

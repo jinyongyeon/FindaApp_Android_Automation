@@ -37,7 +37,7 @@ class Etc:
 
     # 자주묻는 질문 > 질문 항목
     qna_a = '//*[@text = "정말 이 조건 그대로 대출 가능한가요?"]'
-    qna_result_a = "//*[contains(@text, '가능합니다')]"
+    qna_result_a = "//*[contains(@text, '고객님께서')]"
     qna_b = '//*[@text = "신청하면 대출금은 언제 입금이 되나요?"]'
     qna_result_b = "//*[contains(@text, '대출이 확정된 후 대출금이')]"
     qna_c = '//*[@text = "대출 조건은 언제까지 유효한가요?"]'
@@ -332,8 +332,6 @@ class Etc:
 
     # 내폰 지키미 진입
     my_phorn = '//*[@text = "내 폰 지키미"]'
-
-    # 내폰 지키미 진입
     my_phorn_Result = '//*[@text = "내 폰 보호하기"]'
 
     # 내폰 지키미 > 뒤로가기
@@ -377,7 +375,7 @@ class Etc:
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
     # 최근 알림 진입
-    alarm = '//*[@text = "최근 알림"]'
+    alarm = "//*[contains(@text, '최근 알림')]"
 
     # 최근알림 진입 결과
     alarm_Result = '//*[@text = "최근 알림"]'

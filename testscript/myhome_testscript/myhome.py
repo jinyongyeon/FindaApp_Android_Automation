@@ -1,7 +1,9 @@
 import time
 
+import requests
 from appium.webdriver.common.mobileby import MobileBy
 
+from config.info import InFo
 from pages.mainlocator.home import Home
 from drivers.aos_webdrivers import WebDriver
 
@@ -9,6 +11,7 @@ from drivers.aos_webdrivers import WebDriver
 class MyHome:
     def __init__(self):
         self.home = Home()
+        self.info = InFo()
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):
@@ -65,17 +68,87 @@ class MyHome:
         time.sleep(2)
 
     # 내대출 진입
+
+    def loan_data_api(self):
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        try:
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            print(result)
+            if 'list' in result and len(result['list']) > 0:
+                first_product_name = result['list'][0]['productName']
+                self.info.loans_data.append(first_product_name)
+            print(self.info.loans_data)
+            loans_data_a = "".join(map(str, self.info.loans_data))
+            print(loans_data_a)
+            if 'list' in result and len(result['list']) > 0:
+                first_product_name_a = result['list'][0]['interestRate']
+                self.info.loans_data_b.append(first_product_name_a)
+            print(self.info.loans_data_b)
+            loans_data_c = "".join(map(str, self.info.loans_data_b))
+            print(loans_data_c)
+
+        except Exception as e:
+            print("요청 실패:", str(e))
     def loan_Banner(self):
         loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_banner)
         loan_banner.click()
         time.sleep(2)
     def loan_A(self):
-        loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_a)
-        loan_a.click()
+        self.info.loans_data.clear()
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = {"Content-Type": "application/json",
+                   "X-Auth-Token": ''.join(self.info.usertoken)
+                   }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            self.info.loans_data.append(first_product_name)
+        data_result = "".join(map(str, self.info.loans_data))
+        print(data_result)
+        loan = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+data_result+"')]")
+        loan.click()
         time.sleep(2)
     def loan_B(self):
-        loan_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_b)
-        loan_b.click()
+        self.info.loans_data.clear()
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = {"Content-Type": "application/json",
+                   "X-Auth-Token": ''.join(self.info.usertoken)
+                   }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 1:
+            first_product_name = result['list'][1]['productName']
+            self.info.loans_data.append(first_product_name)
+        data_result = "".join(map(str, self.info.loans_data))
+        print(data_result)
+        loan = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+data_result+"')]")
+        loan.click()
         time.sleep(2)
 
     # 내 현금자산 배너

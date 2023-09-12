@@ -31,7 +31,7 @@ class JoIn:
 
     # 앱 실행
     def app_start(self):
-        self.result = subprocess.run(['adb', 'shell', 'am', 'start', '-n',f'{"kr.co.finda.finda"}/{".ui.splash.SplashActivity"}'])
+        self.result = subprocess.run(['adb', 'shell', 'am', 'start', '-n',f'{"kr.co.finda.finda"}/{".feature.splash.SplashActivity"}'])
         time.sleep(5)
 
     # 핀코드 입력

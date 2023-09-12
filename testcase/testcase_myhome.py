@@ -1,6 +1,7 @@
 import time
 import unittest
 
+import requests
 from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common import NoSuchElementException
@@ -14,6 +15,7 @@ from pages.mainlocator.etc import Etc
 from pages.mainlocator.home import Home
 from pages.basemethod.base import basemethod
 from testscript.more_testscript.see_more import More
+from testscript.more_testscript.seting import Seting
 from testscript.myhome_testscript.myhome import MyHome
 
 
@@ -322,30 +324,61 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 내 대출 배너 테스트
     def test_loan_banner(self):
-        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         result_myhome = Result_MyHome()
         base = basemethod()
         etc = Etc()
+        more = More()
+        info = InFo()
+        seting = Seting()
         results = []
         results_a = []
+        more.etc_in()
+        seting.seting_in()
+        base.scroll(2)
+        base.user_id_get()
+        base.user_token_get()
+        base.android_back()
+        base.android_back()
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            info.loans_data.append(first_product_name)
+        loans_data_a = "".join(map(str, info.loans_data))
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name_a = result['list'][0]['interestRate']
+            info.loans_data_b.append(first_product_name_a)
+        loans_data_c = "".join(map(str, info.loans_data_b))
+        print(loans_data_a)
+        print(loans_data_c)
+
         base.scroll(0.6)
-        verification_list = [("내 대출 2", home.loan_banner),
-                             ("주택도시기금 청년취업(창업) 전세자금대출", home.loan_a),
-                             ("1.6%", home.loan_aa),
-                             ("주택도시기금 버팀목전세자금(신혼가구)", home.loan_b),
-                             ("2.4%", home.loan_bb)]
+        verification_list = [(loans_data_a, "//*[contains(@text, '"+loans_data_a+"')]"),
+                             (""+loans_data_c+"%", "//*[contains(@text, '"+loans_data_c+"%')]")]
         for text, xpath in verification_list:
             try:
                 result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                self.assertIn(text, result_a.text)
+                self.assertEqual(result_a.text, text)
                 results.append("PASS")
             except AssertionError:
                 results.append("FAIL")
             except Exception as e:
                 print("내 대출 배너 노출 에러 발생 : {}".format(str(e)))
                 results.append("Error")
+
         print(results)
         if all(result == "PASS" for result in results):
             print("내 대출 배너 노출 : PASS")
@@ -412,15 +445,16 @@ class MyHome_Testcase(unittest.TestCase):
     def test_cash_assets_banner(self):
         # driver = WebDriver.setUp()
         myhome = MyHome()
+        info = InFo()
         home = Home()
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
         base.scroll(1)
         time.sleep(2)
-        verification_list = [("내 현금자산 3", home.cash_assets_banner),
-                             ("입출금 2", home.cash_assets_banner_a),
-                             ("예적금 1", home.cash_assets_banner_b)]
+        verification_list = [("내 현금자산", home.cash_assets_banner),
+                             ("입출금", home.cash_assets_banner_a),
+                             ("예적금", home.cash_assets_banner_b)]
         for text, xpath in verification_list:
             try:
                 result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
@@ -439,11 +473,10 @@ class MyHome_Testcase(unittest.TestCase):
             print("내 현금자산 배너 노출 : FAIL")
             result_myhome.reports.append("내 현금자산 배너 노출 : *FAIL*")
             base.save_screenshot('내현금자산배너노출_fail')
-
         myhome.cash_Assets_Banner()
         try:
             result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_result)
-            self.assertIn("진용연님의 현금자산은", result_b.text)
+            self.assertIn(""+info.name+"님의 현금자산은", result_b.text)
             print("내 현금자산 배너 진입_a : PASS")
             result_myhome.reports.append("내 현금자산 배너 진입_a : *PASS*")
         except AssertionError:
@@ -455,10 +488,28 @@ class MyHome_Testcase(unittest.TestCase):
             result_myhome.reports.append("내 현금자산 배너 진입_a : Error")
             base.save_screenshot('내현금자산배너진입_a_error')
         base.android_back()
+        url = "https://service-api.finda.co.kr/ams/v1/checking"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            info.loans_data_c.append(first_product_name)
+        data_result = "".join(map(str, info.loans_data_c))
+        print(data_result)
         myhome.cash_Assets_Banner_A()
         try:
-            result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_a_result)
-            self.assertIn("저축예금", result_c.text)
+            result_c = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result+'"]')
+            self.assertEqual(result_c.text , data_result)
             print("내 현금자산 배너 진입_b : PASS")
             result_myhome.reports.append("내 현금자산 배너 진입_b : *PASS*")
         except AssertionError:
@@ -470,10 +521,28 @@ class MyHome_Testcase(unittest.TestCase):
             result_myhome.reports.append("내 현금자산 배너 진입_b : Error")
             base.save_screenshot('내현금자산배너진입_b_error')
         base.android_back()
+        url = "https://service-api.finda.co.kr/ams/v1/deposit-and-savings"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = {"Content-Type": "application/json",
+                   "X-Auth-Token": ''.join(info.usertoken)
+                   }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            info.loans_data_d.append(first_product_name)
+        data_result_a = "".join(map(str, info.loans_data_d))
+        print(data_result_a)
         myhome.cash_Assets_Banner_B()
         try:
-            result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_b_result)
-            self.assertIn("청년 우대형 주택청약종합저축", result_d.text)
+            result_d = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result_a+'"]')
+            self.assertEqual(result_d.text, data_result_a)
             print("내 현금자산 배너 진입_c : PASS")
             result_myhome.reports.append("내 현금자산 배너 진입_c : *PASS*")
         except AssertionError:
@@ -488,7 +557,6 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 상환예정 배너 테스트
     def test_repayment_schedule_banner(self):
-        # driver = WebDriver.setUp()
         myhome = MyHome()
         home = Home()
         more = More()
@@ -546,6 +614,7 @@ class MyHome_Testcase(unittest.TestCase):
             print("상환 예정 배너 > 알림 받기 Off 동작 에러 발생 : {}".format(str(e)))
             result_myhome.reports.append("Error")
             base.save_screenshot('상환예정배너>알림받기Off동작_error')
+
         try:
             myhome.loan_A()
         except:
@@ -660,6 +729,132 @@ class MyHome_Testcase(unittest.TestCase):
                 result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
                 base.save_screenshot('차구매대출배너진입_error')
         base.android_back()
+
+class hometest_Testcase(unittest.TestCase):
+
+    # @classmethod
+    # def setUpClass(cls):
+    #     print("더보기 TestCase_A 시작")
+    #
+    # @classmethod
+    # def tearDownClass(cls):
+    #     print("더보기 TestCase_A완료")
+    #
+    #
+    # def setUp(self):
+    #     base = basemethod()
+    #     base.scroll(1)
+    #     base.scroll(0.93)
+    #
+    # def tearDown(self):
+    #     base = basemethod()
+    #     base.android_back()
+    #     time.sleep(1)
+    #     base.scroll_up(0.8)
+    #     base.scroll_up(0.8)
+    #     base.scroll_up(0.8)
+
+    # 마이홈 비교대출 배너 테스트
+    def test_test(self):
+        myhome = MyHome()
+        home = Home()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        etc = Etc()
+        more = More()
+        info = InFo()
+        seting = Seting()
+        results = []
+        results_a = []
+        more.etc_in()
+        seting.seting_in()
+        base.scroll(2)
+        base.user_id_get()
+        base.user_token_get()
+        base.android_back()
+        base.android_back()
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(info.usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        print(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            info.loans_data.append(first_product_name)
+        print(info.loans_data)
+        loans_data_a = "".join(map(str, info.loans_data))
+        print(loans_data_a)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name_a = result['list'][0]['interestRate']
+            info.loans_data_b.append(first_product_name_a)
+        print(info.loans_data_b)
+        loans_data_c = "".join(map(str, info.loans_data_b))
+        print(loans_data_c)
+
+        print(loans_data_a)
+        print(loans_data_c)
+
+        base.scroll(0.6)
+        verification_list = [(loans_data_a, "//*[contains(@text, '"+loans_data_a+"')]"),
+                             (""+loans_data_c+"%", "//*[contains(@text, '"+loans_data_c+"%')]")]
+        for text, xpath in verification_list:
+            try:
+                result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertEqual(result_a.text, text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception as e:
+                print("내 대출 배너 노출 에러 발생 : {}".format(str(e)))
+                results.append("Error")
+
+        print(results)
+        if all(result == "PASS" for result in results):
+            print("내 대출 배너 노출 : PASS")
+            result_myhome.reports.append("내 대출 배너 노출 : *PASS*")
+        else:
+            print("내 대출 배너 노출 : FAIL")
+            result_myhome.reports.append("내 대출 배너 노출 : *FAIL*")
+            base.save_screenshot('내대출배너노출_fail')
+
+        myhome.loan_Banner()
+        verification_list_a = [("내 현금흐름", etc.myloan_Result_a),
+                             ("대출", etc.myloan_Result_b),
+                             ("입출금", etc.myloan_Result_c),
+                             ("예적금", etc.myloan_Result_d)]
+        for text, xpath in verification_list_a:
+            try:
+                result_b = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result_b.text)
+                results_a.append("PASS")
+            except AssertionError:
+                results_a.append("FAIL")
+            except Exception as e:
+                print("내 대출 배너 진입 에러 발생 : {}".format(str(e)))
+                results.append("Error")
+        print(results_a)
+        if all(result == "PASS" for result in results_a):
+            print("내 대출 배너 진입 : PASS")
+            result_myhome.reports.append("내 대출 배너 진입 : *PASS*")
+        else:
+            print("내 대출 배너 진입 : FAIL")
+            result_myhome.reports.append("내 대출 배너 진입 : *FAIL*")
+            base.save_screenshot('내대출배너진입_fail')
+        base.android_back()
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
