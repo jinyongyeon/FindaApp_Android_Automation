@@ -479,8 +479,6 @@ class AutoLoanTestcase(unittest.TestCase):
         info.usertoken.clear()
         info.txseqno.clear()
         info.idtoken.clear()
-        join.join_mms_delete()
-        time.sleep(3)
         more.etc_in()
         seting.seting_in()
         base.scroll(2)

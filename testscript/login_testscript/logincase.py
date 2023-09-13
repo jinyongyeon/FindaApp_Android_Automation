@@ -208,36 +208,59 @@ class JoIn:
 
     # 회원 가입 > 인증 번호 리스트 저장 => 사용함
     def join_mms(self):
-        WebDriver.driver.start_activity("com.samsung.android.messaging", "com.android.mms.ui.ConversationComposer")
-        time.sleep(3)
-        latest_message = WebDriver.driver.find_element(MobileBy.XPATH,'//android.widget.Button[@content-desc="검색"]')
-        latest_message.click()
-        time.sleep(2)
-        search_field = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text ="검색"]')
-        search_field.send_keys("02-708-100")
-        message_button = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text= "02-708-1007"]')
-        message_button.click()
-        time.sleep(5)
-        message_content = WebDriver.driver.find_element(MobileBy.ID, "com.samsung.android.messaging:id/content_text_view")
-        verification_code = re.search(r'(?<=<#>\[핀다\] 인증번호\[).+?(?=\])', message_content.text).group()
-        self.main.verification_codes.append(verification_code)
-        print(self.main.verification_codes)
-        time.sleep(5)
-        mms_set = WebDriver.driver.find_element(MobileBy.XPATH, '//android.widget.ImageButton[@content-desc="대화 설정"]')
-        mms_set.click()
-        time.sleep(2)
-        mms_del = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="메시지 삭제"]')
-        mms_del.click()
-        time.sleep(2)
-        mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
-        mms_dele.click()
-        time.sleep(5)
-        self.base.android_back()
-        time.sleep(2)
-        self.base.android_back()
-        time.sleep(2)
-        self.base.android_back()
-        time.sleep(2)
+        time.sleep(10)
+        # SMS 데이터를 가져오는 ADB 명령 실행
+        command = "adb shell content query --uri content://sms/inbox"
+        sms_data = subprocess.check_output(command, shell=True).decode("utf-8")
+
+        # SMS 데이터 파싱 및 필터링
+        sms_messages = sms_data.strip().split("\n\n")  # 각 SMS 메시지는 빈 줄로 구분
+
+        # address=027081007로 필터링된 메시지 찾기
+        filtered_messages = [msg for msg in sms_messages if "address=027081007" in msg]
+
+        # 필터링된 메시지 중에서 첫 번째 메시지에서 인증번호 추출 (정규 표현식 사용)
+        if filtered_messages:
+            first_message = filtered_messages[0]
+            match = re.search(r'인증번호\[(\d+)\]', first_message)
+            if match:
+                authentication_code = match.group(1)
+                self.main.verification_codes.append(authentication_code)
+                print(self.main.verification_codes)
+            else:
+                print("첫 번째 메시지에서 인증번호를 찾을 수 없습니다.")
+        else:
+            print("address=027081007로 필터링된 메시지가 없습니다.")
+        # WebDriver.driver.start_activity("com.samsung.android.messaging", "com.android.mms.ui.ConversationComposer")
+        # time.sleep(3)
+        # latest_message = WebDriver.driver.find_element(MobileBy.XPATH,'//android.widget.Button[@content-desc="검색"]')
+        # latest_message.click()
+        # time.sleep(2)
+        # search_field = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text ="검색"]')
+        # search_field.send_keys("02-708-100")
+        # message_button = WebDriver.driver.find_element(MobileBy.XPATH,'//*[@text= "02-708-1007"]')
+        # message_button.click()
+        # time.sleep(5)
+        # message_content = WebDriver.driver.find_element(MobileBy.ID, "com.samsung.android.messaging:id/content_text_view")
+        # verification_code = re.search(r'(?<=<#>\[핀다\] 인증번호\[).+?(?=\])', message_content.text).group()
+        # self.main.verification_codes.append(verification_code)
+        # print(self.main.verification_codes)
+        # time.sleep(5)
+        # mms_set = WebDriver.driver.find_element(MobileBy.XPATH, '//android.widget.ImageButton[@content-desc="대화 설정"]')
+        # mms_set.click()
+        # time.sleep(2)
+        # mms_del = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="메시지 삭제"]')
+        # mms_del.click()
+        # time.sleep(2)
+        # mms_dele = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text="모두 삭제"]')
+        # mms_dele.click()
+        # time.sleep(5)
+        # self.base.android_back()
+        # time.sleep(2)
+        # self.base.android_back()
+        # time.sleep(2)
+        # self.base.android_back()
+        # time.sleep(2)
 
     # 인증 번호 재요청
     def re_request_verification_code(self):
