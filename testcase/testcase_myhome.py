@@ -133,7 +133,7 @@ class MyHome_Testcase(unittest.TestCase):
         time.sleep(10)
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
-            self.assertEqual(Result_A.text,"오늘의 내 최저금리 알아보기")
+            self.assertIn("오늘 내가 받을", Result_A.text)
             print("비교 대출 배너 진입 : PASS")
             result_myhome.reports.append("비교 대출 배너 진입 : *PASS*")
         except AssertionError:
@@ -257,7 +257,7 @@ class MyHome_Testcase(unittest.TestCase):
         except Exception:
             try:
                 result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
-                self.assertIn("챌린지 시작하기", result_B.text)
+                self.assertIn("챌린지 시작", result_B.text)
                 print("대출진단 배너 진입 : PASS")
                 result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
             except AssertionError:

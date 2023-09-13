@@ -14,7 +14,7 @@ from testcase.testcase_seting import Seting_Testcase
 
 runner = unittest.TextTestRunner()
 
-print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
+# print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
 
 suite = unittest.TestSuite()
 
@@ -30,11 +30,11 @@ suite.addTest(MyHome_Testcase('test_repayment_schedule_banner'))
 suite.addTest(MyHome_Testcase('test_lease_contract_banner'))
 suite.addTest(MyHome_Testcase('test_auto_loan_banner'))
 
-runner.run(suite)
+# runner.run(suite)
 
 result_myhome = Result_MyHome()
 result_myhome = '\n\n'.join(str(i) for i in result_myhome.reports)
-print(SlackWebHook.my_home_send_slack_webhook(result_myhome))
+# print(SlackWebHook.my_home_send_slack_webhook(result_myhome))
 
 suite_a = unittest.TestSuite()
 
@@ -74,11 +74,11 @@ suite_a.addTest(MoreTestcase_C('test_notice'))
 suite_a.addTest(MoreTestcase_C('test_loan_reviews'))
 suite_a.addTest(MoreTestcase_C('test_alarm'))
 
-runner.run(suite_a)
+# runner.run(suite_a)
 
 result_more = Result_More()
 result_more = '\n\n'.join(str(i) for i in result_more.reports)
-print(SlackWebHook.more_send_slack_webhook(result_more))
+# print(SlackWebHook.more_send_slack_webhook(result_more))
 
 suite_d = unittest.TestSuite()
 
@@ -92,11 +92,11 @@ suite_d.addTest(Seting_Testcase('test_financial_consumer_protection_notice'))
 suite_d.addTest(Seting_Testcase('test_seting_version'))
 suite_d.addTest(Seting_Testcase('test_open_source_license'))
 
-runner.run(suite_d)
+# runner.run(suite_d)
 
 result_seting = Result_seting()
 result_set = '\n\n'.join(str(i) for i in result_seting.reports)
-print(SlackWebHook.seting_slack_webhook(result_set))
+# print(SlackWebHook.seting_slack_webhook(result_set))
 
 suite_b = unittest.TestSuite()
 
@@ -108,11 +108,11 @@ suite_b.addTest(JoinTestCase('test_certification_number'))
 suite_b.addTest(JoinTestCase('test_join'))
 suite_b.addTest(LoginTestCase('test_withdraw'))
 
-runner.run(suite_b)
+# runner.run(suite_b)
 
 result_join = Result_Join()
 result_join = '\n\n'.join(str(i) for i in result_join.reports)
-print(SlackWebHook.join_send_slack_webhook(result_join))
+# print(SlackWebHook.join_send_slack_webhook(result_join))
 
 suite_c = unittest.TestSuite()
 

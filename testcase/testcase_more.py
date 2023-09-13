@@ -259,7 +259,7 @@ class MoreTestcase_A(unittest.TestCase):
 
         try:
             Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
-            self.assertEqual(Result_A.text,"오늘의 내 최저금리 알아보기")
+            self.assertIn("오늘 내가 받을", Result_A.text)
             print("대출 한 번에 비교 진입 : PASS")
             moreresult.reports.append("대출 한 번에 비교 진입 : *PASS*")
         except AssertionError:
@@ -849,7 +849,7 @@ class MoreTestcase_B(unittest.TestCase):
         more.refinancing_loan()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.refinancing_loan_Result)
-            self.assertIn("대출 갈아타기 계산기" , Result.text)
+            self.assertIn("갈아타기 계산" , Result.text)
             print("대출 갈아타기 계산기 진입 : PASS")
             moreresult.reports.append("대출 갈아타기 계산기 진입 : *PASS*")
         except AssertionError:
@@ -1187,7 +1187,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.finda_post()
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.finda_post_Result)
-            self.assertEqual(Result.text,"핀다포스트")
+            self.assertIn("이번 주 가장", Result.text)
             print("핀다 포스트 진입 : PASS")
             moreresult.reports.append("핀다 포스트 진입 : *PASS*")
         except AssertionError:
@@ -1305,10 +1305,10 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         more.loan_reviews()
-        time.sleep(15)
+        time.sleep(5)
         try:
             Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
-            self.assertIn("대출받으신 고객님들의 후기입니다.", Result.text)
+            self.assertIn("최저금리", Result.text)
             print("대출 후기 진입 : PASS")
             moreresult.reports.append("대출 후기 진입 : *PASS*")
         except AssertionError:

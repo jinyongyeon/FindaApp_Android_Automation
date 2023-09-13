@@ -265,25 +265,9 @@ class ComparisonLoan:
 
     # 정상적인 주민번호 뒷자리 입력
     def rrn_pass_input(self):
-        #주민등록번호 뒤 7자리
         loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_rrn)
         loan_rrn.send_keys(self.info.loan_rrn)
         time.sleep(2)
-
-        # WebDriver.driver.press_keycode(8)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(7)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(8)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(14)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(9)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(9)
-        # time.sleep(1)
-        # WebDriver.driver.press_keycode(9)
-        # time.sleep(2)
 
     # 소득 정보 직장인선택
     def office_workers(self):

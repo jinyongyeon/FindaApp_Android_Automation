@@ -59,7 +59,7 @@ class Etc:
     comparison_loan = '//*[@text = "대출 한 번에 비교"]'
 
     # 대출 한 번에 비교 결과
-    comparison_loan_Result_a = '//*[contains(@text, "알아보기")]'
+    comparison_loan_Result_a = '//*[contains(@text, "오늘 내가 받을 수 있")]'
     # comparison_loan_Result_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.TextView'
     # comparison_loan_Result_b = '//*[@text = "오늘입금"]'
     comparison_loan_Result_b = '//*[@text = "오늘입금"]'
@@ -206,7 +206,7 @@ class Etc:
     refinancing_loan = '//*[@text = "대출 갈아타기 계산기"]'
 
     # 대출 갈아타기 계산기 결과
-    refinancing_loan_Result = '//*[@text = "대출 갈아타기 계산기"]'
+    refinancing_loan_Result = "//*[contains(@text, '갈아타기')]"
 
     # 계산기 > 대출 갈아타기 계산기 뒤로가기
     refinancing_loan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ListView/android.view.View/android.widget.Button'
@@ -308,7 +308,7 @@ class Etc:
     finda_post = '//*[@text = "핀다포스트"]'
 
     # 핀다 포스트 진입 결과
-    finda_post_Result = '//*[@text = "핀다포스트"]'
+    finda_post_Result = "//*[contains(@text, '핫한 포스트')]"
 
     # 핀다 포스트 컨텐츠
     finda_post_a = '//*[@text = ""]'
@@ -369,7 +369,7 @@ class Etc:
     loan_reviews = '//*[@text = "대출후기"]'
 
     # 대출후기 진입 결과
-    loan_reviews_Result = "//*[contains(@text, '핀다 신용대출 신청 서비스로')]"
+    loan_reviews_Result = "//*[contains(@text, '한 번에 받기')]"
 
     # 대출후기 > 뒤로가기
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
