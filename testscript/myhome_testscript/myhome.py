@@ -1,4 +1,5 @@
 import time
+import pickle
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
@@ -70,11 +71,13 @@ class MyHome:
     # 내대출 진입
 
     def loan_data_api(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    "X-Auth-Token": ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -106,10 +109,12 @@ class MyHome:
         time.sleep(2)
     def loan_A(self):
         self.info.loans_data.clear()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {"Content-Type": "application/json",
-                   "X-Auth-Token": ''.join(self.info.usertoken)
+                   "X-Auth-Token": ''.join(usertoken)
                    }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -129,10 +134,12 @@ class MyHome:
         time.sleep(2)
     def loan_B(self):
         self.info.loans_data.clear()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {"Content-Type": "application/json",
-                   "X-Auth-Token": ''.join(self.info.usertoken)
+                   "X-Auth-Token": ''.join(usertoken)
                    }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {

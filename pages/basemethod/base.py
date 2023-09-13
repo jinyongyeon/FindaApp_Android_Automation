@@ -1,5 +1,6 @@
 import time
 import requests
+import pickle
 # import subprocess
 
 # from appium.webdriver.appium_service import AppiumService
@@ -57,6 +58,8 @@ class basemethod:
 
     def user_token_get(self):
         # API 엔드포인트 URL
+        with open('user_id.pickle', 'rb') as f:
+            user_id = pickle.load(f)
         url = "https://service-api.finda.co.kr/account/v1/user/token"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
@@ -65,7 +68,7 @@ class basemethod:
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
             # "userId": self.info.user_id,
-            "userId": ''.join(self.info.user_id),
+            "userId": ''.join(user_id),
             "encryptedPincode": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203"
         }
         try:
@@ -78,16 +81,20 @@ class basemethod:
                 parameter_value = result['token']
                 self.info.usertoken.append(parameter_value)
             print(self.info.usertoken)
+            with open('usertoken.pickle', 'wb') as f:
+                pickle.dump(self.info.usertoken, f)
         except Exception as e:
             print("요청 실패:", str(e))
 
     def user_txseqno_get(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/idcert/v1/ids"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
             "Content-Type" : "application/json",
-            "X-Auth-Token" : ''.join(self.info.usertoken)
+            "X-Auth-Token" : ''.join(usertoken)
         }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -116,14 +123,20 @@ class basemethod:
         text = element.text
         print(text)
         self.info.user_id = ''.join(filter(str.isdigit, text))
+        print(self.info.user_id)
+        with open('user_id.pickle', 'wb') as f:
+            pickle.dump(self.info.user_id, f)
+
 
     def user_idtoken_get(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/idcert/v1/ids"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = {
             "Content-Type" : "application/json",
-            "X-Auth-Token" : ''.join(self.info.usertoken)
+            "X-Auth-Token" : ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {

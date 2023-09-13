@@ -1,5 +1,6 @@
 import time
 import unittest
+import pickle
 
 import requests
 from selenium.webdriver.support import expected_conditions as EC
@@ -341,10 +342,12 @@ class MyHome_Testcase(unittest.TestCase):
         base.user_token_get()
         base.android_back()
         base.android_back()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(info.usertoken)
+                    "X-Auth-Token": ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -450,6 +453,8 @@ class MyHome_Testcase(unittest.TestCase):
         result_myhome = Result_MyHome()
         base = basemethod()
         results = []
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         base.scroll(1)
         time.sleep(2)
         verification_list = [("내 현금자산", home.cash_assets_banner),
@@ -477,83 +482,87 @@ class MyHome_Testcase(unittest.TestCase):
         try:
             result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_result)
             self.assertIn(""+info.name+"님의 현금자산은", result_b.text)
-            print("내 현금자산 배너 진입_a : PASS")
-            result_myhome.reports.append("내 현금자산 배너 진입_a : *PASS*")
+            print("내 현금자산 배너 진입 : PASS")
+            result_myhome.reports.append("내 현금자산 배너 진입 : *PASS*")
         except AssertionError:
-            print("내 현금자산 배너 진입_a : FAIL")
-            result_myhome.reports.append("내 현금자산 배너 진입_a : *FAIL*")
-            base.save_screenshot('내현금자산배너진입_a_fail')
+            print("내 현금자산 배너 진입 : FAIL")
+            result_myhome.reports.append("내 현금자산 배너 진입 : *FAIL*")
+            base.save_screenshot('내현금자산배너진입_fail')
         except Exception as e:
-            print("내 현금자산 배너 진입_a 에러 발생 : {}".format(str(e)))
-            result_myhome.reports.append("내 현금자산 배너 진입_a : Error")
-            base.save_screenshot('내현금자산배너진입_a_error')
+            print("내 현금자산 배너 진입 에러 발생 : {}".format(str(e)))
+            result_myhome.reports.append("내 현금자산 배너 진입 : Error")
+            base.save_screenshot('내현금자산배너진입_error')
         base.android_back()
-        url = "https://service-api.finda.co.kr/ams/v1/checking"
-        # 요청 헤더 설정 (필요에 따라 사용)
-        headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(info.usertoken)
-                    }
-        # 요청 본문 데이터 (필요에 따라 사용)
-        data = {
-        }
-        # POST 요청
-        response = requests.get(url, headers=headers, json=data, verify=False)
-        # 응답 상태 코드 확인
-        result = response.json()
-        print(result)
-        if 'list' in result and len(result['list']) > 0:
-            first_product_name = result['list'][0]['productName']
-            info.loans_data_c.append(first_product_name)
-        data_result = "".join(map(str, info.loans_data_c))
-        print(data_result)
-        myhome.cash_Assets_Banner_A()
         try:
-            result_c = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result+'"]')
-            self.assertEqual(result_c.text , data_result)
-            print("내 현금자산 배너 진입_b : PASS")
-            result_myhome.reports.append("내 현금자산 배너 진입_b : *PASS*")
-        except AssertionError:
-            print("내 현금자산 배너 진입_b : FAIL")
-            result_myhome.reports.append("내 현금자산 배너 진입_b : *FAIL*")
-            base.save_screenshot('내현금자산배너진입_b_fail')
-        except Exception as e:
-            print("내 현금자산 배너 진입_b 에러 발생 : {}".format(str(e)))
-            result_myhome.reports.append("내 현금자산 배너 진입_b : Error")
-            base.save_screenshot('내현금자산배너진입_b_error')
-        base.android_back()
-        url = "https://service-api.finda.co.kr/ams/v1/deposit-and-savings"
-        # 요청 헤더 설정 (필요에 따라 사용)
-        headers = {"Content-Type": "application/json",
-                   "X-Auth-Token": ''.join(info.usertoken)
-                   }
-        # 요청 본문 데이터 (필요에 따라 사용)
-        data = {
-        }
-        # POST 요청
-        response = requests.get(url, headers=headers, json=data, verify=False)
-        # 응답 상태 코드 확인
-        result = response.json()
-        print(result)
-        if 'list' in result and len(result['list']) > 0:
-            first_product_name = result['list'][0]['productName']
-            info.loans_data_d.append(first_product_name)
-        data_result_a = "".join(map(str, info.loans_data_d))
-        print(data_result_a)
-        myhome.cash_Assets_Banner_B()
+            myhome.cash_Assets_Banner_A()
+            url = "https://service-api.finda.co.kr/ams/v1/checking"
+            # 요청 헤더 설정 (필요에 따라 사용)
+            headers = {"Content-Type": "application/json",
+                       "X-Auth-Token": ''.join(usertoken)
+                       }
+            # 요청 본문 데이터 (필요에 따라 사용)
+            data = {
+            }
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            if 'list' in result and len(result['list']) > 0:
+                first_product_name = result['list'][0]['productName']
+                info.loans_data_c.append(first_product_name)
+            data_result = "".join(map(str, info.loans_data_c))
+            print(data_result)
+            try:
+                result_c = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result+'"]')
+                self.assertEqual(result_c.text , data_result)
+                print("내 현금자산 배너 입출금 진입 : PASS")
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *PASS*")
+            except AssertionError:
+                print("내 현금자산 배너 입출금 진입 : FAIL")
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *FAIL*")
+                base.save_screenshot('내현금자산배너입출금진입_fail')
+            except Exception as e:
+                print("내 현금자산 배너 입출금 진입 에러 발생 : {}".format(str(e)))
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : Error")
+                base.save_screenshot('내현금자산배너입출금진입_error')
+            base.android_back()
+        except:
+            print("현금자산 입출금 계좌 없음")
         try:
-            result_d = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result_a+'"]')
-            self.assertEqual(result_d.text, data_result_a)
-            print("내 현금자산 배너 진입_c : PASS")
-            result_myhome.reports.append("내 현금자산 배너 진입_c : *PASS*")
-        except AssertionError:
-            print("내 현금자산 배너 진입_c : FAIL")
-            result_myhome.reports.append("내 현금자산 배너 진입_c : *FAIL*")
-            base.save_screenshot('내현금자산배너진입_c_fail')
-        except Exception as e:
-            print("내 현금자산 배너 진입_c 에러 발생 : {}".format(str(e)))
-            result_myhome.reports.append("내 현금자산 배너 진입_c : Error")
-            base.save_screenshot('내현금자산배너진입_c_error')
-        base.android_back()
+            myhome.cash_Assets_Banner_B()
+            url = "https://service-api.finda.co.kr/ams/v1/deposit-and-savings"
+            # 요청 헤더 설정 (필요에 따라 사용)
+            headers = {"Content-Type": "application/json",
+                       "X-Auth-Token": ''.join(usertoken)
+                       }
+            # 요청 본문 데이터 (필요에 따라 사용)
+            data = {
+            }
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            if 'list' in result and len(result['list']) > 0:
+                first_product_name = result['list'][0]['productName']
+                info.loans_data_d.append(first_product_name)
+            data_result_a = "".join(map(str, info.loans_data_d))
+            print(data_result_a)
+            try:
+                result_d = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result_a+'"]')
+                self.assertEqual(result_d.text, data_result_a)
+                print("내 현금자산 배너 예적금 진입 : PASS")
+                result_myhome.reports.append("내 현금자산 배너 예적금 진입 : *PASS*")
+            except AssertionError:
+                print("내 현금자산 배너 예적금 진입 : FAIL")
+                result_myhome.reports.append("내 현금자산 배너 예적금 진입 : *FAIL*")
+                base.save_screenshot('내현금자산배너예적금진입_fail')
+            except Exception as e:
+                print("내 현금자산 배너 예적금 진입 에러 발생 : {}".format(str(e)))
+                result_myhome.reports.append("내 현금자산 배너 예적금 진입 : Error")
+                base.save_screenshot('내현금자산배너예적금진입_error')
+            base.android_back()
+        except:
+            print("현금자산 예적금 계좌 없음")
 
     # 마이홈 상환예정 배너 테스트
     def test_repayment_schedule_banner(self):
@@ -754,7 +763,6 @@ class hometest_Testcase(unittest.TestCase):
     #     base.scroll_up(0.8)
     #     base.scroll_up(0.8)
 
-    # 마이홈 비교대출 배너 테스트
     def test_test(self):
         myhome = MyHome()
         home = Home()
@@ -766,89 +774,7 @@ class hometest_Testcase(unittest.TestCase):
         seting = Seting()
         results = []
         results_a = []
-        more.etc_in()
-        seting.seting_in()
-        base.scroll(2)
-        base.user_id_get()
-        base.user_token_get()
-        base.android_back()
-        base.android_back()
-        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
-        # 요청 헤더 설정 (필요에 따라 사용)
-        headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(info.usertoken)
-                    }
-        # 요청 본문 데이터 (필요에 따라 사용)
-        data = {
-        }
-        # POST 요청
-        response = requests.get(url, headers=headers, json=data, verify=False)
-        # 응답 상태 코드 확인
-        result = response.json()
-        print(result)
-        if 'list' in result and len(result['list']) > 0:
-            first_product_name = result['list'][0]['productName']
-            info.loans_data.append(first_product_name)
-        print(info.loans_data)
-        loans_data_a = "".join(map(str, info.loans_data))
-        print(loans_data_a)
-        if 'list' in result and len(result['list']) > 0:
-            first_product_name_a = result['list'][0]['interestRate']
-            info.loans_data_b.append(first_product_name_a)
-        print(info.loans_data_b)
-        loans_data_c = "".join(map(str, info.loans_data_b))
-        print(loans_data_c)
 
-        print(loans_data_a)
-        print(loans_data_c)
-
-        base.scroll(0.6)
-        verification_list = [(loans_data_a, "//*[contains(@text, '"+loans_data_a+"')]"),
-                             (""+loans_data_c+"%", "//*[contains(@text, '"+loans_data_c+"%')]")]
-        for text, xpath in verification_list:
-            try:
-                result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                self.assertEqual(result_a.text, text)
-                results.append("PASS")
-            except AssertionError:
-                results.append("FAIL")
-            except Exception as e:
-                print("내 대출 배너 노출 에러 발생 : {}".format(str(e)))
-                results.append("Error")
-
-        print(results)
-        if all(result == "PASS" for result in results):
-            print("내 대출 배너 노출 : PASS")
-            result_myhome.reports.append("내 대출 배너 노출 : *PASS*")
-        else:
-            print("내 대출 배너 노출 : FAIL")
-            result_myhome.reports.append("내 대출 배너 노출 : *FAIL*")
-            base.save_screenshot('내대출배너노출_fail')
-
-        myhome.loan_Banner()
-        verification_list_a = [("내 현금흐름", etc.myloan_Result_a),
-                             ("대출", etc.myloan_Result_b),
-                             ("입출금", etc.myloan_Result_c),
-                             ("예적금", etc.myloan_Result_d)]
-        for text, xpath in verification_list_a:
-            try:
-                result_b = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                self.assertIn(text, result_b.text)
-                results_a.append("PASS")
-            except AssertionError:
-                results_a.append("FAIL")
-            except Exception as e:
-                print("내 대출 배너 진입 에러 발생 : {}".format(str(e)))
-                results.append("Error")
-        print(results_a)
-        if all(result == "PASS" for result in results_a):
-            print("내 대출 배너 진입 : PASS")
-            result_myhome.reports.append("내 대출 배너 진입 : *PASS*")
-        else:
-            print("내 대출 배너 진입 : FAIL")
-            result_myhome.reports.append("내 대출 배너 진입 : *FAIL*")
-            base.save_screenshot('내대출배너진입_fail')
-        base.android_back()
 
 
 

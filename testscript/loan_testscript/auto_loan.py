@@ -1,5 +1,6 @@
 import time
 from datetime import date
+import pickle
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
@@ -147,11 +148,13 @@ class Auto_Loan:
 
         # day 변수에 오늘 날짜를 넣습니다.
         day = today.isoformat()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         url = "https://service-api.finda.co.kr/autoloan/v1/application"
 
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    "X-Auth-Token": ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -226,12 +229,14 @@ class Auto_Loan:
             print("요청 실패:", str(e))
 
     def auto_loan_existing_new_car(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/autoloan/v1/application"
 
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    "X-Auth-Token": ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
@@ -306,12 +311,14 @@ class Auto_Loan:
             print("요청 실패:", str(e))
 
     def auto_loan_existing_used_car(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
         # API 엔드포인트 URL
         url = "https://service-api.finda.co.kr/autoloan/v1/application"
 
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(self.info.usertoken)
+                    "X-Auth-Token": ''.join(usertoken)
                     }
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {

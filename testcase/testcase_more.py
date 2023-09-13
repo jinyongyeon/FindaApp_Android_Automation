@@ -1319,7 +1319,10 @@ class MoreTestcase_C(unittest.TestCase):
             print("대출 후기 진입 에러 발생 : {}".format(str(e)))
             moreresult.reports.append("대출 후기 진입 : *Error*")
             base.save_screenshot('대출후기진입_error')
-        more.loan_reviews_back()
+        try:
+            more.loan_reviews_back()
+        except:
+            base.android_back()
 
     # 최근 알림 진입 테스트
     def test_alarm(self):
