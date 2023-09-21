@@ -2133,7 +2133,7 @@ class test_Testcase(unittest.TestCase):
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
         autoloan = Auto_Loan()
-        base.user_id_get()
+        base.appium_run()
 
 
 

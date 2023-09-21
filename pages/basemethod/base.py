@@ -1,3 +1,4 @@
+import subprocess
 import time
 import requests
 import pickle
@@ -19,9 +20,9 @@ class basemethod:
         self.info = InFo()
         self.main = Main()
 
-    # def appium_run(self):
-    #     appium_command = "appium -a 127.0.0.1 -p 4723 -pa /wd/hub"
-    #     subprocess.Popen(appium_command, shell=True)
+    def appium_run(self):
+        appium_command = "appium -a 127.0.0.1 -p 4723 -pa /wd/hub"
+        subprocess.Popen(appium_command, shell=True)
 
     def android_back(self):
         self.driver.press_keycode(4)

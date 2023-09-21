@@ -1,6 +1,7 @@
 import time
 import unittest
 
+from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
 
 from config.info import InFo
@@ -15,8 +16,9 @@ from testscript.more_testscript.seting import Seting
 class JoinTestCase(unittest.TestCase):
     # @classmethod
     # def setUpClass(cls):
-    #     print("더보기 TestCase_A 시작")
-    #
+    #     appium_service = AppiumService()
+    #     appium_service.start(args=['--address', '0.0.0.0', '-p', '4724', '--base-path', '/wd/hub'])
+
     # @classmethod
     # def tearDownClass(cls):
     #     print("더보기 TestCase_A완료")

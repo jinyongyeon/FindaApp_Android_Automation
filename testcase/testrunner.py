@@ -12,12 +12,15 @@ from testcase.testcase_more import MoreTestcase_C
 from testcase.testcase_myhome import MyHome_Testcase
 from testcase.testcase_seting import Seting_Testcase
 
-runner = unittest.TextTestRunner()
+result_myhome = Result_MyHome()
+result_more = Result_More()
+result_seting = Result_seting()
+result_join = Result_Join()
+result_auto_loan = Result_loan()
 
 print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작"))
 
 suite = unittest.TestSuite()
-
 suite.addTest(LoginTestCase('test_check_in'))
 # Result_refinancing = Result_refinancing_loan()
 # Result_refinancing = '\n\n'.join(str(i) for i in Result_refinancing.reports)
@@ -29,16 +32,12 @@ suite.addTest(MyHome_Testcase('test_cash_assets_banner'))
 suite.addTest(MyHome_Testcase('test_repayment_schedule_banner'))
 suite.addTest(MyHome_Testcase('test_lease_contract_banner'))
 suite.addTest(MyHome_Testcase('test_auto_loan_banner'))
+unittest.TextTestRunner().run(suite)
 
-runner.run(suite)
-
-result_myhome = Result_MyHome()
 result_myhome = '\n\n'.join(str(i) for i in result_myhome.reports)
 print(SlackWebHook.my_home_send_slack_webhook(result_myhome))
 
 suite_a = unittest.TestSuite()
-
-
 suite_a.addTest(MoreTestcase_A('test_check_more_tab'))
 suite_a.addTest(MoreTestcase_A('test_myloan_in'))
 suite_a.addTest(MoreTestcase_A('test_chat_ting'))
@@ -73,15 +72,12 @@ suite_a.addTest(MoreTestcase_C('test_event'))
 suite_a.addTest(MoreTestcase_C('test_notice'))
 suite_a.addTest(MoreTestcase_C('test_loan_reviews'))
 suite_a.addTest(MoreTestcase_C('test_alarm'))
+unittest.TextTestRunner().run(suite_a)
 
-runner.run(suite_a)
-
-result_more = Result_More()
 result_more = '\n\n'.join(str(i) for i in result_more.reports)
 print(SlackWebHook.more_send_slack_webhook(result_more))
 
 suite_d = unittest.TestSuite()
-
 suite_d.addTest(Seting_Testcase('test_my_info'))
 suite_d.addTest(Seting_Testcase('test_change_password'))
 suite_d.addTest(Seting_Testcase('test_seting_mydata'))
@@ -91,15 +87,12 @@ suite_d.addTest(Seting_Testcase('test_seting_mydata_service_terms_of_use'))
 suite_d.addTest(Seting_Testcase('test_financial_consumer_protection_notice'))
 suite_d.addTest(Seting_Testcase('test_seting_version'))
 suite_d.addTest(Seting_Testcase('test_open_source_license'))
+unittest.TextTestRunner().run(suite_d)
 
-runner.run(suite_d)
-
-result_seting = Result_seting()
 result_set = '\n\n'.join(str(i) for i in result_seting.reports)
 print(SlackWebHook.seting_slack_webhook(result_set))
 
 suite_b = unittest.TestSuite()
-
 suite_b.addTest(LoginTestCase('test_log_out'))
 suite_b.addTest(JoinTestCase('test_message_certification'))
 suite_b.addTest(JoinTestCase('test_enter_personal_information'))
@@ -107,15 +100,12 @@ suite_b.addTest(JoinTestCase('test_membership_terms_and_conditions'))
 suite_b.addTest(JoinTestCase('test_certification_number'))
 suite_b.addTest(JoinTestCase('test_join'))
 suite_b.addTest(LoginTestCase('test_withdraw'))
+unittest.TextTestRunner().run(suite_b)
 
-runner.run(suite_b)
-
-result_join = Result_Join()
 result_join = '\n\n'.join(str(i) for i in result_join.reports)
 print(SlackWebHook.join_send_slack_webhook(result_join))
 
 suite_c = unittest.TestSuite()
-
 suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_terms'))
 suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
 suite_c.addTest(AutoLoanTestcase('test_auto_loan_new'))
@@ -135,9 +125,7 @@ suite_c.addTest(LoanComparisonTestcase('test_loan_application'))
 suite_c.addTest(LoanComparisonTestcase('test_office_worker_loan_no_certificate'))
 suite_c.addTest(LoanComparisonTestcase('test_unemployed_loan'))
 suite_c.addTest(LoanComparisonTestcase('test_auto_loan_in'))
+unittest.TextTestRunner().run(suite_c)
 
-runner.run(suite_c)
-
-result_auto_loan = Result_loan()
 result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
 print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))

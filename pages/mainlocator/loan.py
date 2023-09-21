@@ -87,11 +87,11 @@ class Loan:
     check_loan = '//*[@text = "확인"]'
 
     # 비교대출 온보딩페이지 CTA버튼
-    loan_in = '//*[@text = "대출 한 번에 알아보기"]'
+    loan_in = "//*[contains(@text, '대출 한 번에 알아보기')]"
 
     # 대출 목적
     #생활비
-    living_expenses = '//*[@text = "생활비"]'
+    living_expenses = "//*[contains(@text, '생활비')]"
     # 자동차 구입
     auto_loan = '//*[@text = "자동차구입"]'
     auto_loan_In = '//*[@text = "이동"]'
