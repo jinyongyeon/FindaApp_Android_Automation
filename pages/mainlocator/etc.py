@@ -176,7 +176,7 @@ class Etc:
     dsr_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
 
     # 계산기 > 대출이자 계산기 진입
-    interest = '//*[@text = "대출이자 계산기"]'
+    interest = '//*[@text = "대출 이자 계산기"]'
 
     # 대출이자 계산기 결과
     interest_Result = '//*[@text = "대출이자 계산기"]'
@@ -216,7 +216,7 @@ class Etc:
     youth_leap_account_result = '//*[@text = "청년도약계좌 계산기"]'
 
     # 부가서비스 > 장기렌트 리스 진입
-    lease_rent = '//*[@text = "장기렌트 리스"]'
+    lease_rent = "//*[contains(@text, '장기렌트')]"
 
     # 부가서비스 > 장기렌트 리스 진입 결과
     lease_rent_result = '//*[@text = "리스렌트"]'

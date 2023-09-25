@@ -68,8 +68,12 @@ class MyHome:
         loandiagnosisbanner_f.click()
         time.sleep(2)
 
-    # 내대출 진입
+    def loanDiagnosisBanner_H(self):
+        loandiagnosisbanner_h = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_h)
+        loandiagnosisbanner_h.click()
+        time.sleep(2)
 
+    # 내대출 진입
     def loan_data_api(self):
         with open('usertoken.pickle', 'rb') as f:
             usertoken = pickle.load(f)

@@ -205,7 +205,7 @@ class MyHome_Testcase(unittest.TestCase):
                 except:
                     try:
                         result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_c)
-                        self.assertIn("한도조회 누적 달성 1회", result_c.text)
+                        self.assertIn("시작이 반이에요", result_c.text)
                         results.append("PASS")
                         myhome.loanDiagnosisBanner_C()
                     except AssertionError:
@@ -213,7 +213,7 @@ class MyHome_Testcase(unittest.TestCase):
                     except Exception:
                         try:
                             result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_d)
-                            self.assertIn("한도조회 누적 달성 2회", result_d.text)
+                            self.assertIn("잘하고 있어요", result_d.text)
                             results.append("PASS")
                             myhome.loanDiagnosisBanner_D()
                         except AssertionError:
@@ -221,7 +221,7 @@ class MyHome_Testcase(unittest.TestCase):
                         except Exception:
                             try:
                                 result_e = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_e)
-                                self.assertIn("한도조회 누적 달성 3회", result_e.text)
+                                self.assertIn("잘하고 있어요", result_e.text)
                                 results.append("PASS")
                                 myhome.loanDiagnosisBanner_E()
                             except AssertionError:
@@ -229,14 +229,22 @@ class MyHome_Testcase(unittest.TestCase):
                             except Exception:
                                 try:
                                     result_f = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_f)
-                                    self.assertIn("한도조회 누적 달성 4회", result_f.text)
+                                    self.assertIn("잘하고 있어요", result_f.text)
                                     results.append("PASS")
                                     myhome.loanDiagnosisBanner_F()
                                 except AssertionError:
                                     results.append("FAIL")
-                                except Exception as e:
-                                    print("대출진단 배너 노출 에러 발생 : {}".format(str(e)))
-                                    results.append("Error")
+                                except Exception:
+                                    try:
+                                        result_h = WebDriver.driver.find_element(MobileBy.XPATH, home.loandiagnosisbanner_h)
+                                        self.assertIn("마스터", result_h.text)
+                                        results.append("PASS")
+                                        myhome.loanDiagnosisBanner_H()
+                                    except AssertionError:
+                                        results.append("FAIL")
+                                    except Exception as e:
+                                        print("대출진단 배너 노출 에러 발생 : {}".format(str(e)))
+                                        results.append("Error")
         print(results)
         if all(result == "PASS" for result in results):
             print("대출진단 배너 노출 : PASS")

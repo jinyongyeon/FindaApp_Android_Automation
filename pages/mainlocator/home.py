@@ -20,10 +20,11 @@ class Home:
     loandiagnosisbanner_bb = "//*[contains(@text, '클릭 한번에')]"
     loandiagnosisbanner_g = "//*[contains(@text, '레벨업!')]"
     loandiagnosisbanner_gg = "//*[contains(@text, '챌린지 바로가기')]"
-    loandiagnosisbanner_c = '//*[@text = "한도조회 누적 달성 1회!"]'
-    loandiagnosisbanner_d = '//*[@text = "한도조회 누적 달성 2회!"]'
-    loandiagnosisbanner_e = '//*[@text = "한도조회 누적 달성 3회!"]'
-    loandiagnosisbanner_f = '//*[@text = "한도조회 누적 달성 4회!"]'
+    loandiagnosisbanner_c = "//*[contains(@text, '실버 달성')]"
+    loandiagnosisbanner_d = "//*[contains(@text, '토파즈 달성')]"
+    loandiagnosisbanner_e = "//*[contains(@text, '사파이어 달성')]"
+    loandiagnosisbanner_f = "//*[contains(@text, '다이아몬드 달성')]"
+    loandiagnosisbanner_h = "//*[contains(@text, '마스터 달성')]"
 
     # 대환대출 진입 결과
     refinanceloanfirstvisit_a = '//*[@text = "내 대출 계좌 연결하기"]'
