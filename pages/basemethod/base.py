@@ -1,3 +1,4 @@
+import logging
 import subprocess
 import time
 import requests
@@ -50,12 +51,15 @@ class basemethod:
         return action.perform()
 
     def save_screenshot(self, name):
-        screenshot_dir = 'screenshots'
-        if not os.path.exists(screenshot_dir):
-            os.makedirs(screenshot_dir)
-        screenshot_path = os.path.join(screenshot_dir, f'{name}.png')
-        self.driver.save_screenshot(screenshot_path)
-        print(f'Screenshot saved: {screenshot_path}')
+        try:
+            screenshot_dir = 'screenshots'
+            if not os.path.exists(screenshot_dir):
+                os.makedirs(screenshot_dir)
+            screenshot_path = os.path.join(screenshot_dir, f'{name}.png')
+            self.driver.save_screenshot(screenshot_path)
+            print(f'Screenshot saved: {screenshot_path}')
+        except:
+            logging.warning("개인정보관련 페이지로 캡처 불가능")
 
     def user_token_get(self):
         # API 엔드포인트 URL
