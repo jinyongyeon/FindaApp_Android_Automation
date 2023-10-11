@@ -1,3 +1,4 @@
+import logging
 import time
 import unittest
 
@@ -17,15 +18,14 @@ from pages.basemethod.base import basemethod
 
 class MoreTestcase_A(unittest.TestCase):
 
-    # @classmethod
-    # def setUpClass(cls):
-    #     print("더보기 TestCase_A 시작")
-    #
-    # @classmethod
-    # def tearDownClass(cls):
-    #     print("더보기 TestCase_A완료")
-    #
-    #
+    @classmethod
+    def setUpClass(cls):
+        logging.info("더보기 테스트_A 시작")
+
+    @classmethod
+    def tearDownClass(cls):
+        logging.info("더보기 테스트_A 종료")
+
     def setUp(self):
         more = More()
         more.etc_in()
