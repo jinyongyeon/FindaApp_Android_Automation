@@ -91,10 +91,12 @@ class Loan:
 
     # 대출 목적
     #생활비
-    living_expenses = "//*[contains(@text, '생활비')]"
+    living_expenses = '//*[@text = "생활비"]'
+
     # 자동차 구입
     auto_loan = '//*[@text = "자동차구입"]'
     auto_loan_In = '//*[@text = "이동"]'
+
     # 대환대출
     refinancing_loan = '//*[@text = "대환대출"]'
 
@@ -257,7 +259,7 @@ class Loan:
 
 
     deposit_today = "//*[@text = '오늘입금']"
-    financial_sector = "//*[@text = '1금융권']"
+    financial_sector = "//*[contains(@text, '캐피탈')]"
     comparison_loan_detail = "//*[@text = '대출 신청하기']"
     certification_a = "//*[contains(@text, '심의필')]"
     certification_b = "//*[contains(@text, '심사필')]"

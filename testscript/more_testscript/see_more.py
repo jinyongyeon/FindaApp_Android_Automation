@@ -1,4 +1,5 @@
 import time
+import logging
 
 from appium.webdriver.common.mobileby import MobileBy
 
@@ -16,9 +17,12 @@ class More:
 
     # 더보기 탭 테스트
     def etc_in(self):
-        etc_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.etc)
-        etc_in.click()
-        time.sleep(2)
+        try:
+            etc_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.etc)
+            etc_in.click()
+            time.sleep(2)
+        except Exception as e:
+            logging.error(f"etc_in : {e}")
 
     # 내 대출 진입
     def my_loan(self):

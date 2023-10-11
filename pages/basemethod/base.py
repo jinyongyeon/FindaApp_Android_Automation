@@ -85,11 +85,11 @@ class basemethod:
             if 'token' in result:
                 parameter_value = result['token']
                 self.info.usertoken.append(parameter_value)
-            print(self.info.usertoken)
+            logging.info(self.info.usertoken)
             with open('usertoken.pickle', 'wb') as f:
                 pickle.dump(self.info.usertoken, f)
         except Exception as e:
-            print("요청 실패:", str(e))
+            logging.error(f"요청 실패: {e}")
 
     def user_txseqno_get(self):
         with open('usertoken.pickle', 'rb') as f:
@@ -115,20 +115,20 @@ class basemethod:
             response = requests.post(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
-            print(result)
+            logging.info(result)
             if 'txSeqNo' in result:
                 parameter_value = result['txSeqNo']
                 self.info.txseqno.append(parameter_value)
-            print(self.info.txseqno)
+            logging.info(self.info.txseqno)
         except Exception as e:
-            print("요청 실패:", str(e))
+            logging.error(f"요청 실패 : {e}")
 
     def user_id_get(self):
         element = WebDriver.driver.find_element(MobileBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.ScrollView/android.widget.TextView[3]")
         text = element.text
-        print(text)
+        logging.info(text)
         self.info.user_id = ''.join(filter(str.isdigit, text))
-        print(self.info.user_id)
+        logging.info(self.info.user_id)
         with open('user_id.pickle', 'wb') as f:
             pickle.dump(self.info.user_id, f)
 
@@ -155,13 +155,13 @@ class basemethod:
             response = requests.put(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
-            print(result)
+            logging.info(result)
             if 'idToken' in result:
                 parameter_value = result['idToken']
                 self.info.idtoken.append(parameter_value)
-            print(self.info.idtoken)
+            logging.info(self.info.idtoken)
         except Exception as e:
-            print("요청 실패:", str(e))
+            logging.error(f"요청 실패: {e}")
 
 # class ProviderJoinCertificateLocator(ProviderCommonMethod):
 #     #공동인증서 로케이터

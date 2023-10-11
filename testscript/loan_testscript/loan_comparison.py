@@ -7,6 +7,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
+from pages.basemethod.base import basemethod
 from pages.mainlocator.loan import Loan
 
 
@@ -15,6 +16,7 @@ class ComparisonLoan:
     def __init__(self):
         self.loan = Loan()
         self.info = InFo()
+        self.base = basemethod()
 
     # 다음 버튼
     def next_loan(self):
@@ -43,6 +45,7 @@ class ComparisonLoan:
     # 생활비 선택 및 대출 희망금액 입력
     def living_expenses(self):
         try:
+            self.base.scroll_up(0.2)
             living_expenses = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.living_expenses)
             living_expenses.click()
             loan_amount = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_amount)
@@ -103,7 +106,7 @@ class ComparisonLoan:
         try:
             loan_terms_and_conditions_Ae = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_Ae)
             loan_terms_and_conditions_Ae.click()
-            time.sleep(5)
+            time.sleep(7)
         except Exception as e:
             logging.error(f"loan_terms_and_conditions_ae : {e}")
 
@@ -611,6 +614,7 @@ class ComparisonLoan:
         try:
             comparison_loan_detail = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_detail)
             comparison_loan_detail.click()
+            time.sleep(10)
         except Exception as e:
             logging.error(f"loan_application : {e}")
 

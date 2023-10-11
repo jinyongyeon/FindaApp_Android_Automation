@@ -20,12 +20,13 @@ result_seting = Result_seting()
 result_join = Result_Join()
 result_auto_loan = Result_loan()
 
-suite_c = unittest.TestSuite()
-suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
+suite = unittest.TestSuite()
+suite.addTest(MyHome_Testcase('test_loan_banner'))
+
 
 current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 logging.basicConfig(filename=f"apptestlog_{current_date}.log", level=logging.INFO)
-unittest.TextTestRunner().run(suite_c)
+unittest.TextTestRunner().run(suite)
 
 # result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
 # print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))
