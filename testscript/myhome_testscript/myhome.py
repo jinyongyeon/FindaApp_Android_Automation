@@ -166,21 +166,18 @@ class MyHome:
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
         }
-        try:
-            # POST 요청
-            response = requests.get(url, headers=headers, json=data, verify=False)
-            # 응답 상태 코드 확인
-            result = response.json()
-            logging.info(result)
-            if 'list' in result and len(result['list']) > 0:
-                first_product_name = result['list'][0]['productName']
-                self.info.loans_data.append(first_product_name)
-            data_result = "".join(map(str, self.info.loans_data))
-            logging.info(data_result)
-            loan = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+data_result+"')]")
-            loan.click()
-        except Exception as e:
-            logging.error(f"loan_A 요청 실패 : {e}")
+        # POST 요청
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        logging.info(result)
+        if 'list' in result and len(result['list']) > 0:
+            first_product_name = result['list'][0]['productName']
+            self.info.loans_data.append(first_product_name)
+        data_result = "".join(map(str, self.info.loans_data))
+        logging.info(data_result)
+        loan = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+data_result+"')]")
+        loan.click()
         time.sleep(2)
 
     def loan_B(self):

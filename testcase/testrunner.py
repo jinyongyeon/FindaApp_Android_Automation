@@ -1,11 +1,16 @@
+import time
+import os
+
+appium_script_path = "/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/pages/basemethod/appiumrunner.py"
+os.system(f"/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/venv/bin/python {appium_script_path} &")
+time.sleep(10)
+
 from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan, Result_refinancing_loan, \
     Result_seting
 from pages.basemethod.slackreports import SlackWebHook
-
 import unittest
 import logging
 import datetime
-
 from testcase.testcase_loan import AutoLoanTestcase, LoanComparisonTestcase
 from testcase.testcase_login import LoginTestCase, JoinTestCase
 from testcase.testcase_more import MoreTestcase_A
@@ -40,8 +45,8 @@ suite.addTest(MyHome_Testcase('test_auto_loan_banner'))
 # unittest.TextTestRunner().run(suite)
 
 result_myhome = '\n\n'.join(str(i) for i in result_myhome.reports)
-# print(result_myhome)
-# print(SlackWebHook.my_home_send_slack_webhook(result_myhome))
+print(result_myhome)
+print(SlackWebHook.my_home_send_slack_webhook(result_myhome))
 
 suite_a = unittest.TestSuite()
 suite_a.addTest(MoreTestcase_A('test_check_more_tab'))
@@ -81,8 +86,8 @@ suite_a.addTest(MoreTestcase_C('test_alarm'))
 # unittest.TextTestRunner().run(suite_a)
 
 result_more = '\n\n'.join(str(i) for i in result_more.reports)
-# print(result_more)
-# print(SlackWebHook.more_send_slack_webhook(result_more))
+print(result_more)
+print(SlackWebHook.more_send_slack_webhook(result_more))
 
 suite_d = unittest.TestSuite()
 suite_d.addTest(Seting_Testcase('test_my_info'))
@@ -94,11 +99,11 @@ suite_d.addTest(Seting_Testcase('test_seting_mydata_service_terms_of_use'))
 suite_d.addTest(Seting_Testcase('test_financial_consumer_protection_notice'))
 suite_d.addTest(Seting_Testcase('test_seting_version'))
 suite_d.addTest(Seting_Testcase('test_open_source_license'))
-# unittest.TextTestRunner().run(suite_d)
+unittest.TextTestRunner().run(suite_d)
 
 result_set = '\n\n'.join(str(i) for i in result_seting.reports)
-# print(result_set)
-# print(SlackWebHook.seting_slack_webhook(result_set))
+print(result_set)
+print(SlackWebHook.seting_slack_webhook(result_set))
 
 suite_b = unittest.TestSuite()
 suite_b.addTest(LoginTestCase('test_log_out'))
@@ -111,18 +116,18 @@ suite_b.addTest(LoginTestCase('test_withdraw'))
 # unittest.TextTestRunner().run(suite_b)
 
 result_join = '\n\n'.join(str(i) for i in result_join.reports)
-# print(result_join)
-# print(SlackWebHook.join_send_slack_webhook(result_join))
+print(result_join)
+print(SlackWebHook.join_send_slack_webhook(result_join))
 
 suite_c = unittest.TestSuite()
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_terms'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_new'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_detail'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_application'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_used_car'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_new_car'))
-# suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_used_car'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_terms'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_new'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_detail'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_application'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_used_car'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_new_car'))
+suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_used_car'))
 suite_c.addTest(LoanComparisonTestcase('test_loan_terms_and_conditions'))
 suite_c.addTest(LoanComparisonTestcase('test_loan_comparison_verification_code'))
 suite_c.addTest(LoanComparisonTestcase('test_rrn_validation_check'))
@@ -134,7 +139,7 @@ suite_c.addTest(LoanComparisonTestcase('test_loan_application'))
 suite_c.addTest(LoanComparisonTestcase('test_office_worker_loan_no_certificate'))
 suite_c.addTest(LoanComparisonTestcase('test_unemployed_loan'))
 suite_c.addTest(LoanComparisonTestcase('test_auto_loan_in'))
-unittest.TextTestRunner().run(suite_c)
+# unittest.TextTestRunner().run(suite_c)
 
 result_auto_loan = '\n\n'.join(str(i) for i in result_auto_loan.reports)
 print(result_auto_loan)
