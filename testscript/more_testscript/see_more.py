@@ -256,6 +256,11 @@ class More:
         except Exception as e:
             logging.error(f"credit_score : {e}")
 
+    def exit(self):
+        exit = WebDriver.driver.find_element(MobileBy.XPATH, Etc.exit)
+        exit.click()
+        time.sleep(2)
+
     # 신용 관리 > 신용 점수 뒤로 가기
     def credit_score_back(self):
         try:

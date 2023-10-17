@@ -14,11 +14,7 @@ class WebDriver:
         "appium:nativeWebScreenshot": True,
         "appium:newCommandTimeout": 3600,
         "appium:connectHardwareKeyboard": True,
-        "autoGrantPermissions" : True
-        # 'appActivity': '.ui.splash.SplashActivity',
-        # 'noReset': 'true',
-        # "appPackage": "kr.co.finda.finda"
-        # "appActivity": "kr.co.finda.finda.ui.main.MainActivity"
+        "autoGrantPermissions": True
     }
 
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)

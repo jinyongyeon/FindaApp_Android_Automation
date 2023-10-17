@@ -594,6 +594,10 @@ class MoreTestcase_B(unittest.TestCase):
             time.sleep(1)
             more.credit_score()
             try:
+                more.exit()
+            except:
+                pass
+            try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
                 self.assertEqual("신용관리", Result.text)
                 logging.info("신용점수 진입 : PASS")
@@ -752,7 +756,7 @@ class MoreTestcase_B(unittest.TestCase):
             time.sleep(10)
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_quiz_awards_result)
-                self.assertIn("신용퀴즈", Result.text)
+                self.assertIn("알림받기", Result.text)
                 logging.info("신용퀴즈 어워즈 진입 : PASS")
                 moreresult.reports.append("신용퀴즈 어워즈 진입 : *PASS*")
             except AssertionError:

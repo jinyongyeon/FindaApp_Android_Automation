@@ -115,6 +115,9 @@ class Etc:
     # 신용관리 > 신용점수 진입
     credit_score = '//*[@text = "신용점수"]'
 
+    # 신용관리 바텀시트 닫기
+    exit = "//*[contains(@text, '닫기')]"
+
     # 신용점수 페이지 진입 결과
     credit_score_Result = '//*[@text = "신용관리"]'
 
@@ -155,7 +158,7 @@ class Etc:
 
     # 신용퀴즈 어워즈
     credit_quiz_awards = '//*[@text = "신용퀴즈 어워즈"]'
-    credit_quiz_awards_result = "//*[contains(@text, '신용퀴즈')]"
+    credit_quiz_awards_result = "//*[contains(@text, '시즌2 오픈')]"
 
     # 계산기 > 여윳돈 계산기 진입
     extra_money = '//*[@text = "여윳돈 계산기"]'

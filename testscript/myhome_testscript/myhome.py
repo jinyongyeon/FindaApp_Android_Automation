@@ -17,101 +17,68 @@ class MyHome:
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):
-        try:
-            loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_a)
-            loans.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comPariSonLoan_In_a : {e}")
+
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_a)
+        loans.click()
+        time.sleep(2)
+
     def comPariSonLoan_In_b(self):
-        try:
-            loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_b)
-            loans.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comPariSonLoan_In_b : {e}")
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_b)
+        loans.click()
+        time.sleep(2)
+
     def comPariSonLoan_In_c(self):
-        try:
-            loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_c)
-            loans.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comPariSonLoan_In_c : {e}")
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_c)
+        loans.click()
+        time.sleep(2)
+
     def comPariSonLoan_In_d(self):
-        try:
-            loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_d)
-            loans.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comPariSonLoan_In_d : {e}")
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_d)
+        loans.click()
+        time.sleep(2)
+
     def comPariSonLoan_In_e(self):
-        try:
-            loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_e)
-            loans.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comPariSonLoan_In_e : {e}")
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_e)
+        loans.click()
+        time.sleep(2)
 
     # 대출진단 배너
     def loanDiagnosisBanner_A(self):
-        try:
-            loandiagnosisbanner_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_aa)
-            loandiagnosisbanner_a.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_A : {e}")
+        loandiagnosisbanner_a = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_aa)
+        loandiagnosisbanner_a.click()
+        time.sleep(2)
+
     def loanDiagnosisBanner_B(self):
-        try:
-            loandiagnosisbanner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_bb)
-            loandiagnosisbanner_b.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_B : {e}")
+        loandiagnosisbanner_b = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_bb)
+        loandiagnosisbanner_b.click()
+        time.sleep(2)
 
     def loanDiagnosisBanner_G(self):
-        try:
-            loandiagnosisbanner_g = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_gg)
-            loandiagnosisbanner_g.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_G : {e}")
+        loandiagnosisbanner_g = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_gg)
+        loandiagnosisbanner_g.click()
+        time.sleep(2)
 
     def loanDiagnosisBanner_C(self):
-        try:
-            loandiagnosisbanner_c = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_c)
-            loandiagnosisbanner_c.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_C : {e}")
+        loandiagnosisbanner_c = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_c)
+        loandiagnosisbanner_c.click()
+        time.sleep(2)
     def loanDiagnosisBanner_D(self):
-        try:
-            loandiagnosisbanner_d = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_d)
-            loandiagnosisbanner_d.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_D : {e}")
+        loandiagnosisbanner_d = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_d)
+        loandiagnosisbanner_d.click()
+        time.sleep(2)
     def loanDiagnosisBanner_E(self):
-        try:
-            loandiagnosisbanner_e = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_e)
-            loandiagnosisbanner_e.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_E : {e}")
+        loandiagnosisbanner_e = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_e)
+        loandiagnosisbanner_e.click()
+        time.sleep(2)
     def loanDiagnosisBanner_F(self):
-        try:
-            loandiagnosisbanner_f = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_f)
-            loandiagnosisbanner_f.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_F : {e}")
+        loandiagnosisbanner_f = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_f)
+        loandiagnosisbanner_f.click()
+        time.sleep(2)
 
     def loanDiagnosisBanner_H(self):
-        try:
-            loandiagnosisbanner_h = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_h)
-            loandiagnosisbanner_h.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loanDiagnosisBanner_H : {e}")
+        loandiagnosisbanner_h = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loandiagnosisbanner_h)
+        loandiagnosisbanner_h.click()
+        time.sleep(2)
 
     # 내대출 진입
     def loan_data_api(self):

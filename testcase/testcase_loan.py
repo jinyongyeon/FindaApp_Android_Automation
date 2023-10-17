@@ -132,7 +132,6 @@ class AutoLoanTestcase(unittest.TestCase):
             try:
                 autoloan.auto_loan_terms_ad()
                 time.sleep(8)
-                base.scroll(0.5)
                 Result_bd = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_terms_ad_r)
                 self.assertIn("본인확인서비스 이용약관", Result_bd.text)
                 results_a.append("PASS")
@@ -1343,9 +1342,6 @@ class LoanComparisonTestcase(unittest.TestCase):
     def test_rrn_validation_check(self):
         loan = Loan()
         base = basemethod()
-        join = JoIn()
-        more = More()
-        seting = Seting()
         loanresult = Result_loan()
         myhome = MyHome()
         results = []
@@ -1438,9 +1434,6 @@ class LoanComparisonTestcase(unittest.TestCase):
     def test_loan_comparison_apt_secured_loan(self):
         loan = Loan()
         base = basemethod()
-        join = JoIn()
-        more = More()
-        seting = Seting()
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()

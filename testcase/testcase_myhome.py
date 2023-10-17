@@ -243,7 +243,7 @@ class MyHome_Testcase(unittest.TestCase):
                                         except Exception as e:
                                             logging.warning(f"대출진단 배너 노출 에러 발생 : {e}")
                                             results.append("Error")
-            print(results)
+            logging.info(results)
             if all(result == "PASS" for result in results):
                 logging.info("대출진단 배너 노출 : PASS")
                 result_myhome.reports.append("대출진단 배너 노출 : *PASS*")
