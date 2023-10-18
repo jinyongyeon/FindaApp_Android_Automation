@@ -251,14 +251,14 @@ class Seting_Testcase(unittest.TestCase):
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.seting_privacy_policy_result)
                 self.assertIn("개인정보처리방침", Result.text)
-                print("설정 > 개인정보 처리방침 진입 결과 : PASS")
+                logging.info("설정 > 개인정보 처리방침 진입 결과 : PASS")
                 setingresult.reports.append("설정 > 개인정보 처리방침 진입 결과 : *PASS*")
             except AssertionError:
-                print("설정 > 개인정보 처리방침 진입 결과 : FAIL")
+                logging.info("설정 > 개인정보 처리방침 진입 결과 : FAIL")
                 setingresult.reports.append("설정 > 개인정보 처리방침 진입 결과 : *FAIL*")
                 base.save_screenshot('개인정보처리방침진입_fail')
             except Exception as e:
-                print("설정 > 개인정보 처리방침 진입 에러 발생 : {}".format(str(e)))
+                logging.warning(f"설정 > 개인정보 처리방침 진입 에러 발생 : {e}")
                 setingresult.reports.append("설정 > 개인정보 처리방침 진입 결과 : *Error*")
                 base.save_screenshot('개인정보처리방침진입_error')
         except Exception as e:

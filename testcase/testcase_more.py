@@ -34,6 +34,7 @@ class MoreTestcase_A(unittest.TestCase):
         base = basemethod()
         more = More()
         base.android_back()
+        base.android_back()
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
@@ -577,6 +578,7 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         more = More()
         base.android_back()
+        base.android_back()
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
@@ -1000,6 +1002,7 @@ class MoreTestcase_C(unittest.TestCase):
     def tearDown(self):
         base = basemethod()
         more = More()
+        base.android_back()
         base.android_back()
         time.sleep(1)
         more.etc_in()
