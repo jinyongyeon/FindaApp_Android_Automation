@@ -1,15 +1,6 @@
-import time
-import os
-
-
-# class appium:
-def appium_start():
-    # appium_command = "appium -a 0.0.0.0 -p 4723 -pa /wd/hub"
-    # os.system(appium_command)
-    appium_script_path = "/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/pages/basemethod/appiumrunner.py"
-    os.system(f"/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/venv/bin/python {appium_script_path} &")
-    time.sleep(10)
-
+# from multiprocessing import process
+# import time
+# import os
 from pages.basemethod.result import Result_More, Result_Join, Result_MyHome, Result_loan, Result_seting
 from pages.basemethod.slackreports import SlackWebHook
 import unittest
@@ -17,13 +8,20 @@ import logging
 import datetime
 from testcase.testcase_loan import AutoLoanTestcase, LoanComparisonTestcase
 from testcase.testcase_login import LoginTestCase, JoinTestCase
-from testcase.testcase_more import MoreTestcase_A
-from testcase.testcase_more import MoreTestcase_B
-from testcase.testcase_more import MoreTestcase_C
+from testcase.testcase_more import MoreTestcase_A, MoreTestcase_B, MoreTestcase_C
 from testcase.testcase_myhome import MyHome_Testcase
 from testcase.testcase_seting import Seting_Testcase
 
-
+# class appium:
+#     def start_appium_server(self):
+#         appium_command = "appium -a 127.0.0.1 -p 4723 -pa /wd/hub"
+#         os.system(appium_command)
+#         # appium_script_path = "/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/pages/basemethod/appiumrunner.py"
+#         # os.system(f"/Users/yongyeon/PycharmProjects/Finda_Android_App_Automation/venv/bin/python {appium_script_path} &")
+#
+#     def kill_appium_server(self):
+#         appium_command = "pkill -9 -f appium"
+#         os.system(appium_command)
 
 class test:
 
@@ -74,6 +72,7 @@ class test:
         suite_a.addTest(MoreTestcase_B('test_charter_vs_monthly_rent'))
         suite_a.addTest(MoreTestcase_B('test_refinancing_loan'))
         suite_a.addTest(MoreTestcase_B('test_youth_leap_account'))
+        suite_a.addTest(MoreTestcase_B('test_car_installment_calculator'))
         suite_a.addTest(MoreTestcase_C('test_lease_rent'))
         suite_a.addTest(MoreTestcase_C('test_do_not_call_terms_of_use'))
         suite_a.addTest(MoreTestcase_C('test_insurance'))
@@ -128,43 +127,60 @@ class test:
         resultautoloan = Result_loan()
         suite_c = unittest.TestSuite()
         suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_terms'))
-        # suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
-        # suite_c.addTest(AutoLoanTestcase('test_auto_loan_new'))
-        # suite_c.addTest(AutoLoanTestcase('test_auto_loan_detail'))
-        # suite_c.addTest(AutoLoanTestcase('test_auto_loan_application'))
-        suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_used_car'))
+        suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_new_car_certification_number'))
+        suite_c.addTest(AutoLoanTestcase('test_auto_loan_new'))
         suite_c.addTest(AutoLoanTestcase('test_auto_loan_detail'))
         suite_c.addTest(AutoLoanTestcase('test_auto_loan_application'))
+        suite_c.addTest(AutoLoanTestcase('test_auto_loan_new_used_car'))
         suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_new_car'))
         suite_c.addTest(AutoLoanTestcase('test_auto_loan_existing_used_car'))
-        # suite_c.addTest(LoanComparisonTestcase('test_loan_terms_and_conditions'))
-        # suite_c.addTest(LoanComparisonTestcase('test_loan_comparison_verification_code'))
-        # suite_c.addTest(LoanComparisonTestcase('test_rrn_validation_check'))
-        # suite_c.addTest(LoanComparisonTestcase('test_loan_comparison_apt_secured_loan'))
-        # suite_c.addTest(LoanComparisonTestcase('test_check_deposit_today'))
-        # suite_c.addTest(LoanComparisonTestcase('test_comparison_loan_detail'))
-        # suite_c.addTest(LoanComparisonTestcase('test_comparison_loan_detail_certification'))
-        # suite_c.addTest(LoanComparisonTestcase('test_loan_application'))
-        # suite_c.addTest(LoanComparisonTestcase('test_office_worker_loan_no_certificate'))
-        # suite_c.addTest(LoanComparisonTestcase('test_unemployed_loan'))
-        # suite_c.addTest(LoanComparisonTestcase('test_auto_loan_in'))
+        suite_c.addTest(LoanComparisonTestcase('test_loan_terms_and_conditions'))
+        suite_c.addTest(LoanComparisonTestcase('test_loan_comparison_verification_code'))
+        suite_c.addTest(LoanComparisonTestcase('test_rrn_validation_check'))
+        suite_c.addTest(LoanComparisonTestcase('test_loan_comparison_apt_secured_loan'))
+        suite_c.addTest(LoanComparisonTestcase('test_check_deposit_today'))
+        suite_c.addTest(LoanComparisonTestcase('test_comparison_loan_detail'))
+        suite_c.addTest(LoanComparisonTestcase('test_comparison_loan_detail_certification'))
+        suite_c.addTest(LoanComparisonTestcase('test_loan_application'))
+        suite_c.addTest(LoanComparisonTestcase('test_office_worker_loan_no_certificate'))
+        suite_c.addTest(LoanComparisonTestcase('test_unemployed_loan'))
+        suite_c.addTest(LoanComparisonTestcase('test_auto_loan_in'))
         unittest.TextTestRunner().run(suite_c)
 
         result_auto_loan = '\n\n'.join(str(i) for i in resultautoloan.reports)
         print(result_auto_loan)
         print(SlackWebHook.auto_loan_send_slack_webhook(result_auto_loan))
 
-
 if __name__ == '__main__':
-    # appium = appium()
-    # appium_start()
+
+#     appium_process = process(target = appium.start_appium_server)
+#     appium_process.start()
+#     time.sleep(10)
+#
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     logging.basicConfig(filename=f"apptestlog_{current_date}.log", level=logging.INFO)
     print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
-    testcase = test()
-    # testcase.testsuite1()
-    # testcase.testsuite2()
-    # testcase.testsuite3()
-    # testcase.testsuite4()
-    testcase.testsuite5()
+    test = test()
+
+    test.testsuite1()
+    test.testsuite2()
+    test.testsuite3()
+    test.testsuite4()
+    test.testsuite5()
+
+    # kill = process(target = kill_appium_server)
+    # #
+    # # test_case = [
+    # a = multiprocessing.Process(target=test.testsuite1)
+    # b = multiprocessing.Process(target=test.testsuite2)
+    # c = multiprocessing.Process(target=test.testsuite3)
+    # d = multiprocessing.Process(target=test.testsuite4)
+    # e = multiprocessing.Process(target=test.testsuite5)
+    # ]
+    #
+    # for process in test_case:
+    #     process.start()
+    #
+    # for process in test_case:
+    #     process.join()

@@ -4,15 +4,10 @@ import unittest
 import pickle
 
 import requests
-from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
-from selenium.common import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.result import Result_MyHome
-from pages.mainlocator import etc
 from pages.mainlocator.etc import Etc
 from pages.mainlocator.home import Home
 from pages.basemethod.base import basemethod
@@ -403,7 +398,7 @@ class MyHome_Testcase(unittest.TestCase):
                 result_myhome.reports.append("내 대출 배너 노출 : *FAIL*")
                 base.save_screenshot('내대출배너노출_fail')
             myhome.loan_Banner()
-            verification_list_a = [("내 현금흐름", etc.myloan_Result_a),
+            verification_list_a = [("카드", etc.myloan_Result_a),
                                  ("대출", etc.myloan_Result_b),
                                  ("입출금", etc.myloan_Result_c),
                                  ("예적금", etc.myloan_Result_d)]

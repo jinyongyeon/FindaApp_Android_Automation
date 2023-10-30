@@ -14,7 +14,7 @@ class Etc:
     myloan = '//*[@index = "1" and @text = "내 대출"]'
 
     # 내 대출 진입 결과
-    myloan_Result_a = '//*[@text = "내 현금흐름"]'
+    myloan_Result_a = '//*[@text = "카드"]'
     myloan_Result_b = '//*[@text = "대출"]'
     myloan_Result_c = '//*[@text = "입출금"]'
     myloan_Result_d = '//*[@text = "예적금"]'
@@ -217,6 +217,10 @@ class Etc:
     # 계산기 > 청년도약계좌 계산기
     youth_leap_account = '//*[@text = "청년도약계좌 계산기"]'
     youth_leap_account_result = '//*[@text = "청년도약계좌 계산기"]'
+
+    # 계산기 > 자동차 할부 계산기
+    car_installment_calculator = "//*[contains(@text, '자동차 할부 계산기')]"
+    car_installment_calculator_result = "//*[contains(@text, '할부 계산기')]"
 
     # 부가서비스 > 장기렌트 리스 진입
     lease_rent = "//*[contains(@text, '장기렌트')]"

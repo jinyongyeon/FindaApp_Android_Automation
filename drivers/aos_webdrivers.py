@@ -1,9 +1,5 @@
 from appium import webdriver
-
 from config.info import InFo
-
-
-
 
 class WebDriver:
     info = InFo()

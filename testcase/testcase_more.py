@@ -75,7 +75,7 @@ class MoreTestcase_A(unittest.TestCase):
         results = []
         logging.info("내대출 진입 테스트 시작")
         try:
-            verification_list = [("내 현금흐름", etc.myloan_Result_a),
+            verification_list = [("카드", etc.myloan_Result_a),
                                  ("대출", etc.myloan_Result_b),
                                  ("입출금", etc.myloan_Result_c),
                                  ("예적금", etc.myloan_Result_d)]
@@ -491,7 +491,7 @@ class MoreTestcase_A(unittest.TestCase):
         try:
             more.my_loan_b()
             results = []
-            verification_list = [("내 현금흐름", etc.myloan_Result_a),
+            verification_list = [("카드", etc.myloan_Result_a),
                                  ("대출", etc.myloan_Result_b),
                                  ("입출금", etc.myloan_Result_c),
                                  ("예적금", etc.myloan_Result_d)]
@@ -983,6 +983,34 @@ class MoreTestcase_B(unittest.TestCase):
         except Exception as e:
             logging.error(f"청년도약계좌 계산기 진입 테스트 진행 중 에러 발생 : {e}")
         logging.info("청년도약계좌 계산기 진입 테스트 종료")
+
+    # 자동차 할부 계산기 진입 테스트
+    def test_car_installment_calculator(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("자동차 할부 계산기 진입 테스트 시작")
+        try:
+            base.scroll(0.2)
+            more.car_installment_calculator()
+            try:
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.car_installment_calculator_result)
+                self.assertIn("할부 계산기" , Result.text)
+                logging.info("자동차 할부 계산기 진입 : PASS")
+                moreresult.reports.append("자동차 할부 계산기 진입 : *PASS*")
+            except AssertionError:
+                logging.info("자동차 할부 계산기 진입 : FAIL")
+                moreresult.reports.append("자동차 할부 계산기 진입 : *FAIL*")
+                base.save_screenshot('자동차할부계산기진입_fail')
+            except Exception as e:
+                logging.warning(f"자동차 할부 계산기 진입 에러 발생 : {e}")
+                moreresult.reports.append("자동차 할부 계산기 진입 : *Error*")
+                base.save_screenshot('자동차할부계산기진입_error')
+            base.android_back()
+        except Exception as e:
+            logging.error(f"자동차 할부 계산기 진입 테스트 진행 중 에러 발생 : {e}")
+        logging.info("자동차 할부 계산기 진입 테스트 종료")
 
 class MoreTestcase_C(unittest.TestCase):
 

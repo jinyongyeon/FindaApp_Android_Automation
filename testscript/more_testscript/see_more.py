@@ -465,6 +465,15 @@ class More:
         except Exception as e:
             logging.error(f"youth_leap_account : {e}")
 
+    # 계산기 > 자동차 할부 계산기 진입
+    def car_installment_calculator(self):
+        try:
+            car_installment_calculator = WebDriver.driver.find_element(MobileBy.XPATH, Etc.car_installment_calculator)
+            car_installment_calculator.click()
+            time.sleep(2)
+        except Exception as e:
+            logging.error(f"car_installment_calculator : {e}")
+
     # 부가 서비스 > 장기 렌트 리스 진입
     def lease_rent(self):
         try:
