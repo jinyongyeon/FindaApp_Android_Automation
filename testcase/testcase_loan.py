@@ -313,18 +313,18 @@ class AutoLoanTestcase(unittest.TestCase):
             logging.info(results)
             if all(result == "PASS" for result in results):
                 logging.info("자동차 대출 약관 노출 : PASS")
-                loanresult.reports.append("자동차 대출 약관 노출 : *PASS*")
+                loanresult.auto_reports.append("자동차 대출 약관 노출 : *PASS*")
             else:
                 logging.info("자동차 대출 약관 노출 : FAIL")
-                loanresult.reports.append("자동차 대출 약관 노출 : *FAIL*")
+                loanresult.auto_reports.append("자동차 대출 약관 노출 : *FAIL*")
                 base.save_screenshot('자동차대출약관노출_fail')
             logging.info(results_a)
             if all(result == "PASS" for result in results_a):
                 logging.info("자동차 대출 약관 진입 결과 : PASS")
-                loanresult.reports.append("자동차 대출 약관 진입 결과 : *PASS*")
+                loanresult.auto_reports.append("자동차 대출 약관 진입 결과 : *PASS*")
             else:
                 logging.info("자동차 대출 약관 진입 결과 : FAIL")
-                loanresult.reports.append("자동차 대출 약관 진입 결과 : *FAIL*")
+                loanresult.auto_reports.append("자동차 대출 약관 진입 결과 : *FAIL*")
             base.android_back()
         except Exception as e:
             logging.error(f"오토론 약관 테스트 진행 중 에러 발생 : {e}")
@@ -350,14 +350,14 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_certification_number)
                 self.assertIn("주민등록번호 뒷자리 입력", Result.text)
                 logging.info("오토론 인증번호 자동입력 : PASS")
-                loanresult.reports.append("오토론 인증번호 자동입력 : PASS")
+                loanresult.auto_reports.append("오토론 인증번호 자동입력 : PASS")
             except AssertionError:
                 logging.info("오토론 인증번호 자동입력 : FAIL")
-                loanresult.reports.append("오토론 인증번호 자동입력 : FAIL")
+                loanresult.auto_reports.append("오토론 인증번호 자동입력 : FAIL")
                 base.save_screenshot('오토론인증번호자동입력_fail')
             except Exception as e:
                 logging.warning(f"오토론 인증번호 자동입력 결과 에러 발생 : {e}")
-                loanresult.reports.append("오토론 인증번호 자동입력 : Error")
+                loanresult.auto_reports.append("오토론 인증번호 자동입력 : Error")
                 base.save_screenshot('오토론인증번호자동입력_error')
             base.android_back()
             base.android_back()
@@ -396,24 +396,24 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
                 self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result.text)
                 logging.info("오토론 신차 신규 대출 조회(조회성공) : PASS")
-                loanresult.reports.append("오토론 신차 신규 대출 조회(조회성공) : PASS")
+                loanresult.auto_reports.append("오토론 신차 신규 대출 조회(조회성공) : PASS")
             except AssertionError:
                 logging.info("오토론 신차 신규 대출 조회(조회성공) : FAIL")
-                loanresult.reports.append("오토론 신차 신규 대출 조회(조회성공) : FAIL")
+                loanresult.auto_reports.append("오토론 신차 신규 대출 조회(조회성공) : FAIL")
                 base.save_screenshot('오토론신차신규대출조회_fail')
             except :
                 try:
                     Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result_a)
                     self.assertIn("아쉽게도\n신청이 어려워요", Result_a.text)
                     logging.info("오토론 신차 신규 대출 조회(부결) : PASS")
-                    loanresult.reports.append("오토론 신차 신규 대출 조회(부결) : PASS")
+                    loanresult.auto_reports.append("오토론 신차 신규 대출 조회(부결) : PASS")
                 except AssertionError:
                     logging.info("오토론 신차 신규 대출 조회(부결) : FAIL")
-                    loanresult.reports.append("오토론 신차 신규 대출 조회(부결) : FAIL")
+                    loanresult.auto_reports.append("오토론 신차 신규 대출 조회(부결) : FAIL")
                     base.save_screenshot('오토론신차신규대출조회_fail')
                 except Exception as e:
                     logging.warning(f"오토론 신차 신규 대출 조회 에러 발생 : {e}")
-                    loanresult.reports.append("오토론 신차 신규 대출 조회 : Error")
+                    loanresult.auto_reports.append("오토론 신차 신규 대출 조회 : Error")
                     base.save_screenshot('오토론신차신규대출조회_error')
             base.android_back()
         except Exception as e:
@@ -435,14 +435,14 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_detail_result)
                 self.assertIn("조회결과", Result.text)
                 logging.info("오토론 대출 상세 진입 : PASS")
-                loanresult.reports.append("오토론 대출 상세 진입 : PASS")
+                loanresult.auto_reports.append("오토론 대출 상세 진입 : PASS")
             except AssertionError:
                 logging.info("오토론 대출 상세 진입 : FAIL")
-                loanresult.reports.append("오토론 대출 상세 진입 : FAIL")
+                loanresult.auto_reports.append("오토론 대출 상세 진입 : FAIL")
                 base.save_screenshot('오토론대출상세진입_fail')
             except Exception as e:
                 logging.warning(f"오토론 대출 상세 진입 결과 에러 발생 : {e}")
-                loanresult.reports.append("오토론 대출 상세 진입 : Error")
+                loanresult.auto_reports.append("오토론 대출 상세 진입 : Error")
                 base.save_screenshot('오토론대출상세진입_error')
             base.android_back()
         except Exception as e:
@@ -480,10 +480,10 @@ class AutoLoanTestcase(unittest.TestCase):
             logging.info(results)
             if all(result == "PASS" for result in results):
                 logging.info("오토론 대출 신청 : PASS")
-                loanresult.reports.append("오토론 대출 신청 : *PASS*")
+                loanresult.auto_reports.append("오토론 대출 신청 : *PASS*")
             else:
                 logging.info("오토론 대출 신청 : FAIL")
-                loanresult.reports.append("오토론 대출 신청 : *FAIL*")
+                loanresult.auto_reports.append("오토론 대출 신청 : *FAIL*")
                 base.save_screenshot('오토론대출신청_fail')
             time.sleep(2)
             autoloan.auto_loan_terms_next()
@@ -492,14 +492,14 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_url_r)
                 self.assertIn("하나은행 X 핀다", Result_a.text)
                 logging.info("오토론 대출 신청 하나은행 홈페이지 진입 : PASS")
-                loanresult.reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : PASS")
+                loanresult.auto_reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : PASS")
             except AssertionError:
                 logging.info("오토론 대출 신청 하나은행 홈페이지 진입 : FAIL")
-                loanresult.reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : FAIL")
+                loanresult.auto_reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : FAIL")
                 base.save_screenshot('오토론대출신청_하나은행홈페이지진입_fail')
             except Exception as e:
                 logging.warning(f"오토론 대출 신청 하나은행 홈페이지 진입 에러 발생 : {e}")
-                loanresult.reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : Error")
+                loanresult.auto_reports.append("오토론 대출 신청 하나은행 홈페이지 진입 : Error")
                 base.save_screenshot('오토론대출신청_하나은행홈페이지진입_error')
             base.android_back()
             base.android_back()
@@ -544,24 +544,24 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
                 self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
                 logging.info("오토론 중고차 신규 대출 조회 : PASS")
-                loanresult.reports.append("오토론 중고차 신규 대출 조회(조회성공) : PASS")
+                loanresult.auto_reports.append("오토론 중고차 신규 대출 조회(조회성공) : PASS")
             except AssertionError:
                 logging.info("오토론 중고차 신규 대출 조회(조회성공) : FAIL")
-                loanresult.reports.append("오토론 중고차 신규 대출 조회(조회성공) : FAIL")
+                loanresult.auto_reports.append("오토론 중고차 신규 대출 조회(조회성공) : FAIL")
                 base.save_screenshot('오토론중고차신규대출조회_fail')
             except Exception:
                 try:
                     Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result_a)
                     self.assertIn("아쉽게도\n신청이 어려워요", Result_a.text)
                     logging.info("오토론 중고차 신규 대출 조회 : PASS")
-                    loanresult.reports.append("오토론 중고차 신규 대출 조회(부결) : PASS")
+                    loanresult.auto_reports.append("오토론 중고차 신규 대출 조회(부결) : PASS")
                 except AssertionError:
                     logging.info("오토론 중고차 신규 대출 조회(부결) : FAIL")
-                    loanresult.reports.append("오토론 중고차 신규 대출 조회(부결) : FAIL")
+                    loanresult.auto_reports.append("오토론 중고차 신규 대출 조회(부결) : FAIL")
                     base.save_screenshot('오토론중고차신규대출조회_fail')
                 except Exception as e:
                     logging.warning(f"오토론 중고차 신규 대출 조회 에러 발생 : {e}")
-                    loanresult.reports.append("오토론 중고차 신규 대출 조회 : Error")
+                    loanresult.auto_reports.append("오토론 중고차 신규 대출 조회 : Error")
                     base.save_screenshot('오토론중고차신규대출조회_error')
             base.android_back()
         except Exception as e:
@@ -584,24 +584,24 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
                 self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
                 logging.info("오토론 신차 대환 대출 조회 : PASS")
-                loanresult.reports.append("오토론 신차 대환 대출 조회(조회성공) : PASS")
+                loanresult.auto_reports.append("오토론 신차 대환 대출 조회(조회성공) : PASS")
             except AssertionError:
                 logging.info("오토론 신차 대환 대출 조회(조회성공) : FAIL")
-                loanresult.reports.append("오토론 신차 대환 대출 조회(조회성공) : FAIL")
+                loanresult.auto_reports.append("오토론 신차 대환 대출 조회(조회성공) : FAIL")
                 base.save_screenshot('오토론신차대환대출조회_fail')
             except :
                 try:
                     Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result_a)
                     self.assertIn("아쉽게도\n신청이 어려워요", Result_a.text)
                     logging.info("오토론 신차 대환 대출 조회 : PASS")
-                    loanresult.reports.append("오토론 신차 대환 대출 조회(부결) : PASS")
+                    loanresult.auto_reports.append("오토론 신차 대환 대출 조회(부결) : PASS")
                 except AssertionError:
                     logging.info("오토론 신차 대환 대출 조회(부결) : FAIL")
-                    loanresult.reports.append("오토론 신차 대환 대출 조회(부결) : FAIL")
+                    loanresult.auto_reports.append("오토론 신차 대환 대출 조회(부결) : FAIL")
                     base.save_screenshot('오토론신차대환대출조회_fail')
                 except Exception as e:
                     logging.warning(f"오토론 신차 대환 대출 조회 에러 발생 : {e}")
-                    loanresult.reports.append("오토론 신차 대환 대출 조회 : Error")
+                    loanresult.auto_reports.append("오토론 신차 대환 대출 조회 : Error")
                     base.save_screenshot('오토론신차대환대출조회_error')
             base.android_back()
         except Exception as e:
@@ -624,24 +624,24 @@ class AutoLoanTestcase(unittest.TestCase):
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result)
                 self.assertIn(""+info.name+"님의\n가장 좋은 대출 조건이에요.", Result.text)
                 logging.info("오토론 중고차 대환 대출 조회 : PASS")
-                loanresult.reports.append("오토론 중고차 대환 대출 조회(조회성공) : PASS")
+                loanresult.auto_reports.append("오토론 중고차 대환 대출 조회(조회성공) : PASS")
             except AssertionError:
                 logging.info("오토론 중고차 대환 대출 조회(조회성공) : FAIL")
-                loanresult.reports.append("오토론 중고차 대환 대출 조회(조회성공) : FAIL")
+                loanresult.auto_reports.append("오토론 중고차 대환 대출 조회(조회성공) : FAIL")
                 base.save_screenshot('오토론중고차대환대출조회_fail')
             except :
                 try:
                     Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.auto_loan_result_a)
                     self.assertIn("아쉽게도\n신청이 어려워요", Result_a.text)
                     logging.info("오토론 중고차 대환 대출 조회 : PASS")
-                    loanresult.reports.append("오토론 중고차 대환 대출 조회(부결) : PASS")
+                    loanresult.auto_reports.append("오토론 중고차 대환 대출 조회(부결) : PASS")
                 except AssertionError:
                     logging.info("오토론 중고차 대환 대출 조회(부결) : FAIL")
-                    loanresult.reports.append("오토론 중고차 대환 대출 조회(부결) : FAIL")
+                    loanresult.auto_reports.append("오토론 중고차 대환 대출 조회(부결) : FAIL")
                     base.save_screenshot('오토론중고차대환대출조회_fail')
                 except Exception as e:
                     logging.warning(f"오토론 중고차 대환 대출 조회 에러 발생 : {e}")
-                    loanresult.reports.append("오토론 중고차 대환 대출 조회 : Error")
+                    loanresult.auto_reports.append("오토론 중고차 대환 대출 조회 : Error")
                     base.save_screenshot('오토론중고차대환대출조회_error')
             base.android_back()
         except Exception as e:

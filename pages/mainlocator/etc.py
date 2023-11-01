@@ -105,8 +105,8 @@ class Etc:
     amortization_schedule = '//*[@text = "상환일정"]'
 
     # 상환일정 진입 결과
-    amortization_schedule_a = '//*[@text = "이번달 총 상환액"]'
-    amortization_schedule_b = '//*[@text = "상환 일정이 없습니다."]'
+    amortization_schedule_a = '//*[@text = "이번달 총 나가는 돈"]'
+    amortization_schedule_b = '//*[@text = "대출, 카드 연결하기"]'
     check = '//*[@text = "확인"]'
 
     # 나의 금융정보 > 상환일정 뒤로가기
@@ -361,7 +361,7 @@ class Etc:
 
 
     # 공지사항 컨텐츠 진입
-    notice_in = '//*[@text = "2차 대출 환승 이벤트 당첨자 안내"]'
+    notice_in = "//*[contains(@text, '핀다 서비스 점검 안내']"
 
     # 공지사항 컨텐츠 진입 결과
     notice_in_Result = '//*[@text = "안녕하세요 핀다입니다."]'

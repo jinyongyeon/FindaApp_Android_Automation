@@ -302,10 +302,10 @@ class JoinTestCase(unittest.TestCase):
                 except Exception:
                     results_d.append("Error")
             if all(result == "PASS" for result in results_d):
-                print("회원가입 약관 노출_3 : PASS")
+                logging.info("회원가입 약관 노출_3 : PASS")
                 results.append("PASS")
             else:
-                print("회원가입 약관 노출_3 : FAIL")
+                logging.info("회원가입 약관 노출_3 : FAIL")
                 results.append("FAIL")
                 base.save_screenshot('회원가입약관노출_3_fail')
             try:

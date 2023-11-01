@@ -4,28 +4,29 @@
 
 class Result_More:
 
-    reports= []
+    reports = []
 
 class Result_Setting:
 
-    reports= []
+    reports = []
 
 class Result_Join:
 
-    reports= []
+    reports = []
 
 class Result_MyHome:
 
-    reports= []
+    reports = []
 
 class Result_loan:
 
-    reports= []
+    reports = []
+    auto_reports = []
 
 class Result_refinancing_loan:
 
-    reports= []
+    reports = []
 
 class Result_seting:
 
-    reports= []
+    reports = []

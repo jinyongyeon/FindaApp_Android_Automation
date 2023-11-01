@@ -534,7 +534,7 @@ class MoreTestcase_A(unittest.TestCase):
                 pass
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
-                self.assertEqual(Result_A.text,"이번달 총 상환액")
+                self.assertEqual(Result_A.text,"이번달 총 나가는 돈")
                 logging.info("상환일정 진입 : PASS")
                 moreresult.reports.append("상환일정 진입 : *PASS*")
             except AssertionError:
@@ -544,7 +544,7 @@ class MoreTestcase_A(unittest.TestCase):
             except Exception:
                 try:
                     Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_b)
-                    self.assertEqual(Result_B.text,"상환 일정이 없습니다.")
+                    self.assertEqual(Result_B.text,"대출, 카드 연결하기")
                     logging.info("상환일정 진입 : PASS")
                     moreresult.reports.append("상환일정 진입 : *PASS*")
                 except AssertionError:
@@ -596,6 +596,7 @@ class MoreTestcase_B(unittest.TestCase):
             time.sleep(1)
             more.credit_score()
             try:
+                time.sleep(5)
                 more.exit()
             except:
                 pass
