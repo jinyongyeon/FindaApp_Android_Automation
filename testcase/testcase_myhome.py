@@ -53,7 +53,7 @@ class MyHome_Testcase(unittest.TestCase):
             except :
                 try:
                     myhome_loans_Result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.myhome_loans_Result_b)
-                    self.assertEqual(myhome_loans_Result_b.text, "대출 알아보기")
+                    self.assertIn("대출 알아보기" , myhome_loans_Result_b.text)
                     results.append("PASS")
                 except AssertionError:
                     results.append("FAIL")
@@ -91,7 +91,7 @@ class MyHome_Testcase(unittest.TestCase):
                         except :
                             try:
                                 loans_e = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_e)
-                                self.assertEqual(loans_e.text, "대출 이어서 진행하기")
+                                self.assertIn("대출 이어서 진행하기", loans_e.text )
                                 results.append("PASS")
                             except AssertionError:
                                 results.append("FAIL")
@@ -443,7 +443,6 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 내 현금 자산 배너 테스트
     def test_cash_assets_banner(self):
-        # driver = WebDriver.setUp()
         myhome = MyHome()
         info = InFo()
         home = Home()
@@ -454,7 +453,7 @@ class MyHome_Testcase(unittest.TestCase):
         try:
             with open('usertoken.pickle', 'rb') as f:
                 usertoken = pickle.load(f)
-            base.scroll(1)
+            base.scroll(1.1)
             time.sleep(2)
             verification_list = [("내 현금자산", home.cash_assets_banner),
                                  ("입출금", home.cash_assets_banner_a),
@@ -573,7 +572,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 내 현금 자산 배너 테스트 종료")
 
-    # 마이홈 상환예정 배너 테스트
+    # 마이홈 상환 ∙ 결제 예정 배너 테스트
     def test_repayment_schedule_banner(self):
         myhome = MyHome()
         home = Home()
@@ -584,8 +583,8 @@ class MyHome_Testcase(unittest.TestCase):
         logging.info("마이홈 상환예정 배너 테스트 시작")
         try:
             base.scroll(1)
-            base.scroll(0.6)
-            verification_list = [("상환 예정", home.repayment_schedule_banner),
+            base.scroll(0.8)
+            verification_list = [("상환 ∙ 결제 예정", home.repayment_schedule_banner),
                                  ("알림 받기", home.notification_enabled_on)]
             for text, xpath in verification_list:
                 try:
@@ -644,7 +643,7 @@ class MyHome_Testcase(unittest.TestCase):
                 pass
             try:
                 result_d = WebDriver.driver.find_element(MobileBy.XPATH, home.repayment_schedule)
-                self.assertIn("이번달 총 상환액", result_d.text)
+                self.assertIn("이달의 총 나가는 돈", result_d.text)
                 logging.info("상환 예정 배너 진입 : PASS")
                 result_myhome.reports.append("상환 예정 배너 진입 : *PASS*")
             except AssertionError:

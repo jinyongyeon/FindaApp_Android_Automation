@@ -6,12 +6,12 @@ class Home:
     info = InFo()
     # 마이홈 비교대출 배너
     myhome_loans_Result_a = '//*[@text = "대출 한도 조회 📌"]'
-    myhome_loans_Result_b = '//*[@text = "대출 알아보기"]'
+    myhome_loans_Result_b = "//*[contains(@text, '대출 알아보기')]"
     loans_a = '//*[@text = "내 대출 한도 한번에 조회하기"]'
     loans_b = '//*[@text = "내게 맞는 더 좋은 대출 찾기"]'
     loans_c = '//*[@text = "다른 방법 알아보기"]'
     loans_d = '//*[@text = "나에게 딱 맞는 대출 찾기"]'
-    loans_e = '//*[@text = "대출 이어서 진행하기"]'
+    loans_e = "//*[contains(@text, '대출 이어서 진행하기')]"
 
     # 마이홈 대출진단 배너
     loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"
@@ -48,10 +48,10 @@ class Home:
     # cash_assets_banner_b_result = '//*[@text = "청년 우대형 주택청약종합저축"]'
 
     # 상환 예정 배너
-    repayment_schedule_banner = '//*[@text = "상환 예정"]'
+    repayment_schedule_banner = '//*[@text = "상환 ∙ 결제 예정"]'
     notification_enabled_on = '//*[@text = "알림 받기"]'
     notification_enabled_off = '//*[@text = "알림받는중"]'
-    repayment_schedule = '//*[@text = "이번달 총 상환액"]'
+    repayment_schedule = '//*[@text = "이달의 총 나가는 돈"]'
 
     # 장기렌트 리스 배너
     lease_contract_banner = '//*[@text = "장기렌트·리스"]'

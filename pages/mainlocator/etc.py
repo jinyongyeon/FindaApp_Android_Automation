@@ -102,10 +102,10 @@ class Etc:
     myloan_b = '//*[@index = "0" and @text = "내 대출"]'
 
     # 나의 금융정보 > 상환일정
-    amortization_schedule = '//*[@text = "상환일정"]'
+    amortization_schedule = '//*[@text = "상환・결제 일정"]'
 
     # 상환일정 진입 결과
-    amortization_schedule_a = '//*[@text = "이번달 총 나가는 돈"]'
+    amortization_schedule_a = '//*[@text = "이달의 총 나가는 돈"]'
     amortization_schedule_b = '//*[@text = "대출, 카드 연결하기"]'
     check = '//*[@text = "확인"]'
 

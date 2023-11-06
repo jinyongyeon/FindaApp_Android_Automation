@@ -534,28 +534,31 @@ class MoreTestcase_A(unittest.TestCase):
                 pass
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
-                self.assertEqual(Result_A.text,"이번달 총 나가는 돈")
+                self.assertEqual(Result_A.text,"이달의 총 나가는 돈")
                 logging.info("상환일정 진입 : PASS")
                 moreresult.reports.append("상환일정 진입 : *PASS*")
             except AssertionError:
                 logging.info("상환일정 진입 : FAIL")
                 moreresult.reports.append("상환일정 진입 : *FAIL*")
                 base.save_screenshot('상환일정진입_fail')
-            except Exception:
-                try:
-                    Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_b)
-                    self.assertEqual(Result_B.text,"대출, 카드 연결하기")
-                    logging.info("상환일정 진입 : PASS")
-                    moreresult.reports.append("상환일정 진입 : *PASS*")
-                except AssertionError:
-                    logging.info("상환일정 진입 : FAIL")
-                    moreresult.reports.append("상환일정 진입 : *FAIL*")
-                    base.save_screenshot('상환일정진입_fail')
-                except Exception as e:
-                    logging.warning(f"상환일정 진입 에러 발생 : {e}")
-                    moreresult.reports.append("상환일정 진입 진입 : *Error*")
-                    base.save_screenshot('상환일정진입_error')
-            more.amortization_schedule_back()
+            # except Exception:
+            #     try:
+            #         Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_b)
+            #         self.assertEqual(Result_B.text,"대출, 카드 연결하기")
+            #         logging.info("상환일정 진입 : PASS")
+            #         moreresult.reports.append("상환일정 진입 : *PASS*")
+            #     except AssertionError:
+            #         logging.info("상환일정 진입 : FAIL")
+            #         moreresult.reports.append("상환일정 진입 : *FAIL*")
+            #         base.save_screenshot('상환일정진입_fail')
+            except Exception as e:
+                logging.warning(f"상환일정 진입 에러 발생 : {e}")
+                moreresult.reports.append("상환일정 진입 진입 : *Error*")
+                base.save_screenshot('상환일정진입_error')
+            try:
+                more.amortization_schedule_back()
+            except:
+                base.android_back()
         except Exception as e:
             logging.error(f"상환일정 진입 테스트 진행 중 에러 발생 : {e}")
         logging.info("상환일정 진입 테스트 종료")
