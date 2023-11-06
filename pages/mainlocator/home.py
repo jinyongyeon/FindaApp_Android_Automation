@@ -41,7 +41,7 @@ class Home:
 
     # 내 현금자산 배너
     cash_assets_banner = "//*[contains(@text, '내 현금자산')]"
-    cash_assets_banner_result = "//*[contains(@text, '"+info.name+"님의 현금자산은')]"
+    cash_assets_banner_result = "//*[contains(@text, '내 자산')]"
     cash_assets_banner_a = "//*[contains(@text, '입출금')]"
     # cash_assets_banner_a_result = '//*[@text = "저축예금"]'
     cash_assets_banner_b = "//*[contains(@text, '예적금')]"

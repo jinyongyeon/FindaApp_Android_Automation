@@ -476,10 +476,30 @@ class MyHome_Testcase(unittest.TestCase):
                 logging.info("내 현금자산 배너 노출 : FAIL")
                 result_myhome.reports.append("내 현금자산 배너 노출 : *FAIL*")
                 base.save_screenshot('내현금자산배너노출_fail')
+            url = "https://service-api.finda.co.kr/ams/v1/checking"
+            # 요청 헤더 설정 (필요에 따라 사용)
+            headers = {"Content-Type": "application/json",
+                       "X-Auth-Token": ''.join(usertoken)
+                       }
+            # 요청 본문 데이터 (필요에 따라 사용)
+            data = {
+            }
+            try:
+                # POST 요청
+                response = requests.get(url, headers=headers, json=data, verify=False)
+                # 응답 상태 코드 확인
+                result = response.json()
+                if 'list' in result and len(result['list']) > 0:
+                    first_product_name = result['list'][0]['productName']
+                    info.loans_data_c.append(first_product_name)
+                data_result = "".join(map(str, info.loans_data_c))
+                logging.info(data_result)
+            except Exception as e:
+                logging.error(f"입출금 정보 API 요청 실패 : {e}")
             myhome.cash_Assets_Banner()
             try:
-                result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.cash_assets_banner_result)
-                self.assertIn(""+info.name+"님의 현금자산은", result_b.text)
+                result_b = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "' +data_result+ '"]')
+                self.assertEqual(result_b.text, data_result)
                 logging.info("내 현금자산 배너 진입 : PASS")
                 result_myhome.reports.append("내 현금자산 배너 진입 : *PASS*")
             except AssertionError:
@@ -491,43 +511,20 @@ class MyHome_Testcase(unittest.TestCase):
                 result_myhome.reports.append("내 현금자산 배너 진입 : Error")
                 base.save_screenshot('내현금자산배너진입_error')
             base.android_back()
+            myhome.cash_Assets_Banner_A()
             try:
-                myhome.cash_Assets_Banner_A()
-                url = "https://service-api.finda.co.kr/ams/v1/checking"
-                # 요청 헤더 설정 (필요에 따라 사용)
-                headers = {"Content-Type": "application/json",
-                           "X-Auth-Token": ''.join(usertoken)
-                           }
-                # 요청 본문 데이터 (필요에 따라 사용)
-                data = {
-                }
-                try:
-                    # POST 요청
-                    response = requests.get(url, headers=headers, json=data, verify=False)
-                    # 응답 상태 코드 확인
-                    result = response.json()
-                    if 'list' in result and len(result['list']) > 0:
-                        first_product_name = result['list'][0]['productName']
-                        info.loans_data_c.append(first_product_name)
-                    data_result = "".join(map(str, info.loans_data_c))
-                    logging.info(data_result)
-                except Exception as e:
-                    logging.error(f"입출금 정보 API 요청 실패 : {e}")
-                try:
-                    result_c = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result+'"]')
-                    self.assertEqual(result_c.text , data_result)
-                    logging.info("내 현금자산 배너 입출금 진입 : PASS")
-                    result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *PASS*")
-                except AssertionError:
-                    logging.info("내 현금자산 배너 입출금 진입 : FAIL")
-                    result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *FAIL*")
-                    base.save_screenshot('내현금자산배너입출금진입_fail')
-                except Exception as e:
-                    logging.warning(f"내 현금자산 배너 입출금 진입 에러 발생 : {e}")
-                    result_myhome.reports.append("내 현금자산 배너 입출금 진입 : Error")
-                    base.save_screenshot('내현금자산배너입출금진입_error')
-            except:
-                logging.info("현금자산 입출금 계좌 없음")
+                result_c = WebDriver.driver.find_element(MobileBy.XPATH, '//*[@text = "'+data_result+'"]')
+                self.assertEqual(result_c.text , data_result)
+                logging.info("내 현금자산 배너 입출금 진입 : PASS")
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *PASS*")
+            except AssertionError:
+                logging.info("내 현금자산 배너 입출금 진입 : FAIL")
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : *FAIL*")
+                base.save_screenshot('내현금자산배너입출금진입_fail')
+            except Exception as e:
+                logging.warning(f"내 현금자산 배너 입출금 진입 에러 발생 : {e}")
+                result_myhome.reports.append("내 현금자산 배너 입출금 진입 : Error")
+                base.save_screenshot('내현금자산배너입출금진입_error')
             base.android_back()
             try:
                 myhome.cash_Assets_Banner_B()
