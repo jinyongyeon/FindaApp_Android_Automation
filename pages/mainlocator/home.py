@@ -37,7 +37,7 @@ class Home:
 
     # 내 대출 배너
     loan_banner = "//*[contains(@text, '내 대출')]"
-    loan_a = "//*[contains(@text, '대출 상세')]"
+    loan_a = "//*[contains(@text, '남은 대출금')]"
 
     # 내 현금자산 배너
     cash_assets_banner = "//*[contains(@text, '내 현금자산')]"

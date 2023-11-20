@@ -427,7 +427,7 @@ class MyHome_Testcase(unittest.TestCase):
                 loan_a.click()
                 time.sleep(2)
                 result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loan_a)
-                self.assertIn("대출 상세", result_c.text)
+                self.assertIn("대출금", result_c.text)
                 logging.info("내 대출 배너 > 대출 상세 진입 : PASS")
                 result_myhome.reports.append("내 대출 배너 > 대출 상세 진입 : *PASS*")
             except AssertionError:
