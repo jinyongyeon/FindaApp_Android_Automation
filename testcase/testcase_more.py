@@ -1420,7 +1420,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.notice_in()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_in_Result)
-                self.assertEqual(Result.text,"안녕하세요 핀다입니다.")
+                self.assertIn("안녕하세요", Result.text)
                 logging.info("공지사항 상세 진입 : PASS")
                 moreresult.reports.append("공지사항 상세 진입 : *PASS*")
             except AssertionError:

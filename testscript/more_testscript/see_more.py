@@ -5,6 +5,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 
 from drivers.aos_webdrivers import WebDriver
+from pages.basemethod.base import basemethod
 from pages.mainlocator.etc import Etc
 
 
@@ -14,6 +15,7 @@ class More:
     # def __init__(self):
     def __init__(self):
         self.Etc = Etc()
+        self.base = basemethod()
 
     # 더보기 탭 테스트
     def etc_in(self):
@@ -740,8 +742,39 @@ class More:
             notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
             notice_in.click()
             time.sleep(2)
-        except Exception as e:
-            logging.error(f"notice_in : {e}")
+        except:
+            try:
+                self.base.scroll(0.5)
+                notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
+                notice_in.click()
+                time.sleep(2)
+            except:
+                try:
+                    self.base.scroll(0.5)
+                    notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
+                    notice_in.click()
+                    time.sleep(2)
+                except:
+                    try:
+                        self.base.scroll(0.5)
+                        notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
+                        notice_in.click()
+                        time.sleep(2)
+                    except:
+                        try:
+                            self.base.scroll(0.5)
+                            notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
+                            notice_in.click()
+                            time.sleep(2)
+                        except:
+                            try:
+                                self.base.scroll(0.5)
+                                notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
+                                notice_in.click()
+                                time.sleep(2)
+                            except Exception as e:
+                                logging.error(f"notice_in : {e}")
+
 
     # 공지 사항 상세 > 뒤로 가기
     def notice_in_back(self):

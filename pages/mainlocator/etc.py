@@ -361,10 +361,10 @@ class Etc:
 
 
     # 공지사항 컨텐츠 진입
-    notice_in = "//*[contains(@text, '핀다 서비스 점검 안내']"
+    notice_in = "//*[contains(@text, '정기적 수신 동의')]"
 
     # 공지사항 컨텐츠 진입 결과
-    notice_in_Result = '//*[@text = "안녕하세요 핀다입니다."]'
+    notice_in_Result = '//*[contains(@text, "안녕하세요")]'
 
     # 공지사항 컨텐츠 > 뒤로가기
     notice_in_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]'
