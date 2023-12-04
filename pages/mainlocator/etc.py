@@ -158,7 +158,7 @@ class Etc:
 
     # 신용퀴즈 어워즈
     credit_quiz_awards = '//*[@text = "신용퀴즈 어워즈"]'
-    credit_quiz_awards_result = "//*[contains(@text, '시즌2 오픈')]"
+    credit_quiz_awards_result = "//*[contains(@text, '퀴즈 오픈')]"
 
     # 계산기 > 여윳돈 계산기 진입
     extra_money = '//*[@text = "여윳돈 계산기"]'
@@ -315,7 +315,7 @@ class Etc:
     finda_post = '//*[@text = "핀다포스트"]'
 
     # 핀다 포스트 진입 결과
-    finda_post_Result = "//*[contains(@text, '핫한 포스트')]"
+    finda_post_Result = "//*[contains(@text, '사용팁')]"
 
     # 핀다 포스트 컨텐츠
     finda_post_a = '//*[@text = ""]'

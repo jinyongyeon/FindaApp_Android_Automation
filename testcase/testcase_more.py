@@ -1,7 +1,6 @@
 import logging
 import time
 import unittest
-
 from appium.webdriver.common.mobileby import MobileBy
 
 from config.info import InFo
@@ -1315,7 +1314,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.finda_post()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.finda_post_Result)
-                self.assertIn("이번 주 가장", Result.text)
+                self.assertIn("사용팁", Result.text)
                 logging.info("핀다 포스트 진입 : PASS")
                 moreresult.reports.append("핀다 포스트 진입 : *PASS*")
             except AssertionError:
