@@ -30,9 +30,10 @@ class AutoLoanTestcase(unittest.TestCase):
 
     def setUp(self):
         base = basemethod()
-        base.scroll(2)
-        base.scroll(2)
-        base.scroll(2)
+        # base.scroll(2)
+        # base.scroll(2)
+        # base.scroll(2)
+        base.scroll_right(1)
 
     def tearDown(self):
         base = basemethod()
@@ -41,8 +42,10 @@ class AutoLoanTestcase(unittest.TestCase):
         time.sleep(1)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
+        base.scroll_left(1)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
 
     # 오토론 약관 테스트
     def test_auto_loan_new_new_car_terms(self):
@@ -675,22 +678,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan = ComparisonLoan()
         logging.info("비교대출 약관 페이지 진입 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+            myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
             comparisonloan.loan_in()
             comparisonloan.living_expenses()
@@ -1269,22 +1273,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan = ComparisonLoan()
         logging.info("비교대출 인증번호 자동 입력 및 재전송 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
+            myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
             comparisonloan.loan_in()
             comparisonloan.living_expenses()
@@ -1349,22 +1354,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         logging.info("비교대출 주민번호 적합서 검사 테스트 시작")
         time.sleep(3)
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
             comparisonloan.loan_in()
             comparisonloan.living_expenses()
@@ -1440,22 +1446,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         results = []
         logging.info("비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
             comparisonloan.loan_in()
             comparisonloan.living_expenses()
@@ -1552,22 +1559,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         myhome = MyHome()
         logging.info("오늘 입금 태그 확인 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, loan.deposit_today)
                 self.assertEqual(Result_A.text, "오늘입금")
@@ -1635,22 +1643,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         myhome = MyHome()
         logging.info("비교대출 > 대출 상세 페이지 진입 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except:
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except:
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except:
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except:
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             try:
                 financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
                 financial_sector_a.click()
@@ -1714,22 +1723,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         myhome = MyHome()
         logging.info("비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except:
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except:
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except:
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except:
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             try:
                 financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
                 financial_sector_a.click()
@@ -1804,22 +1814,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan = ComparisonLoan()
         logging.info("비교대출 대출신청하기 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except:
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except:
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except:
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except:
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             try:
                 financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
                 financial_sector_a.click()
@@ -1888,22 +1899,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         results = []
         logging.info("직장인 대출 조회  (지역의료보험 선택) 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except :
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except :
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except :
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except :
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             base.scroll(2)
             base.scroll(2)
             base.scroll(2)
@@ -1969,22 +1981,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         results = []
         logging.info("직장인 외 대출 조회 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except:
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except:
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except:
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except:
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             base.scroll(2)
             base.scroll(2)
             base.scroll(2)
@@ -2043,22 +2056,23 @@ class LoanComparisonTestcase(unittest.TestCase):
         comparisonloan = ComparisonLoan()
         logging.info("비교대출 내 자동차대출 선택 시 오토론 이동 테스트 시작")
         try:
-            try:
-                myhome.comPariSonLoan_In_a()
-            except:
-                try:
-                    myhome.comPariSonLoan_In_b()
-                except:
-                    try:
-                        myhome.comPariSonLoan_In_c()
-                    except:
-                        try:
-                            myhome.comPariSonLoan_In_d()
-                        except:
-                            try:
-                                myhome.comPariSonLoan_In_e()
-                            except Exception as e:
-                                logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            # try:
+            #     myhome.comPariSonLoan_In_a()
+            # except:
+            #     try:
+            #         myhome.comPariSonLoan_In_b()
+            #     except:
+            #         try:
+            #             myhome.comPariSonLoan_In_c()
+            #         except:
+            #             try:
+            #                 myhome.comPariSonLoan_In_d()
+            #             except:
+            #                 try:
+            #                     myhome.comPariSonLoan_In_e()
+            #                 except Exception as e:
+            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
+            myhome.comPariSonLoan_In_f()
             base.scroll(2)
             base.scroll(2)
             base.scroll(2)

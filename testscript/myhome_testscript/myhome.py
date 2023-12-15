@@ -17,7 +17,6 @@ class MyHome:
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):
-
         loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_a)
         loans.click()
         time.sleep(2)
@@ -39,6 +38,11 @@ class MyHome:
 
     def comPariSonLoan_In_e(self):
         loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_e)
+        loans.click()
+        time.sleep(2)
+
+    def comPariSonLoan_In_f(self):
+        loans = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loans_f)
         loans.click()
         time.sleep(2)
 
@@ -115,12 +119,10 @@ class MyHome:
         except Exception as e:
             logging.error(f"loan_data_api 요청 실패 : {e}")
     def loan_Banner(self):
-        try:
-            loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_banner)
-            loan_banner.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loan_Banner : {e}")
+        loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_banner)
+        loan_banner.click()
+        time.sleep(2)
+
     def loan_A(self):
         self.info.loans_data.clear()
         with open('usertoken.pickle', 'rb') as f:
@@ -217,19 +219,13 @@ class MyHome:
 
     # 오토리스 배너
     def Lease_Contract_Banner(self):
-        try:
-            lease_contract_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.lease_contract_banner)
-            lease_contract_banner.click()
-            time.sleep(7)
-        except Exception as e:
-            logging.error(f"Lease_Contract_Banner : {e}")
+        lease_contract_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.lease_contract_banner)
+        lease_contract_banner.click()
+        time.sleep(7)
+
 
     # 자동차 대출 배너
     def auto_Loan_Banner(self):
-        try:
-            auto_loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.auto_loan_banner)
-            auto_loan_banner.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"auto_Loan_Banner : {e}")
-
+        auto_loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.auto_loan_banner)
+        auto_loan_banner.click()
+        time.sleep(2)

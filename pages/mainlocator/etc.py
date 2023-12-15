@@ -7,7 +7,7 @@ class Etc:
 
 
     # 더보기 탭
-    etc = '//*[@text = "더보기"]'
+    etc = '//*[@text = "전체"]'
     # 더보기 진입 결과
     etc_result = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[@text = "더보기"]'
     # 내 대출
@@ -226,7 +226,7 @@ class Etc:
     lease_rent = "//*[contains(@text, '장기렌트')]"
 
     # 부가서비스 > 장기렌트 리스 진입 결과
-    lease_rent_result = '//*[@text = "리스렌트"]'
+    lease_rent_result = '//*[@text = "차량 구경하고 견적 내보기"]'
 
     # 부가서비스 > 장기렌트 리스 뒤로가기
     lease_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'

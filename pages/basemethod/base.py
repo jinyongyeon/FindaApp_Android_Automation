@@ -50,6 +50,48 @@ class basemethod:
         action.press(x=900, y=2200 - distance).move_to(x=900, y=2200).release()
         return action.perform()
 
+    def scroll_right(self, scroll_distance):
+        screen_size = self.driver.get_window_size()
+        width = screen_size['width']
+        height = screen_size['height']
+
+        # 스크롤할 거리 계산
+        distance = int(width * scroll_distance)
+
+        # 스크롤 이벤트 생성
+        action = TouchAction(self.driver)
+
+        # 시작 지점은 화면의 좌측 중간, 끝 지점은 화면의 우측 중간
+        start_x = int(width * 0.8)  # 좌측 중간 (예: 디바이스 폭의 20%)
+        start_y = int(height * 0.2)  # 화면 중간 (예: 디바이스 높이의 50%)
+
+        end_x = int(width * 0.2)  # 우측 중간 (예: 디바이스 폭의 80%)
+        end_y = int(height * 0.2)  # 화면 중간 유지
+
+        action.press(x=start_x, y=start_y).move_to(x=end_x, y=end_y).release()
+        return action.perform()
+
+    def scroll_left(self, scroll_distance):
+        screen_size = self.driver.get_window_size()
+        width = screen_size['width']
+        height = screen_size['height']
+
+        # 스크롤할 거리 계산
+        distance = int(width * scroll_distance)
+
+        # 스크롤 이벤트 생성
+        action = TouchAction(self.driver)
+
+        # 시작 지점은 화면의 좌측 중간, 끝 지점은 화면의 우측 중간
+        start_x = int(width * 0.2)  # 좌측 중간 (예: 디바이스 폭의 20%)
+        start_y = int(height * 0.2)  # 화면 중간 (예: 디바이스 높이의 50%)
+
+        end_x = int(width * 0.8)  # 우측 중간 (예: 디바이스 폭의 80%)
+        end_y = int(height * 0.2)  # 화면 중간 유지
+
+        action.press(x=start_x, y=start_y).move_to(x=end_x, y=end_y).release()
+        return action.perform()
+
     def save_screenshot(self, name):
         try:
             screenshot_dir = 'screenshots'
@@ -81,7 +123,7 @@ class basemethod:
             response = requests.post(url, headers=headers, json=data, verify=False)
             # 응답 상태 코드 확인
             result = response.json()
-            # print(result)
+            print(result)
             if 'token' in result:
                 parameter_value = result['token']
                 self.info.usertoken.append(parameter_value)

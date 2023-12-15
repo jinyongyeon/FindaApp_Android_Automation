@@ -551,7 +551,8 @@ class LoginTestCase(unittest.TestCase):
             time.sleep(3)
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
-                self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
+                # self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
+                self.assertEqual(Result.text, '금융생활')
                 logging.info("로그인 : PASS")
                 result_join.reports.append("로그인 결과 : *PASS*")
             except AssertionError:

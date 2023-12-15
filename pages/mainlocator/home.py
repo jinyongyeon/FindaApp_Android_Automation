@@ -12,6 +12,7 @@ class Home:
     loans_c = '//*[@text = "다른 방법 알아보기"]'
     loans_d = '//*[@text = "나에게 딱 맞는 대출 찾기"]'
     loans_e = "//*[contains(@text, '대출 이어서 진행하기')]"
+    loans_f = '//*[@text = "대출받기"]'
 
     # 마이홈 대출진단 배너
     loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"
@@ -36,7 +37,7 @@ class Home:
     refinance_loan_challenge_d = '//*[@text = "당신은 Lv.3 만랩 마스터"]'
 
     # 내 대출 배너
-    loan_banner = "//*[contains(@text, '내 대출')]"
+    loan_banner = "//*[@text = '금융생활']"
     loan_a = "//*[contains(@text, '남은 대출금')]"
 
     # 내 현금자산 배너
@@ -54,9 +55,9 @@ class Home:
     repayment_schedule = '//*[@text = "이달의 총 나가는 돈"]'
 
     # 장기렌트 리스 배너
-    lease_contract_banner = '//*[@text = "장기렌트·리스"]'
+    lease_contract_banner = '//*[@text = "차 리스렌트"]'
 
 
     # 차 구매 대출 배너
-    auto_loan_banner = '//*[@text = "차 구매 대출"]'
+    auto_loan_banner = '//*[@text = "차 구매대출"]'
 
