@@ -45,7 +45,14 @@ class MyHome_Testcase(unittest.TestCase):
         results = []
         logging.info("마이홈 비교대출 진입 테스트 시작")
         try:
-            myhome.comPariSonLoan_In_f()
+            try:
+                myhome.comPariSonLoan_In_f()
+                logging.info("퀵메뉴 대출받기 노출 : PASS")
+                result_myhome.reports.append("퀵메뉴 대출받기 노출 : *PASS*")
+            except:
+                logging.info("퀵메뉴 대출받기 노출 : FAIL")
+                result_myhome.reports.append("퀵메뉴 대출받기 노출 : *FAIL*")
+                base.save_screenshot('퀵메뉴대출받기노출_fail')
             # try:
             #     myhome_loans_Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.myhome_loans_Result_a)
             #     self.assertEqual(myhome_loans_Result_a.text, "대출 한도 조회 📌")
@@ -658,7 +665,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 상환예정 배너 테스트 종료")
 
-    # 마이홈 신용점수 노출 확인 테스트
+    # 마이홈 신용점수 노출 및 진입 테스트
     def test_credit_score(self):
         myhome = MyHome()
         result_myhome = Result_MyHome()
@@ -714,6 +721,31 @@ class MyHome_Testcase(unittest.TestCase):
             except Exception as e:
                 logging.warning(f"마이홈 신용점수 노출 결과 에러 발생 : {e}")
                 results.append("Error")
+
+            try:
+                result = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"점')]")
+                result.click()
+                try:
+                    time.sleep(5)
+                    more.exit()
+                except:
+                    pass
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
+                self.assertEqual("신용관리", Result.text)
+                logging.info("마이홈 > 신용점수 진입 : PASS")
+                result_myhome.reports.append("마이홈 > 신용점수 진입 : *PASS*")
+            except AssertionError:
+                logging.info("마이홈 > 신용점수 진입 : FAIL")
+                result_myhome.reports.append("마이홈 > 신용점수 진입 : *FAIL*")
+                base.save_screenshot('마이홈 > 신용점수 진입_fail')
+            except Exception as e:
+                logging.warning(f"마이홈 > 신용점수 진입 에러 발생 : {e}")
+                result_myhome.reports.append("마이홈 > 신용점수 진입 : *Error*")
+                base.save_screenshot('마이홈 > 신용점수 진입_error')
+            try:
+                more.credit_score_back()
+            except:
+                base.android_back()
         except Exception as e:
             logging.error(f"마이홈 신용점수 노출 테스트 진행 중 에러 발생 : {e}")
         base.android_back()
@@ -758,7 +790,7 @@ class MyHome_Testcase(unittest.TestCase):
             logging.error(f"금융생활 선택 후 자산목록 진입 테스트 진행 중 에러 발생 : {e}")
         logging.info("마이홈 금융생활 선택 후 자산목록 진입 테스트 종료")
 
-    # 마이홈 금융생활 영역 대출 노출 확인 테스트
+    # 마이홈 금융생활 영역 대출 노출 및 진입 테스트
     def test_myhome_myloan(self):
         myhome = MyHome()
         result_myhome = Result_MyHome()
@@ -772,11 +804,11 @@ class MyHome_Testcase(unittest.TestCase):
         results_a = []
         logging.info("마이홈 금융생활 영역 대출 노출 테스트 시작")
         try:
-            more.etc_in()
-            seting.seting_in()
-            base.scroll(2)
-            base.user_id_get()
-            base.user_token_get()
+            # more.etc_in()
+            # seting.seting_in()
+            # base.scroll(2)
+            # base.user_id_get()
+            # base.user_token_get()
             base.android_back()
             base.android_back()
             with open('usertoken.pickle', 'rb') as f:

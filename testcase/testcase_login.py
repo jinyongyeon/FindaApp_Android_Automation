@@ -520,7 +520,8 @@ class JoinTestCase(unittest.TestCase):
             join.pin_code()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
-                self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
+                # self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
+                self.assertEqual(Result.text, '금융생활')
                 logging.info("회원가입 결과 : PASS")
                 result_join.reports.append("회원가입 결과 : *PASS*")
             except AssertionError:

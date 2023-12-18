@@ -271,7 +271,7 @@ class Etc:
     do_not_call_b_d = '//*[@text = "통신사이용약관동의"]'
 
     # 두낫콜 서비스 이용약관 진입 결과 B 실패
-    do_not_call_b_Result = '//*[@text = "사이트에 연결할 수 없음"]'
+    do_not_call_b_Result = '//*[@text = "페이지가 작동하지 않습니다."]'
 
     # [금융스팸차단하기] 서비스 이용 약관
     do_not_call_c_a = '//*[@text = "[금융스팸차단하기] 서비스 이용 약관"]'
@@ -315,7 +315,7 @@ class Etc:
     finda_post = '//*[@text = "핀다포스트"]'
 
     # 핀다 포스트 진입 결과
-    finda_post_Result = "//*[contains(@text, '사용팁')]"
+    finda_post_Result = "//*[contains(@text, '핀다포스트')]"
 
     # 핀다 포스트 컨텐츠
     finda_post_a = '//*[@text = ""]'
@@ -339,7 +339,7 @@ class Etc:
 
     # 내폰 지키미 진입
     my_phorn = '//*[@text = "내 폰 지키미"]'
-    my_phorn_Result = '//*[@text = "내 폰 보호하기"]'
+    my_phorn_Result = "//*[contains(@text, '내 폰 보호하기')]"
 
     # 내폰 지키미 > 뒤로가기
     my_phorn_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[1]'

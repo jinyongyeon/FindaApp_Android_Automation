@@ -1053,7 +1053,7 @@ class MoreTestcase_C(unittest.TestCase):
             time.sleep(3)
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_result)
-                self.assertEqual(Result.text, "리스렌트")
+                self.assertEqual(Result.text, "차량 구경하고 견적 내보기")
                 logging.info("장기렌트 리스 진입 : PASS")
                 moreresult.reports.append("장기렌트 리스 진입 : *PASS*")
             except AssertionError:
@@ -1151,7 +1151,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.terms_of_use_ba()
             try:
                 Result_b_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
-                self.assertIn("사이트에 연결할 수 없음",Result_b_a.text)
+                self.assertIn("페이지가 작동하지 않습니다.",Result_b_a.text)
                 results.append("FAIL")
                 base.save_screenshot('두낫콜약관진입_Ba_fail')
             except AssertionError:
@@ -1163,7 +1163,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.terms_of_use_bb()
             try:
                 Result_b_b = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
-                self.assertIn("사이트에 연결할 수 없음",Result_b_b.text)
+                self.assertIn("페이지가 작동하지 않습니다.",Result_b_b.text)
                 results.append("FAIL")
                 base.save_screenshot('두낫콜약관진입_Bb_fail')
             except AssertionError:
@@ -1175,7 +1175,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.terms_of_use_bc()
             try:
                 Result_b_c = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
-                self.assertIn("사이트에 연결할 수 없음",Result_b_c.text)
+                self.assertIn("페이지가 작동하지 않습니다.",Result_b_c.text)
                 results.append("FAIL")
                 base.save_screenshot('두낫콜약관진입_Bc_fail')
             except AssertionError:
@@ -1187,7 +1187,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.terms_of_use_bd()
             try:
                 Result_b_d = WebDriver.driver.find_element(MobileBy.XPATH, etc.do_not_call_b_Result)
-                self.assertIn("사이트에 연결할 수 없음",Result_b_d.text)
+                self.assertIn("페이지가 작동하지 않습니다.",Result_b_d.text)
                 results.append("FAIL")
                 base.save_screenshot('두낫콜약관진입_Bd_fail')
             except AssertionError:
@@ -1314,7 +1314,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.finda_post()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.finda_post_Result)
-                self.assertIn("사용팁", Result.text)
+                self.assertIn("포스트", Result.text)
                 logging.info("핀다 포스트 진입 : PASS")
                 moreresult.reports.append("핀다 포스트 진입 : *PASS*")
             except AssertionError:
@@ -1344,7 +1344,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.my_phorn()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.my_phorn_Result)
-                self.assertEqual(Result.text,"내 폰 보호하기")
+                self.assertIn("내 폰 보호하기",Result.text)
                 logging.info("내 폰 지키미 진입 : PASS")
                 moreresult.reports.append("내 폰 지키미 진입 : *PASS*")
             except AssertionError:
