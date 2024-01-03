@@ -827,3 +827,15 @@ class More:
             alarm_back.click()
         except Exception as e:
             logging.error(f"alarm_back : {e}")
+
+    # 포인트 진입
+    def point(self):
+        point = WebDriver.driver.find_element(MobileBy.XPATH, Etc.point)
+        point.click()
+        time.sleep(2)
+
+    # 출석체크 진입
+    def checkin(self):
+        checkin = WebDriver.driver.find_element(MobileBy.XPATH, Etc.checkin)
+        checkin.click()
+        time.sleep(2)

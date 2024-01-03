@@ -36,15 +36,15 @@ class Etc:
     qna = '//*[@text = "자주 묻는 질문"]'
 
     # 자주묻는 질문 > 질문 항목
-    qna_a = '//*[@text = "정말 이 조건 그대로 대출 가능한가요?"]'
+    qna_a = '//*[contains(@text, "정말 이 조건 그대로 대출 가능한가요?")]'
     qna_result_a = "//*[contains(@text, '고객님께서')]"
-    qna_b = '//*[@text = "신청하면 대출금은 언제 입금이 되나요?"]'
+    qna_b = '//*[contains(@text, "신청하면 대출금은 언제 입금이 되나요?")]'
     qna_result_b = "//*[contains(@text, '대출이 확정된 후 대출금이')]"
-    qna_c = '//*[@text = "대출 조건은 언제까지 유효한가요?"]'
+    qna_c = '//*[contains(@text, "대출 조건은 언제까지 유효한가요?")]'
     qna_result_c = "//*[contains(@text, '조회하신')]"
-    qna_d = '//*[@text = "대출을 알아보는 것으로, 불이익이 있나요?"]'
+    qna_d = '//*[contains(@text, "대출을 알아보는 것으로, 불이익이 있나요?")]'
     qna_result_d = "//*[contains(@text, '대출조회는 신용점수')]"
-    qna_e = '//*[@text = "신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?"]'
+    qna_e = '//*[contains(@text, "신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?")]'
     qna_result_e = "//*[contains(@text, '걱정하지 마세요.')]"
 
     # 자주묻는 질문 뒤로가뒤
@@ -390,6 +390,11 @@ class Etc:
     # 최근 알림 뒤로가기
     alarm_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
+    # 포인트 진입
+    point = "//*[contains(@text, '포인트')]"
+
+    # 출석체크 진입
+    checkin = "//*[contains(@text, '출석체크')]"
 
     # 설정 영역 --------------------------------------
 

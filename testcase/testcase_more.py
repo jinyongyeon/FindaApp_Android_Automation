@@ -1495,5 +1495,61 @@ class MoreTestcase_C(unittest.TestCase):
             logging.error(f"최근 알림 진입 테스트 진행 중 에서 발생 : {e}")
         logging.info("최근 알림 진입 테스트 종료")
 
+    # 포인트 진입 테스트
+    def test_point(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("포인트 진입 테스트 시작")
+        try:
+            base.scroll(0.3)
+            more.point()
+            try:
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.point)
+                self.assertEqual(Result.text,"포인트")
+                logging.info("포인트 진입 : PASS")
+                moreresult.reports.append("포인트 진입 : *PASS*")
+            except AssertionError:
+                logging.info("포인트 진입 : FAIL")
+                moreresult.reports.append("포인트 진입 : *FAIL*")
+                base.save_screenshot('포인트진입_fail')
+            except Exception as e:
+                logging.warning(f"포인트 진입 에러 발생 : {e}")
+                moreresult.reports.append("포인트 진입 : *Error*")
+                base.save_screenshot('포인트진입_error')
+            base.android_back()
+        except Exception as e:
+            logging.error(f"포인트 진입 테스트 진행 중 에서 발생 : {e}")
+        logging.info("포인트 진입 테스트 종료")
+
+    # 출석체크 진입 테스트
+    def test_checkin(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("출석체크 진입 테스트 시작")
+        try:
+            base.scroll(0.3)
+            more.checkin()
+            try:
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.checkin)
+                self.assertIn("출석체크" , Result.text)
+                logging.info("출석체크 진입 : PASS")
+                moreresult.reports.append("출석체크 진입 : *PASS*")
+            except AssertionError:
+                logging.info("출석체크 진입 : FAIL")
+                moreresult.reports.append("출석체크 진입 : *FAIL*")
+                base.save_screenshot('출석체크진입_fail')
+            except Exception as e:
+                logging.warning(f"출석체크 진입 에러 발생 : {e}")
+                moreresult.reports.append("출석체크 진입 : *Error*")
+                base.save_screenshot('출석체크진입_error')
+            base.android_back()
+        except Exception as e:
+            logging.error(f"출석체크 진입 테스트 진행 중 에서 발생 : {e}")
+        logging.info("출석체크 진입 테스트 종료")
+
 if __name__ == '__main__':
     unittest.main()
