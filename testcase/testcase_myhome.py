@@ -665,7 +665,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 상환예정 배너 테스트 종료")
 
-    # 마이홈 신용점수 노출 및 진입 테스트
+    # 마이홈 신용점수 진입 후 신용점수 노출 테스트
     def test_credit_score(self):
         myhome = MyHome()
         result_myhome = Result_MyHome()
@@ -677,79 +677,79 @@ class MyHome_Testcase(unittest.TestCase):
         seting = Seting()
         results = []
         results_a = []
-        logging.info("마이홈 신용점수 노출 테스트 시작")
-        try:
-            more.etc_in()
-            seting.seting_in()
-            base.scroll(2)
-            base.user_id_get()
-            base.user_token_get()
-            base.android_back()
-            base.android_back()
-            with open('usertoken.pickle', 'rb') as f:
-                usertoken = pickle.load(f)
-            url = "https://service-api.finda.co.kr/pf/v2/personalcredit/kcb-data"
-            # 요청 헤더 설정 (필요에 따라 사용)
-            headers = { "Content-Type" : "application/json",
-                        "X-Auth-Token": ''.join(usertoken)
-                        }
-            # 요청 본문 데이터 (필요에 따라 사용)
-            data = {
-            }
-            try:
-                # POST 요청
-                response = requests.get(url, headers=headers, json=data, verify=False)
-                # 응답 상태 코드 확인
-                result = response.json()
-                logging.info(result)
-                if 'list' in result and len(result['creditSummary']) > 0:
-                    first_product_name = result['creditSummary'][0]['creditScore']
-                    info.credit_score.append(first_product_name)
-                credit_score = "".join(map(str, info.credit_score))
-                logging.info(credit_score)
-                print(credit_score)
-            except Exception as e:
-                logging.error(f"credit_score 요청실패 : {e}")
-            try:
-                result = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"점')]")
-                self.assertIn(""+credit_score+"점", result.text)
-                logging.info("마이홈 신용점수 노출 결과 : PASS")
-                result_myhome.reports.append("마이홈 신용점수 노출 결과 : *PASS*")
-            except AssertionError:
-                logging.info("마이홈 신용점수 노출 결과 : FAIL")
-                result_myhome.reports.append("마이홈 신용점수 노출 결과 : *FAIL*")
-            except Exception as e:
-                logging.warning(f"마이홈 신용점수 노출 결과 에러 발생 : {e}")
-                results.append("Error")
-
-            try:
-                result = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"점')]")
-                result.click()
-                try:
-                    time.sleep(5)
-                    more.exit()
-                except:
-                    pass
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
-                self.assertEqual("신용관리", Result.text)
-                logging.info("마이홈 > 신용점수 진입 : PASS")
-                result_myhome.reports.append("마이홈 > 신용점수 진입 : *PASS*")
-            except AssertionError:
-                logging.info("마이홈 > 신용점수 진입 : FAIL")
-                result_myhome.reports.append("마이홈 > 신용점수 진입 : *FAIL*")
-                base.save_screenshot('마이홈 > 신용점수 진입_fail')
-            except Exception as e:
-                logging.warning(f"마이홈 > 신용점수 진입 에러 발생 : {e}")
-                result_myhome.reports.append("마이홈 > 신용점수 진입 : *Error*")
-                base.save_screenshot('마이홈 > 신용점수 진입_error')
-            try:
-                more.credit_score_back()
-            except:
-                base.android_back()
-        except Exception as e:
-            logging.error(f"마이홈 신용점수 노출 테스트 진행 중 에러 발생 : {e}")
+        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 시작")
+        more.etc_in()
+        seting.seting_in()
+        base.scroll(2)
+        base.user_id_get()
+        base.user_token_get()
         base.android_back()
-        logging.info("마이홈 신용점수 노출 테스트 종료")
+        base.android_back()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        url = "https://service-api.finda.co.kr/pf/v2/personalcredit/kcb-data"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        try:
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            logging.info(result)
+            if 'list' in result and len(result['creditSummary']) > 0:
+                first_product_name = result['creditSummary'][0]['creditScore']
+                info.credit_score.append(first_product_name)
+            credit_score = "".join(map(str, info.credit_score))
+            logging.info(credit_score)
+            print(credit_score)
+        except Exception as e:
+            logging.error(f"credit_score 요청실패 : {e}")
+            print(f"credit_score 요청실패 : {e}")
+
+        myhome.credit_score()
+        try:
+            time.sleep(5)
+            more.exit()
+        except:
+            pass
+        try:
+            result = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"점')]")
+            self.assertIn(""+credit_score+"점", result.text)
+            print("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
+            logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
+            result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
+        except AssertionError:
+            print("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
+            logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
+            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *FAIL*")
+            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
+        # except Exception :
+            # try:
+            #     Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
+            #     self.assertEqual("신용관리", Result.text)
+            #     logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
+            #     result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
+            # except AssertionError:
+            #     logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
+            #     result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *FAIL*")
+            #     base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
+        except Exception as e:
+            print(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
+            logging.warning(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
+            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *Error*")
+            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_error')
+
+        try:
+            more.credit_score_back()
+        except:
+            base.android_back()
+        base.android_back()
+        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 종료")
 
     # 마이홈 금융생활 선택 후 자산목록 진입 테스트
     def test_financial_life_in(self):

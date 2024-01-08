@@ -61,3 +61,6 @@ class Home:
     # 차 구매 대출 배너
     auto_loan_banner = '//*[@text = "차 구매대출"]'
 
+
+    # 신용점수
+    credit_score = "//*[contains(@text, '눌러서 보기')]"

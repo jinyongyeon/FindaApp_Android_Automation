@@ -84,6 +84,13 @@ class MyHome:
         loandiagnosisbanner_h.click()
         time.sleep(2)
 
+    # 신용점수 진입
+    def credit_score(self):
+        credit_score = WebDriver.driver.find_element(MobileBy.XPATH, self.home.credit_score)
+        credit_score.click()
+        time.sleep(5)
+
+
     # 내대출 진입
     def loan_data_api(self):
         with open('usertoken.pickle', 'rb') as f:
