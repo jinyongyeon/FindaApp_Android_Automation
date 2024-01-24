@@ -105,7 +105,7 @@ class Etc:
     amortization_schedule = '//*[@text = "상환・결제 일정"]'
 
     # 상환일정 진입 결과
-    amortization_schedule_a = '//*[@text = "이달의 총 나가는 돈"]'
+    amortization_schedule_a = "//*[contains(@text, '알림 받기')]"
     amortization_schedule_b = '//*[@text = "대출, 카드 연결하기"]'
     check = '//*[@text = "확인"]'
 
@@ -135,7 +135,7 @@ class Etc:
     improve_credit_score_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
 
     # 신용관리 > 신용점수 상승 전략 진입
-    credit_analysis = '//*[@text = "신용점수 상승 전략"]'
+    credit_analysis = '//*[@text = "신용 분석"]'
 
     # 신용관리 > 신용점수 상승 전략 진입 결과
     credit_analysis_Result = '//*[@text = "신용점수 상승 전략"]'

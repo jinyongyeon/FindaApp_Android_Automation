@@ -533,7 +533,7 @@ class MoreTestcase_A(unittest.TestCase):
                 pass
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
-                self.assertEqual(Result_A.text,"이달의 총 나가는 돈")
+                self.assertEqual(Result_A.text,"알림 받기")
                 logging.info("상환일정 진입 : PASS")
                 moreresult.reports.append("상환일정 진입 : *PASS*")
             except AssertionError:

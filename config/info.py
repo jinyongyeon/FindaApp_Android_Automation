@@ -24,7 +24,7 @@ class InFo:
 
 
     #슬랙 웹훅 결과 보고 URL (슬렉 url 설정하면 해당 url로 결과 전송됨)
-    slack_webhook_url = 'https://hooks.slack.com/services/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'
+    slack_webhook_url = 'https://hooks.slack.com/services/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'
     # slack_webhook_url = 'https://hooks.slack.com/services/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'
 
 
