@@ -28,11 +28,9 @@ class ComparisonLoan:
 
     # 확인 버튼
     def check_loan(self):
-        try:
-            check_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check_loan)
-            check_loan.click()
-        except Exception as e:
-            logging.error(f"check_loan : {e}")
+        check_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check_loan)
+        check_loan.click()
+
 
     # 비교 대출 온보딩 페이지 에서 대출 목적 페이지로 진입
     def loan_in(self):

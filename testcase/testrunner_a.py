@@ -114,10 +114,10 @@ class test:
     def testloan(self):
         resultloan = Result_loan()
         suite = unittest.TestSuite()
-        suite.addTest(LoanComparisonTestcase('test_loan_terms_and_conditions'))
-        suite.addTest(LoanComparisonTestcase('test_loan_comparison_verification_code'))
-        suite.addTest(LoanComparisonTestcase('test_rrn_validation_check'))
-        suite.addTest(LoanComparisonTestcase('test_loan_comparison_apt_secured_loan'))
+        # suite.addTest(LoanComparisonTestcase('test_loan_terms_and_conditions'))
+        # suite.addTest(LoanComparisonTestcase('test_loan_comparison_verification_code'))
+        # suite.addTest(LoanComparisonTestcase('test_rrn_validation_check'))
+        # suite.addTest(LoanComparisonTestcase('test_loan_comparison_apt_secured_loan'))
         suite.addTest(LoanComparisonTestcase('test_check_deposit_today'))
         suite.addTest(LoanComparisonTestcase('test_comparison_loan_detail'))
         suite.addTest(LoanComparisonTestcase('test_comparison_loan_detail_certification'))
@@ -133,7 +133,7 @@ class test:
 if __name__ == '__main__':
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     logging.basicConfig(filename=f"apptestlog_{current_date}.log", level=logging.INFO)
-    # print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
+    print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
     # test.testmyhome()

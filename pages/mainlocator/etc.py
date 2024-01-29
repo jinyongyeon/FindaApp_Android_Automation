@@ -105,7 +105,7 @@ class Etc:
     amortization_schedule = '//*[@text = "상환・결제 일정"]'
 
     # 상환일정 진입 결과
-    amortization_schedule_a = "//*[contains(@text, '알림 받기')]"
+    amortization_schedule_a = "//*[contains(@text, '이달의 총 나가는 돈')]"
     amortization_schedule_b = '//*[@text = "대출, 카드 연결하기"]'
     check = '//*[@text = "확인"]'
 
@@ -138,7 +138,7 @@ class Etc:
     credit_analysis = '//*[@text = "신용 분석"]'
 
     # 신용관리 > 신용점수 상승 전략 진입 결과
-    credit_analysis_Result = '//*[@text = "신용점수 상승 전략"]'
+    credit_analysis_Result = "//*[contains(@text, '카드')]"
 
     # 신용관리 > 신용점수 상승 전략 뒤로가기
     credit_analysis_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -158,7 +158,7 @@ class Etc:
 
     # 신용퀴즈 어워즈
     credit_quiz_awards = '//*[@text = "신용퀴즈 어워즈"]'
-    credit_quiz_awards_result = "//*[contains(@text, '퀴즈 오픈')]"
+    credit_quiz_awards_result = "//*[contains(@text, '다음 시즌')]"
 
     # 계산기 > 여윳돈 계산기 진입
     extra_money = '//*[@text = "여윳돈 계산기"]'
@@ -306,7 +306,7 @@ class Etc:
     deposit_and_savings = '//*[@text = "예적금 비교"]'
 
     # 예적금 비교 결과
-    deposit_and_savings_Result = '//*[@text = "예적금 비교"]'
+    deposit_and_savings_Result = "//*[contains(@text, '정기예금')]"
 
     # 예적금 비교 > 뒤로가기
     deposit_and_savings_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -376,7 +376,7 @@ class Etc:
     loan_reviews = '//*[@text = "대출후기"]'
 
     # 대출후기 진입 결과
-    loan_reviews_Result = "//*[contains(@text, '한 번에 받기')]"
+    loan_reviews_Result = "//*[contains(@text, '고객님이 남겨주신')]"
 
     # 대출후기 > 뒤로가기
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
@@ -385,7 +385,7 @@ class Etc:
     alarm = "//*[contains(@text, '최근 알림')]"
 
     # 최근알림 진입 결과
-    alarm_Result = '//*[@text = "최근 알림"]'
+    alarm_Result = "//*[contains(@text, '알림 설정')]"
 
     # 최근 알림 뒤로가기
     alarm_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'

@@ -1488,7 +1488,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             comparisonloan.my_house_apt()
             comparisonloan.check_loan()
             comparisonloan.address_search()
-            # time.sleep(4)
+            time.sleep(4)
             # comparisonloan.check_loan()
             comparisonloan.no_certificate()
             time.sleep(3)

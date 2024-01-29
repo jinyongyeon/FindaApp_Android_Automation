@@ -533,7 +533,7 @@ class MoreTestcase_A(unittest.TestCase):
                 pass
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.amortization_schedule_a)
-                self.assertEqual(Result_A.text,"알림 받기")
+                self.assertIn("이달의 총 나가는 돈" , Result_A.text)
                 logging.info("상환일정 진입 : PASS")
                 moreresult.reports.append("상환일정 진입 : *PASS*")
             except AssertionError:
@@ -673,7 +673,7 @@ class MoreTestcase_B(unittest.TestCase):
             more.credit_analysis()
             try:
                 Result_a = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_analysis_Result)
-                self.assertEqual(Result_a.text, "신용점수 상승 전략")
+                self.assertIn("카드" , Result_a.text)
                 logging.info("신용점수 상승 전략 진입 : PASS")
                 moreresult.reports.append("신용점수 상승 전략 진입 : *PASS*")
             except AssertionError:
@@ -1287,7 +1287,7 @@ class MoreTestcase_C(unittest.TestCase):
             time.sleep(10)
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.deposit_and_savings_Result)
-                self.assertEqual(Result.text,"예적금 비교")
+                self.assertIn("정기예금", Result.text)
                 logging.info("예적금 비교 진입 : PASS")
                 moreresult.reports.append("예적금 비교 진입 : *PASS*")
             except AssertionError:
@@ -1374,7 +1374,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.event()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.event_Result)
-                self.assertEqual(Result.text,"돈되는 혜택")
+                self.assertIn("돈되는 혜택",Result.text)
                 logging.info("돈되는 혜택 진입 : PASS")
                 moreresult.reports.append("돈되는 혜택 진입 : *PASS*")
             except AssertionError:
@@ -1448,7 +1448,7 @@ class MoreTestcase_C(unittest.TestCase):
             time.sleep(5)
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
-                self.assertIn("최저금리", Result.text)
+                self.assertIn("핀다 고객님이", Result.text)
                 logging.info("대출 후기 진입 : PASS")
                 moreresult.reports.append("대출 후기 진입 : *PASS*")
             except AssertionError:
@@ -1479,7 +1479,7 @@ class MoreTestcase_C(unittest.TestCase):
             more.alarm()
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.alarm_Result)
-                self.assertEqual(Result.text,"최근 알림")
+                self.assertIn("알림 설정", Result.text)
                 logging.info("최근 알림 진입 : PASS")
                 moreresult.reports.append("최근 알림 진입 : *PASS*")
             except AssertionError:

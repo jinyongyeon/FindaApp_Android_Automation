@@ -187,7 +187,7 @@ class Loan:
     loan_terms_and_conditions_Da_result = '//*[@text = "개인정보 제3자 제공 동의(대출안심플랜)"]'
 
     # 약관 전체 동의
-    loan_terms_and_conditions_all = '//*[@text = "약관 전체 동의"]'
+    loan_terms_and_conditions_all = "//*[contains(@text, '약관 전체 동의')]"
 
     # 비교대출 인증번호 재요청
     comparison_loan_verification_resend = '//*[@text = "인증번호 재요청"]'
@@ -216,7 +216,7 @@ class Loan:
     #후담대 정보
     my_house = '//*[@text = "자가"]'
     monthly_rent = '//*[@text = "전/월세"]'
-    APT = '//*[@text = "아파트에요"]'
+    APT = "//*[contains(@text, '아파트에 살고 있어요.')]"
     address_search = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]'
     address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText'
     home_address = '//*[@text = "김포시 걸포동 한강메트로자이2단지"]'
