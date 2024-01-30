@@ -887,8 +887,6 @@ class MyHome_Testcase(unittest.TestCase):
         base = basemethod()
         logging.info("마이홈 자동차 대출 배너 테스트 시작")
         try:
-            # base.scroll(1)
-            # base.scroll(2)
             myhome.menu_right_to_left()
             try:
                 Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.auto_loan_banner)
