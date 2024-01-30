@@ -4,6 +4,7 @@ import pickle
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.touch_action import TouchAction
 
 from config.info import InFo
 from pages.mainlocator.home import Home
@@ -14,6 +15,22 @@ class MyHome:
     def __init__(self):
         self.home = Home()
         self.info = InFo()
+
+    # 마이홈 메뉴바 왼쪽으로 스크롤
+    def menu_right_to_left(self):
+        action = TouchAction(WebDriver.driver)
+        action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]")
+        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출받기')]")
+        action.press(action_a).move_to(action_b).release()
+        return action.perform()
+
+    # 마이홈 메뉴바 오른쪽으로 스크롤
+    def menu_left_to_right(self):
+        action = TouchAction(WebDriver.driver)
+        action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '사업자대출')]")
+        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]")
+        action.press(action_a).move_to(action_b).release()
+        return action.perform()
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):

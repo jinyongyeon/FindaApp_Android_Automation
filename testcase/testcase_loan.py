@@ -29,11 +29,8 @@ class AutoLoanTestcase(unittest.TestCase):
         logging.info("오토론 테스트 종료")
 
     def setUp(self):
-        base = basemethod()
-        # base.scroll(2)
-        # base.scroll(2)
-        # base.scroll(2)
-        base.scroll_right(1)
+        myhome = MyHome()
+        myhome.menu_right_to_left()
 
     def tearDown(self):
         base = basemethod()
@@ -42,11 +39,8 @@ class AutoLoanTestcase(unittest.TestCase):
         time.sleep(1)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
-        base.scroll_left(1)
-        # base.scroll_up(0.8)
-        # base.scroll_up(0.8)
-        # base.scroll_up(0.8)
-
+        myhome = MyHome()
+        myhome.menu_left_to_right()
     # 오토론 약관 테스트
     def test_auto_loan_new_new_car_terms(self):
         loan = Loan()

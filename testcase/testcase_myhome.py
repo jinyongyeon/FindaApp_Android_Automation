@@ -5,6 +5,8 @@ import pickle
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.touch_action import TouchAction
+
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.result import Result_MyHome
@@ -33,7 +35,40 @@ class MyHome_Testcase(unittest.TestCase):
         base.scroll_up(0.8)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
-        base.scroll_left(1)
+
+    # 마이홈 상단 메뉴 영역 노출 테스트
+    def test_myhome_menu(self):
+        myhome = MyHome()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        logging.info("마이홈 상단 메뉴 영역 노출 테스트 시작")
+        try:
+            try:
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출받기')]")
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '사업자대출')]")
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]")
+                myhome.menu_right_to_left()
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]")
+                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 리스렌트')]")
+                logging.info("마이홈 상단 메뉴 영역 노출 : PASS")
+                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *PASS*")
+                print("마이홈 상단 메뉴 영역 노출 : PASS")
+            except AssertionError:
+                logging.info("마이홈 상단 메뉴 영역 노출 : FAIL")
+                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *FAIL*")
+                base.save_screenshot('마이홈 상단 메뉴 영역 노출_fail')
+                print("마이홈 상단 메뉴 영역 노출 : FAIL")
+            except Exception as e:
+                logging.warning(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
+                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *Error*")
+                base.save_screenshot('마이홈 상단 메뉴 영역 노출_error')
+                print(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
+            myhome.menu_left_to_right()
+        except Exception as e:
+            logging.error(f"마이홈 상단 메뉴 영역 노출 테스트 진행 중 에러 발생 : {e}")
+        base.android_back()
+        logging.info("마이홈 상단 메뉴 영역 노출 테스트 종료")
 
     # 마이홈 비교대출 배너 테스트
     def test_comparison_loan(self):
@@ -53,82 +88,6 @@ class MyHome_Testcase(unittest.TestCase):
                 logging.info("퀵메뉴 대출받기 노출 : FAIL")
                 result_myhome.reports.append("퀵메뉴 대출받기 노출 : *FAIL*")
                 base.save_screenshot('퀵메뉴대출받기노출_fail')
-            # try:
-            #     myhome_loans_Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.myhome_loans_Result_a)
-            #     self.assertEqual(myhome_loans_Result_a.text, "대출 한도 조회 📌")
-            #     results.append("PASS")
-            # except AssertionError:
-            #     results.append("FAIL")
-            # except :
-            #     try:
-            #         myhome_loans_Result_b = WebDriver.driver.find_element(MobileBy.XPATH, home.myhome_loans_Result_b)
-            #         self.assertIn("대출 알아보기" , myhome_loans_Result_b.text)
-            #         results.append("PASS")
-            #     except AssertionError:
-            #         results.append("FAIL")
-            #     except Exception as e:
-            #         logging.warning(f"비교대출 배너 노출_a 에러 발생 : {e}")
-            #         results.append("Error")
-            #
-            # try:
-            #     loans_a = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_a)
-            #     self.assertEqual(loans_a.text, "내 대출 한도 한번에 조회하기")
-            #     results.append("PASS")
-            # except AssertionError:
-            #     results.append("FAIL")
-            # except :
-            #     try:
-            #         loans_b = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_b)
-            #         self.assertEqual(loans_b.text, "내게 맞는 더 좋은 대출 찾기")
-            #         results.append("PASS")
-            #     except AssertionError:
-            #         results.append("FAIL")
-            #     except :
-            #         try:
-            #             loans_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_c)
-            #             self.assertEqual(loans_c.text, "다른 방법 알아보기")
-            #             results.append("PASS")
-            #         except AssertionError:
-            #             results.append("FAIL")
-            #         except :
-            #             try:
-            #                 loans_d = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_d)
-            #                 self.assertEqual(loans_d.text, "나에게 딱 맞는 대출 찾기")
-            #                 results.append("PASS")
-            #             except AssertionError:
-            #                 results.append("FAIL")
-            #             except :
-            #                 try:
-            #                     loans_e = WebDriver.driver.find_element(MobileBy.XPATH, home.loans_e)
-            #                     self.assertIn("대출 이어서 진행하기", loans_e.text )
-            #                     results.append("PASS")
-            #                 except AssertionError:
-            #                     results.append("FAIL")
-            #                 except Exception as e:
-            #                     logging.warning(f"비교대출 배너 노출_b 에러 발생 : {e}")
-            # if all(result == "PASS" for result in results):
-            #     logging.info("비교대출 배너 노출 : PASS")
-            #     result_myhome.reports.append("비교대출 배너 노출 : *PASS*")
-            # else:
-            #     logging.info("비교대출 배너 노출 : FAIL")
-            #     result_myhome.reports.append("비교대출 배너 노출 : *FAIL*")
-            #     base.save_screenshot('비교대출배너노출_fail')
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.warning(f"비교대출 배너 진입 에러 발생 : {e}")
             time.sleep(10)
             try:
                 Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
@@ -884,7 +843,7 @@ class MyHome_Testcase(unittest.TestCase):
         try:
             # base.scroll(1)
             # base.scroll(2)
-            base.scroll_right(1)
+            myhome.menu_right_to_left()
             try:
                 Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.lease_contract_banner)
                 self.assertEqual(Result_a.text, "차 리스렌트")
@@ -912,6 +871,7 @@ class MyHome_Testcase(unittest.TestCase):
                 logging.warning(f"장기렌트 리스 배너 진입 에러 발생 : {e}")
                 result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
                 base.save_screenshot('장기렌트리스배너진입_error')
+            myhome.menu_left_to_right()
         except Exception as e:
             logging.error(f"마이홈 오토리스 배너 테스트 진행 중 에러 발생 : {e}")
         logging.info("마이홈 오토리스 배너 테스트 시작")
@@ -929,7 +889,7 @@ class MyHome_Testcase(unittest.TestCase):
         try:
             # base.scroll(1)
             # base.scroll(2)
-            base.scroll_right(1)
+            myhome.menu_right_to_left()
             try:
                 Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.auto_loan_banner)
                 self.assertEqual(Result_a.text, "차 구매대출")
@@ -967,6 +927,7 @@ class MyHome_Testcase(unittest.TestCase):
                     logging.warning(f"차 구매 대출 배너 진입 에러 발생 : {e}")
                     result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
                     base.save_screenshot('차구매대출배너진입_error')
+            myhome.menu_left_to_right()
         except Exception as e:
             logging.error(f"마이홈 자동차 대출 배너 테스트 진행 중 에러 발생 : {e}")
         logging.info("마이홈 자동차 대출 배너 테스트 종료")

@@ -839,3 +839,15 @@ class More:
         checkin = WebDriver.driver.find_element(MobileBy.XPATH, Etc.checkin)
         checkin.click()
         time.sleep(2)
+
+    # 물가예측 진입
+    def priceforecast(self):
+        priceforecast = WebDriver.driver.find_element(MobileBy.XPATH, Etc.priceforecast)
+        priceforecast.click()
+        time.sleep(5)
+
+    # 물가예측 참여내역
+    def priceforecast_history(self):
+        priceforecast_history = WebDriver.driver.find_element(MobileBy.XPATH, Etc.priceforecast_history)
+        priceforecast_history.click()
+        time.sleep(5)

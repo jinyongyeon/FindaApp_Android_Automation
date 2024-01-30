@@ -1,6 +1,8 @@
 import logging
 import time
 import unittest
+
+from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.common.mobileby import MobileBy
 
 from config.info import InFo
@@ -1550,6 +1552,62 @@ class MoreTestcase_C(unittest.TestCase):
         except Exception as e:
             logging.error(f"출석체크 진입 테스트 진행 중 에서 발생 : {e}")
         logging.info("출석체크 진입 테스트 종료")
+
+    # 물가예측 시즌1 테스트
+    def test_price_forecast_season_1(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("물가예측 시즌 1 진입 테스트 시작")
+        try:
+            base.scroll(0.3)
+            more.priceforecast()
+            try:
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.priceforecast_result)
+                self.assertIn("포인트 받기" , Result.text)
+                logging.info("물가예측 시즌1 진입 : PASS")
+                moreresult.reports.append("물가예측 시즌1 진입 : *PASS*")
+            except AssertionError:
+                logging.info("물가예측 시즌1 진입 : FAIL")
+                moreresult.reports.append("물가예측 시즌1 진입 : *FAIL*")
+                base.save_screenshot('물가예측시즌1진입_fail')
+            except Exception as e:
+                logging.warning(f"물가예측 시즌1 진입 에러 발생 : {e}")
+                moreresult.reports.append("물가예측 시즌1 진입 : *Error*")
+                base.save_screenshot('물가예측 시즌1진입_error')
+            base.android_back()
+        except Exception as e:
+            logging.error(f"물가예측 시즌1 진입 테스트 진행 중 에서 발생 : {e}")
+        logging.info("물가예측 시즌1 진입 테스트 종료")
+
+    # 물가예측 참여내역 테스트
+    def test_priceforecast_history(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("물가예측 참여내역 진입 테스트 시작")
+        try:
+            base.scroll(0.3)
+            more.priceforecast_history()
+            try:
+                Result = WebDriver.driver.find_element(AppiumBy.XPATH, etc.priceforecast_history_result)
+                self.assertIn("받은 예측 포인트" , Result.text)
+                logging.info("물가예측 참여내역 진입 : PASS")
+                moreresult.reports.append("물가예측 참여내역 진입 : *PASS*")
+            except AssertionError:
+                logging.info("물가예측 참여내역 진입 : FAIL")
+                moreresult.reports.append("물가예측 참여내역 진입 : *FAIL*")
+                base.save_screenshot('물가예측참여내역진입_fail')
+            except Exception as e:
+                logging.warning(f"물가예측 참여내역 진입 에러 발생 : {e}")
+                moreresult.reports.append("물가예측 참여내역 진입 : *Error*")
+                base.save_screenshot('물가예측 참여내역진입_error')
+            base.android_back()
+        except Exception as e:
+            logging.error(f"물가예측 참여내역 진입 테스트 진행 중 에서 발생 : {e}")
+        logging.info("물가예측 참여내역 진입 테스트 종료")
 
 if __name__ == '__main__':
     unittest.main()

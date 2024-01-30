@@ -46,6 +46,11 @@ class Seting:
         except Exception as e:
             logging.error(f"myinfo_edit : {e}")
 
+    # 설정 > 알림설정
+    def notification_settings(self):
+        notification_settings = WebDriver.driver.find_element(MobileBy.XPATH, self.Etc.notification_settings)
+        notification_settings.click()
+
     # 설정 > 비밀번호 변경
     def change_password(self):
         try:

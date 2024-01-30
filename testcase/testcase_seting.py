@@ -105,6 +105,33 @@ class Seting_Testcase(unittest.TestCase):
             logging.error(f"설정 > 내정보 수정 테스트 진행 중 에러 발생 : {e}")
         logging.info("설정 > 내정보 수정 테스트 종료")
 
+    # 설정 > 알림 설정 테스트
+    def test_notification_settings(self):
+        set = Seting()
+        etc = Etc()
+        join = JoIn()
+        base = basemethod()
+        setingresult = Result_seting()
+        logging.info("설정 > 알림설정 테스트 시작")
+        try:
+            set.notification_settings()
+            try:
+                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notification_settings_result)
+                self.assertEqual(Result.text, "유용한 이벤트 및 혜택")
+                logging.info("설정 > 알림설정 결과 : PASS")
+                setingresult.reports.append("설정 > 알림설정 결과 : *PASS*")
+            except AssertionError:
+                logging.info("설정 > 알림설정 결과 : FAIL")
+                setingresult.reports.append("설정 > 알림설정 결과 : *FAIL*")
+                base.save_screenshot('알림설정결과_fail')
+            except Exception as e:
+                logging.warning(f"설정 > 알림설정 결과 에러 발생 : {e}")
+                setingresult.reports.append("설정 > 알림설정 결과 : *Error*")
+                base.save_screenshot('알림설정결과_error')
+        except Exception as e:
+            logging.error(f"설정 > 알림설정 테스트 진행 중 에러 발생 : {e}")
+        logging.info("설정 > 알림설정 테스트 종료")
+
     # 설정 > 비밀번호 변경 테스트
     def test_change_password(self):
         set = Seting()

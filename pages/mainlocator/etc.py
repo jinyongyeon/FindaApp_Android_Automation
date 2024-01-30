@@ -396,6 +396,15 @@ class Etc:
     # 출석체크 진입
     checkin = "//*[contains(@text, '출석체크')]"
 
+    priceforecast = "//*[contains(@text, '물가예측 시즌1')]"
+
+    priceforecast_result = "//*[contains(@text, '포인트 받기')]"
+
+    priceforecast_history = "//*[contains(@text, '물가예측 참여내역')]"
+
+    priceforecast_history_result = "//*[contains(@text, '받은 예측 포인트')]"
+
+
     # 설정 영역 --------------------------------------
 
     # 설정 페이지
@@ -418,6 +427,12 @@ class Etc:
 
     # 설정 > 내 정보 > 수정하기 > 본인 인증하기 동작 결과
     myinfo_result = '//*[@text = "시작하기"]'
+
+    # 설정 > 알림설정 진입
+    notification_settings = "//*[contains(@text, '알림 설정')]"
+
+    # 설정 > 알림설정 결과
+    notification_settings_result = "//*[contains(@text, '유용한 이벤트 및 혜택')]"
 
     # 설정 > 비밀번호 변경
     changepassword = '//*[@text = "비밀번호 변경"]'
