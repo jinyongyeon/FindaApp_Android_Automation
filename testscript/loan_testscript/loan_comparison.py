@@ -1,9 +1,9 @@
 import logging
 import time
-
+from selenium.webdriver.support import expected_conditions as EC
 
 from appium.webdriver.common.mobileby import MobileBy
-
+from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -14,17 +14,14 @@ from pages.mainlocator.loan import Loan
 class ComparisonLoan:
 
     def __init__(self):
-        self.loan = Loan()
+        self.loan  = Loan()
         self.info = InFo()
         self.base = basemethod()
 
     # 다음 버튼
     def next_loan(self):
-        try:
-            next_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.next_loan)
-            next_loan.click()
-        except Exception as e:
-            logging.error(f"next_loan : {e}")
+        next_loan = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.next_loan)
+        next_loan.click()
 
     # 확인 버튼
     def check_loan(self):
@@ -34,30 +31,25 @@ class ComparisonLoan:
 
     # 비교 대출 온보딩 페이지 에서 대출 목적 페이지로 진입
     def loan_in(self):
-        try:
-            loan_in = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_in)
-            loan_in.click()
-        except Exception as e:
-            logging.error(f"loan_in : {e}")
+        loan_in = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_in)
+        loan_in.click()
 
     # 생활비 선택 및 대출 희망금액 입력
     def living_expenses(self):
-        try:
-            self.base.scroll_up(0.2)
-            living_expenses = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.living_expenses)
-            living_expenses.click()
-            loan_amount = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_amount)
-            loan_amount.click()
-            WebDriver.driver.press_keycode(8)
-            time.sleep(1)
-            WebDriver.driver.press_keycode(7)
-            time.sleep(1)
-            WebDriver.driver.press_keycode(7)
-            time.sleep(1)
-            WebDriver.driver.press_keycode(7)
-            time.sleep(1)
-        except Exception as e:
-            logging.error(f"living_expenses : {e}")
+        self.base.scroll_up(0.2)
+        living_expenses = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.living_expenses)
+        living_expenses.click()
+        loan_amount = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_amount)
+        loan_amount.click()
+        WebDriver.driver.press_keycode(8)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+        WebDriver.driver.press_keycode(7)
+        time.sleep(1)
+
 
     # 비교 대출 약관
     def loan_terms_and_conditions_a(self):
@@ -365,20 +357,15 @@ class ComparisonLoan:
             logging.error(f"loan_terms_and_conditions_da : {e}")
 
     def loan_terms_and_conditions_all(self):
-        try:
-            loan_terms_and_conditions_all = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_all)
-            loan_terms_and_conditions_all.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loan_terms_and_conditions_all : {e}")
+        loan_terms_and_conditions_all = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_terms_and_conditions_all)
+        loan_terms_and_conditions_all.click()
+        time.sleep(2)
+
 
     def comparison_loan_verification_resend(self):
-        try:
-            comparison_loan_verification_resend = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_verification_resend)
-            comparison_loan_verification_resend.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"comparison_loan_verification_resend : {e}")
+        comparison_loan_verification_resend = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.comparison_loan_verification_resend)
+        comparison_loan_verification_resend.click()
+        time.sleep(2)
 
     # 잘못된 주민등록번호 뒷자리 입력
     def rrn_fail_input(self):
@@ -402,38 +389,26 @@ class ComparisonLoan:
 
     # 정상적인 주민번호 뒷자리 입력
     def rrn_pass_input(self):
-        try:
-            loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_rrn)
-            loan_rrn.send_keys(self.info.loan_rrn)
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"rrn_pass_input : {e}")
+        loan_rrn = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.loan_rrn)
+        loan_rrn.send_keys(self.info.loan_rrn)
+        time.sleep(2)
 
     # 소득 정보 직장인선택
     def office_workers(self):
-        try:
-            office_workers = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.office_workers)
-            office_workers.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"office_workers : {e}")
+        office_workers = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.office_workers)
+        office_workers.click()
+        time.sleep(2)
 
     # 직장명 핀다 입력
     def company_name_input(self):
-        try:
-            company_name_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_name_input)
-            company_name_input.send_keys("핀다")
-        except Exception as e:
-            logging.error(f"company_name_input : {e}")
+        company_name_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.company_name_input)
+        company_name_input.send_keys("핀다")
 
     # 검색 버튼 선택
     def search(self):
-        try:
-            search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
-            search.click()
-            time.sleep(3)
-        except Exception as e:
-            logging.error(f"search : {e}")
+        search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
+        search.click()
+        time.sleep(3)
 
     # 핀다선택
     def company_number(self):
@@ -488,112 +463,108 @@ class ComparisonLoan:
 
     # 전/월세 선택
     def monthly_rent(self):
+        monthly_rent = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.monthly_rent)
+        monthly_rent.click()
+        time.sleep(2)
+
+    # 제 명의의 차량을 갖고있어요. 선택
+    def mycar_namber(self):
         try:
-            monthly_rent = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.monthly_rent)
-            monthly_rent.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"monthly_rent : {e}")
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber_check))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber)).click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber)).click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber_input)).send_keys("" + self.info.autoNo + "")
+            time.sleep(3)
+        except:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber)).click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.mycar_namber_input)).send_keys("" + self.info.autoNo + "")
+            time.sleep(3)
 
     # 후담대 선택
     def my_house_apt(self):
-        try:
-            my_house = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.my_house)
-            my_house.click()
-            time.sleep(2)
-            APT = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.APT)
-            APT.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"my_house_apt : {e}")
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.my_house)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.loan.APT)).click()
+        time.sleep(2)
 
     # 아파트 검색
     def address_search(self):
-        try:
-            address_search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_search)
-            address_search.click()
-            time.sleep(2)
-            address_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_input)
-            address_input.send_keys("한강메트로자이")
-            search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
-            search.click()
-            home_address = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.home_address)
-            home_address.click()
-            area = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.area)
-            area.click()
-            time.sleep(3)
-            check = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check)
-            check.click()
-            time.sleep(3)
-        except Exception as e:
-            logging.error(f"address_search : {e}")
+        address_search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_search)
+        address_search.click()
+        time.sleep(2)
+        address_input = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.address_input)
+        address_input.send_keys("한강메트로자이")
+        search = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.search)
+        search.click()
+        home_address = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.home_address)
+        home_address.click()
+        area = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.area)
+        area.click()
+        time.sleep(3)
+        check = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.check)
+        check.click()
+        time.sleep(3)
 
     # 인증서 없이 결과 조회하기
     def no_certificate(self):
-        try:
-            no_certificate = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.no_certificate)
-            no_certificate.click()
-            time.sleep(100)
-        except Exception as e:
-            logging.error(f"no_certificate : {e}")
+        no_certificate = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.no_certificate)
+        no_certificate.click()
+        time.sleep(100)
+
 
     # 대출 종류필터 선택
     def type_of_loan(self):
-        try:
-            type_of_loan = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.type_of_loan)
-            type_of_loan.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"type_of_loan : {e}")
+        type_of_loan = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.type_of_loan)
+        type_of_loan.click()
+        time.sleep(2)
+
 
     # 주택 담보대출 필터 선택
     def secured_loan(self):
         try:
-            secured_loan_a = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a)
-            secured_loan_a.click()
+            WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a)
             time.sleep(2)
-            secured_loan_a_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_a_look)
-            secured_loan_a_look.click()
+            WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_look).click()
             time.sleep(3)
+            logging.warning("주택 담보대출 1개")
+            print("주택 담보대출 1개")
         except:
             try:
-                secured_loan_b = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_b)
-                secured_loan_b.click()
+                WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_b)
                 time.sleep(2)
-                secured_loan_b_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_b_look)
-                secured_loan_b_look.click()
+                WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_look).click()
                 time.sleep(3)
+                logging.warning("주택 담보대출 2개")
+                print("주택 담보대출 2개")
             except:
                 try:
-                    secured_loan_c = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_c)
-                    secured_loan_c.click()
+                    WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_c)
                     time.sleep(2)
-                    secured_loan_c_look = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_c_look)
-                    secured_loan_c_look.click()
+                    WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_look).click()
                     time.sleep(3)
+                    logging.warning("주택 담보대출 3개")
+                    print("주택 담보대출 3개")
                 except:
                     try:
-                        secured_loan_d = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_d)
-                        secured_loan_d.click()
+                        WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_d)
                         time.sleep(2)
-                        secured_loan_d_look = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.secured_loan_d_look)
-                        secured_loan_d_look.click()
+                        WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_look).click()
                         time.sleep(3)
+                        logging.warning("주택 담보대출 4개")
+                        print("주택 담보대출 4개")
                     except:
+                        WebDriver.driver.find_element(MobileBy.XPATH, self.loan.secured_loan_look).click()
                         logging.warning("주택 담보대출 없음")
                         print("주택 담보대출 없음")
 
     # 조회 결과 페이지 > 다시 조회하기 선택
     def lookup_again(self):
-        try:
-            lookup_again = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.lookup_again)
-            lookup_again.click()
-            time.sleep(2)
-            lookup_again_a = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.lookup_again_a)
-            lookup_again_a.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"lookup_again : {e}")
+        lookup_again = WebDriver.driver.find_element(MobileBy.XPATH, self.loan.lookup_again)
+        lookup_again.click()
+        time.sleep(2)
+        lookup_again_a = WebDriver.driver.find_element(MobileBy.XPATH,self.loan.lookup_again_a)
+        lookup_again_a.click()
+        time.sleep(2)
+
 
     # 기타(무직, 주부등..)선택
     def unemployed(self):

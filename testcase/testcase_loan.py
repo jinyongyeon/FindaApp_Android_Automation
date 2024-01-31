@@ -1,8 +1,9 @@
 import time
 import unittest
 import logging
-
+from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -12,6 +13,7 @@ from pages.mainlocator.etc import Etc
 from pages.mainlocator.loan import Loan
 from testscript.loan_testscript.auto_loan import Auto_Loan
 from testscript.loan_testscript.loan_comparison import ComparisonLoan
+from testscript.loan_testscript.refinancing_loan import RefinancingLoan
 from testscript.login_testscript.logincase import JoIn
 from testscript.more_testscript.see_more import More
 from testscript.more_testscript.seting import Seting
@@ -670,30 +672,27 @@ class LoanComparisonTestcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
+        refinancingloan = RefinancingLoan()
         logging.info("비교대출 약관 페이지 진입 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     print("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
             myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
-            comparisonloan.loan_in()
-            comparisonloan.living_expenses()
-            comparisonloan.next_loan()
-            comparisonloan.next_loan()
+            try:
+                comparisonloan.loan_in()
+                try:
+                    comparisonloan.living_expenses()
+                    comparisonloan.next_loan()
+                    comparisonloan.next_loan()
+                except:
+                    refinancingloan.check_max_limit()
+            except:
+                base.scroll(2)
+                base.scroll(2)
+                base.scroll(2)
+                comparisonloan.lookup_again()
+                comparisonloan.living_expenses()
+                comparisonloan.next_loan()
+                comparisonloan.next_loan()
             results = []
             results_a = []
             time.sleep(4)
@@ -1265,30 +1264,27 @@ class LoanComparisonTestcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
+        refinancingloan = RefinancingLoan()
         logging.info("비교대출 인증번호 자동 입력 및 재전송 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error("비교대출 배너 진입 에러 발생 : {}".format(str(e)))
             myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
-            comparisonloan.loan_in()
-            comparisonloan.living_expenses()
-            comparisonloan.next_loan()
-            comparisonloan.next_loan()
+            try:
+                comparisonloan.loan_in()
+                try:
+                    comparisonloan.living_expenses()
+                    comparisonloan.next_loan()
+                    comparisonloan.next_loan()
+                except:
+                    refinancingloan.check_max_limit()
+            except:
+                base.scroll(2)
+                base.scroll(2)
+                base.scroll(2)
+                comparisonloan.lookup_again()
+                comparisonloan.living_expenses()
+                comparisonloan.next_loan()
+                comparisonloan.next_loan()
             comparisonloan.loan_terms_and_conditions_all()
             comparisonloan.check_loan()
             time.sleep(5)
@@ -1337,7 +1333,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             logging.error(f"비교대출 인증번호 자동 입력 및 재전송 테스트 진행중 에러 발생 : {e}")
         logging.info("비교대출 인증번호 자동 입력 및 재전송 테스트 종료")
 
-    # 비교대출 주민번호 적합서 검사 테스트
+    # 비교대출 주민번호 적합성 검사 테스트
     def test_rrn_validation_check(self):
         loan = Loan()
         base = basemethod()
@@ -1345,31 +1341,28 @@ class LoanComparisonTestcase(unittest.TestCase):
         myhome = MyHome()
         results = []
         comparisonloan = ComparisonLoan()
-        logging.info("비교대출 주민번호 적합서 검사 테스트 시작")
+        refinancingloan = RefinancingLoan()
+        logging.info("비교대출 주민번호 적합성 검사 테스트 시작")
         time.sleep(3)
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
             myhome.comPariSonLoan_In_f()
             base.scroll_up(0.2)
-            comparisonloan.loan_in()
-            comparisonloan.living_expenses()
-            comparisonloan.next_loan()
-            comparisonloan.next_loan()
+            try:
+                comparisonloan.loan_in()
+                try:
+                    comparisonloan.living_expenses()
+                    comparisonloan.next_loan()
+                    comparisonloan.next_loan()
+                except:
+                    refinancingloan.check_max_limit()
+            except:
+                base.scroll(2)
+                base.scroll(2)
+                base.scroll(2)
+                comparisonloan.lookup_again()
+                comparisonloan.living_expenses()
+                comparisonloan.next_loan()
+                comparisonloan.next_loan()
             comparisonloan.loan_terms_and_conditions_all()
             comparisonloan.check_loan()
             time.sleep(5)
@@ -1408,10 +1401,21 @@ class LoanComparisonTestcase(unittest.TestCase):
                 logging.info("비교대출 주민등록번호 적합성 성공 결과 : FAIL")
                 results.append("FAIL")
                 base.save_screenshot('비교대출주민번호적합성성공_fail')
-            except Exception as e:
-                logging.warning(f"비교대출 주민등록번호 적합성 성공 결과 에러 발생 : {e}")
-                results.append("Error")
-                base.save_screenshot('비교대출주민번호적합성성공_error')
+            except Exception :
+                try:
+                    Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.rrn_validation_pass_result_b)
+                    self.assertIn("인증서로 더 정확한",Result_b.text)
+                    logging.info("비교대출 주민등록번호 적합성 성공 결과 : PASS")
+                    results.append("PASS")
+                except AssertionError:
+                    logging.info("비교대출 주민등록번호 적합성 성공 결과 : FAIL")
+                    results.append("FAIL")
+                    base.save_screenshot('비교대출주민번호적합성성공_fail')
+                except Exception as e:
+                    logging.warning(f"비교대출 주민등록번호 적합성 성공 결과 에러 발생 : {e}")
+                    results.append("비교대출 주민등록번호 적합성 성공 결과 : *Error*")
+                    base.save_screenshot('비교대출 주민등록번호 적합성 성공 결과_error')
+
             logging.info(results)
             if all(result == "PASS" for result in results):
                 logging.info("비교대출 주민등록번호 적합성 검사 결과 : PASS")
@@ -1428,7 +1432,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             base.android_back()
         except Exception as e:
             logging.error(f"비교대출 주민번호 적합서 검사 테스트 진행중 에러 발생 : {e}")
-        logging.info("비교대출 주민번호 적합서 검사 테스트 종료")
+        logging.info("비교대출 주민번호 적합성 검사 테스트 종료")
 
     # 비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트
     def test_loan_comparison_apt_secured_loan(self):
@@ -1437,28 +1441,38 @@ class LoanComparisonTestcase(unittest.TestCase):
         loanresult = Result_loan()
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
+        refinancingloan = RefinancingLoan()
         results = []
         logging.info("비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
             myhome.comPariSonLoan_In_f()
-            base.scroll_up(0.2)
-            comparisonloan.loan_in()
+            try:
+                base.scroll_up(0.2)
+                comparisonloan.loan_in()
+                time.sleep(4)
+                try:
+                    WebDriver.driver.find_element(MobileBy.XPATH,"//*[contains(@text, '기존 정보로')]")
+                    refinancingloan.check_max_limit()
+                    comparisonloan.loan_terms_and_conditions_all()
+                    comparisonloan.check_loan()
+                    time.sleep(5)
+                    comparisonloan.next_loan()
+                    comparisonloan.rrn_pass_input()
+                    comparisonloan.next_loan()
+                    a = WebDriver.driver.find_element(MobileBy.XPATH,"//*[contains(@text, '인증서 없이 대출')]")
+                    a.click()
+                    time.sleep(100)
+                    base.scroll(2)
+                    base.scroll(2)
+                    base.scroll(2)
+                    comparisonloan.lookup_again()
+                except:
+                    pass
+            except:
+                base.scroll(2)
+                base.scroll(2)
+                base.scroll(2)
+                comparisonloan.lookup_again()
             comparisonloan.living_expenses()
             comparisonloan.next_loan()
             comparisonloan.next_loan()
@@ -1483,7 +1497,6 @@ class LoanComparisonTestcase(unittest.TestCase):
             comparisonloan.check_loan()
             comparisonloan.address_search()
             time.sleep(4)
-            # comparisonloan.check_loan()
             comparisonloan.no_certificate()
             time.sleep(3)
             verification_list = [("최저금리", loan.safe_number_result_a),
@@ -1545,7 +1558,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             logging.error(f"비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트 진행중 에러 발생 :{e}")
         logging.info("비교대출 후담대 조회 및 열람 테스트 & 직장인대출 조회 > 인증서 없이 조회 테스트 & 안심번호 테스트 종료")
 
-    # 오늘 입금 태그 확인 테스트
+    # 오늘 입금 태그 확인 테스트(삭제)
     def test_check_deposit_today(self):
         loan = Loan()
         base = basemethod()
@@ -1709,7 +1722,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             logging.error(f"비교대출 > 대출 상세 페이지 진입 테스트 진행중 에러 발생 : {e}")
         logging.info("비교대출 > 대출 상세 페이지 진입 테스트 종료")
 
-    # 비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트
+    # 비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트(웹뷰로 인하여 테스트 불가)
     def test_comparison_loan_detail_certification(self):
         loan = Loan()
         base = basemethod()
@@ -1717,22 +1730,6 @@ class LoanComparisonTestcase(unittest.TestCase):
         myhome = MyHome()
         logging.info("비교대출 > 대출 상세 페이지 > 심의필 노출 확인 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except:
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except:
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
             myhome.comPariSonLoan_In_f()
             try:
                 financial_sector_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.financial_sector)
@@ -1772,27 +1769,32 @@ class LoanComparisonTestcase(unittest.TestCase):
             base.scroll(2)
             base.scroll(2)
             base.scroll(2)
+            base.scroll(2)
+            base.scroll(2)
             try:
                 time.sleep(4)
-                Result_a = WebDriver.driver.find_element(MobileBy.XPATH, loan.certification_a)
-                self.assertIn("심의필" , Result_a.text)
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan.certification_a))
                 logging.info("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
                 loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *PASS*")
+                print("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
             except:
                 try:
                     time.sleep(4)
-                    Result_b = WebDriver.driver.find_element(MobileBy.XPATH, loan.certification_b)
-                    self.assertIn("심사필", Result_b.text)
+                    WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan.certification_b))
                     logging.info("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
                     loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *PASS*")
+                    print("비교대출 대출상세페이지_심의필 노출 결과 : PASS")
                 except AssertionError:
                     logging.info("비교대출 대출상세페이지_심의필 노출 결과 : FAIL")
                     loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *FAIL*")
                     base.save_screenshot('비교대출대출상세페이지_심의필노출결과_fail')
+                    print("비교대출 대출상세페이지_심의필 노출 결과 : FAIL")
                 except Exception as e:
                     logging.warning(f"비교대출 대출상세페이지_심의필 노출 결과 : {e}")
                     loanresult.reports.append("비교대출 대출상세페이지_심의필 노출 결과 : *Error*")
                     base.save_screenshot('비교대출대출상세페이지_심의필노출결과_error')
+                    print(f"비교대출 대출상세페이지_심의필 노출 결과 : {e}")
+
             base.android_back()
             base.android_back()
         except Exception as e:
@@ -1893,22 +1895,6 @@ class LoanComparisonTestcase(unittest.TestCase):
         results = []
         logging.info("직장인 대출 조회  (지역의료보험 선택) 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except :
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except :
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
             myhome.comPariSonLoan_In_f()
             base.scroll(2)
             base.scroll(2)
@@ -1965,6 +1951,58 @@ class LoanComparisonTestcase(unittest.TestCase):
             logging.error(f"직장인 대출 조회  (지역의료보험 선택) 테스트 진행중 에러 발생 : {e}")
         logging.info("직장인 대출 조회 (지역의료보험 선택) 테스트 종료")
 
+    # 차량번호 입력 테스트
+    def test_carnomber(self):
+        loan = Loan()
+        base = basemethod()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        logging.info("차량 번호 입력 테스트 시작")
+        try:
+            myhome.comPariSonLoan_In_f()
+            base.scroll(2)
+            base.scroll(2)
+            base.scroll(2)
+            comparisonloan.lookup_again()
+            comparisonloan.living_expenses()
+            comparisonloan.next_loan()
+            comparisonloan.next_loan()
+            comparisonloan.loan_terms_and_conditions_all()
+            comparisonloan.check_loan()
+            time.sleep(5)
+            comparisonloan.next_loan()
+            time.sleep(3)
+            comparisonloan.rrn_pass_input()
+            comparisonloan.next_loan()
+            comparisonloan.unemployed()
+            comparisonloan.check_loan()
+            comparisonloan.monthly_rent()
+            comparisonloan.mycar_namber()
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan.mycar_namber_check))
+                logging.info("차량 번호 입력 테스트 결과 : PASS")
+                loanresult.reports.append("차량 번호 입력 테스트 결과 : *PASS*")
+                print("차량 번호 입력 테스트 결과 : PASS")
+            except AssertionError:
+                logging.info("차량 번호 입력 테스트 결과 : FAIL")
+                loanresult.reports.append("차량 번호 입력 테스트 결과 : *FAIL*")
+                base.save_screenshot('차량 번호 입력 테스트 결과_fail')
+                print("차량 번호 입력 테스트 결과 : FAIL")
+            except Exception as e:
+                logging.warning(f"차량 번호 입력 테스트 결과 : {e}")
+                loanresult.reports.append("차량 번호 입력 테스트 결과 : *Error*")
+                base.save_screenshot('차량 번호 입력 테스트 결과_error')
+                print(f"차량 번호 입력 테스트 결과 : {e}")
+            base.android_back()
+            base.android_back()
+            base.android_back()
+            base.android_back()
+            base.android_back()
+        except Exception as e:
+            logging.error(f"차량 번호 입력 테스트 진행중 에러 발생 : {e}")
+        logging.info("차량 번호 입력 테스트 종료")
+
     # 직장인 외 대출 조회 테스트
     def test_unemployed_loan(self):
         loan = Loan()
@@ -1975,22 +2013,6 @@ class LoanComparisonTestcase(unittest.TestCase):
         results = []
         logging.info("직장인 외 대출 조회 테스트 시작")
         try:
-            # try:
-            #     myhome.comPariSonLoan_In_a()
-            # except:
-            #     try:
-            #         myhome.comPariSonLoan_In_b()
-            #     except:
-            #         try:
-            #             myhome.comPariSonLoan_In_c()
-            #         except:
-            #             try:
-            #                 myhome.comPariSonLoan_In_d()
-            #             except:
-            #                 try:
-            #                     myhome.comPariSonLoan_In_e()
-            #                 except Exception as e:
-            #                     logging.error(f"비교대출 배너 진입 에러 발생 : {e}")
             myhome.comPariSonLoan_In_f()
             base.scroll(2)
             base.scroll(2)
@@ -2118,6 +2140,15 @@ class test_Testcase(unittest.TestCase):
         myhome = MyHome()
         comparisonloan = ComparisonLoan()
         autoloan = Auto_Loan()
+        loan = Loan()
+        base = basemethod()
+        loanresult = Result_loan()
+        myhome = MyHome()
+        comparisonloan = ComparisonLoan()
+        results = []
+        logging.info("차량 번호 입력 테스트 시작")
+        comparisonloan.mycar_namber()
+        # comparisonloan.check_loan()
 
 
 

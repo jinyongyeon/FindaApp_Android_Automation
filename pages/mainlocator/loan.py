@@ -1,3 +1,5 @@
+from appium.webdriver.common.mobileby import MobileBy
+
 from config.info import InFo
 
 
@@ -201,6 +203,8 @@ class Loan:
     # 주민등록번호 적합성 검사 결과
     rrn_validation_fail_result = '//*[@text = "주민등록번호를 다시 한 번 확인해주세요."]'
     rrn_validation_pass_result = '//*[@text = "소득 정보 입력"]'
+    rrn_validation_pass_result_b = "//*[contains(@text, '인증서로 더 정확한')]"
+
 
     # 소득정보 : 직장인
     office_workers = '//*[@text = "직장인"]'
@@ -213,10 +217,17 @@ class Loan:
 
     annual_income = '//*[@text = "연소득(세전) 입력"]'
 
+    #제 명의의 차량을 갖고있어요
+    mycar_namber = MobileBy.XPATH,"//*[contains(@text, '제 명의의 차량을 갖고있어요')]"
+    mycar_namber_ex = MobileBy.XPATH, "//*[@text = '예시 : 123가1234']"
+    mycar_namber_check = MobileBy.XPATH,"//*[@text = '"+InFo().autoNo+"']"
+    mycar_namber_input = MobileBy.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"
+
+
     #후담대 정보
-    my_house = '//*[@text = "자가"]'
+    my_house = MobileBy.XPATH, '//*[@text = "자가"]'
     monthly_rent = '//*[@text = "전/월세"]'
-    APT = "//*[contains(@text, '아파트에 살고 있어요.')]"
+    APT = MobileBy.XPATH, '//*[@text = "아파트에 살고 있어요."]'
     address_search = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[2]'
     address_input = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText'
     home_address = '//*[@text = "김포시 걸포동 한강메트로자이2단지"]'
@@ -230,7 +241,7 @@ class Loan:
 
     #주택담보대출
     secured_loan_a = '//*[@text = "주택 담보대출 1"]'
-    secured_loan_a_look = '//*[@text = "1개 결과 보기"]'
+    secured_loan_look = "//*[contains(@text, '결과 보기')]"
     secured_loan_b = '//*[@text = "주택 담보대출 2"]'
     secured_loan_b_look = '//*[@text = "2개 결과 보기"]'
     secured_loan_c = '//*[@text = "주택 담보대출 3"]'
@@ -261,8 +272,8 @@ class Loan:
     deposit_today = "//*[@text = '오늘입금']"
     financial_sector = "//*[contains(@text, '캐피탈')]"
     comparison_loan_detail = "//*[@text = '대출 신청하기']"
-    certification_a = "//*[contains(@text, '심의필')]"
-    certification_b = "//*[contains(@text, '심사필')]"
+    certification_a = MobileBy.XPATH, "//*[contains(@text, '심의필')]"
+    certification_b = MobileBy.XPATH, "//*[contains(@text, '심사필')]"
     loan_application_result = "//*[contains(@text, '안내')]"
 
     # 대환대출
