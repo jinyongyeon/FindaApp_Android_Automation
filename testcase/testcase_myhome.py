@@ -70,7 +70,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 상단 메뉴 영역 노출 테스트 종료")
 
-    # 마이홈 비교대출 배너 테스트
+    # 마이홈 비교대출 배너 테스트(삭제)
     def test_comparison_loan(self):
         myhome = MyHome()
         home = Home()

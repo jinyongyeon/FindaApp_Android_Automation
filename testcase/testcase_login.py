@@ -1,9 +1,11 @@
 import time
 import unittest
 import logging
+from selenium.webdriver.support import expected_conditions as EC
 
 from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -519,7 +521,7 @@ class JoinTestCase(unittest.TestCase):
             join.pin_code()
             join.pin_code()
             try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, main.login_result)
+                Result = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(main.login_result))
                 # self.assertEqual(Result.text, ''+info.name+'님 안녕하세요')
                 self.assertEqual(Result.text, '금융생활')
                 logging.info("회원가입 결과 : PASS")

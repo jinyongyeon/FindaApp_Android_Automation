@@ -1,5 +1,6 @@
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
+from appium.webdriver.common.mobileby import MobileBy
 
 
 class Main:
@@ -17,7 +18,7 @@ class Main:
 
     # 로그인 완료 확인
     # login_result = '//*[@text ="'+info.name+'님 안녕하세요"]'
-    login_result = '//*[@text ="금융생활"]'
+    login_result = MobileBy.XPATH, '//*[@text ="금융생활"]'
 
     #온보딩 시작하기
     start_onboarding = '//*[@text ="시작하기"]'
