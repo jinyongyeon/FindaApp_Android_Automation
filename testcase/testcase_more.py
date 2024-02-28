@@ -1307,40 +1307,41 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("공지사항 진입 테스트 시작")
+        more.notice()
         try:
-            more.notice()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_Result)
-                self.assertEqual(Result.text,"공지사항")
-                logging.info("공지사항 진입 : PASS")
-                moreresult.reports.append("공지사항 진입 : *PASS*")
-            except AssertionError:
-                logging.info("공지사항 진입 : FAIL")
-                moreresult.reports.append("공지사항 진입 : *FAIL*")
-                base.save_screenshot('공지사항진입_fail')
-            except Exception as e:
-                logging.warning(f"공지사항 진입 에러 발생 : {e}")
-                moreresult.reports.append("공지사항 진입 : *Error*")
-                base.save_screenshot('공지사항진입_error')
-            time.sleep(2)
-            more.notice_in()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.notice_in_Result)
-                self.assertIn("안녕하세요", Result.text)
-                logging.info("공지사항 상세 진입 : PASS")
-                moreresult.reports.append("공지사항 상세 진입 : *PASS*")
-            except AssertionError:
-                logging.info("공지사항 상세 진입 : FAIL")
-                moreresult.reports.append("공지사항 상세 진입 : *FAIL*")
-                base.save_screenshot('공지사항상세진입_fail')
-            except Exception as e:
-                logging.warning(f"공지사항 상세 진입 에러 발생 : {e}")
-                moreresult.reports.append("공지사항 상세 진입 : *Error*")
-                base.save_screenshot('공지사항상세진입_error')
-            more.notice_in_back()
-            more.notice_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.notice_Result))
+            logging.info("공지사항 진입 : PASS")
+            moreresult.reports.append("공지사항 진입 : *PASS*")
+            print("공지사항 진입 : PASS")
+        except TimeoutError:
+            logging.info("공지사항 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("공지사항 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('공지사항진입_fail')
+            print("공지사항 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"공지사항 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"공지사항 진입 에러 발생 : {e}")
+            moreresult.reports.append("공지사항 진입 : *Error*")
+            base.save_screenshot('공지사항진입_error')
+            print(f"공지사항 진입 에러 발생 : {e}")
+        time.sleep(2)
+        more.notice_in()
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.notice_in_Result))
+            logging.info("공지사항 상세 진입 : PASS")
+            moreresult.reports.append("공지사항 상세 진입 : *PASS*")
+            print("공지사항 상세 진입 : PASS")
+        except TimeoutError:
+            logging.info("공지사항 상세 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("공지사항 상세 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('공지사항상세진입_fail')
+            print("공지사항 상세 진입_요소확인필요 : FAIL")
+        except Exception as e:
+            logging.warning(f"공지사항 상세 진입 에러 발생 : {e}")
+            moreresult.reports.append("공지사항 상세 진입 : *Error*")
+            base.save_screenshot('공지사항상세진입_error')
+            print(f"공지사항 상세 진입 에러 발생 : {e}")
+        more.notice_in_back()
+        more.notice_back()
         logging.info("공지사항 진입 테스트 종료")
 
     # 대출 후기 진입 테스트
@@ -1350,27 +1351,27 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("대출 후기 진입 테스트 시작")
+        more.loan_reviews()
+        time.sleep(5)
         try:
-            more.loan_reviews()
-            time.sleep(5)
-            try:
-                WebDriver.driver.find_element(MobileBy.XPATH, etc.loan_reviews_Result)
-                logging.info("대출 후기 진입 : PASS")
-                moreresult.reports.append("대출 후기 진입 : *PASS*")
-            except TimeoutError:
-                logging.info("대출 후기 진입 : FAIL")
-                moreresult.reports.append("대출 후기 진입 : *FAIL*")
-                base.save_screenshot('대출후기진입_fail')
-            except Exception as e:
-                logging.warning(f"대출 후기 진입 에러 발생 : {e}")
-                moreresult.reports.append("대출 후기 진입 : *Error*")
-                base.save_screenshot('대출후기진입_error')
-            try:
-                more.loan_reviews_back()
-            except:
-                base.android_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.loan_reviews_Result))
+            logging.info("대출 후기 진입 : PASS")
+            moreresult.reports.append("대출 후기 진입 : *PASS*")
+            print("대출 후기 진입 : PASS")
+        except TimeoutError:
+            logging.info("대출 후기 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("대출 후기 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('대출후기진입_fail')
+            print("대출 후기 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"대출 후기 진입 테스트 진행 중 에러 발생 : {e}")
+            logging.warning(f"대출 후기 진입 에러 발생 : {e}")
+            moreresult.reports.append("대출 후기 진입 : *Error*")
+            base.save_screenshot('대출후기진입_error')
+            print(f"대출 후기 진입 에러 발생 : {e}")
+        try:
+            more.loan_reviews_back()
+        except:
+            base.android_back()
         logging.info("대출 후기 진입 테스트 종료")
 
     # 최근 알림 진입 테스트
@@ -1380,25 +1381,24 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("최근 알림 진입 테스트 시작")
+        base.scroll(0.3)
+        more.alarm()
         try:
-            base.scroll(0.3)
-            more.alarm()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.alarm_Result)
-                self.assertIn("알림 설정", Result.text)
-                logging.info("최근 알림 진입 : PASS")
-                moreresult.reports.append("최근 알림 진입 : *PASS*")
-            except AssertionError:
-                logging.info("최근 알림 진입 : FAIL")
-                moreresult.reports.append("최근 알림 진입 : *FAIL*")
-                base.save_screenshot('최근알림진입_fail')
-            except Exception as e:
-                logging.warning(f"최근 알림 진입 에러 발생 : {e}")
-                moreresult.reports.append("최근 알림 진입 : *Error*")
-                base.save_screenshot('최근알림진입_error')
-            more.alarm_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.alarm_Result))
+            logging.info("최근 알림 진입 : PASS")
+            moreresult.reports.append("최근 알림 진입 : *PASS*")
+            print("최근 알림 진입 : PASS")
+        except TimeoutError:
+            logging.info("최근 알림 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("최근 알림 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('최근알림진입_fail')
+            print("최근 알림 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"최근 알림 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"최근 알림 진입 에러 발생 : {e}")
+            moreresult.reports.append("최근 알림 진입 : *Error*")
+            base.save_screenshot('최근알림진입_error')
+            print(f"최근 알림 진입 에러 발생 : {e}")
+        more.alarm_back()
         logging.info("최근 알림 진입 테스트 종료")
 
     # 포인트 진입 테스트
@@ -1408,25 +1408,24 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("포인트 진입 테스트 시작")
+        base.scroll(0.3)
+        more.point()
         try:
-            base.scroll(0.3)
-            more.point()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.point)
-                self.assertEqual(Result.text,"포인트")
-                logging.info("포인트 진입 : PASS")
-                moreresult.reports.append("포인트 진입 : *PASS*")
-            except AssertionError:
-                logging.info("포인트 진입 : FAIL")
-                moreresult.reports.append("포인트 진입 : *FAIL*")
-                base.save_screenshot('포인트진입_fail')
-            except Exception as e:
-                logging.warning(f"포인트 진입 에러 발생 : {e}")
-                moreresult.reports.append("포인트 진입 : *Error*")
-                base.save_screenshot('포인트진입_error')
-            base.android_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.point))
+            logging.info("포인트 진입 : PASS")
+            moreresult.reports.append("포인트 진입 : *PASS*")
+            print("포인트 진입 : PASS")
+        except TimeoutError:
+            logging.info("포인트 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("포인트 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('포인트진입_fail')
+            print("포인트 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"포인트 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"포인트 진입 에러 발생 : {e}")
+            moreresult.reports.append("포인트 진입 : *Error*")
+            base.save_screenshot('포인트진입_error')
+            print(f"포인트 진입 에러 발생 : {e}")
+        base.android_back()
         logging.info("포인트 진입 테스트 종료")
 
     # 출석체크 진입 테스트
@@ -1436,25 +1435,24 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("출석체크 진입 테스트 시작")
+        base.scroll(0.3)
+        more.checkin()
         try:
-            base.scroll(0.3)
-            more.checkin()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.checkin)
-                self.assertIn("출석체크" , Result.text)
-                logging.info("출석체크 진입 : PASS")
-                moreresult.reports.append("출석체크 진입 : *PASS*")
-            except AssertionError:
-                logging.info("출석체크 진입 : FAIL")
-                moreresult.reports.append("출석체크 진입 : *FAIL*")
-                base.save_screenshot('출석체크진입_fail')
-            except Exception as e:
-                logging.warning(f"출석체크 진입 에러 발생 : {e}")
-                moreresult.reports.append("출석체크 진입 : *Error*")
-                base.save_screenshot('출석체크진입_error')
-            base.android_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.checkin))
+            logging.info("출석체크 진입 : PASS")
+            moreresult.reports.append("출석체크 진입 : *PASS*")
+            print("출석체크 진입 : PASS")
+        except TimeoutError:
+            logging.info("출석체크 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("출석체크 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('출석체크진입_fail')
+            print("출석체크 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"출석체크 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"출석체크 진입 에러 발생 : {e}")
+            moreresult.reports.append("출석체크 진입 : *Error*")
+            base.save_screenshot('출석체크진입_error')
+            print(f"출석체크 진입 에러 발생 : {e}")
+        base.android_back()
         logging.info("출석체크 진입 테스트 종료")
 
     # 물가예측 시즌1 테스트
@@ -1464,25 +1462,24 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("물가예측 시즌 1 진입 테스트 시작")
+        base.scroll(0.3)
+        more.priceforecast()
         try:
-            base.scroll(0.3)
-            more.priceforecast()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.priceforecast_result)
-                self.assertIn("포인트 받기" , Result.text)
-                logging.info("물가예측 시즌1 진입 : PASS")
-                moreresult.reports.append("물가예측 시즌1 진입 : *PASS*")
-            except AssertionError:
-                logging.info("물가예측 시즌1 진입 : FAIL")
-                moreresult.reports.append("물가예측 시즌1 진입 : *FAIL*")
-                base.save_screenshot('물가예측시즌1진입_fail')
-            except Exception as e:
-                logging.warning(f"물가예측 시즌1 진입 에러 발생 : {e}")
-                moreresult.reports.append("물가예측 시즌1 진입 : *Error*")
-                base.save_screenshot('물가예측 시즌1진입_error')
-            base.android_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.priceforecast_result))
+            logging.info("물가예측 시즌1 진입 : PASS")
+            moreresult.reports.append("물가예측 시즌1 진입 : *PASS*")
+            print("물가예측 시즌1 진입 : PASS")
+        except TimeoutError:
+            logging.info("물가예측 시즌1 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("물가예측 시즌1 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('물가예측시즌1진입_fail')
+            print("물가예측 시즌1 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"물가예측 시즌1 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"물가예측 시즌1 진입 에러 발생 : {e}")
+            moreresult.reports.append("물가예측 시즌1 진입 : *Error*")
+            base.save_screenshot('물가예측 시즌1진입_error')
+            print(f"물가예측 시즌1 진입 에러 발생 : {e}")
+        base.android_back()
         logging.info("물가예측 시즌1 진입 테스트 종료")
 
     # 물가예측 참여내역 테스트
@@ -1492,25 +1489,24 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("물가예측 참여내역 진입 테스트 시작")
+        base.scroll(0.3)
+        more.priceforecast_history()
         try:
-            base.scroll(0.3)
-            more.priceforecast_history()
-            try:
-                Result = WebDriver.driver.find_element(AppiumBy.XPATH, etc.priceforecast_history_result)
-                self.assertIn("받은 예측 포인트" , Result.text)
-                logging.info("물가예측 참여내역 진입 : PASS")
-                moreresult.reports.append("물가예측 참여내역 진입 : *PASS*")
-            except AssertionError:
-                logging.info("물가예측 참여내역 진입 : FAIL")
-                moreresult.reports.append("물가예측 참여내역 진입 : *FAIL*")
-                base.save_screenshot('물가예측참여내역진입_fail')
-            except Exception as e:
-                logging.warning(f"물가예측 참여내역 진입 에러 발생 : {e}")
-                moreresult.reports.append("물가예측 참여내역 진입 : *Error*")
-                base.save_screenshot('물가예측 참여내역진입_error')
-            base.android_back()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.priceforecast_history_result))
+            logging.info("물가예측 참여내역 진입 : PASS")
+            moreresult.reports.append("물가예측 참여내역 진입 : *PASS*")
+            print("물가예측 참여내역 진입 : PASS")
+        except TimeoutError:
+            logging.info("물가예측 참여내역 진입_요소확인필요 : FAIL")
+            moreresult.reports.append("물가예측 참여내역 진입_요소확인필요 : *FAIL*")
+            base.save_screenshot('물가예측참여내역진입_fail')
+            print("물가예측 참여내역 진입_요소확인필요 : FAIL")
         except Exception as e:
-            logging.error(f"물가예측 참여내역 진입 테스트 진행 중 에서 발생 : {e}")
+            logging.warning(f"물가예측 참여내역 진입 에러 발생 : {e}")
+            moreresult.reports.append("물가예측 참여내역 진입 : *Error*")
+            base.save_screenshot('물가예측 참여내역진입_error')
+            print(f"물가예측 참여내역 진입 에러 발생 : {e}")
+        base.android_back()
         logging.info("물가예측 참여내역 진입 테스트 종료")
 
 if __name__ == '__main__':

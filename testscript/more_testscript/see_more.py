@@ -830,13 +830,13 @@ class More:
 
     # 포인트 진입
     def point(self):
-        point = WebDriver.driver.find_element(MobileBy.XPATH, Etc.point)
+        point = WebDriver.driver.find_element(Etc.point)
         point.click()
         time.sleep(2)
 
     # 출석체크 진입
     def checkin(self):
-        checkin = WebDriver.driver.find_element(MobileBy.XPATH, Etc.checkin)
+        checkin = WebDriver.driver.find_element(Etc.checkin)
         checkin.click()
         time.sleep(2)
 

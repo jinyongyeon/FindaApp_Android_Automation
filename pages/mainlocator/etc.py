@@ -363,14 +363,14 @@ class Etc:
     notice = '//*[@text = "공지사항"]'
 
     # 공지사항 진입 결과
-    notice_Result = '//*[@text = "공지사항"]'
+    notice_Result = MobileBy.XPATH, '//*[@text = "공지사항"]'
 
 
     # 공지사항 컨텐츠 진입
     notice_in = "//*[contains(@text, '정기적 수신 동의')]"
 
     # 공지사항 컨텐츠 진입 결과
-    notice_in_Result = '//*[contains(@text, "안녕하세요")]'
+    notice_in_Result = MobileBy.XPATH, '//*[contains(@text, "안녕하세요")]'
 
     # 공지사항 컨텐츠 > 뒤로가기
     notice_in_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]'
@@ -382,7 +382,7 @@ class Etc:
     loan_reviews = '//*[@text = "대출후기"]'
 
     # 대출후기 진입 결과
-    loan_reviews_Result = "//*[contains(@text, '핀다 고객님이 남겨주신')]"
+    loan_reviews_Result = MobileBy.XPATH, "//*[contains(@text, '핀다 고객님이 남겨주신')]"
 
     # 대출후기 > 뒤로가기
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
@@ -391,24 +391,24 @@ class Etc:
     alarm = "//*[contains(@text, '최근 알림')]"
 
     # 최근알림 진입 결과
-    alarm_Result = "//*[contains(@text, '알림 설정')]"
+    alarm_Result = MobileBy.XPATH, "//*[contains(@text, '알림 설정')]"
 
     # 최근 알림 뒤로가기
     alarm_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
     # 포인트 진입
-    point = "//*[contains(@text, '포인트')]"
+    point = MobileBy.XPATH, "//*[contains(@text, '포인트')]"
 
     # 출석체크 진입
-    checkin = "//*[contains(@text, '출석체크')]"
+    checkin = MobileBy.XPATH, "//*[contains(@text, '출석체크')]"
 
     priceforecast = "//*[contains(@text, '물가예측 시즌1')]"
 
-    priceforecast_result = "//*[contains(@text, '포인트 받기')]"
+    priceforecast_result = MobileBy.XPATH, "//*[contains(@text, '포인트 받기')]"
 
     priceforecast_history = "//*[contains(@text, '물가예측 참여내역')]"
 
-    priceforecast_history_result = "//*[contains(@text, '받은 예측 포인트')]"
+    priceforecast_history_result = MobileBy.XPATH, "//*[contains(@text, '받은 예측 포인트')]"
 
 
     # 설정 영역 --------------------------------------
