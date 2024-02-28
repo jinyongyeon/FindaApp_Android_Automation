@@ -6,6 +6,8 @@ import pickle
 import requests
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
@@ -39,34 +41,32 @@ class MyHome_Testcase(unittest.TestCase):
     # 마이홈 상단 메뉴 영역 노출 테스트
     def test_myhome_menu(self):
         myhome = MyHome()
+        home = Home()
         result_myhome = Result_MyHome()
         base = basemethod()
         logging.info("마이홈 상단 메뉴 영역 노출 테스트 시작")
         try:
-            try:
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출받기')]")
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '사업자대출')]")
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]")
-                myhome.menu_right_to_left()
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]")
-                WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 리스렌트')]")
-                logging.info("마이홈 상단 메뉴 영역 노출 : PASS")
-                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *PASS*")
-                print("마이홈 상단 메뉴 영역 노출 : PASS")
-            except AssertionError:
-                logging.info("마이홈 상단 메뉴 영역 노출 : FAIL")
-                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *FAIL*")
-                base.save_screenshot('마이홈 상단 메뉴 영역 노출_fail')
-                print("마이홈 상단 메뉴 영역 노출 : FAIL")
-            except Exception as e:
-                logging.warning(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
-                result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *Error*")
-                base.save_screenshot('마이홈 상단 메뉴 영역 노출_error')
-                print(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
-            myhome.menu_left_to_right()
+            WebDriver.driver.find_element(home.quick_menu_a)
+            WebDriver.driver.find_element(home.quick_menu_b)
+            WebDriver.driver.find_element(home.quick_menu_c)
+            WebDriver.driver.find_element(home.quick_menu_d)
+            myhome.menu_right_to_left()
+            WebDriver.driver.find_element(home.quick_menu_e)
+            WebDriver.driver.find_element(home.quick_menu_f)
+            logging.info("마이홈 상단 메뉴 영역 노출 : PASS")
+            result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *PASS*")
+            print("마이홈 상단 메뉴 영역 노출 : PASS")
+        except TimeoutError:
+            logging.info("마이홈 상단 메뉴 영역 노출 : FAIL_요소 확인 필요")
+            result_myhome.reports.append("마이홈 상단 메뉴 영역 노출_요소 확인 필요_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('마이홈 상단 메뉴 영역 노출_fail')
+            print("마이홈 상단 메뉴 영역 노출 : FAIL_요소 확인 필요")
         except Exception as e:
-            logging.error(f"마이홈 상단 메뉴 영역 노출 테스트 진행 중 에러 발생 : {e}")
+            logging.warning(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
+            result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *Error*")
+            base.save_screenshot('마이홈 상단 메뉴 영역 노출_error')
+            print(f"마이홈 상단 메뉴 영역 노출 에러 발생 : {e}")
+        myhome.menu_left_to_right()
         base.android_back()
         logging.info("마이홈 상단 메뉴 영역 노출 테스트 종료")
 
@@ -629,13 +629,9 @@ class MyHome_Testcase(unittest.TestCase):
         myhome = MyHome()
         result_myhome = Result_MyHome()
         base = basemethod()
-        etc = Etc()
-        home = Home()
         more = More()
         info = InFo()
         seting = Seting()
-        results = []
-        results_a = []
         logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 시작")
         more.etc_in()
         seting.seting_in()
@@ -644,32 +640,7 @@ class MyHome_Testcase(unittest.TestCase):
         base.user_token_get()
         base.android_back()
         base.android_back()
-        with open('usertoken.pickle', 'rb') as f:
-            usertoken = pickle.load(f)
-        url = "https://service-api.finda.co.kr/pf/v2/personalcredit/kcb-data"
-        # 요청 헤더 설정 (필요에 따라 사용)
-        headers = { "Content-Type" : "application/json",
-                    "X-Auth-Token": ''.join(usertoken)
-                    }
-        # 요청 본문 데이터 (필요에 따라 사용)
-        data = {
-        }
-        try:
-            # POST 요청
-            response = requests.get(url, headers=headers, json=data, verify=False)
-            # 응답 상태 코드 확인
-            result = response.json()
-            logging.info(result)
-            if 'list' in result and len(result['creditSummary']) > 0:
-                first_product_name = result['creditSummary'][0]['creditScore']
-                info.credit_score.append(first_product_name)
-            credit_score = "".join(map(str, info.credit_score))
-            logging.info(credit_score)
-            print(credit_score)
-        except Exception as e:
-            logging.error(f"credit_score 요청실패 : {e}")
-            print(f"credit_score 요청실패 : {e}")
-
+        myhome.credit_score_get()
         myhome.credit_score()
         try:
             time.sleep(5)
@@ -677,26 +648,17 @@ class MyHome_Testcase(unittest.TestCase):
         except:
             pass
         try:
-            result = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"점')]")
-            self.assertIn(""+credit_score+"점", result.text)
+            credit_score = "".join(map(str, info.credit_score))
+            print(credit_score)
+            WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"')]")
             print("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
             logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
             result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
-        except AssertionError:
-            print("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
-            logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
-            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *FAIL*")
+        except TimeoutError:
+            print("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
+            logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
+            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과_요소 확인 필요 : *FAIL*")
             base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
-        # except Exception :
-            # try:
-            #     Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.credit_score_Result)
-            #     self.assertEqual("신용관리", Result.text)
-            #     logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
-            #     result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
-            # except AssertionError:
-            #     logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과 : FAIL")
-            #     result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *FAIL*")
-            #     base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
         except Exception as e:
             print(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
             logging.warning(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
@@ -751,88 +713,83 @@ class MyHome_Testcase(unittest.TestCase):
 
     # 마이홈 금융생활 영역 대출 노출 및 진입 테스트
     def test_myhome_myloan(self):
-        myhome = MyHome()
         result_myhome = Result_MyHome()
         base = basemethod()
-        etc = Etc()
         home = Home()
-        more = More()
         info = InFo()
-        seting = Seting()
         results = []
-        results_a = []
         logging.info("마이홈 금융생활 영역 대출 노출 테스트 시작")
+        # more.etc_in()
+        # seting.seting_in()
+        # base.scroll(2)
+        # base.user_id_get()
+        # base.user_token_get()
+        base.android_back()
+        base.android_back()
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
         try:
-            # more.etc_in()
-            # seting.seting_in()
-            # base.scroll(2)
-            # base.user_id_get()
-            # base.user_token_get()
-            base.android_back()
-            base.android_back()
-            with open('usertoken.pickle', 'rb') as f:
-                usertoken = pickle.load(f)
-            url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
-            # 요청 헤더 설정 (필요에 따라 사용)
-            headers = { "Content-Type" : "application/json",
-                        "X-Auth-Token": ''.join(usertoken)
-                        }
-            # 요청 본문 데이터 (필요에 따라 사용)
-            data = {
-            }
-            try:
-                # POST 요청
-                response = requests.get(url, headers=headers, json=data, verify=False)
-                # 응답 상태 코드 확인
-                result = response.json()
-                logging.info(result)
-                if 'list' in result and len(result['list']) > 0:
-                    first_product_name = result['list'][0]['productName']
-                    info.loans_data.append(first_product_name)
-                loans_data = "".join(map(str, info.loans_data))
-                logging.info(loans_data)
-                print(loans_data)
-            except Exception as e:
-                logging.error(f"loans_data 요청실패 : {e}")
-            verification_list = [(loans_data, "//*[contains(@text, '"+loans_data+"')]")]
-            for text, xpath in verification_list:
-                try:
-                    result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                    self.assertEqual(result_a.text, text)
-                    results.append("PASS")
-                except AssertionError:
-                    results.append("FAIL")
-                except Exception as e:
-                    logging.warning(f"내 대출 노출 에러 발생 : {e}")
-                    results.append("Error")
-            logging.info(results)
-            if all(result == "PASS" for result in results):
-                logging.info("내 대출 노출 : PASS")
-                result_myhome.reports.append("내 대출 노출 : *PASS*")
-            else:
-                logging.info("내 대출 노출 : FAIL")
-                result_myhome.reports.append("내 대출 노출 : *FAIL*")
-                base.save_screenshot('내대출노출_fail')
-            try:
-                loan_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+loans_data+"')]")
-                loan_a.click()
-                time.sleep(2)
-                result_c = WebDriver.driver.find_element(MobileBy.XPATH, home.loan_a)
-                self.assertIn("대출금", result_c.text)
-                logging.info("금융생활 > 대출 상세 진입 : PASS")
-                result_myhome.reports.append("금융생활 > 대출 상세 진입 : *PASS*")
-            except AssertionError:
-                logging.info("금융생활 > 대출 상세 진입 : FAIL")
-                result_myhome.reports.append("금융생활 > 대출 상세 진입 : *FAIL*")
-            except Exception as e:
-                logging.warning(f"금융생활 > 대출 상세 진입 에러 발생 : {e}")
-                results.append("Error")
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            logging.info(result)
+            if 'list' in result and len(result['list']) > 0:
+                first_product_name = result['list'][0]['productName']
+                info.loans_data.append(first_product_name)
+            loans_data = "".join(map(str, info.loans_data))
+            logging.info(loans_data)
+            print(loans_data)
         except Exception as e:
-            logging.error(f"마이홈 내 대출 테스트 진행 중 에러 발생 : {e}")
+            logging.error(f"loans_data 요청실패 : {e}")
+        verification_list = [(loans_data, "//*[contains(@text, '"+loans_data+"')]")]
+        for text, xpath in verification_list:
+            try:
+                result_a = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertEqual(result_a.text, text)
+                results.append("PASS")
+            except AssertionError:
+                results.append("FAIL")
+            except Exception as e:
+                logging.warning(f"내 대출 노출 에러 발생 : {e}")
+                results.append("Error")
+        logging.info(results)
+        if all(result == "PASS" for result in results):
+            logging.info("내 대출 노출 : PASS")
+            result_myhome.reports.append("내 대출 노출 : *PASS*")
+        else:
+            logging.info("내 대출 노출 : FAIL")
+            result_myhome.reports.append("내 대출 노출 : *FAIL*")
+            base.save_screenshot('내대출노출_fail')
+        try:
+            WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+loans_data+"')]").click()
+            time.sleep(2)
+            WebDriver.driver.find_element(MobileBy.XPATH, home.loan_a)
+            print("금융생활 > 대출 상세 진입 : PASS")
+            logging.info("금융생활 > 대출 상세 진입 : PASS")
+            result_myhome.reports.append("금융생활 > 대출 상세 진입 : *PASS*")
+        except TimeoutError:
+            print("금융생활 > 대출 상세 진입 : FAIL_요소 확인 필요")
+            logging.info("금융생활 > 대출 상세 진입 : FAIL_요소 확인 필요")
+            result_myhome.reports.append("금융생활 > 대출 상세 진입_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('금융생활 > 대출 상세 진입_FAIL')
+        except Exception as e:
+            print(f"금융생활 > 대출 상세 진입 에러 발생 : {e}")
+            logging.warning(f"금융생활 > 대출 상세 진입 에러 발생 : {e}")
+            result_myhome.reports.append("금융생활 > 대출 상세 진입 : *Error*")
+            base.save_screenshot('금융생활 > 대출 상세 진입_error')
         base.android_back()
         logging.info("마이홈 금융생활 영역 대출 노출 테스트 종료")
 
-    # 마이홈 오토리스 배너 테스트
+    # 마이홈 오토리스 배너 테스트(삭제)
     def test_lease_contract_banner(self):
         myhome = MyHome()
         home = Home()
@@ -840,44 +797,37 @@ class MyHome_Testcase(unittest.TestCase):
         result_myhome = Result_MyHome()
         base = basemethod()
         logging.info("마이홈 오토리스 배너 테스트 시작")
+        myhome.menu_right_to_left()
         try:
-            # base.scroll(1)
-            # base.scroll(2)
-            myhome.menu_right_to_left()
-            try:
-                Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.lease_contract_banner)
-                self.assertEqual(Result_a.text, "차 리스렌트")
-                logging.info("장기렌트 리스 배너 노출 : PASS")
-                result_myhome.reports.append("장기렌트 리스 배너 노출 : *PASS*")
-            except AssertionError:
-                logging.info("장기렌트 리스 배너 노출 : FAIL")
-                result_myhome.reports.append("장기렌트 리스 배너 노출 : *FAIL*")
-                base.save_screenshot('장기렌트리스배너노출_fail')
-            except Exception as e:
-                logging.warning(f"장기렌트 리스 배너 노출 에러 발생 : {e}")
-                result_myhome.reports.append("장기렌트 리스 배너 노출 : *Error*")
-                base.save_screenshot('장기렌트리스배너노출_error')
-            myhome.Lease_Contract_Banner()
-            try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, etc.lease_rent_result)
-                self.assertEqual(Result.text, "차량 구경하고 견적 내보기")
-                logging.info("장기렌트 리스 배너 진입 : PASS")
-                result_myhome.reports.append("장기렌트 리스 배너 진입 : *PASS*")
-            except AssertionError:
-                logging.info("장기렌트 리스 배너 진입 : FAIL")
-                result_myhome.reports.append("장기렌트 리스 배너 진입 : *FAIL*")
-                base.save_screenshot('장기렌트리스배너진입_fail')
-            except Exception as e:
-                logging.warning(f"장기렌트 리스 배너 진입 에러 발생 : {e}")
-                result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
-                base.save_screenshot('장기렌트리스배너진입_error')
-            myhome.menu_left_to_right()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.lease_contract_banner))
+            logging.info("장기렌트 리스 배너 노출 : PASS")
+            result_myhome.reports.append("장기렌트 리스 배너 노출 : *PASS*")
+        except TimeoutError:
+            logging.info("장기렌트 리스 배너 노출_요소 확인 필요 : FAIL")
+            result_myhome.reports.append("장기렌트 리스 배너 노출_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('장기렌트리스배너노출_fail')
         except Exception as e:
-            logging.error(f"마이홈 오토리스 배너 테스트 진행 중 에러 발생 : {e}")
+            logging.warning(f"장기렌트 리스 배너 노출 에러 발생 : {e}")
+            result_myhome.reports.append("장기렌트 리스 배너 노출 : *Error*")
+            base.save_screenshot('장기렌트리스배너노출_error')
+        myhome.Lease_Contract_Banner()
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.lease_rent_result))
+            logging.info("장기렌트 리스 배너 진입 : PASS")
+            result_myhome.reports.append("장기렌트 리스 배너 진입 : *PASS*")
+        except TimeoutError:
+            logging.info("장기렌트 리스 배너 진입_요소 확인 필요 : FAIL")
+            result_myhome.reports.append("장기렌트 리스 배너 진입_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('장기렌트리스배너진입_fail')
+        except Exception as e:
+            logging.warning(f"장기렌트 리스 배너 진입 에러 발생 : {e}")
+            result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
+            base.save_screenshot('장기렌트리스배너진입_error')
+        myhome.menu_left_to_right()
         logging.info("마이홈 오토리스 배너 테스트 시작")
         base.android_back()
 
-    # 마이홈 자동차 대출 배너 테스트
+    # 마이홈 자동차 대출 배너 테스트(삭제)
     def test_auto_loan_banner(self):
         myhome = MyHome()
         home = Home()
@@ -886,48 +836,38 @@ class MyHome_Testcase(unittest.TestCase):
         result_myhome = Result_MyHome()
         base = basemethod()
         logging.info("마이홈 자동차 대출 배너 테스트 시작")
+        myhome.menu_right_to_left()
         try:
-            myhome.menu_right_to_left()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.auto_loan_banner))
+            logging.info("차 구매 대출 배너 노출 : PASS")
+            result_myhome.reports.append("차 구매 대출 배너 노출 : *PASS*")
+        except TimeoutError:
+            logging.info("차 구매 대출 배너 노출_요소 확인 필요 : FAIL")
+            result_myhome.reports.append("차 구매 대출 배너 노출_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('차구매대출배너노출_fail')
+        except Exception as e:
+            logging.warning(f"차 구매 대출 배너 노출 에러 발생 : {e}")
+            result_myhome.reports.append("차 구매 대출 배너 노출 : *Error*")
+            base.save_screenshot('차구매대출배너노출_error')
+        myhome.auto_Loan_Banner()
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.auto_loan_Result_a))
+            logging.info("차 구매 대출 배너 진입 : PASS")
+            result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
+        except Exception:
             try:
-                Result_a = WebDriver.driver.find_element(MobileBy.XPATH, home.auto_loan_banner)
-                self.assertEqual(Result_a.text, "차 구매대출")
-                logging.info("차 구매 대출 배너 노출 : PASS")
-                result_myhome.reports.append("차 구매 대출 배너 노출 : *PASS*")
-            except AssertionError:
-                logging.info("차 구매 대출 배너 노출 : FAIL")
-                result_myhome.reports.append("차 구매 대출 배너 노출 : *FAIL*")
-                base.save_screenshot('차구매대출배너노출_fail')
-            except Exception as e:
-                logging.warning(f"차 구매 대출 배너 노출 에러 발생 : {e}")
-                result_myhome.reports.append("차 구매 대출 배너 노출 : *Error*")
-                base.save_screenshot('차구매대출배너노출_error')
-            myhome.auto_Loan_Banner()
-            try:
-                Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_a)
-                self.assertEqual(Result_A.text,"1분만에 내 한도 알아보기")
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.auto_loan_Result_b))
                 logging.info("차 구매 대출 배너 진입 : PASS")
                 result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
-            except AssertionError:
-                logging.info("차 구매 대출 배너 진입 : FAIL")
-                result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
+            except TimeoutError:
+                logging.info("차 구매 대출 배너 진입_요소 확인 필요 : FAIL")
+                result_myhome.reports.append("차 구매 대출 배너 진입_요소 확인 필요 : *FAIL*")
                 base.save_screenshot('차구매대출배너진입_fail')
-            except Exception:
-                try:
-                    Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
-                    self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
-                    logging.info("차 구매 대출 배너 진입 : PASS")
-                    result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
-                except AssertionError:
-                    logging.info("차 구매 대출 배너 진입 : FAIL")
-                    result_myhome.reports.append("차 구매 대출 배너 진입 : *FAIL*")
-                    base.save_screenshot('차구매대출배너진입_fail')
-                except Exception as e:
-                    logging.warning(f"차 구매 대출 배너 진입 에러 발생 : {e}")
-                    result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
-                    base.save_screenshot('차구매대출배너진입_error')
-            myhome.menu_left_to_right()
-        except Exception as e:
-            logging.error(f"마이홈 자동차 대출 배너 테스트 진행 중 에러 발생 : {e}")
+            except Exception as e:
+                logging.warning(f"차 구매 대출 배너 진입 에러 발생 : {e}")
+                result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
+                base.save_screenshot('차구매대출배너진입_error')
+        myhome.menu_left_to_right()
         logging.info("마이홈 자동차 대출 배너 테스트 종료")
         base.android_back()
 

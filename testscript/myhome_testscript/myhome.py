@@ -101,6 +101,34 @@ class MyHome:
         loandiagnosisbanner_h.click()
         time.sleep(2)
 
+    # 신용점수 가져오기
+    def credit_score_get(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        url = "https://service-api.finda.co.kr/pf/v2/personalcredit/kcb-data"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = {"Content-Type": "application/json",
+                   "X-Auth-Token": ''.join(usertoken)
+                   }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        try:
+            # POST 요청
+            response = requests.get(url, headers=headers, json=data, verify=False)
+            # 응답 상태 코드 확인
+            result = response.json()
+            print(result)
+            logging.info(result)
+            credit_score = result["creditSummary"]["creditScore"]
+            self.info.credit_score.append(credit_score)
+            logging.info(credit_score)
+            print(credit_score)
+        except Exception as e:
+            logging.error(f"credit_score 요청실패 : {e}")
+            print(f"credit_score 요청실패 : {e}")
+
+
     # 신용점수 진입
     def credit_score(self):
         credit_score = WebDriver.driver.find_element(MobileBy.XPATH, self.home.credit_score)

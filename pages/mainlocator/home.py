@@ -1,3 +1,5 @@
+from appium.webdriver.common.mobileby import MobileBy
+
 from config.info import InFo
 
 
@@ -14,6 +16,14 @@ class Home:
     loans_e = "//*[contains(@text, '대출 이어서 진행하기')]"
     loans_f = '//*[@text = "대출받기"]'
 
+    # 퀵메뉴
+    quick_menu_a = MobileBy.XPATH, "//*[contains(@test, '대출받기')]"
+    quick_menu_b = MobileBy.XPATH, "//*[contains(@test, '대출갈아타기')]"
+    quick_menu_c = MobileBy.XPATH, "//*[contains(@test, '사업자대출')]"
+    quick_menu_d = MobileBy.XPATH, "//*[contains(@test, '주택담보대출')]"
+    quick_menu_e = MobileBy.XPATH, "//*[contains(@test, '차 구매대출')]"
+    quick_menu_f = MobileBy.XPATH, "//*[contains(@test, '차 리스렌트')]"
+
     # 마이홈 대출진단 배너
     loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"
     loandiagnosisbanner_aa = "//*[contains(@text, '시작하기')]"
@@ -28,13 +38,13 @@ class Home:
     loandiagnosisbanner_h = "//*[contains(@text, '마스터 달성')]"
 
     # 대환대출 진입 결과
-    refinanceloanfirstvisit_a = '//*[@text = "내 대출 계좌 연결하기"]'
-    refinanceloanfirstvisit_b = "//*[contains(@text, '챌린지 시작')]"
-    refinance_loan_challenge = '//*[@text = "대환 챌린지"]'
-    refinance_loan_challenge_a = '//*[@text = "챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!"]'
-    refinance_loan_challenge_b = '//*[@text = "당신은 Lv.1 될성부른 꿈나무"]'
-    refinance_loan_challenge_c = '//*[@text = "당신은 Lv.2 성실한 우등생"]'
-    refinance_loan_challenge_d = '//*[@text = "당신은 Lv.3 만랩 마스터"]'
+    refinanceloanfirstvisit_a = MobileBy.XPATH, '//*[@text = "다시 오픈할 때 알림받기"]'
+    refinanceloanfirstvisit_b = MobileBy.XPATH, "//*[contains(@text, '챌린지 시작')]"
+    refinance_loan_challenge = MobileBy.XPATH, '//*[@text = "대환 챌린지"]'
+    refinance_loan_challenge_a = MobileBy.XPATH, '//*[@text = "챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!"]'
+    refinance_loan_challenge_b = MobileBy.XPATH, '//*[@text = "당신은 Lv.1 될성부른 꿈나무"]'
+    refinance_loan_challenge_c = MobileBy.XPATH, '//*[@text = "당신은 Lv.2 성실한 우등생"]'
+    refinance_loan_challenge_d = MobileBy.XPATH, '//*[@text = "당신은 Lv.3 만랩 마스터"]'
 
     # 내 대출 배너
     loan_banner = "//*[@text = '금융생활']"
@@ -55,11 +65,11 @@ class Home:
     repayment_schedule = '//*[@text = "이달의 총 나가는 돈"]'
 
     # 장기렌트 리스 배너
-    lease_contract_banner = '//*[@text = "차 리스렌트"]'
+    lease_contract_banner = MobileBy.XPATH, '//*[@text = "차 리스렌트"]'
 
 
     # 차 구매 대출 배너
-    auto_loan_banner = '//*[@text = "차 구매대출"]'
+    auto_loan_banner = MobileBy.XPATH, '//*[@text = "차 구매대출"]'
 
 
     # 신용점수

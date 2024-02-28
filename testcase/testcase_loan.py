@@ -2101,7 +2101,7 @@ class LoanComparisonTestcase(unittest.TestCase):
             comparisonloan.auto_loan_in()
             time.sleep(3)
             try:
-                Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_a)
+                Result_A = WebDriver.driver.find_element(etc.auto_loan_Result_a)
                 self.assertEqual(Result_A.text,"1분만에 내 한도 알아보기")
                 logging.info("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : PASS")
                 loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *PASS*")
@@ -2111,7 +2111,7 @@ class LoanComparisonTestcase(unittest.TestCase):
                 base.save_screenshot('자동차대출선택시오토론이동결과_fail')
             except Exception:
                 try:
-                    Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.auto_loan_Result_b)
+                    Result_B = WebDriver.driver.find_element(etc.auto_loan_Result_b)
                     self.assertIn(''+info.name+'님의\n가장 좋은 대출 조건이에요.', Result_B.text)
                     logging.info("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : PASS")
                     loanresult.reports.append("비교대출 내 자동차대출 선택 시 오토론 이동 결과 : *PASS*")
