@@ -1351,6 +1351,7 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("대출 후기 진입 테스트 시작")
+        base.scroll(0.3)
         more.loan_reviews()
         time.sleep(5)
         try:

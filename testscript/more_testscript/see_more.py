@@ -1,8 +1,9 @@
 import time
 import logging
+from selenium.webdriver.support import expected_conditions as EC
 
 from appium.webdriver.common.mobileby import MobileBy
-
+from selenium.webdriver.support.wait import WebDriverWait
 
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.base import basemethod
@@ -830,14 +831,12 @@ class More:
 
     # 포인트 진입
     def point(self):
-        point = WebDriver.driver.find_element(Etc.point)
-        point.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.point)).click()
         time.sleep(2)
 
     # 출석체크 진입
     def checkin(self):
-        checkin = WebDriver.driver.find_element(Etc.checkin)
-        checkin.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.checkin)).click()
         time.sleep(2)
 
     # 물가예측 진입

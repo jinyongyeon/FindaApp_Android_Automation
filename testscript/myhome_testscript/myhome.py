@@ -2,9 +2,11 @@ import logging
 import time
 import pickle
 
+from selenium.webdriver.support import expected_conditions as EC
 import requests
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
 from pages.mainlocator.home import Home
@@ -20,7 +22,7 @@ class MyHome:
     def menu_right_to_left(self):
         action = TouchAction(WebDriver.driver)
         action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]")
-        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출받기')]")
+        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
         action.press(action_a).move_to(action_b).release()
         return action.perform()
 
@@ -271,13 +273,11 @@ class MyHome:
 
     # 오토리스 배너
     def Lease_Contract_Banner(self):
-        lease_contract_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.lease_contract_banner)
-        lease_contract_banner.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.lease_contract_banner)).click()
         time.sleep(7)
 
 
     # 자동차 대출 배너
     def auto_Loan_Banner(self):
-        auto_loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.auto_loan_banner)
-        auto_loan_banner.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.auto_loan_banner)).click()
         time.sleep(2)

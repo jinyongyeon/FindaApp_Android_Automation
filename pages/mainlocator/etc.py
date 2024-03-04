@@ -228,7 +228,7 @@ class Etc:
     lease_rent = "//*[contains(@text, '장기렌트·리스')]"
 
     # 부가서비스 > 장기렌트 리스 진입 결과
-    lease_rent_result = MobileBy.XPATH,'//*[@text = "차량 구경하고 견적 내보기"]'
+    lease_rent_result = MobileBy.XPATH,'//*[@text = "찾으시는 모델이 있나요?"]'
 
     # 부가서비스 > 장기렌트 리스 뒤로가기
     lease_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
@@ -385,7 +385,7 @@ class Etc:
     loan_reviews_Result = MobileBy.XPATH, "//*[contains(@text, '핀다 고객님이 남겨주신')]"
 
     # 대출후기 > 뒤로가기
-    loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
+    loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
     # 최근 알림 진입
     alarm = "//*[contains(@text, '최근 알림')]"

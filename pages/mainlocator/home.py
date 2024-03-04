@@ -17,12 +17,12 @@ class Home:
     loans_f = '//*[@text = "대출받기"]'
 
     # 퀵메뉴
-    quick_menu_a = MobileBy.XPATH, "//*[contains(@test, '대출받기')]"
-    quick_menu_b = MobileBy.XPATH, "//*[contains(@test, '대출갈아타기')]"
-    quick_menu_c = MobileBy.XPATH, "//*[contains(@test, '사업자대출')]"
-    quick_menu_d = MobileBy.XPATH, "//*[contains(@test, '주택담보대출')]"
-    quick_menu_e = MobileBy.XPATH, "//*[contains(@test, '차 구매대출')]"
-    quick_menu_f = MobileBy.XPATH, "//*[contains(@test, '차 리스렌트')]"
+    quick_menu_a = MobileBy.XPATH, "//*[contains(@text, '대출받기')]"
+    quick_menu_b = MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]"
+    quick_menu_c = MobileBy.XPATH, "//*[contains(@text, '사업자대출')]"
+    quick_menu_d = MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]"
+    quick_menu_e = MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]"
+    quick_menu_f = MobileBy.XPATH, "//*[contains(@text, '차 리스렌트')]"
 
     # 마이홈 대출진단 배너
     loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"

@@ -46,13 +46,13 @@ class MyHome_Testcase(unittest.TestCase):
         base = basemethod()
         logging.info("마이홈 상단 메뉴 영역 노출 테스트 시작")
         try:
-            WebDriver.driver.find_element(home.quick_menu_a)
-            WebDriver.driver.find_element(home.quick_menu_b)
-            WebDriver.driver.find_element(home.quick_menu_c)
-            WebDriver.driver.find_element(home.quick_menu_d)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_a))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_b))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_c))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_d))
             myhome.menu_right_to_left()
-            WebDriver.driver.find_element(home.quick_menu_e)
-            WebDriver.driver.find_element(home.quick_menu_f)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_e))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.quick_menu_f))
             logging.info("마이홈 상단 메뉴 영역 노출 : PASS")
             result_myhome.reports.append("마이홈 상단 메뉴 영역 노출 : *PASS*")
             print("마이홈 상단 메뉴 영역 노출 : PASS")
@@ -216,7 +216,7 @@ class MyHome_Testcase(unittest.TestCase):
                 base.save_screenshot('대출진단배너노출_fail')
             time.sleep(10)
             try:
-                result_A = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_a)
+                result_A = WebDriver.driver.find_element(home.refinanceloanfirstvisit_a)
                 self.assertIn("내 대출 계좌 연결하기", result_A.text)
                 logging.info("대출진단 배너 진입 : PASS")
                 result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -226,7 +226,7 @@ class MyHome_Testcase(unittest.TestCase):
                 base.save_screenshot('대출진단배너진입_fail')
             except Exception:
                 try:
-                    result_B = WebDriver.driver.find_element(MobileBy.XPATH, home.refinanceloanfirstvisit_b)
+                    result_B = WebDriver.driver.find_element(home.refinanceloanfirstvisit_b)
                     self.assertIn("챌린지 시작", result_B.text)
                     logging.info("대출진단 배너 진입 : PASS")
                     result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -236,7 +236,7 @@ class MyHome_Testcase(unittest.TestCase):
                     base.save_screenshot('대출진단배너진입_fail')
                 except Exception:
                     try:
-                        result_C = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge)
+                        result_C = WebDriver.driver.find_element(home.refinance_loan_challenge)
                         self.assertIn("대환 챌린지", result_C.text)
                         logging.info("대출진단 배너 진입 : PASS")
                         result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -246,7 +246,7 @@ class MyHome_Testcase(unittest.TestCase):
                         base.save_screenshot('대출진단배너진입_fail')
                     except Exception:
                         try:
-                            result_D = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_a)
+                            result_D = WebDriver.driver.find_element(home.refinance_loan_challenge_a)
                             self.assertIn("챌린지를 시작하면 이자를\n연 최대 331만원 아낄 수 있어요!", result_D.text)
                             logging.info("대출진단 배너 진입 : PASS")
                             result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -256,7 +256,7 @@ class MyHome_Testcase(unittest.TestCase):
                             base.save_screenshot('대출진단배너진입_fail')
                         except Exception:
                             try:
-                                result_E = WebDriver.driver.find_element(MobileBy.XPATH, home.refinance_loan_challenge_b)
+                                result_E = WebDriver.driver.find_element(home.refinance_loan_challenge_b)
                                 self.assertIn("당신은 Lv.1 될성부른 꿈나무", result_E.text)
                                 logging.info("대출진단 배너 진입 : PASS")
                                 result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -266,8 +266,7 @@ class MyHome_Testcase(unittest.TestCase):
                                 base.save_screenshot('대출진단배너진입_fail')
                             except Exception:
                                 try:
-                                    result_F = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                                             home.refinance_loan_challenge_c)
+                                    result_F = WebDriver.driver.find_element(home.refinance_loan_challenge_c)
                                     self.assertIn("당신은 Lv.2 성실한 우등생", result_F.text)
                                     logging.info("대출진단 배너 진입 : PASS")
                                     result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -277,8 +276,7 @@ class MyHome_Testcase(unittest.TestCase):
                                     base.save_screenshot('대출진단배너진입_fail')
                                 except Exception:
                                     try:
-                                        result_G = WebDriver.driver.find_element(MobileBy.XPATH,
-                                                                                 home.refinance_loan_challenge_d)
+                                        result_G = WebDriver.driver.find_element(home.refinance_loan_challenge_d)
                                         self.assertIn("당신은 Lv.3 만랩 마스터", result_G.text)
                                         logging.info("대출진단 배너 진입 : PASS")
                                         result_myhome.reports.append("대출진단 배너 진입 : *PASS*")
@@ -681,34 +679,31 @@ class MyHome_Testcase(unittest.TestCase):
         results = []
         results_a = []
         logging.info("마이홈 금융생활 선택 후 자산목록 진입 테스트 시작")
-        try:
-            myhome.loan_Banner()
-            verification_list_a = [("카드", etc.myloan_Result_a),
-                                 ("대출", etc.myloan_Result_b),
-                                 ("입출금", etc.myloan_Result_c),
-                                 ("예적금", etc.myloan_Result_d)]
-            for text, xpath in verification_list_a:
-                try:
-                    result_b = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                    self.assertIn(text, result_b.text)
-                    results_a.append("PASS")
-                except AssertionError:
-                    results_a.append("FAIL")
-                except Exception as e:
-                    logging.warning(f"금융생활 선택 후 자산목록 진입 에러 발생 : {e}")
-                    results.append("Error")
-            base.android_back()
-            logging.info(results_a)
-            if all(result == "PASS" for result in results_a):
-                logging.info("금융생활 선택 후 자산목록 진입 : PASS")
-                result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *PASS*")
-            else:
-                logging.info("금융생활 선택 후 자산목록 진입 : FAIL")
-                result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *FAIL*")
-                base.save_screenshot('금융생활 선택 후 자산목록 진입_fail')
-            base.android_back()
-        except Exception as e:
-            logging.error(f"금융생활 선택 후 자산목록 진입 테스트 진행 중 에러 발생 : {e}")
+        myhome.loan_Banner()
+        verification_list_a = [("카드", etc.myloan_Result_a),
+                             ("대출", etc.myloan_Result_b),
+                             ("입출금", etc.myloan_Result_c),
+                             ("예적금", etc.myloan_Result_d)]
+        for text, xpath in verification_list_a:
+            try:
+                result_b = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                self.assertIn(text, result_b.text)
+                results_a.append("PASS")
+            except AssertionError:
+                results_a.append("FAIL")
+            except Exception as e:
+                logging.warning(f"금융생활 선택 후 자산목록 진입 에러 발생 : {e}")
+                results.append("Error")
+        base.android_back()
+        logging.info(results_a)
+        if all(result == "PASS" for result in results_a):
+            logging.info("금융생활 선택 후 자산목록 진입 : PASS")
+            result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *PASS*")
+        else:
+            logging.info("금융생활 선택 후 자산목록 진입 : FAIL")
+            result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *FAIL*")
+            base.save_screenshot('금융생활 선택 후 자산목록 진입_fail')
+        base.android_back()
         logging.info("마이홈 금융생활 선택 후 자산목록 진입 테스트 종료")
 
     # 마이홈 금융생활 영역 대출 노출 및 진입 테스트
