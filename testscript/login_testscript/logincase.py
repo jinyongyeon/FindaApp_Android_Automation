@@ -3,6 +3,9 @@ import time
 import subprocess
 import logging
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
 from pages.basemethod.base import basemethod
@@ -21,8 +24,7 @@ class JoIn:
     # 다음버튼 선택
     def join_next(self):
         try:
-            next_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.next_button)
-            next_button.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.next_button)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"join_next : {e}")
@@ -41,7 +43,7 @@ class JoIn:
     # 핀코드 입력
     def pin_code(self):
         try:
-            pincode = WebDriver.driver.find_element(MobileBy.XPATH, self.main.pincode)
+            pincode = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode))
             for i in range(6):
                 pincode.click()
                 time.sleep(1)
@@ -51,8 +53,7 @@ class JoIn:
     # 온보딩 페이지 시작하기 버튼 선택
     def start_onboarding(self):
         try:
-            start_onboarding = WebDriver.driver.find_element(MobileBy.XPATH, self.main.start_onboarding)
-            start_onboarding.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.start_onboarding)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"start_onboarding : {e}")
@@ -60,8 +61,7 @@ class JoIn:
     # 악성앱 찾기 버튼 선택
     def malicious_app_search(self):
         try:
-            malicious_app_search_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.malicious_app_search_button)
-            malicious_app_search_button.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.malicious_app_search_button)).click()
         except:
             logging.warning("악성앱찾기서버 : FAIL")
         time.sleep(20)
@@ -69,11 +69,9 @@ class JoIn:
     # MO 인증 동작
     def message_certification(self):
         try:
-            message_certification = WebDriver.driver.find_element(MobileBy.XPATH, self.main.message_certification)
-            message_certification.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.message_certification)).click()
             time.sleep(5)
-            send_message = WebDriver.driver.find_element(MobileBy.XPATH, self.main.send_message)
-            send_message.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.send_message)).click()
             time.sleep(10)
         except Exception as e:
             logging.error(f"message_certification : {e}")
@@ -81,17 +79,15 @@ class JoIn:
     # 개인 정보 입력
     def enter_personal_information(self):
         try:
-            name = WebDriver.driver.find_element(MobileBy.XPATH, self.main.name)
+            name = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.name))
             name.send_keys(self.info.name)
-            next_button = WebDriver.driver.find_element(MobileBy.XPATH, self.main.next_button)
-            next_button.click()
-            rrn_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.rrn_a)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.next_button)).click()
+            rrn_a = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.rrn_a))
             rrn_a.send_keys(self.info.rrn_a)
-            rrn_b = WebDriver.driver.find_element(MobileBy.XPATH, self.main.rrn_b)
+            rrn_b = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.rrn_b))
             rrn_b.send_keys(self.info.rrn_b)
             time.sleep(1)
-            kt = WebDriver.driver.find_element(MobileBy.XPATH, self.main.kt)
-            kt.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.kt)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"enter_personal_information : {e}")
@@ -100,136 +96,119 @@ class JoIn:
     # 회원 가입 약관 진입
     def membership_terms_and_conditions_a(self):
         try:
-            membership_terms_and_conditions_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_a)
-            membership_terms_and_conditions_a.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_a)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_a : {e}")
 
     def membership_terms_and_conditions_b(self):
         try:
-            membership_terms_and_conditions_b = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_b)
-            membership_terms_and_conditions_b.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_b)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_b : {e}")
 
     def membership_terms_and_conditions_c(self):
         try:
-            membership_terms_and_conditions_c = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_c)
-            membership_terms_and_conditions_c.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_c)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_c : {e}")
 
     def membership_terms_and_conditions_c_a(self):
         try:
-            membership_terms_and_conditions_c_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_c_a)
-            membership_terms_and_conditions_c_a.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_c_a)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_c_a : {e}")
 
     def membership_terms_and_conditions_d(self):
         try:
-            membership_terms_and_conditions_d = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_d)
-            membership_terms_and_conditions_d.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_d)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_d : {e}")
 
     def membership_terms_and_conditions_aa(self):
         try:
-            membership_terms_and_conditions_aa = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_aa)
-            membership_terms_and_conditions_aa.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_aa)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_aa : {e}")
 
     def membership_terms_and_conditions_ab(self):
         try:
-            membership_terms_and_conditions_ab = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ab)
-            membership_terms_and_conditions_ab.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_ab)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_ab : {e}")
         
     def membership_terms_and_conditions_ac(self):
         try:
-            membership_terms_and_conditions_ac = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ac)
-            membership_terms_and_conditions_ac.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_ac)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_ac : {e}")
         
     def membership_terms_and_conditions_ba(self):
         try:
-            membership_terms_and_conditions_ba = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ba)
-            membership_terms_and_conditions_ba.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_ba)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_ba : {e}")
         
     def membership_terms_and_conditions_bb(self):
         try:
-            membership_terms_and_conditions_bb = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_bb)
-            membership_terms_and_conditions_bb.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_bb)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_bb : {e}")
 
     def membership_terms_and_conditions_bc(self):
         try:
-            membership_terms_and_conditions_bc = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_bc)
-            membership_terms_and_conditions_bc.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_bc)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_bc : {e}")
 
     def membership_terms_and_conditions_ca(self):
         try:
-            membership_terms_and_conditions_ca = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ca)
-            membership_terms_and_conditions_ca.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_ca)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_ca : {e}")
 
     def membership_terms_and_conditions_cb(self):
         try:
-            membership_terms_and_conditions_cb = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cb)
-            membership_terms_and_conditions_cb.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_cb)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_cb : {e}")
 
     def membership_terms_and_conditions_cc(self):
         try:
-            membership_terms_and_conditions_cc = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cc)
-            membership_terms_and_conditions_cc.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_cc)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_cc : {e}")
 
     def membership_terms_and_conditions_cd(self):
         try:
-            membership_terms_and_conditions_cd = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_cd)
-            membership_terms_and_conditions_cd.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_cd)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_cd : {e}")
 
     def membership_terms_and_conditions_ce(self):
         try:
-            membership_terms_and_conditions_ce = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_ce)
-            membership_terms_and_conditions_ce.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_ce)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_ce : {e}")
 
     def membership_terms_and_conditions_da(self):
         try:
-            membership_terms_and_conditions_da = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_da)
-            membership_terms_and_conditions_da.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_da)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_da : {e}")
@@ -237,10 +216,8 @@ class JoIn:
     # 회원 가입 > 약관 동의 후 확인 버튼 선택
     def membership_terms_and_conditions_all(self):
         try:
-            membership_terms_and_conditions_all = WebDriver.driver.find_element(MobileBy.XPATH, self.main.membership_terms_and_conditions_all)
-            membership_terms_and_conditions_all.click()
-            check = WebDriver.driver.find_element(MobileBy.XPATH, self.main.check)
-            check.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.membership_terms_and_conditions_all)).click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.check)).click()
         except Exception as e:
             logging.error(f"membership_terms_and_conditions_all : {e}")
 
@@ -297,8 +274,7 @@ class JoIn:
     # 인증 번호 재요청
     def re_request_verification_code(self):
         try:
-            Re_request_verification_code = WebDriver.driver.find_element(MobileBy.XPATH, self.main.Re_request_verification_code)
-            Re_request_verification_code.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.Re_request_verification_code)).click()
             time.sleep(5)
         except Exception as e:
             logging.error(f"re_request_verification_code : {e}")
@@ -306,38 +282,30 @@ class JoIn:
     # 지문 인증 사용 여부 선택
     def use_fingerprint(self):
         try:
-            use_fingerprint = WebDriver.driver.find_element(MobileBy.XPATH, self.main.use_fingerprint)
-            use_fingerprint.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.use_fingerprint)).click()
         except Exception as e:
             logging.error(f"use_fingerprint : {e}")
 
     # 로그 아웃
     def log_out(self):
         try:
-            logout = WebDriver.driver.find_element(MobileBy.XPATH, self.main.logout)
-            logout.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.logout)).click()
             time.sleep(2)
-            logout_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.logout)
-            logout_a.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.logout)).click()
         except Exception as e:
             logging.error(f"log_out : {e}")
 
     # 회원 탈퇴
     def withdrawal(self):
         try:
-            withdrawal = WebDriver.driver.find_element(MobileBy.XPATH, self.main.withdrawal)
-            withdrawal.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.withdrawal)).click()
             time.sleep(2)
-            withdrawal_agreement = WebDriver.driver.find_element(MobileBy.XPATH, self.main.withdrawal_agreement)
-            withdrawal_agreement.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.withdrawal_agreement)).click()
             time.sleep(1)
-            withdraw = WebDriver.driver.find_element(MobileBy.XPATH, self.main.withdraw)
-            withdraw.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.withdraw)).click()
             time.sleep(2)
-            withdraw_a = WebDriver.driver.find_element(MobileBy.XPATH, self.main.withdraw)
-            withdraw_a.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.withdraw)).click()
             time.sleep(7)
-            check = WebDriver.driver.find_element(MobileBy.XPATH, self.main.check)
-            check.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.check)).click()
         except Exception as e:
             logging.error(f"withdrawal : {e}")

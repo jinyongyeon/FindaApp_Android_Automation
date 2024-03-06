@@ -11,15 +11,15 @@ class Etc:
     # 더보기 탭
     etc = '//*[@text = "전체"]'
     # 더보기 진입 결과
-    etc_result = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[@text = "더보기"]'
+    etc_result = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[@text = "더보기"]'
     # 내 대출
     myloan = '//*[@index = "1" and @text = "내 대출"]'
 
     # 내 대출 진입 결과
-    myloan_Result_a = '//*[@text = "카드"]'
-    myloan_Result_b = '//*[@text = "대출"]'
-    myloan_Result_c = '//*[@text = "입출금"]'
-    myloan_Result_d = '//*[@text = "예적금"]'
+    myloan_Result_a = MobileBy.XPATH, '//*[@text = "카드"]'
+    myloan_Result_b = MobileBy.XPATH, '//*[@text = "대출"]'
+    myloan_Result_c = MobileBy.XPATH, '//*[@text = "입출금"]'
+    myloan_Result_d = MobileBy.XPATH, '//*[@text = "예적금"]'
 
     # 브레이즈 배너
     banner_exit = '//*[@text = "테스트"]'
@@ -414,69 +414,69 @@ class Etc:
     # 설정 영역 --------------------------------------
 
     # 설정 페이지
-    seting_buttun = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
+    seting_buttun = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
 
     # 설정 > 내 정보
-    myinfo = '//*[@text = "내 정보"]'
+    myinfo = MobileBy.XPATH, '//*[@text = "내 정보"]'
 
     # 설정 > 내 정보 진입 결과
-    myinfo_result_a = '//*[@text = "내 정보 확인"]'
-    myinfo_result_b = '//*[@text = "'+info.phone_number+'"]'
-    myinfo_result_c = '//*[@text = "'+info.news_agency+'"]'
-    myinfo_result_d = '//*[@text = "'+info.name+'"]'
+    myinfo_result_a = MobileBy.XPATH, '//*[@text = "내 정보 확인"]'
+    myinfo_result_b = MobileBy.XPATH, '//*[@text = "'+info.phone_number+'"]'
+    myinfo_result_c = MobileBy.XPATH, '//*[@text = "'+info.news_agency+'"]'
+    myinfo_result_d = MobileBy.XPATH, '//*[@text = "'+info.name+'"]'
 
     # 설정 > 내 정보 > 수정하기
-    myinfo_edit = '//*[@text = "수정하기"]'
+    myinfo_edit = MobileBy.XPATH, '//*[@text = "수정하기"]'
 
     # 설정 > 내 정보 > 수정하기 > 본인 인증하기
-    myinfo_authenticate_yourself = '//*[@text = "본인 인증하기"]'
+    myinfo_authenticate_yourself = MobileBy.XPATH, '//*[@text = "본인 인증하기"]'
 
     # 설정 > 내 정보 > 수정하기 > 본인 인증하기 동작 결과
-    myinfo_result = '//*[@text = "시작하기"]'
+    myinfo_result = MobileBy.XPATH, '//*[@text = "시작하기"]'
 
     # 설정 > 알림설정 진입
-    notification_settings = "//*[contains(@text, '알림 설정')]"
+    notification_settings = MobileBy.XPATH, "//*[contains(@text, '알림 설정')]"
 
     # 설정 > 알림설정 결과
-    notification_settings_result = "//*[contains(@text, '유용한 이벤트 및 혜택')]"
+    notification_settings_result = MobileBy.XPATH, "//*[contains(@text, '유용한 이벤트 및 혜택')]"
 
     # 설정 > 비밀번호 변경
-    changepassword = '//*[@text = "비밀번호 변경"]'
+    changepassword = MobileBy.XPATH, '//*[@text = "비밀번호 변경"]'
 
     # 설정 > 비밀번호 변경 > 현재 비밀번호 입력
-    changepassword_a = "//*[contains(@text, '현재 비밀번호')]"
+    changepassword_a = MobileBy.XPATH, "//*[contains(@text, '현재 비밀번호')]"
 
     # 설정 > 비밀번호 변경 > 새로운 비밀번호 입력
-    changepassword_b = "//*[contains(@text, '사용할 비밀번호')]"
+    changepassword_b = MobileBy.XPATH, "//*[contains(@text, '사용할 비밀번호')]"
 
     # 설정 > 비밀번호 변경 > 새로운 비밀번호 재 입력
-    changepassword_c = "//*[contains(@text, '확인을 위해 재입력')]"
+    changepassword_c = MobileBy.XPATH, "//*[contains(@text, '확인을 위해 재입력')]"
 
     # 설정 > 금융 정보 관리(마이데이터)
-    seting_mtdata = '//*[@text = "금융 정보 관리 (마이데이터)"]'
-    seting_mtdata_result_a = '//*[@text = "연결내역 관리하기"]'
-    seting_mtdata_result_b = "//*[contains(@text, '마이데이터 연결로 이동합니다.')]"
+    seting_mtdata = MobileBy.XPATH, '//*[@text = "금융 정보 관리 (마이데이터)"]'
+    seting_mtdata_result_a = MobileBy.XPATH, '//*[@text = "연결내역 관리하기"]'
+    seting_mtdata_result_b = MobileBy.XPATH, "//*[contains(@text, '마이데이터 연결로 이동합니다.')]"
 
     # 설정 > 이용약관
-    seting_terms_of_use = '//*[@text = "이용약관"]'
-    seting_terms_of_use_result = "//*[contains(@text, '서비스 이용약관')]"
+    seting_terms_of_use = MobileBy.XPATH, '//*[@text = "이용약관"]'
+    seting_terms_of_use_result = MobileBy.XPATH, "//*[contains(@text, '서비스 이용약관')]"
 
     # 설정 > 개인정보 처리방침
-    seting_privacy_policy = '//*[@text = "개인정보 처리방침"]'
-    seting_privacy_policy_result = "//*[contains(@text, '개인정보처리방침')]"
+    seting_privacy_policy = MobileBy.XPATH, '//*[@text = "개인정보 처리방침"]'
+    seting_privacy_policy_result = MobileBy.XPATH, "//*[contains(@text, '개인정보처리방침')]"
 
     # 설정 > 마이데이터 서비스 이용약관
-    seting_mydata_service_terms_of_use = '//*[@text = "마이데이터 서비스 이용약관"]'
-    seting_mydata_service_terms_of_use_result = "//*[contains(@text, '[마이데이터]')]"
+    seting_mydata_service_terms_of_use = MobileBy.XPATH, '//*[@text = "마이데이터 서비스 이용약관"]'
+    seting_mydata_service_terms_of_use_result = MobileBy.XPATH, "//*[contains(@text, '[마이데이터]')]"
 
     # 설정 > 금융소비자보호 고지사항
-    financial_consumer_protection_notice = '//*[@text = "금융소비자보호 고지사항"]'
-    financial_consumer_protection_notice_result = "//*[contains(@text, '금융소비자보호')]"
+    financial_consumer_protection_notice = MobileBy.XPATH, '//*[@text = "금융소비자보호 고지사항"]'
+    financial_consumer_protection_notice_result = MobileBy.XPATH, "//*[contains(@text, '금융소비자보호')]"
 
     # 설정 > 버전 정보
-    seting_version = '//*[@text = "버전 정보"]'
-    seting_version_result = "//*[contains(@text, '현재버전')]"
+    seting_version = MobileBy.XPATH, '//*[@text = "버전 정보"]'
+    seting_version_result = MobileBy.XPATH, "//*[contains(@text, '현재버전')]"
 
     # 설정 > 오픈소스 라이선스
-    open_source_license = '//*[@text = "오픈소스 라이선스"]'
-    open_source_license_result = "//*[contains(@text, 'Accom')]"
+    open_source_license = MobileBy.XPATH, '//*[@text = "오픈소스 라이선스"]'
+    open_source_license_result = MobileBy.XPATH, "//*[contains(@text, 'Accom')]"

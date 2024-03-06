@@ -143,6 +143,6 @@ if __name__ == '__main__':
     # test.testmyhome() # 코드개선 완료
     test.testautoloan()
     test.testmore() # 코드개선 완료
-    test.testseting()
+    test.testseting() # 코드개선 완료
     test.testjoin()
     # test.testloan()

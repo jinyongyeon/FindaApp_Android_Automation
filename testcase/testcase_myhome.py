@@ -90,7 +90,7 @@ class MyHome_Testcase(unittest.TestCase):
                 base.save_screenshot('퀵메뉴대출받기노출_fail')
             time.sleep(10)
             try:
-                Result_A = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_a)
+                Result_A = WebDriver.driver.find_element(etc.comparison_loan_Result_a)
                 self.assertIn("오늘 내가 받을", Result_A.text)
                 logging.info("퀵메뉴 대출받기 진입 : PASS")
                 result_myhome.reports.append("퀵메뉴 대출받기 진입 : *PASS*")
@@ -100,7 +100,7 @@ class MyHome_Testcase(unittest.TestCase):
                 base.save_screenshot('퀵메뉴대출받기진입_fail')
             except :
                 try:
-                    Result_B = WebDriver.driver.find_element(MobileBy.XPATH, etc.comparison_loan_Result_b)
+                    Result_B = WebDriver.driver.find_element(etc.comparison_loan_Result_b)
                     self.assertIn("오늘입금" , Result_B.text)
                     logging.info("퀵메뉴 대출받기 진입 : PASS")
                     result_myhome.reports.append("퀵메뉴 대출받기 진입 : *PASS*")

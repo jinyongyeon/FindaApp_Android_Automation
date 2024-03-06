@@ -50,7 +50,7 @@ class MoreTestcase_A(unittest.TestCase):
         logging.info("더보기 진입 테스트 시작")
         more.etc_in()
         try:
-            WebDriver.driver.find_element(MobileBy.XPATH, etc.etc_result)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.etc_result))
             logging.info("더보기 탭 진입 : PASS")
             moreresult.reports.append("더보기 탭 진입 : *PASS*")
             print("더보기 탭 진입 : PASS")
@@ -81,7 +81,7 @@ class MoreTestcase_A(unittest.TestCase):
                              ("예적금", etc.myloan_Result_d)]
         for text, xpath in verification_list:
             try:
-                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                result = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(xpath))
                 self.assertIn(text, result.text)
                 results.append("PASS")
             except AssertionError:
