@@ -21,8 +21,7 @@ class More:
     # 더보기 탭 테스트
     def etc_in(self):
         try:
-            etc_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.etc)
-            etc_in.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.etc)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"etc_in : {e}")
@@ -267,8 +266,7 @@ class More:
     # 신용 관리 > 신용 점수 뒤로 가기
     def credit_score_back(self):
         try:
-            credit_score_back = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_score_back)
-            credit_score_back.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_score_back)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"credit_score_back : {e}")

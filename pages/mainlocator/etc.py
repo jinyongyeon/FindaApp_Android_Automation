@@ -9,7 +9,7 @@ class Etc:
 
 
     # 더보기 탭
-    etc = '//*[@text = "전체"]'
+    etc = MobileBy.XPATH, '//*[@text = "전체"]'
     # 더보기 진입 결과
     etc_result = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[@text = "더보기"]'
     # 내 대출
@@ -124,7 +124,7 @@ class Etc:
     credit_score_Result = MobileBy.XPATH, '//*[@text = "신용관리"]'
 
     # 신용관리 > 신용점수 뒤로가기
-    credit_score_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
+    credit_score_back = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
 
     # 신용관리 > 신용점수 올리기 진입
     improve_credit_score = '//*[@text = "신용점수 올리기"]'

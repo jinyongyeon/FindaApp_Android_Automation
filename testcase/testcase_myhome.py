@@ -686,10 +686,12 @@ class MyHome_Testcase(unittest.TestCase):
                              ("예적금", etc.myloan_Result_d)]
         for text, xpath in verification_list_a:
             try:
-                result_b = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                result_b = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(xpath))
                 self.assertIn(text, result_b.text)
                 results_a.append("PASS")
             except AssertionError:
+                results_a.append("FAIL")
+            except TimeoutError:
                 results_a.append("FAIL")
             except Exception as e:
                 logging.warning(f"금융생활 선택 후 자산목록 진입 에러 발생 : {e}")
@@ -699,10 +701,12 @@ class MyHome_Testcase(unittest.TestCase):
         if all(result == "PASS" for result in results_a):
             logging.info("금융생활 선택 후 자산목록 진입 : PASS")
             result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *PASS*")
+            print("금융생활 선택 후 자산목록 진입 : PASS")
         else:
             logging.info("금융생활 선택 후 자산목록 진입 : FAIL")
             result_myhome.reports.append("금융생활 선택 후 자산목록 진입 : *FAIL*")
             base.save_screenshot('금융생활 선택 후 자산목록 진입_fail')
+            print("금융생활 선택 후 자산목록 진입 : FAIL")
         base.android_back()
         logging.info("마이홈 금융생활 선택 후 자산목록 진입 테스트 종료")
 
@@ -767,7 +771,7 @@ class MyHome_Testcase(unittest.TestCase):
         try:
             WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+loans_data+"')]").click()
             time.sleep(2)
-            WebDriver.driver.find_element(MobileBy.XPATH, home.loan_a)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.loan_a))
             print("금융생활 > 대출 상세 진입 : PASS")
             logging.info("금융생활 > 대출 상세 진입 : PASS")
             result_myhome.reports.append("금융생활 > 대출 상세 진입 : *PASS*")

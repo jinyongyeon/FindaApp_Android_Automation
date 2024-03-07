@@ -47,8 +47,8 @@ class Home:
     refinance_loan_challenge_d = MobileBy.XPATH, '//*[@text = "당신은 Lv.3 만랩 마스터"]'
 
     # 내 대출 배너
-    loan_banner = "//*[@text = '금융생활']"
-    loan_a = "//*[contains(@text, '남은 대출금')]"
+    loan_banner = MobileBy.XPATH, "//*[@text = '금융생활']"
+    loan_a = MobileBy.XPATH,"//*[contains(@text, '남은 대출금')]"
 
     # 내 현금자산 배너
     cash_assets_banner = "//*[contains(@text, '내 현금자산')]"
@@ -73,4 +73,4 @@ class Home:
 
 
     # 신용점수
-    credit_score = "//*[contains(@text, '눌러서 보기')]"
+    credit_score = MobileBy.XPATH, "//*[contains(@text, '눌러서 보기')]"

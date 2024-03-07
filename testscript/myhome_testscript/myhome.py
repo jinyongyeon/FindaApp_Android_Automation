@@ -133,8 +133,7 @@ class MyHome:
 
     # 신용점수 진입
     def credit_score(self):
-        credit_score = WebDriver.driver.find_element(MobileBy.XPATH, self.home.credit_score)
-        credit_score.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.credit_score)).click()
         time.sleep(5)
 
 
@@ -173,8 +172,7 @@ class MyHome:
         except Exception as e:
             logging.error(f"loan_data_api 요청 실패 : {e}")
     def loan_Banner(self):
-        loan_banner = WebDriver.driver.find_element(MobileBy.XPATH, self.home.loan_banner)
-        loan_banner.click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.loan_banner)).click()
         time.sleep(2)
 
     def loan_A(self):
