@@ -143,7 +143,7 @@ class MoreTestcase_A(unittest.TestCase):
                              ("신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?", etc.qna_e)]
         for text, xpath in verification_list:
             try:
-                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                result = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(xpath))
                 self.assertIn(text, result.text)
                 results.append("PASS")
             except AssertionError:
@@ -440,7 +440,7 @@ class MoreTestcase_A(unittest.TestCase):
                              ("예적금", etc.myloan_Result_d)]
         for text, xpath in verification_list:
             try:
-                result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
+                result = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(xpath))
                 self.assertIn(text, result.text)
                 results.append("PASS")
             except AssertionError:
@@ -964,7 +964,7 @@ class MoreTestcase_C(unittest.TestCase):
         more.lease_rent()
         time.sleep(3)
         try:
-            WebDriver.driver.find_element(etc.lease_rent_result)
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.lease_rent_result))
             logging.info("장기렌트 리스 진입 : PASS")
             moreresult.reports.append("장기렌트 리스 진입 : *PASS*")
             print("장기렌트 리스 진입 : PASS")

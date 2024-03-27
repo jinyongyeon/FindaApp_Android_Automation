@@ -13,7 +13,7 @@ class Etc:
     # 더보기 진입 결과
     etc_result = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[@text = "더보기"]'
     # 내 대출
-    myloan = '//*[@index = "1" and @text = "내 대출"]'
+    myloan = MobileBy.XPATH, '//*[@index = "1" and @text = "내 대출"]'
 
     # 내 대출 진입 결과
     myloan_Result_a = MobileBy.XPATH, '//*[@text = "카드"]'
@@ -38,15 +38,15 @@ class Etc:
     qna = '//*[@text = "자주 묻는 질문"]'
 
     # 자주묻는 질문 > 질문 항목
-    qna_a = '//*[contains(@text, "정말 이 조건 그대로 대출 가능한가요?")]'
+    qna_a = MobileBy.XPATH, '//*[contains(@text, "정말 이 조건 그대로 대출 가능한가요?")]'
     qna_result_a = MobileBy.XPATH, "//*[contains(@text, '고객님께서')]"
-    qna_b = '//*[contains(@text, "신청하면 대출금은 언제 입금이 되나요?")]'
+    qna_b = MobileBy.XPATH, '//*[contains(@text, "신청하면 대출금은 언제 입금이 되나요?")]'
     qna_result_b = MobileBy.XPATH, "//*[contains(@text, '대출이 확정된 후 대출금이')]"
-    qna_c = '//*[contains(@text, "대출 조건은 언제까지 유효한가요?")]'
+    qna_c = MobileBy.XPATH, '//*[contains(@text, "대출 조건은 언제까지 유효한가요?")]'
     qna_result_c = MobileBy.XPATH, "//*[contains(@text, '조회하신')]"
-    qna_d = '//*[contains(@text, "대출을 알아보는 것으로, 불이익이 있나요?")]'
+    qna_d = MobileBy.XPATH, '//*[contains(@text, "대출을 알아보는 것으로, 불이익이 있나요?")]'
     qna_result_d = MobileBy.XPATH, "//*[contains(@text, '대출조회는 신용점수')]"
-    qna_e = '//*[contains(@text, "신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?")]'
+    qna_e = MobileBy.XPATH, '//*[contains(@text, "신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?")]'
     qna_result_e = MobileBy.XPATH, "//*[contains(@text, '걱정하지 마세요.')]"
 
     # 자주묻는 질문 뒤로가뒤
@@ -87,8 +87,8 @@ class Etc:
     charter = '//*[@text = "전월세 추천"]'
 
     # 전월세 추천 진입 결과
-    charter_Result_a = MobileBy.XPATH, '//*[@text = "피할 수 없다면 손쉽게"]'
-    charter_Result_b = MobileBy.XPATH, '//*[@text = "1:1 맞춤형 전월세대출 가이드"]'
+    charter_Result_a = MobileBy.XPATH, '//*[contains(@text, "피할 수 없다면 손쉽게")]'
+    charter_Result_b = MobileBy.XPATH, '//*[contains(@text, "1:1 맞춤형 전월세대출 가이드")]'
 
     # 전원세 뒤로가기
     charter_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -101,7 +101,7 @@ class Etc:
 
 
     # 나의 금융정보 > 내 대출 진입
-    myloan_b = '//*[@index = "0" and @text = "내 대출"]'
+    myloan_b = '//*[@text = "내 자산"]'
 
     # 나의 금융정보 > 상환일정
     amortization_schedule = '//*[@text = "상환・결제 일정"]'
@@ -130,7 +130,7 @@ class Etc:
     improve_credit_score = '//*[@text = "신용점수 올리기"]'
 
     # 신용점수 올리기 진입 결과
-    improve_credit_score_Result_a = MobileBy.XPATH, '//*[@text = "자산을 많이 연결하면\n점수 상승 가능성이 높아져요"]'
+    improve_credit_score_Result_a = MobileBy.XPATH, '//*[@text = "신용점수 올리기를 통해\n이만큼 올렸어요"]'
     improve_credit_score_Result_b = MobileBy.XPATH, '//*[@text = "최근 6개월내 신용점수 올리기를\n이용했어요"]'
 
     # 신용관리 > 신용점수 올리기 뒤로가기
@@ -149,7 +149,7 @@ class Etc:
     credit_history = '//*[@text = "신용점수 히스토리"]'
 
     # 신용관리 > 신용점수 히스트리 진입 결과
-    credit_history_Result = MobileBy.XPATH, '//*[@text = "신용점수 히스토리"]'
+    credit_history_Result = MobileBy.XPATH, '//*[contains(@text, "신용점수 히스토리")]'
     # credit_history_Result = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView'
 
     # 신용관리 > 신용점수 히스트리 뒤로가기

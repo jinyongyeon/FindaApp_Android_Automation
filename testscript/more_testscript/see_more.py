@@ -29,8 +29,7 @@ class More:
     # 내 대출 진입
     def my_loan(self):
         try:
-            myloan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.myloan)
-            myloan.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.myloan)).click()
             time.sleep(2)
         except Exception as e:
             logging.error(f"my_loan : {e}")
@@ -79,40 +78,35 @@ class More:
     # 자주 묻는 질물 항목 선택
     def qna_click_a(self):
         try:
-            qna_a = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_a)
-            qna_a.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_a)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"qna_click_a : {e}")
 
     def qna_click_b(self):
         try:
-            qna_b = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_b)
-            qna_b.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_b)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"qna_click_b : {e}")
 
     def qna_click_c(self):
         try:
-            qna_c = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_c)
-            qna_c.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_c)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"qna_click_c : {e}")
 
     def qna_click_d(self):
         try:
-            qna_d = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_d)
-            qna_d.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_d)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"qna_click_d : {e}")
 
     def qna_click_e(self):
         try:
-            qna_e = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna_e)
-            qna_e.click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_e)).click()
             time.sleep(1)
         except Exception as e:
             logging.error(f"qna_click_e : {e}")

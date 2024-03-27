@@ -137,11 +137,11 @@ class test:
 if __name__ == '__main__':
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     logging.basicConfig(filename=f"apptestlog_{current_date}.log", level=logging.INFO)
-    # print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
+    print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
-    # test.testmyhome() # 스크립트 수정 필요
-    # test.testautoloan()
+    test.testmyhome() # 코드 개선완료
+    test.testautoloan()
     test.testmore() # 스크립트 수정 필요
     test.testseting() # 코드개선 완료
     test.testjoin() # 코드개선 완료
