@@ -40,6 +40,9 @@ class MoreTestcase_A(unittest.TestCase):
         time.sleep(1)
         more.etc_in()
         base.scroll_up(0.8)
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
 
     # 더보기 진입 테스트
     def test_check_more_tab(self):
@@ -451,10 +454,12 @@ class MoreTestcase_A(unittest.TestCase):
         if all(result == "PASS" for result in results):
             logging.info("내 대출_B 진입 : PASS")
             moreresult.reports.append("내 대출_B 진입 : *PASS*")
+            print("내 대출_B 진입 : PASS")
         else:
             logging.info("내 대출_B 진입 : FAIL")
             moreresult.reports.append("내 대출_B 진입 : *FAIL*")
             base.save_screenshot('내대출_B진입_fail')
+            print("내 대출_B 진입 : FAIL")
         more.my_loan_back()
         logging.info("내대출_B 진입 테스트 종료")
 
@@ -465,8 +470,6 @@ class MoreTestcase_A(unittest.TestCase):
         moreresult = Result_More()
         base = basemethod()
         logging.info("상환일정 진입 테스트 시작")
-        base.scroll(0.1)
-        time.sleep(2)
         more.amortization_schedule()
         try:
             more.check()
@@ -505,7 +508,6 @@ class MoreTestcase_B(unittest.TestCase):
 
     def setUp(self):
         base = basemethod()
-        base.scroll(1)
 
     def tearDown(self):
         base = basemethod()
@@ -514,6 +516,9 @@ class MoreTestcase_B(unittest.TestCase):
         base.android_back()
         time.sleep(1)
         more.etc_in()
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
@@ -821,7 +826,6 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("계산기 > 전세 vs 월세 계산기 진입 테스트 시작")
-        base.scroll(0.1)
         more.charter_vs_monthly_rent()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.charter_vs_monthly_rent_Result))
@@ -851,7 +855,6 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("계산기 > 대출 갈아타기 계산기 진입 테스트 시작")
-        base.scroll(0.2)
         more.refinancing_loan()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.refinancing_loan_Result))
@@ -881,7 +884,6 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("청년도약계좌 계산기 진입 테스트 시작")
-        base.scroll(0.2)
         more.youth_leap_account()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.youth_leap_account_result))
@@ -908,7 +910,6 @@ class MoreTestcase_B(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("자동차 할부 계산기 진입 테스트 시작")
-        base.scroll(0.2)
         more.car_installment_calculator()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.car_installment_calculator_result))
@@ -940,8 +941,6 @@ class MoreTestcase_C(unittest.TestCase):
 
     def setUp(self):
         base = basemethod()
-        base.scroll(1)
-        base.scroll(1.05)
 
     def tearDown(self):
         base = basemethod()
@@ -950,6 +949,8 @@ class MoreTestcase_C(unittest.TestCase):
         base.android_back()
         time.sleep(1)
         more.etc_in()
+        base.scroll_up(0.8)
+        base.scroll_up(0.8)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
         base.scroll_up(0.8)
@@ -1351,7 +1352,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("대출 후기 진입 테스트 시작")
-        base.scroll(0.3)
         more.loan_reviews()
         time.sleep(5)
         try:
@@ -1382,7 +1382,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("최근 알림 진입 테스트 시작")
-        base.scroll(0.3)
         more.alarm()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.alarm_Result))
@@ -1409,7 +1408,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("포인트 진입 테스트 시작")
-        base.scroll(0.3)
         more.point()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.point))
@@ -1436,7 +1434,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("출석체크 진입 테스트 시작")
-        base.scroll(0.3)
         more.checkin()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.checkin))
@@ -1463,7 +1460,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("물가예측 시즌 1 진입 테스트 시작")
-        base.scroll(0.3)
         more.priceforecast()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.priceforecast_result))
@@ -1490,7 +1486,6 @@ class MoreTestcase_C(unittest.TestCase):
         base = basemethod()
         moreresult = Result_More()
         logging.info("물가예측 참여내역 진입 테스트 시작")
-        base.scroll(0.3)
         more.priceforecast_history()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.priceforecast_history_result))

@@ -27,7 +27,7 @@ class Etc:
     myloan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]'
 
     # 1:1 채팅문의
-    chatting = '//*[@text = "1:1 채팅문의"]'
+    chatting = MobileBy.XPATH, '//*[@text = "1:1 채팅문의"]'
 
      # 1:1 채팅문의 진입 결과
     chatting_result = MobileBy.XPATH, "//*[contains(@text, '채널톡')]"
@@ -35,7 +35,7 @@ class Etc:
     chatting_exit = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView"
 
     # 자주묻는 질문
-    qna = '//*[@text = "자주 묻는 질문"]'
+    qna = MobileBy.XPATH, '//*[@text = "자주 묻는 질문"]'
 
     # 자주묻는 질문 > 질문 항목
     qna_a = MobileBy.XPATH, '//*[contains(@text, "정말 이 조건 그대로 대출 가능한가요?")]'
@@ -53,12 +53,12 @@ class Etc:
     qna_back = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Image"
 
     # 대출 갈아타기
-    transfer_loan = '//*[@text = "대출 갈아타기"]'
+    transfer_loan = MobileBy.XPATH,'//*[@text = "대출 갈아타기"]'
     transfer_loan_result_a = MobileBy.XPATH, '//*[@text = "대출 갈아타러 가기"]'
     transfer_loan_result_b = MobileBy.XPATH, '//*[@text = "매월 부담되는 이자를\n지금 바로 줄이고 싶다면?"]'
 
     # 대출 한 번에 비교
-    comparison_loan = '//*[@text = "대출 한 번에 비교"]'
+    comparison_loan = MobileBy.XPATH, '//*[@text = "대출 한 번에 비교"]'
 
     # 대출 한 번에 비교 결과
     comparison_loan_Result_a = MobileBy.XPATH, '//*[contains(@text, "대출 한 번에 알아보기")]'
@@ -74,7 +74,7 @@ class Etc:
 
 
     # 자동차 구매 대출
-    auto_loan = '//*[@text = "자동차 구매 대출"]'
+    auto_loan = MobileBy.XPATH, '//*[@text = "자동차 구매 대출"]'
 
     # 자동차 구매 대출 진입 결과
     auto_loan_Result_a = MobileBy.XPATH, '//*[@text = "1분만에 내 한도 알아보기"]'
@@ -84,27 +84,27 @@ class Etc:
     auto_loan_back = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]"
 
     # 전월세 추천
-    charter = '//*[@text = "전월세 추천"]'
+    charter = MobileBy.XPATH, '//*[@text = "전월세 추천"]'
 
     # 전월세 추천 진입 결과
     charter_Result_a = MobileBy.XPATH, '//*[contains(@text, "피할 수 없다면 손쉽게")]'
-    charter_Result_b = MobileBy.XPATH, '//*[contains(@text, "1:1 맞춤형 전월세대출 가이드")]'
+    charter_Result_b = MobileBy.XPATH, '//*[contains(@text, "전월세대출 맞춤추천")]'
 
     # 전원세 뒤로가기
     charter_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 30일 대출 챌린지
-    change_loan = '//*[@text = "대환 챌린지"]'
+    change_loan = MobileBy.XPATH, '//*[@text = "대환 챌린지"]'
 
     # 30일 안에 대출 갈아타기 뒤로가기
     change_loan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
 
     # 나의 금융정보 > 내 대출 진입
-    myloan_b = '//*[@text = "내 자산"]'
+    myloan_b = MobileBy.XPATH, '//*[@text = "내 자산"]'
 
     # 나의 금융정보 > 상환일정
-    amortization_schedule = '//*[@text = "상환・결제 일정"]'
+    amortization_schedule = MobileBy.XPATH, '//*[@text = "상환・결제 일정"]'
 
     # 상환일정 진입 결과
     amortization_schedule_a = MobileBy.XPATH, "//*[contains(@text, '이달의 총 나가는 돈')]"
@@ -115,7 +115,7 @@ class Etc:
     amortization_schedule_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
 
     # 신용관리 > 신용점수 진입
-    credit_score = '//*[@text = "신용점수"]'
+    credit_score = MobileBy.XPATH, '//*[@text = "신용점수"]'
 
     # 신용관리 바텀시트 닫기
     exit = "//*[contains(@text, '닫기')]"
@@ -127,17 +127,17 @@ class Etc:
     credit_score_back = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
 
     # 신용관리 > 신용점수 올리기 진입
-    improve_credit_score = '//*[@text = "신용점수 올리기"]'
+    improve_credit_score = MobileBy.XPATH, '//*[@text = "신용점수 올리기"]'
 
     # 신용점수 올리기 진입 결과
     improve_credit_score_Result_a = MobileBy.XPATH, '//*[@text = "신용점수 올리기를 통해\n이만큼 올렸어요"]'
-    improve_credit_score_Result_b = MobileBy.XPATH, '//*[@text = "최근 6개월내 신용점수 올리기를\n이용했어요"]'
+    improve_credit_score_Result_b = MobileBy.XPATH, '//*[@text = "은행 계좌를 많이 연결할수록\n점수 상승 가능성을 높일 수 있어요"]'
 
     # 신용관리 > 신용점수 올리기 뒤로가기
     improve_credit_score_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
 
     # 신용관리 > 신용점수 상승 전략 진입
-    credit_analysis = '//*[@text = "신용 분석"]'
+    credit_analysis = MobileBy.XPATH, '//*[@text = "신용 분석"]'
 
     # 신용관리 > 신용점수 상승 전략 진입 결과
     credit_analysis_Result = MobileBy.XPATH, "//*[contains(@text, '신용 분석')]"
@@ -146,7 +146,7 @@ class Etc:
     credit_analysis_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 신용관리 > 신용점수 히스트리 진입
-    credit_history = '//*[@text = "신용점수 히스토리"]'
+    credit_history = MobileBy.XPATH, '//*[@text = "신용점수 히스토리"]'
 
     # 신용관리 > 신용점수 히스트리 진입 결과
     credit_history_Result = MobileBy.XPATH, '//*[contains(@text, "신용점수 히스토리")]'
@@ -156,14 +156,14 @@ class Etc:
     credit_history_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 개인사업자 신용관리
-    private_business_credit_management = '//*[@text = "개인사업자 신용관리"]'
+    private_business_credit_management = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리"]'
 
     # 신용퀴즈 어워즈
-    credit_quiz_awards = '//*[@text = "핀다 퀴즈"]'
+    credit_quiz_awards = MobileBy.XPATH, '//*[@text = "핀다 퀴즈"]'
     credit_quiz_awards_result = MobileBy.XPATH, "//*[contains(@text, '다음 시즌')]"
 
     # 계산기 > 여윳돈 계산기 진입
-    extra_money = '//*[@text = "여윳돈 계산기"]'
+    extra_money = MobileBy.XPATH, '//*[@text = "여윳돈 계산기"]'
 
     # 계산기 > 여윳돈 계산기 진입 결과
     extra_money_Result = MobileBy.XPATH, '//*[@text = "상환할 여윳돈이 생기셨나요?"]'
@@ -172,7 +172,7 @@ class Etc:
     extra_money_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
 
     # 계산기 > DSR계산기 진입
-    dsr = '//*[@text = "DSR 계산기"]'
+    dsr = MobileBy.XPATH, '//*[@text = "DSR 계산기"]'
 
     # 계산기 > DSR계산기 진입 결과
     dsr_Result = MobileBy.XPATH, '//*[@text = "DSR 계산기"]'
@@ -181,7 +181,7 @@ class Etc:
     dsr_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
 
     # 계산기 > 대출이자 계산기 진입
-    interest = '//*[@text = "대출 이자 계산기"]'
+    interest = MobileBy.XPATH, '//*[@text = "대출 이자 계산기"]'
 
     # 대출이자 계산기 결과
     interest_Result = MobileBy.XPATH, '//*[@text = "대출이자 계산기"]'
@@ -190,7 +190,7 @@ class Etc:
     interest_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 계산기 > 연말정산 계산기 진입
-    year_end_settlement = '//*[@text = "연말정산 계산기"]'
+    year_end_settlement = MobileBy.XPATH, '//*[@text = "연말정산 계산기"]'
 
     # 연말정산 계산기 결과
     year_end_settlement_Result = MobileBy.XPATH, '//*[@text = "카드 및 현금 소비액 소득공제"]'
@@ -199,7 +199,7 @@ class Etc:
     year_end_settlement_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 계산기 > 전세 vs 월세 계산기 진입
-    charter_vs_monthly_rent = '//*[@text = "전세 vs 월세 계산기"]'
+    charter_vs_monthly_rent = MobileBy.XPATH, '//*[@text = "전세 vs 월세 계산기"]'
 
     # 전세 vs 월세 계산기 결과
     charter_vs_monthly_rent_Result = MobileBy.XPATH, '//*[@text = "전세 vs 월세 계산기"]'
@@ -208,7 +208,7 @@ class Etc:
     charter_vs_monthly_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 계산기 > 대출 갈아타기 계산기 진입
-    refinancing_loan = '//*[@text = "대출 갈아타기 계산기"]'
+    refinancing_loan = MobileBy.XPATH, '//*[@text = "대출 갈아타기 계산기"]'
 
     # 대출 갈아타기 계산기 결과
     refinancing_loan_Result = MobileBy.XPATH, "//*[contains(@text, '갈아타기')]"
@@ -217,15 +217,15 @@ class Etc:
     refinancing_loan_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ListView/android.view.View/android.widget.Button'
 
     # 계산기 > 청년도약계좌 계산기
-    youth_leap_account = '//*[@text = "청년도약계좌 계산기"]'
+    youth_leap_account = MobileBy.XPATH, '//*[@text = "청년도약계좌 계산기"]'
     youth_leap_account_result = MobileBy.XPATH, '//*[@text = "청년도약계좌 계산기"]'
 
     # 계산기 > 자동차 할부 계산기
-    car_installment_calculator = "//*[contains(@text, '자동차 할부 계산기')]"
+    car_installment_calculator = MobileBy.XPATH, "//*[contains(@text, '자동차 할부 계산기')]"
     car_installment_calculator_result = MobileBy.XPATH, "//*[contains(@text, '할부 계산기')]"
 
     # 부가서비스 > 장기렌트 리스 진입
-    lease_rent = "//*[contains(@text, '장기렌트·리스')]"
+    lease_rent = MobileBy.XPATH, "//*[contains(@text, '장기렌트·리스')]"
 
     # 부가서비스 > 장기렌트 리스 진입 결과
     lease_rent_result = MobileBy.XPATH,'//*[@text = "찾으시는 모델이 있나요?"]'
@@ -234,7 +234,7 @@ class Etc:
     lease_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
 
     # 부가서비스 > 금융 스팸 차단 진입
-    do_not_call = '//*[@text = "금융 스팸 차단"]'
+    do_not_call = MobileBy.XPATH, '//*[@text = "금융 스팸 차단"]'
 
     # 부가서비스 > 금융 스팸 차단택 한 번에 차단하기 CTA 선택
     do_not_call_cta = '//*[@text = "한 번에 차단하기"]'
@@ -301,7 +301,7 @@ class Etc:
     do_not_call_stop = '//*[@text = "중단하기"]'
 
     # 대출금 갚아주는 보험
-    insurance = '//*[@text = "대출금 갚아주는 보험"]'
+    insurance = MobileBy.XPATH, '//*[@text = "대출금 갚아주는 보험"]'
 
     insuranceweb = "//*[contains(@text, '예상 보험료 확인하러 가기')]"
 
@@ -309,7 +309,7 @@ class Etc:
     insurance_Result = MobileBy.XPATH, "//*[contains(@text, '카디프')]"
 
     # 예적금 비교 진입
-    deposit_and_savings = '//*[@text = "예적금 비교"]'
+    deposit_and_savings = MobileBy.XPATH, '//*[@text = "예적금 비교"]'
 
     # 예적금 비교 결과
     deposit_and_savings_Result = MobileBy.XPATH, "//*[contains(@text, '정기예금')]"
@@ -318,7 +318,7 @@ class Etc:
     deposit_and_savings_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 핀다 포스트 진입
-    finda_post = '//*[@text = "핀다포스트"]'
+    finda_post = MobileBy.XPATH, '//*[@text = "핀다포스트"]'
 
     # 핀다 포스트 진입 결과
     finda_post_Result = MobileBy.XPATH, "//*[contains(@text, '핀다포스트')]"
@@ -344,14 +344,14 @@ class Etc:
 
 
     # 내폰 지키미 진입
-    my_phorn = '//*[@text = "내 폰 지키미"]'
+    my_phorn = MobileBy.XPATH, '//*[@text = "내 폰 지키미"]'
     my_phorn_Result = MobileBy.XPATH, "//*[contains(@text, '내 폰 보호하기')]"
 
     # 내폰 지키미 > 뒤로가기
     my_phorn_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[1]'
 
     # 돈되는 혜택
-    event = '//*[@text = "돈되는 혜택"]'
+    event = MobileBy.XPATH, '//*[@text = "돈되는 혜택"]'
 
     # 돈되는 혜택 결과
     event_Result = MobileBy.XPATH, '//*[@text = "돈되는 혜택"]'
@@ -360,14 +360,14 @@ class Etc:
     event_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
 
     # 공지사항
-    notice = '//*[@text = "공지사항"]'
+    notice = MobileBy.XPATH, '//*[@text = "공지사항"]'
 
     # 공지사항 진입 결과
     notice_Result = MobileBy.XPATH, '//*[@text = "공지사항"]'
 
 
     # 공지사항 컨텐츠 진입
-    notice_in = "//*[contains(@text, '정기적 수신 동의')]"
+    notice_in = MobileBy.XPATH, "//*[contains(@text, '정기적 수신 동의')]"
 
     # 공지사항 컨텐츠 진입 결과
     notice_in_Result = MobileBy.XPATH, '//*[contains(@text, "안녕하세요")]'
@@ -379,7 +379,7 @@ class Etc:
     notice_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
 
     # 대출후기
-    loan_reviews = '//*[@text = "대출후기"]'
+    loan_reviews = MobileBy.XPATH, '//*[@text = "대출후기"]'
 
     # 대출후기 진입 결과
     loan_reviews_Result = MobileBy.XPATH, "//*[contains(@text, '핀다 고객님이 남겨주신')]"
@@ -388,7 +388,7 @@ class Etc:
     loan_reviews_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
     # 최근 알림 진입
-    alarm = "//*[contains(@text, '최근 알림')]"
+    alarm = MobileBy.XPATH, "//*[contains(@text, '최근 알림')]"
 
     # 최근알림 진입 결과
     alarm_Result = MobileBy.XPATH, "//*[contains(@text, '알림 설정')]"
@@ -402,11 +402,11 @@ class Etc:
     # 출석체크 진입
     checkin = MobileBy.XPATH, "//*[contains(@text, '출석체크')]"
 
-    priceforecast = "//*[contains(@text, '물가예측 시즌1')]"
+    priceforecast = MobileBy.XPATH, "//*[contains(@text, '물가예측 시즌1')]"
 
     priceforecast_result = MobileBy.XPATH, "//*[contains(@text, '포인트 받기')]"
 
-    priceforecast_history = "//*[contains(@text, '물가예측 참여내역')]"
+    priceforecast_history = MobileBy.XPATH, "//*[contains(@text, '물가예측 참여내역')]"
 
     priceforecast_history_result = MobileBy.XPATH, "//*[contains(@text, '받은 예측 포인트')]"
 

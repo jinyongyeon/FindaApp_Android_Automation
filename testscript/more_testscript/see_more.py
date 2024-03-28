@@ -28,11 +28,19 @@ class More:
 
     # 내 대출 진입
     def my_loan(self):
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.myloan)).click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"my_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.myloan)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
 
     # 내 대출 뒤로 가기 탭 복귀
     def my_loan_back(self):
@@ -50,12 +58,18 @@ class More:
 
     # 1:1 채팅 문의 진입
     def chatting(self):
-        try:
-            chatting = WebDriver.driver.find_element(MobileBy.XPATH, Etc.chatting)
-            chatting.click()
-            time.sleep(3)
-        except Exception as e:
-            logging.error(f"chatting : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.chatting)).click()
+                time.sleep(3)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 1:1 채팅 문의 닫기
     def chatting_exit(self):
@@ -68,12 +82,18 @@ class More:
 
     # 자주 묻는 질문 진입
     def qna(self):
-        try:
-            qna = WebDriver.driver.find_element(MobileBy.XPATH, Etc.qna)
-            qna.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"qna : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 자주 묻는 질물 항목 선택
     def qna_click_a(self):
@@ -122,21 +142,33 @@ class More:
 
     # 대출 갈아 타기
     def transfer_loan(self):
-        try:
-            transfer_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.transfer_loan)
-            transfer_loan.click()
-            time.sleep(4)
-        except Exception as e:
-            logging.error(f"transfer_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.transfer_loan)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 대출 한 번에 비교 진입
     def comparison_loan(self):
-        try:
-            comparison_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.comparison_loan)
-            comparison_loan.click()
-            time.sleep(4)
-        except Exception as e:
-            logging.error(f"comparison_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.comparison_loan)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 대출 한 번에 비교 > 뒤로 가기
     def comparison_loan_back(self):
@@ -156,12 +188,18 @@ class More:
 
     # 자동차 구매 대출 진입
     def auto_loan(self):
-        try:
-            auto_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.auto_loan)
-            auto_loan.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"auto_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.auto_loan)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 자동차 구매 대출 > 뒤로 가기
     def auto_loan_back(self):
@@ -174,12 +212,18 @@ class More:
 
     # 전원세 추천 진입
     def charter(self):
-        try:
-            charter = WebDriver.driver.find_element(MobileBy.XPATH, Etc.charter)
-            charter.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"charter : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.charter)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 전원세 추천 > 뒤로 가기
     def charter_back(self):
@@ -192,12 +236,18 @@ class More:
 
     # 30일 안에 대출 갈아 타기 진입
     def change_loan(self):
-        try:
-            change_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.change_loan)
-            change_loan.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"change_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.change_loan)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 30일 안에 대출 갈아 타기 > 뒤로 가기
     def change_loan_back(self):
@@ -210,21 +260,33 @@ class More:
 
     # 나의 금융 정보 > 내 대출 진입
     def my_loan_b(self):
-        try:
-            myloan_b = WebDriver.driver.find_element(MobileBy.XPATH, Etc.myloan_b)
-            myloan_b.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"my_loan_b : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.myloan_b)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 나의 금융 정보 > 상환 일정 진입
     def amortization_schedule(self):
-        try:
-            amortization_schedule = WebDriver.driver.find_element(MobileBy.XPATH, Etc.amortization_schedule)
-            amortization_schedule.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"amortization_schedule : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.amortization_schedule)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 나의 금융 정보 > 상환 일정 > 뒤로 가기
     def amortization_schedule_back(self):
@@ -245,12 +307,18 @@ class More:
 
     # 신용 관리 > 신용 점수 진입
     def credit_score(self):
-        try:
-            credit_score = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_score)
-            credit_score.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"credit_score : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_score)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     def exit(self):
         exit = WebDriver.driver.find_element(MobileBy.XPATH, Etc.exit)
@@ -267,12 +335,18 @@ class More:
 
     # 신용 관리 > 신용 점수 올리기 진입
     def improve_credit_score(self):
-        try:
-            improve_credit_score = WebDriver.driver.find_element(MobileBy.XPATH, Etc.improve_credit_score)
-            improve_credit_score.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"improve_credit_score : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.improve_credit_score)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 신용 관리 > 신용 점수 올리기 뒤로 가기
     def improve_credit_score_back(self):
@@ -287,12 +361,18 @@ class More:
 
     # 신용 관리 > 신용 점수 상승 전략 진입
     def credit_analysis(self):
-        try:
-            credit_analysis = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_analysis)
-            credit_analysis.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"credit_analysis : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_analysis)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 신용 관리 > 신용 점수 상승 전략 > 뒤로 가기
     def credit_analysis_back(self):
@@ -307,12 +387,18 @@ class More:
 
     # 신용 관리 > 신용 점수 히스토리 진입
     def credit_history(self):
-        try:
-            credit_history = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_history)
-            credit_history.click()
-            time.sleep(4)
-        except Exception as e:
-            logging.error(f"credit_history : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_history)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 신용 관리 > 신용 점수 히스토리 > 뒤로 가기
     def credit_history_back(self):
@@ -327,30 +413,48 @@ class More:
 
     # 개인사업자 신용관리
     def private_business_credit_management(self):
-        try:
-            private_business_credit_management = WebDriver.driver.find_element(MobileBy.XPATH, Etc.private_business_credit_management)
-            private_business_credit_management.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"private_business_credit_management : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.private_business_credit_management)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 신용퀴즈 어워즈
     def credit_quiz_awards(self):
-        try:
-            credit_quiz_awards = WebDriver.driver.find_element(MobileBy.XPATH, Etc.credit_quiz_awards)
-            credit_quiz_awards.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"credit_quiz_awards : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_quiz_awards)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 여윳돈 계산기 진입
     def extra_money(self):
-        try:
-            extra_money = WebDriver.driver.find_element(MobileBy.XPATH, Etc.extra_money)
-            extra_money.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"extra_money : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.extra_money)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 여윳돈 계산기 뒤로 가기
     def extra_money_back(self):
@@ -363,12 +467,18 @@ class More:
 
     # 계산기 > DSR 계산기 진입
     def dsr(self):
-        try:
-            dsr = WebDriver.driver.find_element(MobileBy.XPATH, Etc.dsr)
-            dsr.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"dsr : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.dsr)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > DSR 계산기 > 뒤로 가기
     def dsr_back(self):
@@ -381,12 +491,18 @@ class More:
 
     # 계산기 > 대출 이자 계산기 진입
     def interest(self):
-        try:
-            interest = WebDriver.driver.find_element(MobileBy.XPATH, Etc.interest)
-            interest.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"interest : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.interest)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 대출 이자 계산기 > 뒤로 가기
     def interest_back(self):
@@ -399,12 +515,18 @@ class More:
 
     # 계산기 > 연말 정산 계산기 진입
     def year_end_settlement(self):
-        try:
-            year_end_settlement = WebDriver.driver.find_element(MobileBy.XPATH, Etc.year_end_settlement)
-            year_end_settlement.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"year_end_settlement : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.year_end_settlement)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 연말 정산 계산기 > 뒤로 가기
     def year_end_settlement_back(self):
@@ -417,12 +539,18 @@ class More:
 
     # 계산기 > 전세 vs 월세 계산기 진입
     def charter_vs_monthly_rent(self):
-        try:
-            charter_vs_monthly_rent = WebDriver.driver.find_element(MobileBy.XPATH, Etc.charter_vs_monthly_rent)
-            charter_vs_monthly_rent.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"charter_vs_monthly_rent : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.charter_vs_monthly_rent)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 전세 vs 월세 계산기 뒤로 가기
     def charter_vs_monthly_rent_back(self):
@@ -435,12 +563,18 @@ class More:
 
     # 계산기 > 대출 갈아 타기 계산기 진입
     def refinancing_loan(self):
-        try:
-            refinancing_loan = WebDriver.driver.find_element(MobileBy.XPATH, Etc.refinancing_loan)
-            refinancing_loan.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"refinancing_loan : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.refinancing_loan)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 대출 갈아 타기 계산기 > 뒤로 가기
     def refinancing_loan_back(self):
@@ -453,30 +587,48 @@ class More:
 
     # 계산기 > 청년 도약 계좌 계산기 진입
     def youth_leap_account(self):
-        try:
-            youth_leap_account = WebDriver.driver.find_element(MobileBy.XPATH, Etc.youth_leap_account)
-            youth_leap_account.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"youth_leap_account : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.youth_leap_account)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 계산기 > 자동차 할부 계산기 진입
     def car_installment_calculator(self):
-        try:
-            car_installment_calculator = WebDriver.driver.find_element(MobileBy.XPATH, Etc.car_installment_calculator)
-            car_installment_calculator.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"car_installment_calculator : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.car_installment_calculator)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 부가 서비스 > 장기 렌트 리스 진입
     def lease_rent(self):
-        try:
-            lease_rent = WebDriver.driver.find_element(MobileBy.XPATH, Etc.lease_rent)
-            lease_rent.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"lease_rent : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.lease_rent)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 부가 서비스 > 장기 렌트 리스 뒤로 가기
     def lease_rent_back(self):
@@ -489,12 +641,18 @@ class More:
 
     # 부가 서비스 > 금융 스팸 차단 진입
     def do_not_call(self):
-        try:
-            do_not_call = WebDriver.driver.find_element(MobileBy.XPATH, Etc.do_not_call)
-            do_not_call.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"do_not_call : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.do_not_call)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 두낫콜 한 번에 차단 하기 선택
     def do_net_call_cta(self):
@@ -634,12 +792,18 @@ class More:
 
     # 대출금 갚아주는 보험 진입
     def insurance(self):
-        try:
-            insurance = WebDriver.driver.find_element(MobileBy.XPATH, Etc.insurance)
-            insurance.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"insurance : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.insurance)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     def insurance_web(self):
         try:
@@ -651,12 +815,18 @@ class More:
 
     # 예적금 비교 진입
     def deposit_and_savings(self):
-        try:
-            deposit_and_savings = WebDriver.driver.find_element(MobileBy.XPATH, Etc.deposit_and_savings)
-            deposit_and_savings.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"deposit_and_savings : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.deposit_and_savings)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 예적금 비교 나가기
     def deposit_and_savings_back(self):
@@ -668,12 +838,18 @@ class More:
 
     # 핀다 포스트 진입
     def finda_post(self):
-        try:
-            finda_post = WebDriver.driver.find_element(MobileBy.XPATH, Etc.finda_post)
-            finda_post.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"finda_post : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.finda_post)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 핀다 포스트 컨텐츠 진입 확인
 
@@ -687,12 +863,18 @@ class More:
 
     # 더보기 > 내 폰 지키미 진입
     def my_phorn(self):
-        try:
-            my_phorn = WebDriver.driver.find_element(MobileBy.XPATH, Etc.my_phorn)
-            my_phorn.click()
-            time.sleep(10)
-        except Exception as e:
-            logging.error(f"my_phorn : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.my_phorn)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 더보기 > 내 폰 지키미 > 뒤로 가기
     def my_phorn_back(self):
@@ -705,12 +887,18 @@ class More:
 
     # 돈되는 혜택 진입
     def event(self):
-        try:
-            event = WebDriver.driver.find_element(MobileBy.XPATH, Etc.event)
-            event.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"event : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.event)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 이벤트 나가기
     def event_back(self):
@@ -722,52 +910,33 @@ class More:
 
     # 공지 사항 진입
     def notice(self):
-        try:
-            notice = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice)
-            notice.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"notice : {e}")
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.notice)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 공지 사항 상세 진입
     def notice_in(self):
-        try:
-            notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-            notice_in.click()
-            time.sleep(2)
-        except:
+        a = 6
+        b = 0
+        while b < a:
             try:
-                self.base.scroll(0.5)
-                notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-                notice_in.click()
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.notice_in)).click()
                 time.sleep(2)
+                break
             except:
-                try:
-                    self.base.scroll(0.5)
-                    notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-                    notice_in.click()
-                    time.sleep(2)
-                except:
-                    try:
-                        self.base.scroll(0.5)
-                        notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-                        notice_in.click()
-                        time.sleep(2)
-                    except:
-                        try:
-                            self.base.scroll(0.5)
-                            notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-                            notice_in.click()
-                            time.sleep(2)
-                        except:
-                            try:
-                                self.base.scroll(0.5)
-                                notice_in = WebDriver.driver.find_element(MobileBy.XPATH, Etc.notice_in)
-                                notice_in.click()
-                                time.sleep(2)
-                            except Exception as e:
-                                logging.error(f"notice_in : {e}")
-
+                self.base.scroll(0.5)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 공지 사항 상세 > 뒤로 가기
     def notice_in_back(self):
@@ -789,12 +958,18 @@ class More:
 
     # 대출 후기 진입
     def loan_reviews(self):
-        try:
-            loan_reviews = WebDriver.driver.find_element(MobileBy.XPATH, Etc.loan_reviews)
-            loan_reviews.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"loan_reviews : {e}")
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.loan_reviews)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 대출 후기 나가기
     def loan_reviews_back(self):
@@ -806,12 +981,18 @@ class More:
 
     # 최근 알림 진입
     def alarm(self):
-        try:
-            alarm = WebDriver.driver.find_element(MobileBy.XPATH, Etc.alarm)
-            alarm.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"alarm : {e}")
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.alarm)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 최근 알림 > 뒤로 가기
     def alarm_back(self):
@@ -823,22 +1004,60 @@ class More:
 
     # 포인트 진입
     def point(self):
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.point)).click()
-        time.sleep(2)
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.point)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 출석체크 진입
     def checkin(self):
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.checkin)).click()
-        time.sleep(2)
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.checkin)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 물가예측 진입
     def priceforecast(self):
-        priceforecast = WebDriver.driver.find_element(MobileBy.XPATH, Etc.priceforecast)
-        priceforecast.click()
-        time.sleep(5)
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.priceforecast)).click()
+                time.sleep(5)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 물가예측 참여내역
     def priceforecast_history(self):
-        priceforecast_history = WebDriver.driver.find_element(MobileBy.XPATH, Etc.priceforecast_history)
-        priceforecast_history.click()
-        time.sleep(5)
+        a = 6
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.priceforecast_history)).click()
+                time.sleep(5)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
