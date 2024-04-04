@@ -20,11 +20,24 @@ class More:
 
     # 더보기 탭 테스트
     def etc_in(self):
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.etc)).click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"etc_in : {e}")
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.etc)).click()
+        time.sleep(2)
+
+    def more_top(self):
+        a = 7
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.myloan))
+                time.sleep(2)
+                self.base.scroll_up(0.3)
+                break
+            except:
+                self.base.scroll_up(0.8)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
 
     # 내 대출 진입
     def my_loan(self):
@@ -40,7 +53,6 @@ class More:
                 b += 1
         if b == a:
             print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
-
 
     # 내 대출 뒤로 가기 탭 복귀
     def my_loan_back(self):
@@ -217,7 +229,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.charter)).click()
-                time.sleep(4)
+                time.sleep(20)
                 break
             except:
                 self.base.scroll(0.7)
@@ -297,13 +309,24 @@ class More:
         except Exception as e:
             logging.error(f"amortization_schedule_back")
 
+    # 정부 전자문서지갑 진입
+    def electronic_wallet(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.electronic_wallet)).click()
+                time.sleep(10)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
     def check(self):
-        try:
-            check = WebDriver.driver.find_element(MobileBy.XPATH,Etc.check)
-            check.click()
-            time.sleep(2)
-        except Exception as e:
-            logging.error(f"check : {e}")
+        check = WebDriver.driver.find_element(Etc.check)
+        check.click()
+        time.sleep(2)
 
     # 신용 관리 > 신용 점수 진입
     def credit_score(self):
@@ -312,7 +335,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_score)).click()
-                time.sleep(4)
+                time.sleep(10)
                 break
             except:
                 self.base.scroll(0.7)
@@ -340,7 +363,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.improve_credit_score)).click()
-                time.sleep(2)
+                time.sleep(10)
                 break
             except:
                 self.base.scroll(0.7)
@@ -366,7 +389,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_analysis)).click()
-                time.sleep(2)
+                time.sleep(10)
                 break
             except:
                 self.base.scroll(0.7)
@@ -392,7 +415,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_history)).click()
-                time.sleep(2)
+                time.sleep(10)
                 break
             except:
                 self.base.scroll(0.7)
@@ -418,7 +441,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.private_business_credit_management)).click()
-                time.sleep(2)
+                time.sleep(10)
                 break
             except:
                 self.base.scroll(0.7)
@@ -433,6 +456,21 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.credit_quiz_awards)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
+    # 연체 기록 삭제하기 진입
+    def delete_delinquent_records(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.delete_delinquent_records)).click()
                 time.sleep(2)
                 break
             except:
@@ -622,7 +660,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.lease_rent)).click()
-                time.sleep(2)
+                time.sleep(5)
                 break
             except:
                 self.base.scroll(0.7)
@@ -843,7 +881,7 @@ class More:
         while b < a:
             try:
                 WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.finda_post)).click()
-                time.sleep(2)
+                time.sleep(20)
                 break
             except:
                 self.base.scroll(0.7)
@@ -855,11 +893,8 @@ class More:
 
     # 핀다 포스트 나가기
     def finda_post_back(self):
-        try:
-            finda_post_back = WebDriver.driver.find_element(MobileBy.XPATH, Etc.finda_post_back)
-            finda_post_back.click()
-        except Exception as e:
-            logging.error(f"finda_post_back : {e}")
+        finda_post_back = WebDriver.driver.find_element(MobileBy.XPATH, Etc.finda_post_back)
+        finda_post_back.click()
 
     # 더보기 > 내 폰 지키미 진입
     def my_phorn(self):

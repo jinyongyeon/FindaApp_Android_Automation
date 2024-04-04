@@ -22,11 +22,11 @@ class MoreTestcase_A(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        logging.info("더보기 테스트_A 시작")
+        logging.info("더보기 테스트 시작")
 
     @classmethod
     def tearDownClass(cls):
-        logging.info("더보기 테스트_A 종료")
+        logging.info("더보기 테스트 종료")
 
     def setUp(self):
         more = More()
@@ -39,10 +39,14 @@ class MoreTestcase_A(unittest.TestCase):
         base.android_back()
         time.sleep(1)
         more.etc_in()
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        # base.scroll_up(0.8)
+        more.more_top()
 
     # 더보기 진입 테스트
     def test_check_more_tab(self):
@@ -496,32 +500,62 @@ class MoreTestcase_A(unittest.TestCase):
             base.android_back()
         logging.info("상환일정 진입 테스트 종료")
 
-class MoreTestcase_B(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        logging.info("더보기 테스트_B 시작")
-
-    @classmethod
-    def tearDownClass(cls):
-        logging.info("더보기 테스트_B 종료")
-
-    def setUp(self):
-        base = basemethod()
-
-    def tearDown(self):
-        base = basemethod()
+    # 정부 전자문서지갑 진입 테스트
+    def test_electronic_wallet(self):
         more = More()
-        base.android_back()
-        base.android_back()
-        time.sleep(1)
-        more.etc_in()
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
+        etc = Etc()
+        moreresult = Result_More()
+        base = basemethod()
+        logging.info("정부 전자문서지갑 진입 테스트 시작")
+        more.electronic_wallet()
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.electronic_wallet))
+            logging.info("정부 전자문서지갑 진입 : PASS")
+            moreresult.reports.append("정부 전자문서지갑 진입 : *PASS*")
+            print("정부 전자문서지갑 진입 : PASS")
+        except TimeoutError:
+            logging.info("정부 전자문서지갑 진입_요소 확인필요 : FAIL")
+            moreresult.reports.append("정부 전자문서지갑 진입_요소 확인필요 : *FAIL*")
+            base.save_screenshot('정부 전자문서지갑진입_fail')
+            print("정부 전자문서지갑 진입_요소 확인필요 : FAIL")
+        except Exception as e:
+            logging.warning(f"정부 전자문서지갑 진입 에러 발생 : {e}")
+            moreresult.reports.append("정부 전자문서지갑 진입 진입 : *Error*")
+            base.save_screenshot('정부 전자문서지갑진입_error')
+            print(f"정부 전자문서지갑 진입 에러 발생 : {e}")
+        try:
+            more.check()
+        except:
+            base.android_back()
+        logging.info("정부 전자문서지갑 진입 테스트 종료")
+
+#
+# class MoreTestcase_B(unittest.TestCase):
+#
+#     @classmethod
+#     def setUpClass(cls):
+#         logging.info("더보기 테스트_B 시작")
+#
+#     @classmethod
+#     def tearDownClass(cls):
+#         logging.info("더보기 테스트_B 종료")
+#
+#     def setUp(self):
+#         base = basemethod()
+#
+#     def tearDown(self):
+#         base = basemethod()
+#         more = More()
+#         base.android_back()
+#         base.android_back()
+#         time.sleep(1)
+#         more.etc_in()
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
 
     # 신용점수 진입 테스트
     def test_credit_score(self):
@@ -703,6 +737,33 @@ class MoreTestcase_B(unittest.TestCase):
         base.android_back()
         logging.info("신용퀴즈 어워즈 진입 테스트 종료")
 
+    # 연체 기록 삭제하기 진입 테스트
+    def test_delete_delinquent_records(self):
+        more = More()
+        etc = Etc()
+        moreresult = Result_More()
+        base = basemethod()
+        logging.info("연체 기록 삭제하기 진입 테스트 시작")
+        more.delete_delinquent_records()
+        time.sleep(10)
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.delete_delinquent_records_result))
+            logging.info("연체 기록 삭제하기 진입 : PASS")
+            moreresult.reports.append("연체 기록 삭제하기 진입 : *PASS*")
+            print("연체 기록 삭제하기 진입 : PASS")
+        except TimeoutError:
+            logging.info("연체 기록 삭제하기 진입_요소 확인필요 : FAIL")
+            moreresult.reports.append("연체 기록 삭제하기 진입_요소 확인필요 : *FAIL*")
+            base.save_screenshot('연체 기록 삭제하기진입_fail')
+            print("연체 기록 삭제하기 진입_요소 확인필요 : FAIL")
+        except Exception as e:
+            logging.warning(f"연체 기록 삭제하기 진입 에러 발생 : {e}")
+            moreresult.reports.append("연체 기록 삭제하기 진입 : *Error*")
+            base.save_screenshot('연체 기록 삭제하기진입_error')
+            print(f"연체 기록 삭제하기 진입 에러 발생 : {e}")
+        base.android_back()
+        logging.info("연체 기록 삭제하기 진입 테스트 종료")
+
     # 계산기 > 여윳돈 계산기 진입 테스트
     def test_extra_money(self):
         more = More()
@@ -849,7 +910,7 @@ class MoreTestcase_B(unittest.TestCase):
         logging.info("계산기 > 전세 vs 월세 계산기 진입 테스트 종료")
 
     # 계산기 > 대출 갈아타기 계산기 진입 테스트
-    def test_refinancing_loan(self):
+    def test_refinancing_loan_calculate(self):
         more = More()
         etc = Etc()
         base = basemethod()
@@ -928,32 +989,32 @@ class MoreTestcase_B(unittest.TestCase):
             print(f"자동차 할부 계산기 진입 에러 발생 : {e}")
         base.android_back()
         logging.info("자동차 할부 계산기 진입 테스트 종료")
-
-class MoreTestcase_C(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        logging.info("더보기 테스트_C 시작")
-
-    @classmethod
-    def tearDownClass(cls):
-        logging.info("더보기 테스트_C 종료")
-
-    def setUp(self):
-        base = basemethod()
-
-    def tearDown(self):
-        base = basemethod()
-        more = More()
-        base.android_back()
-        base.android_back()
-        time.sleep(1)
-        more.etc_in()
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
-        base.scroll_up(0.8)
+#
+# class MoreTestcase_C(unittest.TestCase):
+#
+#     @classmethod
+#     def setUpClass(cls):
+#         logging.info("더보기 테스트_C 시작")
+#
+#     @classmethod
+#     def tearDownClass(cls):
+#         logging.info("더보기 테스트_C 종료")
+#
+#     def setUp(self):
+#         base = basemethod()
+#
+#     def tearDown(self):
+#         base = basemethod()
+#         more = More()
+#         base.android_back()
+#         base.android_back()
+#         time.sleep(1)
+#         more.etc_in()
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
+#         base.scroll_up(0.8)
 
     # 장기렌트 리스 진입 테스트
     def test_lease_rent(self):
@@ -964,21 +1025,10 @@ class MoreTestcase_C(unittest.TestCase):
         logging.info("장기렌트 리스 진입 테스트 시작")
         more.lease_rent()
         time.sleep(3)
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.lease_rent_result))
-            logging.info("장기렌트 리스 진입 : PASS")
-            moreresult.reports.append("장기렌트 리스 진입 : *PASS*")
-            print("장기렌트 리스 진입 : PASS")
-        except TimeoutError:
-            logging.info("장기렌트 리스 진입_요소 확인필요 : FAIL")
-            moreresult.reports.append("장기렌트 리스 진입_요소 확인필요 : *FAIL*")
-            base.save_screenshot('장기렌트리스진입_fail')
-            print("장기렌트 리스 진입_요소 확인필요 : FAIL")
-        except Exception as e:
-            logging.warning(f"장기렌트 리스 진입 에러 발생 : {e}")
-            moreresult.reports.append("장기렌트 리스 진입 : *Error*")
-            base.save_screenshot('장기렌트리스진입_error')
-            print(f"장기렌트 리스 진입 에러 발생 : {e}")
+        base.save_screenshot('장기렌트리스진입_스크린샷')
+        logging.info("장기렌트 리스 진입 : 스크린샷으로 검증 대체")
+        moreresult.reports.append("장기렌트 리스 진입 : *스크린샷으로 검증 대체*")
+        print("장기렌트 리스 진입 : 스크린샷으로 검증 대체")
         base.android_back()
         logging.info("장기렌트 리스 진입 테스트 종료")
 

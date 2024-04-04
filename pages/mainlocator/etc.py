@@ -109,10 +109,12 @@ class Etc:
     # 상환일정 진입 결과
     amortization_schedule_a = MobileBy.XPATH, "//*[contains(@text, '이달의 총 나가는 돈')]"
     amortization_schedule_b = MobileBy.XPATH, '//*[@text = "대출, 카드 연결하기"]'
-    check = '//*[@text = "확인"]'
+    check = MobileBy.XPATH, '//*[@text = "확인"]'
 
     # 나의 금융정보 > 상환일정 뒤로가기
     amortization_schedule_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]'
+
+    electronic_wallet = MobileBy.XPATH, '//*[@text = "정부 전자문서지갑"]'
 
     # 신용관리 > 신용점수 진입
     credit_score = MobileBy.XPATH, '//*[@text = "신용점수"]'
@@ -121,7 +123,7 @@ class Etc:
     exit = "//*[contains(@text, '닫기')]"
 
     # 신용점수 페이지 진입 결과
-    credit_score_Result = MobileBy.XPATH, '//*[@text = "신용관리"]'
+    credit_score_Result = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리 시작하기"]'
 
     # 신용관리 > 신용점수 뒤로가기
     credit_score_back = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
@@ -161,6 +163,10 @@ class Etc:
     # 신용퀴즈 어워즈
     credit_quiz_awards = MobileBy.XPATH, '//*[@text = "핀다 퀴즈"]'
     credit_quiz_awards_result = MobileBy.XPATH, "//*[contains(@text, '다음 시즌')]"
+
+    # 연체 기록 삭제하기
+    delete_delinquent_records = MobileBy.XPATH, '//*[@text = "연체 기록 삭제하기"]'
+    delete_delinquent_records_result = MobileBy.XPATH, "//*[contains(@text, '신용회복 대상자인지 확인하기')]"
 
     # 계산기 > 여윳돈 계산기 진입
     extra_money = MobileBy.XPATH, '//*[@text = "여윳돈 계산기"]'
@@ -228,7 +234,7 @@ class Etc:
     lease_rent = MobileBy.XPATH, "//*[contains(@text, '장기렌트·리스')]"
 
     # 부가서비스 > 장기렌트 리스 진입 결과
-    lease_rent_result = MobileBy.XPATH,'//*[@text = "찾으시는 모델이 있나요?"]'
+    lease_rent_result = MobileBy.XPATH,'//*[@text = "장기렌트\n보험 세금 부담없이"]'
 
     # 부가서비스 > 장기렌트 리스 뒤로가기
     lease_rent_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
@@ -321,7 +327,7 @@ class Etc:
     finda_post = MobileBy.XPATH, '//*[@text = "핀다포스트"]'
 
     # 핀다 포스트 진입 결과
-    finda_post_Result = MobileBy.XPATH, "//*[contains(@text, '핀다포스트')]"
+    finda_post_Result = MobileBy.XPATH, "//*[contains(@text, '사용팁')]"
 
     # 핀다 포스트 컨텐츠
     finda_post_a = '//*[@text = ""]'
@@ -340,7 +346,7 @@ class Etc:
 
 
     # 핀다 포스트 나가기
-    finda_post_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
+    finda_post_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.widget.Image'
 
 
     # 내폰 지키미 진입

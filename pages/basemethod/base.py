@@ -4,6 +4,7 @@ import time
 import requests
 import pickle
 # import subprocess
+from datetime import datetime
 
 # from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
@@ -94,7 +95,8 @@ class basemethod:
 
     def save_screenshot(self, name):
         try:
-            screenshot_dir = 'screenshots'
+            today_date = datetime.now().strftime("%Y-%m-%d")
+            screenshot_dir = os.path.join('screenshots', today_date)
             if not os.path.exists(screenshot_dir):
                 os.makedirs(screenshot_dir)
             screenshot_path = os.path.join(screenshot_dir, f'{name}.png')
