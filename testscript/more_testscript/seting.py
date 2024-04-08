@@ -64,6 +64,11 @@ class Seting:
         except Exception as e:
             logging.error(f"seting_mtdata : {e}")
 
+    # 설정 > 개인신용정보 이용/제공 내역 조회 진입
+    def credit_information_history(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.Etc.credit_information_history)).click()
+        time.sleep(2)
+
     # 설정 > 이용약관 진입
     def seting_terms_of_use(self):
         try:

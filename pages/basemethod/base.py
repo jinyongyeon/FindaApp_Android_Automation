@@ -118,7 +118,7 @@ class basemethod:
         data = {
             # "userId": self.info.user_id,
             "userId": ''.join(user_id),
-            "encryptedPincode": "91b4d142823f7d20c5f08df69122de43f35f057a988d9619f6d3138485c9a203"
+            "encryptedPincode": "a4a5ed857d3b13951aff46dc203b020f3c375bd6a758362dd1e6940c96883ff3"
         }
         try:
             # POST 요청

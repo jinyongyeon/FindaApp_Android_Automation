@@ -463,6 +463,10 @@ class Etc:
     seting_mtdata_result_a = MobileBy.XPATH, '//*[@text = "연결내역 관리하기"]'
     seting_mtdata_result_b = MobileBy.XPATH, "//*[contains(@text, '마이데이터 연결로 이동합니다.')]"
 
+    # 설정 > 개인신용정보 이용/제공 내역 조회 진입
+    credit_information_history = MobileBy.XPATH, '//*[@text = "개인신용정보 이용/제공 내역 조회"]'
+    credit_information_history_result = MobileBy.XPATH, '//*[@text = "개인정보 이용·제공 내역 조회"]'
+
     # 설정 > 이용약관
     seting_terms_of_use = MobileBy.XPATH, '//*[@text = "이용약관"]'
     seting_terms_of_use_result = MobileBy.XPATH, "//*[contains(@text, '서비스 이용약관')]"

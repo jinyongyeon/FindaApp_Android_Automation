@@ -13,14 +13,6 @@ class Main:
     # 핀다 앱
     findaapp = MobileBy.XPATH, '//*[@text ="핀다"]'
 
-    # 핀코드 입력 패드 숫자 "0"
-    pincode_1 = MobileBy.XPATH, '//*[@text ="1"]'
-    pincode_2 = MobileBy.XPATH, '//*[@text ="5"]'
-    pincode_3 = MobileBy.XPATH, '//*[@text ="4"]'
-    pincode_4 = MobileBy.XPATH, '//*[@text ="1"]'
-    pincode_5 = MobileBy.XPATH, '//*[@text ="9"]'
-    pincode_6 = MobileBy.XPATH, '//*[@text ="3"]'
-
     # 로그인 완료 확인
     # login_result = '//*[@text ="'+info.name+'님 안녕하세요"]'
     login_result = MobileBy.XPATH, '//*[@text ="금융생활"]'

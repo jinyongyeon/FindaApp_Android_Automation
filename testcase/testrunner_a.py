@@ -80,6 +80,7 @@ class test:
         suite.addTest(Seting_Testcase('test_my_info'))
         suite.addTest(Seting_Testcase('test_notification_settings'))
         suite.addTest(Seting_Testcase('test_change_password'))
+        suite.addTest(Seting_Testcase('test_credit_information_history'))
         suite.addTest(Seting_Testcase('test_seting_mydata'))
         suite.addTest(Seting_Testcase('test_seting_terms_of_use'))
         suite.addTest(Seting_Testcase('test_seting_privacy_policy'))
@@ -139,12 +140,12 @@ class test:
 if __name__ == '__main__':
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     logging.basicConfig(filename=f"apptestlog_{current_date}.log", level=logging.INFO)
-    # print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
+    print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
-    # test.testmyhome() # 코드 개선완료
-    # test.testautoloan()
+    test.testmyhome() # 코드 개선완료
+    test.testautoloan()
     test.testmore() # 코드 개선완료
-    # test.testseting() # 코드개선 완료
-    # test.testjoin() # 코드개선 완료
+    test.testseting() # 코드개선 완료
+    test.testjoin() # 코드개선 완료
     # test.testloan()

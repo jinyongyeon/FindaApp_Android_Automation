@@ -196,6 +196,34 @@ class Seting_Testcase(unittest.TestCase):
             print("설정 > 비밀번호 변경 결과 : FAIL")
         logging.info("설정 > 비밀번호 변경 테스트 종료")
 
+    # 설정 > 개인신용정보 이용/제공 내역 조회 테스트
+    def test_credit_information_history(self):
+        set = Seting()
+        etc = Etc()
+        base = basemethod()
+        join = JoIn()
+        setingresult = Result_seting()
+        logging.info("설정 > 개인신용정보 이용/제공 내역 조회 진입 테스트 시작")
+        set.credit_information_history()
+        join.pin_code()
+        time.sleep(10)
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.credit_information_history_result))
+            logging.info("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과 : PASS")
+            setingresult.reports.append("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과 : *PASS*")
+            print("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과 : PASS")
+        except TimeoutError:
+            logging.info("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과_요소확인필요 : FAIL")
+            setingresult.reports.append("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과_요소확인필요 : *FAIL*")
+            base.save_screenshot('개인신용정보 이용/제공 내역 조회 진입_fail')
+            print("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과_요소확인필요 : FAIL")
+        except Exception as e:
+            logging.warning(f"설정 > 개인신용정보 이용/제공 내역 조회 진입 에러 발생 : {e}")
+            setingresult.reports.append("설정 > 개인신용정보 이용/제공 내역 조회 진입 결과 : *Error*")
+            base.save_screenshot('개인신용정보 이용/제공 내역 조회 진입_error')
+            print(f"설정 > 개인신용정보 이용/제공 내역 조회 진입 에러 발생 : {e}")
+        logging.info("설정 > 개인신용정보 이용/제공 내역 조회 진입 테스트 종료")
+
     # 설정 > 금융정보 관리(마이데이터) 진입 테스트
     def test_seting_mydata(self):
         set = Seting()

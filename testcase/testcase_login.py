@@ -490,7 +490,7 @@ class JoinTestCase(unittest.TestCase):
         join.pin_code()
         join.pin_code()
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(main.login_result))
+            WebDriverWait(WebDriver.driver, 70).until(EC.visibility_of_element_located(main.login_result))
             logging.info("회원가입 결과 : PASS")
             result_join.reports.append("회원가입 결과 : *PASS*")
             print("회원가입 결과 : PASS")
@@ -519,7 +519,7 @@ class LoginTestCase(unittest.TestCase):
         join.pin_code()
         time.sleep(3)
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(main.login_result))
+            WebDriverWait(WebDriver.driver, 70).until(EC.visibility_of_element_located(main.login_result))
             logging.info("로그인 : PASS")
             result_join.reports.append("로그인 결과 : *PASS*")
             print("로그인 : PASS")

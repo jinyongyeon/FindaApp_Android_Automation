@@ -42,17 +42,17 @@ class JoIn:
 
     # 핀코드 입력
     def pin_code(self):
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_1)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_1)).click()
         time.sleep(1)
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_2)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_2)).click()
         time.sleep(1)
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_3)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_3)).click()
         time.sleep(1)
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_4)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_4)).click()
         time.sleep(1)
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_5)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_5)).click()
         time.sleep(1)
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.pincode_6)).click()
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.info.pincode_6)).click()
         time.sleep(1)
 
     # 온보딩 페이지 시작하기 버튼 선택
