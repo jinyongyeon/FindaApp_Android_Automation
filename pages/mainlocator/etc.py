@@ -459,7 +459,7 @@ class Etc:
     changepassword_c = MobileBy.XPATH, "//*[contains(@text, '확인을 위해 재입력')]"
 
     # 설정 > 금융 정보 관리(마이데이터)
-    seting_mtdata = MobileBy.XPATH, '//*[@text = "금융 정보 관리 (마이데이터)"]'
+    seting_mtdata = MobileBy.XPATH, '//*[@text = "마이데이터 연결 내역 관리"]'
     seting_mtdata_result_a = MobileBy.XPATH, '//*[@text = "연결내역 관리하기"]'
     seting_mtdata_result_b = MobileBy.XPATH, "//*[contains(@text, '마이데이터 연결로 이동합니다.')]"
 
