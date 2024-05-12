@@ -270,7 +270,7 @@ class More:
         except Exception as e:
             logging.error(f"change_loan_back : {e}")
 
-    # 나의 금융 정보 > 내 대출 진입
+    # 나의 금융 정보 > 내 자산 진입
     def my_loan_b(self):
         a = 5
         b = 0

@@ -36,7 +36,7 @@ class test:
         suite.addTest(MoreTestcase_A('test_comparison_loan'))
         suite.addTest(MoreTestcase_A('test_auto_loan'))
         suite.addTest(MoreTestcase_A('test_charter'))
-        suite.addTest(MoreTestcase_A('test_change_loan'))
+        # suite.addTest(MoreTestcase_A('test_change_loan'))    # 대환 첼린지 삭제됨
         suite.addTest(MoreTestcase_A('test_my_loan_b'))
         suite.addTest(MoreTestcase_A('test_amortization_schedule'))
         suite.addTest(MoreTestcase_A('test_electronic_wallet'))
@@ -45,7 +45,7 @@ class test:
         suite.addTest(MoreTestcase_A('test_credit_analysis'))
         suite.addTest(MoreTestcase_A('test_credit_history'))
         suite.addTest(MoreTestcase_A('test_private_business_credit_management'))
-        suite.addTest(MoreTestcase_A('test_credit_quiz_awards'))
+        # suite.addTest(MoreTestcase_A('test_credit_quiz_awards'))    # 핀다퀴즈 삭제됨
         suite.addTest(MoreTestcase_A('test_delete_delinquent_records'))
         suite.addTest(MoreTestcase_A('test_extra_money'))
         suite.addTest(MoreTestcase_A('test_dsr'))
@@ -97,9 +97,9 @@ class test:
         resultjoin = Result_Join()
         suite = unittest.TestSuite()
         suite.addTest(LoginTestCase('test_log_out'))
-        suite.addTest(JoinTestCase('test_message_certification'))
-        suite.addTest(JoinTestCase('test_membership_terms_and_conditions'))
-        suite.addTest(JoinTestCase('test_certification_number'))
+        # suite.addTest(JoinTestCase('test_message_certification'))
+        # suite.addTest(JoinTestCase('test_membership_terms_and_conditions'))
+        # suite.addTest(JoinTestCase('test_certification_number'))
         suite.addTest(JoinTestCase('test_join'))
         suite.addTest(LoginTestCase('test_withdraw'))
         unittest.TextTestRunner().run(suite)
@@ -145,7 +145,7 @@ if __name__ == '__main__':
     test = test()
     # test.testmyhome() # 코드 개선완료
     # test.testautoloan()
-    test.testmore() # 코드 개선완료
+    # test.testmore() # 코드 개선완료
     test.testseting() # 코드개선 완료
     test.testjoin() # 코드개선 완료
     # test.testloan()

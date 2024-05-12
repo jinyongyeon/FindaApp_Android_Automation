@@ -432,13 +432,13 @@ class MoreTestcase_A(unittest.TestCase):
             base.android_back()
         logging.info("대환 챌린지 진입 테스트 종료")
 
-    # 내대출_B 진입 테스트
+    # 내자산 진입 테스트
     def test_my_loan_b(self):
         more = More()
         etc = Etc()
         moreresult = Result_More()
         base = basemethod()
-        logging.info("내대출_B 진입 테스트 시작")
+        logging.info("내자산 진입 테스트 시작")
         more.my_loan_b()
         results = []
         verification_list = [("카드", etc.myloan_Result_a),
@@ -456,16 +456,16 @@ class MoreTestcase_A(unittest.TestCase):
                 results.append("Error")
         logging.info(results)
         if all(result == "PASS" for result in results):
-            logging.info("내 대출_B 진입 : PASS")
-            moreresult.reports.append("내 대출_B 진입 : *PASS*")
-            print("내 대출_B 진입 : PASS")
+            logging.info("내 자산 진입 : PASS")
+            moreresult.reports.append("내 자산 진입 : *PASS*")
+            print("내 자산 진입 : PASS")
         else:
-            logging.info("내 대출_B 진입 : FAIL")
-            moreresult.reports.append("내 대출_B 진입 : *FAIL*")
-            base.save_screenshot('내대출_B진입_fail')
-            print("내 대출_B 진입 : FAIL")
+            logging.info("내 자산 진입 : FAIL")
+            moreresult.reports.append("내 자산 진입 : *FAIL*")
+            base.save_screenshot('내자산진입_fail')
+            print("내 자산 진입 : FAIL")
         more.my_loan_back()
-        logging.info("내대출_B 진입 테스트 종료")
+        logging.info("내 자산 진입 테스트 종료")
 
     # 상환일정 진입 테스트
     def test_amortization_schedule(self):
