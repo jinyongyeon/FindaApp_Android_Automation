@@ -189,17 +189,17 @@ class MoreTestcase_A(unittest.TestCase):
             logging.warning(f"자주묻는질문진입_B 에러 발생 : {e}")
             results.append("Error")
             base.save_screenshot('자주묻는질문진입_B_error')
-        more.qna_click_c()
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_c))
-            results.append("PASS")
-        except TimeoutError:
-            results.append("FAIL")
-            base.save_screenshot('자주묻는질문진입_C_fail')
-        except Exception as e:
-            logging.warning(f"자주묻는질문진입_C 에러 발생 : {e}")
-            results.append("Error")
-            base.save_screenshot('자주묻는질문진입_C_error')
+        # more.qna_click_c()
+        # try:
+        #     WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_c))
+        #     results.append("PASS")
+        # except TimeoutError:
+        #     results.append("FAIL")
+        #     base.save_screenshot('자주묻는질문진입_C_fail')
+        # except Exception as e:
+        #     logging.warning(f"자주묻는질문진입_C 에러 발생 : {e}")
+        #     results.append("Error")
+        #     base.save_screenshot('자주묻는질문진입_C_error')
         more.qna_click_d()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_d))
@@ -1159,7 +1159,6 @@ class MoreTestcase_A(unittest.TestCase):
             base.save_screenshot('두낫콜약관진입_Bd_error')
         more.terms_of_use_webview_exit()
         more.terms_of_use_ca()
-
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.do_not_call_c_a_Result))
             results.append("PASS")

@@ -65,9 +65,9 @@ class test:
         suite.addTest(MoreTestcase_A('test_alarm'))
         suite.addTest(MoreTestcase_A('test_point'))
         suite.addTest(MoreTestcase_A('test_checkin'))
-        suite.addTest(MoreTestcase_A('test_price_forecast_season_1'))
+        # suite.addTest(MoreTestcase_A('test_price_forecast_season_1'))     # 물가예측 시즌1 삭제됨
         suite.addTest(MoreTestcase_A('test_priceforecast_history'))
-        # suite.addTest(MoreTestcase_A('test_event'))
+        # suite.addTest(MoreTestcase_A('test_event'))     # 이벤트 삭제됨
         suite.addTest(MoreTestcase_A('test_loan_reviews'))
         unittest.TextTestRunner().run(suite)
         result_more = '\n\n'.join(str(i) for i in resultmore.reports)

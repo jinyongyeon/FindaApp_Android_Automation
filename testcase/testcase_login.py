@@ -609,7 +609,7 @@ class LoginTestCase(unittest.TestCase):
         join.pin_code()
         time.sleep(1)
         join.pin_code()
-        logging.info("회원탈퇴 테스트 시작")
+        logging.info("회원탈퇴 테스트 종료")
 
     #회원가입 자동화
     def test_auto_join(self):

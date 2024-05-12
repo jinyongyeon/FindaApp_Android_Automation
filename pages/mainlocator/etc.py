@@ -291,7 +291,7 @@ class Etc:
     do_not_call_c_c = '//*[@text = "[금융스팸차단하기] 개인(신용)정보 제3자 제공 동의(필수)"]'
 
     # 두낫콜 서비스 이용약관 진입 결과 C 실패
-    do_not_call_c_a_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단하기] 서비스 이용 약관 (필수)"]'
+    do_not_call_c_a_Result = MobileBy.XPATH, '//*[@text = "서비스 이용약관"]'
 
     do_not_call_c_b_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단하기] 개인(신용)정보 수집·이용 동의(필수)"]'
 
