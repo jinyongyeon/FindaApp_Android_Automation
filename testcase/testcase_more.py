@@ -145,7 +145,7 @@ class MoreTestcase_A(unittest.TestCase):
         more.qna()
         verification_list = [("정말 이 조건 그대로 대출 가능한가요?", etc.qna_a),
                              ("신청하면 대출금은 언제 입금이 되나요?", etc.qna_b),
-                             ("대출 조건은 언제까지 유효한가요?", etc.qna_c),
+                             # ("대출 조건은 언제까지 유효한가요?", etc.qna_c),    # 항목 삭제됨
                              ("대출을 알아보는 것으로, 불이익이 있나요?", etc.qna_d),
                              ("신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?", etc.qna_e)]
         for text, xpath in verification_list:
