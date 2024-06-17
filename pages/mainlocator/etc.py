@@ -30,7 +30,7 @@ class Etc:
     chatting = MobileBy.XPATH, '//*[@text = "1:1 채팅문의"]'
 
      # 1:1 채팅문의 진입 결과
-    chatting_result = MobileBy.XPATH, "//*[contains(@text, '채널톡')]"
+    chatting_result = MobileBy.XPATH, "//*[contains(@text, '안녕하세요. 핀다입니다')]"
      # 1:1 채팅 닫기
     chatting_exit = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView"
 
@@ -54,11 +54,11 @@ class Etc:
 
     # 대출 갈아타기
     transfer_loan = MobileBy.XPATH,'//*[@text = "대출 갈아타기"]'
-    transfer_loan_result_a = MobileBy.XPATH, '//*[@text = "대출 갈아타러 가기"]'
-    transfer_loan_result_b = MobileBy.XPATH, '//*[@text = "매월 부담되는 이자를\n지금 바로 줄이고 싶다면?"]'
+    transfer_loan_result_a = MobileBy.XPATH, '//*[@text = "대출 갈아타기"]'
+    transfer_loan_result_b = MobileBy.XPATH, '//*[@text = "더 낮은 금리로\n더 편하게 갈아타세요"]'
 
     # 대출 한 번에 비교
-    comparison_loan = MobileBy.XPATH, '//*[@text = "대출 한 번에 비교"]'
+    comparison_loan = MobileBy.XPATH, '//*[@text = "대출 한번에 비교"]'
 
     # 대출 한 번에 비교 결과
     comparison_loan_Result_a = MobileBy.XPATH, '//*[contains(@text, "대출 한 번에 알아보기")]'
@@ -199,7 +199,7 @@ class Etc:
     year_end_settlement = MobileBy.XPATH, '//*[@text = "연말정산 계산기"]'
 
     # 연말정산 계산기 결과
-    year_end_settlement_Result = MobileBy.XPATH, '//*[@text = "카드 및 현금 소비액 소득공제"]'
+    year_end_settlement_Result = MobileBy.XPATH, '//*[contains(@text, "카드 및 현금 소비액 소득공제"]'
 
     # 계산기 > 연말정산 계산기 뒤로가기
     year_end_settlement_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -291,11 +291,11 @@ class Etc:
     do_not_call_c_c = '//*[@text = "[금융스팸차단하기] 개인(신용)정보 제3자 제공 동의(필수)"]'
 
     # 두낫콜 서비스 이용약관 진입 결과 C 실패
-    do_not_call_c_a_Result = MobileBy.XPATH, '//*[@text = "서비스 이용약관"]'
+    do_not_call_c_a_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단] 서비스 이용 약관"]'
 
-    do_not_call_c_b_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단하기] 개인(신용)정보 수집·이용 동의(필수)"]'
+    do_not_call_c_b_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단] 개인(신용)정보 수집·이용 동의"]'
 
-    do_not_call_c_c_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단하기] 개인(신용)정보 제3자 제공 동의(필수)"]'
+    do_not_call_c_c_Result = MobileBy.XPATH, '//*[@text = "[금융스팸차단] 개인(신용)정보 제3자 제공 동의(필수)"]'
 
     # 웹뷰 나가기 버튼
     webview_exit = '//*[@content-desc = "탭 닫기"]'
@@ -318,13 +318,13 @@ class Etc:
     deposit_and_savings = MobileBy.XPATH, '//*[@text = "예적금 비교"]'
 
     # 예적금 비교 결과
-    deposit_and_savings_Result = MobileBy.XPATH, "//*[contains(@text, '정기예금')]"
+    deposit_and_savings_Result = MobileBy.XPATH, "//*[contains(@text, '예적금 비교')]"
 
     # 예적금 비교 > 뒤로가기
     deposit_and_savings_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 핀다 포스트 진입
-    finda_post = MobileBy.XPATH, '//*[@text = "핀다포스트"]'
+    finda_post = MobileBy.XPATH, "//*[contains(@text, '사용팁')]"
 
     # 핀다 포스트 진입 결과
     finda_post_Result = MobileBy.XPATH, "//*[contains(@text, '사용팁')]"

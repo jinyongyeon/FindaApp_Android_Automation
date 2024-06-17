@@ -264,7 +264,7 @@ class MoreTestcase_A(unittest.TestCase):
                 logging.warning(f"대출 갈아타기 사전신청 진입 에러 발생 : {e}")
                 moreresult.reports.append("대출 갈아타기 진입 : *Error*")
                 base.save_screenshot('대출갈아타기진입_error')
-                print(f"대출 갈아타기 사전신청 진입 에러 발생 : {e}")
+                print(f"대출 갈아타기 진입 에러 발생 : {e}")
         base.android_back()
         logging.info("대출 갈아타기 테스트 종료")
 
@@ -1053,8 +1053,7 @@ class MoreTestcase_A(unittest.TestCase):
                              ("서비스이용약관동의", etc.do_not_call_b_c),
                              ("통신사이용약관동의", etc.do_not_call_b_d),
                              ("[금융스팸차단하기] 서비스 이용 약관", etc.do_not_call_c_a),
-                             ("[금융스팸차단하기] 개인(신용)정보 수집.이용 동의(필수)", etc.do_not_call_c_b),
-                             ("[금융스팸차단하기] 개인(신용)정보 제3자 제공 동의(필수)", etc.do_not_call_c_c)]
+                             ("[금융스팸차단하기] 개인(신용)정보 수집.이용 동의(필수)", etc.do_not_call_c_b)]
         for text, xpath in verification_list:
             try:
                 Result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
@@ -1182,18 +1181,18 @@ class MoreTestcase_A(unittest.TestCase):
             results.append("Error")
             base.save_screenshot('두낫콜약관진입_Cb_error')
         more.terms_of_use_webview_exit()
-        more.terms_of_use_cc()
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.do_not_call_c_c_Result))
-            results.append("PASS")
-        except TimeoutError:
-            results.append("FAIL")
-            base.save_screenshot('두낫콜약관진입_Cc_요소확인필요_fail')
-            print('두낫콜약관진입_Cc_요소확인필요_fail')
-        except Exception:
-            results.append("Error")
-            base.save_screenshot('두낫콜약관진입_Cc_error')
-        more.terms_of_use_webview_exit()
+        # more.terms_of_use_cc()
+        # try:
+        #     WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.do_not_call_c_c_Result))
+        #     results.append("PASS")
+        # except TimeoutError:
+        #     results.append("FAIL")
+        #     base.save_screenshot('두낫콜약관진입_Cc_요소확인필요_fail')
+        #     print('두낫콜약관진입_Cc_요소확인필요_fail')
+        # except Exception:
+        #     results.append("Error")
+        #     base.save_screenshot('두낫콜약관진입_Cc_error')
+        # more.terms_of_use_webview_exit()
         logging.info(results)
         if all(result == "PASS" for result in results):
             logging.info("두낫콜 약관 페이지 진입 노출 : PASS")

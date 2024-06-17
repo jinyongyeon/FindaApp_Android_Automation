@@ -271,6 +271,7 @@ class JoIn:
                 authentication_code = match.group(1)
                 self.main.verification_codes.append(authentication_code)
                 logging.info(self.main.verification_codes)
+                print(self.main.verification_codes)
             else:
                 logging.error("첫 번째 메시지에서 인증번호를 찾을 수 없습니다.")
         else:

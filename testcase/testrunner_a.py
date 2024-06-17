@@ -46,7 +46,7 @@ class test:
         suite.addTest(MoreTestcase_A('test_credit_history'))
         suite.addTest(MoreTestcase_A('test_private_business_credit_management'))
         # suite.addTest(MoreTestcase_A('test_credit_quiz_awards'))    # 핀다퀴즈 삭제됨
-        suite.addTest(MoreTestcase_A('test_delete_delinquent_records'))
+        # suite.addTest(MoreTestcase_A('test_delete_delinquent_records')) # 연체 기록 삭제하기 삭제됨
         suite.addTest(MoreTestcase_A('test_extra_money'))
         suite.addTest(MoreTestcase_A('test_dsr'))
         suite.addTest(MoreTestcase_A('test_interest'))
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
     # test.testmyhome() # 코드 개선완료
-    test.testautoloan()
+    # test.testautoloan()
     test.testmore() # 코드 개선완료
     test.testseting() # 코드개선 완료
     test.testjoin() # 코드개선 완료

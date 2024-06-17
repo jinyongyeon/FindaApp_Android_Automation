@@ -2131,25 +2131,28 @@ class LoanComparisonTestcase(unittest.TestCase):
 class test_Testcase(unittest.TestCase):
 
     def test_test(self):
-        loan = Loan()
-        base = basemethod()
+        # loan = Loan()
+        # base = basemethod()
         join = JoIn()
-        more = More()
-        etc = Etc()
-        seting = Seting()
-        loanresult = Result_loan()
-        myhome = MyHome()
-        comparisonloan = ComparisonLoan()
-        autoloan = Auto_Loan()
-        loan = Loan()
-        base = basemethod()
-        loanresult = Result_loan()
-        myhome = MyHome()
-        comparisonloan = ComparisonLoan()
-        results = []
-        logging.info("차량 번호 입력 테스트 시작")
-        comparisonloan.mycar_namber()
+        # more = More()
+        # etc = Etc()
+        # seting = Seting()
+        # loanresult = Result_loan()
+        # myhome = MyHome()
+        # comparisonloan = ComparisonLoan()
+        # autoloan = Auto_Loan()
+        # loan = Loan()
+        # base = basemethod()
+        # loanresult = Result_loan()
+        # myhome = MyHome()
+        # comparisonloan = ComparisonLoan()
+        # results = []
+        # logging.info("차량 번호 입력 테스트 시작")
+        # comparisonloan.mycar_namber()
         # comparisonloan.check_loan()
+        join.join_mms()
+
+
 
 
 
