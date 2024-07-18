@@ -9,6 +9,7 @@ from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.wait import WebDriverWait
 
 from config.info import InFo
+from pages.basemethod.base import basemethod
 from pages.mainlocator.home import Home
 from drivers.aos_webdrivers import WebDriver
 
@@ -17,6 +18,7 @@ class MyHome:
     def __init__(self):
         self.home = Home()
         self.info = InFo()
+        self.base = basemethod()
 
     # 마이홈 메뉴바 왼쪽으로 스크롤
     def menu_right_to_left(self):
@@ -33,6 +35,30 @@ class MyHome:
         action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]")
         action.press(action_a).move_to(action_b).release()
         return action.perform()
+
+    def menu_loan(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_a)).click()
+        time.sleep(2)
+
+    def menu_refinance_loan(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_b)).click()
+        time.sleep(2)
+
+    def menu_business_loan(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_c)).click()
+        time.sleep(2)
+
+    def menu_home_equity_loan(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_d)).click()
+        time.sleep(2)
+
+    def menu_car_loan(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_e)).click()
+        time.sleep(2)
+
+    def menu_auto_lease(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_f)).click()
+        time.sleep(2)
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):
@@ -133,9 +159,19 @@ class MyHome:
 
     # 신용점수 진입
     def credit_score(self):
-        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.credit_score)).click()
-        time.sleep(5)
-
+        a = 3
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(
+                    EC.visibility_of_element_located(self.home.credit_score)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 내대출 진입
     def loan_data_api(self):
