@@ -173,12 +173,12 @@ class MyHome:
         if b == a:
             print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
-    # 내대출 진입
-    def loan_data_api(self):
+    # 상환 일정 노출 확인
+    def home_loan_data_api_a(self):
         with open('usertoken.pickle', 'rb') as f:
             usertoken = pickle.load(f)
         # API 엔드포인트 URL
-        url = "https://service-api.finda.co.kr/ams/v1/loanmanage/loans"
+        url = "https://service-api.finda.co.kr/ams/v1/home/assets-info"
         # 요청 헤더 설정 (필요에 따라 사용)
         headers = { "Content-Type" : "application/json",
                     "X-Auth-Token": ''.join(usertoken)
@@ -186,27 +186,193 @@ class MyHome:
         # 요청 본문 데이터 (필요에 따라 사용)
         data = {
         }
-        try:
-            # POST 요청
-            response = requests.get(url, headers=headers, json=data, verify=False)
-            # 응답 상태 코드 확인
-            result = response.json()
-            logging.info(result)
-            if 'list' in result and len(result['list']) > 0:
-                first_product_name = result['list'][0]['productName']
-                self.info.loans_data.append(first_product_name)
-            logging.info(self.info.loans_data)
-            loans_data_a = "".join(map(str, self.info.loans_data))
-            logging.info(loans_data_a)
-            if 'list' in result and len(result['list']) > 0:
-                first_product_name_a = result['list'][0]['interestRate']
-                self.info.loans_data_b.append(first_product_name_a)
-            logging.info(self.info.loans_data_b)
-            loans_data_c = "".join(map(str, self.info.loans_data_b))
-            logging.info(loans_data_c)
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        logging.info(result)
+        print(result)
 
-        except Exception as e:
-            logging.error(f"loan_data_api 요청 실패 : {e}")
+        assetType_A = []
+        loan_A = []
+        loan_B = []
+
+        if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+            assetType = result['data']['repayPlanInfo'][0]['assetList'][0]['assetType']
+            assetType_A.append(assetType)
+        assetType_b = "".join(map(str, assetType_A))
+        print(assetType_b)
+        if assetType_b == "LOAN":
+            if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+                loanname = result['data']['repayPlanInfo'][0]['assetList'][0]['productName']
+                loan_A.append(loanname)
+                print(loan_A)
+                loanname_A = "".join(map(str, loan_A))
+                loan = MobileBy.XPATH, "//*[contains(@text, '"+loanname_A+"')]"
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+        else:
+            if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+                loanname = result['data']['repayPlanInfo'][0]['assetList'][0]['orgName']
+                loan_B.append(loanname)
+                print(loan_B)
+                loanname_B = "".join(map(str, loan_B))
+                loan = MobileBy.XPATH, "//*[contains(@text, '"+loanname_B+"')]"
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+
+    def home_loan_data_api_b(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/ams/v1/home/assets-info"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = {"Content-Type": "application/json",
+                   "X-Auth-Token": ''.join(usertoken)
+                   }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        logging.info(result)
+        print(result)
+
+        assetType_A = []
+        loan_A = []
+        loan_B = []
+
+        if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+            try:
+                assetType = result['data']['repayPlanInfo'][0]['assetList'][1]['assetType']
+                assetType_A.append(assetType)
+                assetType_b = "".join(map(str, assetType_A))
+                print(assetType_b)
+                if assetType_b == "LOAN":
+                    if 'data' in result and len(result['repayPlanInfo']) > 0:
+                        loanname = result['data']['repayPlanInfo'][0]['assetList'][1]['productName']
+                        loan_A.append(loanname)
+                        print(loan_A)
+                        loanname_A = "".join(map(str, loan_A))
+                        loan = MobileBy.XPATH, "//*[contains(@text, '" + loanname_A + "')]"
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+                else:
+                    if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+                        loanname = result['data']['repayPlanInfo'][0]['assetList'][1]['orgName']
+                        loan_B.append(loanname)
+                        print(loan_B)
+                        loanname_B = "".join(map(str, loan_B))
+                        loan = MobileBy.XPATH, "//*[contains(@text, '" + loanname_B + "')]"
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+            except:
+                assetType = result['data']['repayPlanInfo'][1]['assetList'][0]['assetType']
+                assetType_A.append(assetType)
+                assetType_b = "".join(map(str, assetType_A))
+                print(assetType_b)
+                if assetType_b == "LOAN":
+                    if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+                        loanname = result['data']['repayPlanInfo'][1]['assetList'][0]['productName']
+                        loan_A.append(loanname)
+                        print(loan_A)
+                        loanname_A = "".join(map(str, loan_A))
+                        loan = MobileBy.XPATH, "//*[contains(@text, '"+loanname_A+"')]"
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+                else:
+                    if 'data' in result and 'repayPlanInfo' in result['data'] and len(result['data']['repayPlanInfo']) > 0:
+                        loanname = result['data']['repayPlanInfo'][1]['assetList'][0]['orgName']
+                        loan_B.append(loanname)
+                        print(loan_B)
+                        loanname_B = "".join(map(str, loan_B))
+                        loan = MobileBy.XPATH, "//*[contains(@text, '"+loanname_B+"')]"
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan)).click()
+                        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(loan))
+
+    # 마이홈 금융생활 쓸 수 있는 현금 노출 및 진입
+    def home_cash(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/ams/v1/home/assets-info"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        logging.info(result)
+        print(result)
+        cash = []
+        if 'data' in result and 'totalCheckingAccountBalanceAmount' in result['data']:
+            data_cash = result['data']['totalCheckingAccountBalanceAmount']
+            cash.append(data_cash)
+            print(cash)
+        data_cash_a = "".join(map(str, cash))
+        all_cash = f"{int(data_cash_a):,}원"
+        print(all_cash)
+        c = MobileBy.XPATH, "//*[contains(@text, '"+all_cash+"')]"
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(c)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+        time.sleep(4)
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(c))
+
+    # 마이홈 금융생활 카드 사용금액 노출 및 진입
+    def home_card(self):
+        with open('usertoken.pickle', 'rb') as f:
+            usertoken = pickle.load(f)
+        # API 엔드포인트 URL
+        url = "https://service-api.finda.co.kr/ams/v1/home/assets-info"
+        # 요청 헤더 설정 (필요에 따라 사용)
+        headers = { "Content-Type" : "application/json",
+                    "X-Auth-Token": ''.join(usertoken)
+                    }
+        # 요청 본문 데이터 (필요에 따라 사용)
+        data = {
+        }
+        response = requests.get(url, headers=headers, json=data, verify=False)
+        # 응답 상태 코드 확인
+        result = response.json()
+        logging.info(result)
+        print(result)
+        card = []
+        if 'data' in result and 'totalCardPayAmount' in result['data']:
+            data_card = result['data']['totalCardPayAmount']
+            card.append(data_card)
+            print(card)
+        data_card_a = "".join(map(str, card))
+        all_card = f"{int(data_card_a):,}원"
+        print(all_card)
+        c = MobileBy.XPATH, "//*[contains(@text, '"+all_card+"')]"
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(c)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+        time.sleep(4)
+
     def loan_Banner(self):
         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.loan_banner)).click()
         time.sleep(2)

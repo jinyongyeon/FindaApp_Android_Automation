@@ -2,6 +2,7 @@ import logging
 import time
 import unittest
 import pickle
+from datetime import datetime
 
 import requests
 from appium.webdriver.common.mobileby import MobileBy
@@ -176,53 +177,6 @@ class MyHome_Testcase(unittest.TestCase):
             base.save_screenshot('마이홈 퀵 메뉴 진입 결과_fail')
         logging.info("마이홈 상단 퀵 메뉴 영역 노출 및 진입 테스트 종료")
 
-    # 마이홈 신용점수 진입 후 신용점수 노출 테스트
-    def test_credit_score(self):
-        myhome = MyHome()
-        result_myhome = Result_MyHome()
-        base = basemethod()
-        more = More()
-        info = InFo()
-        seting = Seting()
-        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 시작")
-        more.etc_in()
-        seting.seting_in()
-        base.scroll(2)
-        base.user_id_get()
-        base.user_token_get()
-        base.android_back()
-        base.android_back()
-        myhome.credit_score_get()
-        myhome.credit_score()
-        try:
-            time.sleep(5)
-            more.exit()
-        except:
-            pass
-        try:
-            credit_score = "".join(map(str, info.credit_score))
-            print(credit_score)
-            WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"')]")
-            print("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
-            logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
-            result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
-        except TimeoutError:
-            print("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
-            logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
-            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과_요소 확인 필요 : *FAIL*")
-            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
-        except Exception as e:
-            print(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
-            logging.warning(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
-            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *Error*")
-            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_error')
-        try:
-            more.credit_score_back()
-        except:
-            base.android_back()
-        base.android_back()
-        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 종료")
-
     # 마이홈 금융생활 선택 후 자산목록 진입 테스트
     def test_financial_life_in(self):
         myhome = MyHome()
@@ -263,7 +217,111 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 금융생활 선택 후 자산목록 진입 테스트 종료")
 
-    # 마이홈 금융생활 영역 대출 노출 및 진입 테스트
+    # 마이홈 금융생활 출금 일정 노출 및 진입 테스트
+    def test_myhome_repayment_schedule(self):
+        myhome = MyHome()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        more = More()
+        seting = Seting()
+        logging.info("마이홈 금융생활 출금 일정 노출 테스트 시작")
+        more.etc_in()
+        seting.seting_in()
+        base.scroll(2)
+        base.user_id_get()
+        base.user_token_get()
+        base.android_back()
+        base.android_back()
+        results = []
+        try:
+            myhome.home_loan_data_api_a()
+            base.android_back()
+            results.append("PASS")
+        except:
+            base.android_back()
+            results.append("FAIL")
+        try:
+            myhome.home_loan_data_api_b()
+            base.android_back()
+            results.append("PASS")
+        except:
+            base.android_back()
+            results.append("FAIL")
+        print(results)
+        if all(result == "PASS" for result in results):
+            logging.info("금융생활 출금일정 노출 결과 : PASS")
+            result_myhome.reports.append("금융생활 출금일정 노출 결과 : *PASS*")
+            print("금융생활 출금일정 노출 결과 : PASS")
+        else:
+            logging.info("금융생활 출금일정 노출 결과 : FAIL")
+            result_myhome.reports.append("금융생활 출금일정 노출 결과 : *FAIL*")
+            base.save_screenshot('금융생활 출금일정 노출 결과_fail')
+            print("내 대출 진입 : FAIL")
+        logging.info("마이홈 금융생활 출금 일정 노출 테스트 종료")
+
+    # 마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트
+    def test_myhome_cash(self):
+        myhome = MyHome()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        more = More()
+        seting = Seting()
+        logging.info("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 시작")
+        # more.etc_in()
+        # seting.seting_in()
+        # base.scroll(2)
+        # base.user_id_get()
+        # base.user_token_get()
+        # base.android_back()
+        # base.android_back()
+        try:
+            myhome.home_cash()
+            base.android_back()
+            logging.info("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : PASS")
+            result_myhome.reports.append("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : *PASS*")
+            print("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : PASS")
+        except:
+            base.android_back()
+            logging.info("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : FAIL")
+            result_myhome.reports.append("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : *FAIL*")
+            base.save_screenshot('마이홈 금융생활 쓸 수 있는 현금 노출 및 진입_fail')
+            print("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : FAIL")
+        logging.info("마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 종료")
+
+    # 마이홈 금융생활 카드 사용금액 노출 및 진입 테스트
+    def test_myhome_card(self):
+        myhome = MyHome()
+        result_myhome = Result_MyHome()
+        base = basemethod()
+        more = More()
+        seting = Seting()
+        logging.info("마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 시작")
+        # more.etc_in()
+        # seting.seting_in()
+        # base.scroll(2)
+        # base.user_id_get()
+        # base.user_token_get()
+        # base.android_back()
+        # base.android_back()
+        try:
+            myhome.home_card()
+            current_date = datetime.now()
+            current_month = current_date.month
+            card_result = MobileBy.XPATH, f"//*[contains(@text, '{current_month}월 사용금액')]"
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(card_result))
+            base.android_back()
+            logging.info("마이홈 금융생활 카드 사용금액 노출 및 진입 : PASS")
+            result_myhome.reports.append("마이홈 금융생활 카드 사용금액 노출 및 진입 : *PASS*")
+            print("마이홈 금융생활 카드 사용금액 노출 및 진입 : PASS")
+        except:
+            base.android_back()
+            logging.info("마이홈 금융생활 카드 사용금액 노출 및 진입 : FAIL")
+            result_myhome.reports.append("마이홈 금융생활 카드 사용금액 노출 및 진입 : *FAIL*")
+            base.save_screenshot('마이홈 금융생활 카드 사용금액 노출 및 진입_fail')
+            print("마이홈 금융생활 카드 사용금액 노출 및 진입 : FAIL")
+        logging.info("마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 종료")
+
+    # 마이홈 금융생활 영역 대출 노출 및 진입 테스트(삭제)
     def test_myhome_myloan(self):
         result_myhome = Result_MyHome()
         base = basemethod()
@@ -341,87 +399,52 @@ class MyHome_Testcase(unittest.TestCase):
         base.android_back()
         logging.info("마이홈 금융생활 영역 대출 노출 테스트 종료")
 
-    # 마이홈 오토리스 배너 테스트(삭제)
-    def test_lease_contract_banner(self):
+    # 마이홈 신용점수 진입 후 신용점수 노출 테스트
+    def test_credit_score(self):
         myhome = MyHome()
-        home = Home()
-        etc = Etc()
         result_myhome = Result_MyHome()
         base = basemethod()
-        logging.info("마이홈 오토리스 배너 테스트 시작")
-        myhome.menu_right_to_left()
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.lease_contract_banner))
-            logging.info("장기렌트 리스 배너 노출 : PASS")
-            result_myhome.reports.append("장기렌트 리스 배너 노출 : *PASS*")
-        except TimeoutError:
-            logging.info("장기렌트 리스 배너 노출_요소 확인 필요 : FAIL")
-            result_myhome.reports.append("장기렌트 리스 배너 노출_요소 확인 필요 : *FAIL*")
-            base.save_screenshot('장기렌트리스배너노출_fail')
-        except Exception as e:
-            logging.warning(f"장기렌트 리스 배너 노출 에러 발생 : {e}")
-            result_myhome.reports.append("장기렌트 리스 배너 노출 : *Error*")
-            base.save_screenshot('장기렌트리스배너노출_error')
-        myhome.Lease_Contract_Banner()
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.lease_rent_result))
-            logging.info("장기렌트 리스 배너 진입 : PASS")
-            result_myhome.reports.append("장기렌트 리스 배너 진입 : *PASS*")
-        except TimeoutError:
-            logging.info("장기렌트 리스 배너 진입_요소 확인 필요 : FAIL")
-            result_myhome.reports.append("장기렌트 리스 배너 진입_요소 확인 필요 : *FAIL*")
-            base.save_screenshot('장기렌트리스배너진입_fail')
-        except Exception as e:
-            logging.warning(f"장기렌트 리스 배너 진입 에러 발생 : {e}")
-            result_myhome.reports.append("장기렌트 리스 배너 진입 : *Error*")
-            base.save_screenshot('장기렌트리스배너진입_error')
-        myhome.menu_left_to_right()
-        logging.info("마이홈 오토리스 배너 테스트 시작")
-        base.android_back()
-
-    # 마이홈 자동차 대출 배너 테스트(삭제)
-    def test_auto_loan_banner(self):
-        myhome = MyHome()
-        home = Home()
-        etc = Etc()
+        more = More()
         info = InFo()
-        result_myhome = Result_MyHome()
-        base = basemethod()
-        logging.info("마이홈 자동차 대출 배너 테스트 시작")
-        myhome.menu_right_to_left()
+        seting = Seting()
+        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 시작")
+        # more.etc_in()
+        # seting.seting_in()
+        # base.scroll(2)
+        # base.user_id_get()
+        # base.user_token_get()
+        # base.android_back()
+        # base.android_back()
+        # myhome.credit_score_get()
+        myhome.credit_score()
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(home.auto_loan_banner))
-            logging.info("차 구매 대출 배너 노출 : PASS")
-            result_myhome.reports.append("차 구매 대출 배너 노출 : *PASS*")
+            time.sleep(5)
+            more.exit()
+        except:
+            pass
+        try:
+            credit_score = "".join(map(str, info.credit_score))
+            print(credit_score)
+            WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '"+credit_score+"')]")
+            print("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
+            logging.info("마이홈 신용점수 진입 후 신용점수 노출결과 : PASS")
+            result_myhome.reports.append("마이홈 신용점수 진입 후 신용점수 노출 결과 : *PASS*")
         except TimeoutError:
-            logging.info("차 구매 대출 배너 노출_요소 확인 필요 : FAIL")
-            result_myhome.reports.append("차 구매 대출 배너 노출_요소 확인 필요 : *FAIL*")
-            base.save_screenshot('차구매대출배너노출_fail')
+            print("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
+            logging.info("마이홈 신용점수 진입 후 신용점수 노출 결과_요소 확인 필요 : FAIL")
+            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과_요소 확인 필요 : *FAIL*")
+            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_fail')
         except Exception as e:
-            logging.warning(f"차 구매 대출 배너 노출 에러 발생 : {e}")
-            result_myhome.reports.append("차 구매 대출 배너 노출 : *Error*")
-            base.save_screenshot('차구매대출배너노출_error')
-        myhome.auto_Loan_Banner()
+            print(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
+            logging.warning(f"마이홈 신용점수 진입 후 신용점수 노출 결과 에러 발생 : {e}")
+            result_myhome.reports.append("마이홈 신용점수 진입  후 신용점수 노출 결과 : *Error*")
+            base.save_screenshot('마이홈 신용점수 진입  후 신용점수 노출_error')
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.auto_loan_Result_a))
-            logging.info("차 구매 대출 배너 진입 : PASS")
-            result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
-        except Exception:
-            try:
-                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.auto_loan_Result_b))
-                logging.info("차 구매 대출 배너 진입 : PASS")
-                result_myhome.reports.append("차 구매 대출 배너 진입 : *PASS*")
-            except TimeoutError:
-                logging.info("차 구매 대출 배너 진입_요소 확인 필요 : FAIL")
-                result_myhome.reports.append("차 구매 대출 배너 진입_요소 확인 필요 : *FAIL*")
-                base.save_screenshot('차구매대출배너진입_fail')
-            except Exception as e:
-                logging.warning(f"차 구매 대출 배너 진입 에러 발생 : {e}")
-                result_myhome.reports.append("차 구매 대출 배너 진입 : *Error*")
-                base.save_screenshot('차구매대출배너진입_error')
-        myhome.menu_left_to_right()
-        logging.info("마이홈 자동차 대출 배너 테스트 종료")
+            more.credit_score_back()
+        except:
+            base.android_back()
         base.android_back()
+        logging.info("마이홈 신용점수 진입 후 신용점수 노출 테스트 종료")
 
 class hometest_Testcase(unittest.TestCase):
 
@@ -458,6 +481,10 @@ class hometest_Testcase(unittest.TestCase):
         seting = Seting()
         results = []
         results_a = []
+        current_date = datetime.now()
+        current_month = current_date.month
+
+        print(f"{current_month}test")
 
 
 

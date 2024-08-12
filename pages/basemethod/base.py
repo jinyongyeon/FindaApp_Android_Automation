@@ -5,6 +5,9 @@ import requests
 import pickle
 # import subprocess
 from datetime import datetime
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 # from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.mobileby import MobileBy
@@ -118,7 +121,7 @@ class basemethod:
         data = {
             # "userId": self.info.user_id,
             "userId": ''.join(user_id),
-            "encryptedPincode": "a4a5ed857d3b13951aff46dc203b020f3c375bd6a758362dd1e6940c96883ff3"
+            "encryptedPincode": "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c"
         }
         try:
             # POST 요청
@@ -168,8 +171,8 @@ class basemethod:
             logging.error(f"요청 실패 : {e}")
 
     def user_id_get(self):
-        element = WebDriver.driver.find_element(MobileBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.widget.ScrollView/android.widget.TextView[3]")
-        text = element.text
+        userid = MobileBy.XPATH, "//*[contains(@text, '사용자ID')]"
+        text = WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(userid)).text
         logging.info(text)
         self.info.user_id = ''.join(filter(str.isdigit, text))
         logging.info(self.info.user_id)
