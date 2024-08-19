@@ -195,6 +195,13 @@ class Etc:
     # 계산기 > 대출이자 계산기 뒤로가기
     interest_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
+    # 계산기 > 내 집 마련 대출한도 계산기 진입
+    get_myownhouse = MobileBy.XPATH, '//*[contains(@text, "내 집 마련 대출한도 계산기"]'
+    # 계산기 > 내 집 마련 대출한도 계산기 > 받을 수 있는 돈 계산하기
+    get_myownhouse_next = MobileBy.XPATH, '//*[contains(@text, "받을 수 있는 돈 계산하기"]'
+    # 계산기 > 내 집 마련 대출한도 계산기 결과
+    get_myownhouse_result = MobileBy.XPATH, '//*[contains(@text, "내 집 대출한도 계산기"]'
+
     # 계산기 > 연말정산 계산기 진입
     year_end_settlement = MobileBy.XPATH, '//*[@text = "연말정산 계산기"]'
 

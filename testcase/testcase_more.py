@@ -851,6 +851,33 @@ class MoreTestcase_A(unittest.TestCase):
             base.android_back()
         logging.info("계산기 > 대출이자 계산기 진입 테스트 종료")
 
+    def test_get_myownhouse(self):
+        more = More()
+        etc = Etc()
+        base = basemethod()
+        moreresult = Result_More()
+        logging.info("계산기 > 내 집 마련 대출한도 계산기 진입 테스트 시작")
+        more.get_myownhouse()
+        more.get_myownhouse_next()
+        try:
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.get_myownhouse_result))
+            logging.info("계산기 > 내 집 마련 대출한도 계산기 : PASS")
+            moreresult.reports.append("계산기 > 내 집 마련 대출한도 계산기 : *PASS*")
+            print("계산기 > 내 집 마련 대출한도 계산기 : PASS")
+        except TimeoutError:
+            logging.info("계산기 > 내 집 마련 대출한도 계산기_요소 확인필요 : FAIL")
+            moreresult.reports.append("계산기 > 내 집 마련 대출한도 계산기_요소 확인필요 : *FAIL*")
+            base.save_screenshot('계산기 > 내 집 마련 대출한도 계산기_fail')
+            print("계산기 > 내 집 마련 대출한도 계산기_요소 확인필요 : FAIL")
+        except Exception as e:
+            logging.warning(f"계산기 > 내 집 마련 대출한도 계산기 에러 발생 : {e}")
+            moreresult.reports.append("계산기 > 내 집 마련 대출한도 계산기 : *Error*")
+            base.save_screenshot('계산기 > 내 집 마련 대출한도 계산기_error')
+            print(f"계산기 > 내 집 마련 대출한도 계산기 에러 발생 : {e}")
+        base.android_back()
+        base.android_back()
+        logging.info("계산기 > 내 집 마련 대출한도 계산기 진입 테스트 종료")
+
     # 계산기 > 연말정산 계산기 진입 테스트
     def test_year_end_settlement(self):
         more = More()

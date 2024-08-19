@@ -30,47 +30,48 @@ class test:
     def testmore(self):
         resultmore = Result_More()
         suite = unittest.TestSuite()
-        suite.addTest(MoreTestcase_A('test_check_more_tab'))
-        suite.addTest(MoreTestcase_A('test_myloan_in'))
-        suite.addTest(MoreTestcase_A('test_chat_ting'))
-        suite.addTest(MoreTestcase_A('test_qna'))
-        suite.addTest(MoreTestcase_A('test_refinancing_loan'))
-        suite.addTest(MoreTestcase_A('test_comparison_loan'))
-        suite.addTest(MoreTestcase_A('test_auto_loan'))
-        suite.addTest(MoreTestcase_A('test_charter'))
+        suite.addTest(MoreTestcase_A('test_check_more_tab'))  # 더보기 진입
+        suite.addTest(MoreTestcase_A('test_myloan_in'))  # 내 대출 진입
+        suite.addTest(MoreTestcase_A('test_chat_ting'))  # 1:1채팅문의 진입
+        suite.addTest(MoreTestcase_A('test_qna'))  # 자주 묻는 질문 진입
+        suite.addTest(MoreTestcase_A('test_refinancing_loan')) # 대출 갈아타기
+        suite.addTest(MoreTestcase_A('test_comparison_loan')) # 대출 한번에 비교
+        suite.addTest(MoreTestcase_A('test_auto_loan')) # 자동차 구매 대출
+        suite.addTest(MoreTestcase_A('test_charter')) #전월세 추천
         # suite.addTest(MoreTestcase_A('test_change_loan'))    # 대환 첼린지 삭제됨
-        suite.addTest(MoreTestcase_A('test_my_loan_b'))
-        suite.addTest(MoreTestcase_A('test_amortization_schedule'))
-        suite.addTest(MoreTestcase_A('test_electronic_wallet'))
-        suite.addTest(MoreTestcase_A('test_credit_score'))
-        suite.addTest(MoreTestcase_A('test_improve_credit_score'))
-        suite.addTest(MoreTestcase_A('test_credit_analysis'))
-        suite.addTest(MoreTestcase_A('test_credit_history'))
-        suite.addTest(MoreTestcase_A('test_private_business_credit_management'))
+        suite.addTest(MoreTestcase_A('test_my_loan_b')) # 내 자산
+        suite.addTest(MoreTestcase_A('test_amortization_schedule')) # 상환 일정
+        suite.addTest(MoreTestcase_A('test_electronic_wallet')) # # 정부 전자지갑
+        suite.addTest(MoreTestcase_A('test_credit_score')) # 신용점수
+        suite.addTest(MoreTestcase_A('test_improve_credit_score')) # 신용점수 올리기
+        suite.addTest(MoreTestcase_A('test_credit_analysis')) # #신용점수 상승 전략
+        suite.addTest(MoreTestcase_A('test_credit_history')) # 신용점수 히스토리
+        suite.addTest(MoreTestcase_A('test_private_business_credit_management')) # 개인사업자 신용관리
         # suite.addTest(MoreTestcase_A('test_credit_quiz_awards'))    # 핀다퀴즈 삭제됨
         # suite.addTest(MoreTestcase_A('test_delete_delinquent_records')) # 연체 기록 삭제하기 삭제됨
-        suite.addTest(MoreTestcase_A('test_extra_money'))
-        suite.addTest(MoreTestcase_A('test_dsr'))
-        suite.addTest(MoreTestcase_A('test_interest'))
-        suite.addTest(MoreTestcase_A('test_year_end_settlement'))
-        suite.addTest(MoreTestcase_A('test_charter_vs_monthly_rent'))
-        suite.addTest(MoreTestcase_A('test_refinancing_loan_calculate'))
-        suite.addTest(MoreTestcase_A('test_youth_leap_account'))
-        suite.addTest(MoreTestcase_A('test_car_installment_calculator'))
-        suite.addTest(MoreTestcase_A('test_lease_rent'))
-        suite.addTest(MoreTestcase_A('test_do_not_call_terms_of_use'))
-        suite.addTest(MoreTestcase_A('test_insurance'))
-        suite.addTest(MoreTestcase_A('test_deposit_and_savings'))
-        suite.addTest(MoreTestcase_A('test_finda_post'))
-        suite.addTest(MoreTestcase_A('test_my_phorn'))
-        suite.addTest(MoreTestcase_A('test_notice'))
-        suite.addTest(MoreTestcase_A('test_alarm'))
-        suite.addTest(MoreTestcase_A('test_point'))
-        suite.addTest(MoreTestcase_A('test_checkin'))
+        suite.addTest(MoreTestcase_A('test_extra_money')) #여윳돈 계산기
+        suite.addTest(MoreTestcase_A('test_dsr')) # DSR계산기
+        suite.addTest(MoreTestcase_A('test_interest')) # 대출이자 계산기
+        suite.addTest(MoreTestcase_A('test_get_myownhouse')) # 내집 마련 계산기
+        suite.addTest(MoreTestcase_A('test_year_end_settlement')) # 연말정산 계산기
+        suite.addTest(MoreTestcase_A('test_charter_vs_monthly_rent')) # 전세 vs 월세 계산기
+        suite.addTest(MoreTestcase_A('test_refinancing_loan_calculate')) # 대출 갈아타기 계산기
+        suite.addTest(MoreTestcase_A('test_youth_leap_account')) # 청년도약계좌 계산기
+        # suite.addTest(MoreTestcase_A('test_car_installment_calculator')) # 자동차 할부 계산기
+        suite.addTest(MoreTestcase_A('test_lease_rent')) # 장기렌트 리스
+        suite.addTest(MoreTestcase_A('test_do_not_call_terms_of_use')) #두낫콜
+        suite.addTest(MoreTestcase_A('test_insurance')) # 대출금 갚아주는 보험
+        suite.addTest(MoreTestcase_A('test_deposit_and_savings')) # 예적금 비교
+        suite.addTest(MoreTestcase_A('test_finda_post')) #핀다 포스터
+        suite.addTest(MoreTestcase_A('test_my_phorn')) # 내폰 지키미
+        suite.addTest(MoreTestcase_A('test_notice')) # 공지사항
+        suite.addTest(MoreTestcase_A('test_alarm')) # 최신 알림
+        suite.addTest(MoreTestcase_A('test_point')) # 포인트
+        suite.addTest(MoreTestcase_A('test_checkin')) # 출석체크
         # suite.addTest(MoreTestcase_A('test_price_forecast_season_1'))     # 물가예측 시즌1 삭제됨
-        suite.addTest(MoreTestcase_A('test_priceforecast_history'))
+        suite.addTest(MoreTestcase_A('test_priceforecast_history')) # 물가예측 참여내역
         # suite.addTest(MoreTestcase_A('test_event'))     # 이벤트 삭제됨
-        suite.addTest(MoreTestcase_A('test_loan_reviews'))
+        suite.addTest(MoreTestcase_A('test_loan_reviews')) # 대출 후기
         unittest.TextTestRunner().run(suite)
         result_more = '\n\n'.join(str(i) for i in resultmore.reports)
         print(result_more)

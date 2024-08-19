@@ -551,6 +551,26 @@ class More:
         except Exception as e:
             logging.error(f"interest_back : {e}")
 
+    # 계산기 > 내 집 마련 대출한도 계산기 진입
+    def get_myownhouse(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.get_myownhouse)).click()
+                time.sleep(2)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
+    # 계산기 > 내 집 마련 대출한도 계산기 > 받을 수 있는 돈 계산하기
+    def get_myownhouse_next(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.get_myownhouse_next)).click()
+        time.sleep(2)
+
     # 계산기 > 연말 정산 계산기 진입
     def year_end_settlement(self):
         a = 5
