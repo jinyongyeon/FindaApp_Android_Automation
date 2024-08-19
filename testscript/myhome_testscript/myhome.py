@@ -21,17 +21,29 @@ class MyHome:
         self.base = basemethod()
 
     # 마이홈 메뉴바 왼쪽으로 스크롤
-    def menu_right_to_left(self):
+    def menu_right_to_left_a(self):
         action = TouchAction(WebDriver.driver)
         action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
         action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출받기')]")
         action.press(action_a).move_to(action_b).release()
         return action.perform()
+    def menu_right_to_left_b(self):
+        action = TouchAction(WebDriver.driver)
+        action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '전세대출')]")
+        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
+        action.press(action_a).move_to(action_b).release()
+        return action.perform()
 
     # 마이홈 메뉴바 오른쪽으로 스크롤
-    def menu_left_to_right(self):
+    def menu_left_to_right_a(self):
         action = TouchAction(WebDriver.driver)
         action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]")
+        action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '전세대출')]")
+        action.press(action_a).move_to(action_b).release()
+        return action.perform()
+    def menu_left_to_right_b(self):
+        action = TouchAction(WebDriver.driver)
+        action_a = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '전세대출')]")
         action_b = WebDriver.driver.find_element(MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]")
         action.press(action_a).move_to(action_b).release()
         return action.perform()
@@ -52,13 +64,18 @@ class MyHome:
         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_d)).click()
         time.sleep(2)
 
-    def menu_car_loan(self):
+    def menu_charter(self):
         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_e)).click()
         time.sleep(2)
 
-    def menu_auto_lease(self):
+    def menu_car_loan(self):
         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_f)).click()
         time.sleep(2)
+
+    def menu_auto_lease(self):
+        WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.home.quick_menu_g)).click()
+        time.sleep(2)
+
 
     # 비교대출 배너
     def comPariSonLoan_In_a(self):

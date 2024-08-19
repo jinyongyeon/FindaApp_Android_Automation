@@ -21,15 +21,17 @@ class Home:
     quick_menu_b = MobileBy.XPATH, "//*[contains(@text, '대출갈아타기')]"
     quick_menu_c = MobileBy.XPATH, "//*[contains(@text, '사업자대출')]"
     quick_menu_d = MobileBy.XPATH, "//*[contains(@text, '주택담보대출')]"
-    quick_menu_e = MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]"
-    quick_menu_f = MobileBy.XPATH, "//*[contains(@text, '차 리스렌트')]"
+    quick_menu_e = MobileBy.XPATH, "//*[contains(@text, '전세대출')]"
+    quick_menu_f = MobileBy.XPATH, "//*[contains(@text, '차 구매대출')]"
+    quick_menu_g = MobileBy.XPATH, "//*[contains(@text, '차 리스렌트')]"
 
     # 큇메뉴 진입 결과
     result_quick_menu_a = MobileBy.XPATH, "//*[contains(@text, '신용대출 조건 비교하기')]"
     result_quick_menu_b = MobileBy.XPATH, "//*[contains(@text, '대출 갈아타기')]"
     result_quick_menu_c = MobileBy.XPATH, "//*[contains(@text, '사업자대출 조건 비교하기')]"
     result_quick_menu_d = MobileBy.XPATH, "//*[contains(@text, '주택담보대출 조건 비교하기')]"
-    result_quick_menu_e = MobileBy.XPATH, "//*[contains(@text, '1분만에 내 한도 알아보기')]"
+    result_quick_menu_e = MobileBy.XPATH, "//*[contains(@text, '전세자금대출 조건 비교하기')]"
+    result_quick_menu_f = MobileBy.XPATH, "//*[contains(@text, '1분만에 내 한도 알아보기')]"
 
     # 마이홈 대출진단 배너
     loandiagnosisbanner_a = "//*[contains(@text, '30일 대환 챌린지')]"
