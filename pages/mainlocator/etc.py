@@ -42,8 +42,8 @@ class Etc:
     qna_result_a = MobileBy.XPATH, "//*[contains(@text, '고객님께서')]"
     qna_b = MobileBy.XPATH, '//*[contains(@text, "신청하면 대출금은 언제 입금이 되나요?")]'
     qna_result_b = MobileBy.XPATH, "//*[contains(@text, '대출이 확정된 후 대출금이')]"
-    qna_c = MobileBy.XPATH, '//*[contains(@text, "대출 조건은 언제까지 유효한가요?")]'
-    qna_result_c = MobileBy.XPATH, "//*[contains(@text, '조회하신')]"
+    # qna_c = MobileBy.XPATH, '//*[contains(@text, "대출 조건은 언제까지 유효한가요?")]'
+    # qna_result_c = MobileBy.XPATH, "//*[contains(@text, '조회하신')]"
     qna_d = MobileBy.XPATH, '//*[contains(@text, "대출을 알아보는 것으로, 불이익이 있나요?")]'
     qna_result_d = MobileBy.XPATH, "//*[contains(@text, '대출조회는 신용점수')]"
     qna_e = MobileBy.XPATH, '//*[contains(@text, "신용조회가 여러 건 발생했다고 하는데 무슨 일인가요?")]'
@@ -84,7 +84,7 @@ class Etc:
     auto_loan_back = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]"
 
     # 전월세 추천
-    charter = MobileBy.XPATH, '//*[@text = "전월세 추천"]'
+    charter = MobileBy.XPATH, '//*[@text = "전월세대출 가이드"]'
 
     # 전월세 추천 진입 결과
     charter_Result_a = MobileBy.XPATH, '//*[contains(@text, "피할 수 없다면 손쉽게")]'
@@ -107,8 +107,8 @@ class Etc:
     amortization_schedule = MobileBy.XPATH, '//*[@text = "상환・결제 일정"]'
 
     # 상환일정 진입 결과
-    amortization_schedule_a = MobileBy.XPATH, "//*[contains(@text, '이달의 총 나가는 돈')]"
-    amortization_schedule_b = MobileBy.XPATH, '//*[@text = "대출, 카드 연결하기"]'
+    amortization_schedule_a = MobileBy.XPATH, "//*[contains(@text, '이번달 나갈 돈 합계')]"
+    amortization_schedule_b = MobileBy.XPATH, '//*[@text = "내 대출, 카드 한번에 연결하기"]'
     check = MobileBy.XPATH, '//*[@text = "확인"]'
 
     # 나의 금융정보 > 상환일정 뒤로가기
@@ -123,7 +123,7 @@ class Etc:
     exit = "//*[contains(@text, '닫기')]"
 
     # 신용점수 페이지 진입 결과
-    credit_score_Result = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리 시작하기"]'
+    credit_score_Result = MobileBy.XPATH, '//*[@text = "'+info.name+'님의 신용점수"]'
 
     # 신용관리 > 신용점수 뒤로가기
     credit_score_back = MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button[1]'
@@ -158,7 +158,7 @@ class Etc:
     credit_history_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 개인사업자 신용관리
-    private_business_credit_management = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리"]'
+    private_business_credit_management = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리 시작하기"]'
 
     # 신용퀴즈 어워즈
     credit_quiz_awards = MobileBy.XPATH, '//*[@text = "핀다 퀴즈"]'
@@ -181,7 +181,7 @@ class Etc:
     dsr = MobileBy.XPATH, '//*[@text = "DSR 계산기"]'
 
     # 계산기 > DSR계산기 진입 결과
-    dsr_Result = MobileBy.XPATH, '//*[@text = "DSR 계산기"]'
+    dsr_Result = MobileBy.XPATH, '//*[contains(@text, "얼마나 받을 수 있을지"]'
 
     # 계산기 > DSR계산기 뒤로가기
     dsr_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'

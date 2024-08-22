@@ -32,8 +32,8 @@ class AutoLoanTestcase(unittest.TestCase):
 
     def setUp(self):
         myhome = MyHome()
-        myhome.menu_right_to_left()
-
+        myhome.menu_right_to_left_a()
+        myhome.menu_right_to_left_b()
     def tearDown(self):
         base = basemethod()
         base.android_back()
@@ -42,7 +42,9 @@ class AutoLoanTestcase(unittest.TestCase):
         base.scroll_up(0.8)
         base.scroll_up(0.8)
         myhome = MyHome()
-        myhome.menu_left_to_right()
+        myhome.menu_left_to_right_b()
+        myhome.menu_left_to_right_a()
+
     # 오토론 약관 테스트
     def test_auto_loan_new_new_car_terms(self):
         loan = Loan()

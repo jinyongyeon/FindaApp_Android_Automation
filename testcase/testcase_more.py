@@ -690,7 +690,7 @@ class MoreTestcase_A(unittest.TestCase):
         time.sleep(1)
         more.private_business_credit_management()
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.credit_score_Result))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.private_business_credit_management))
             logging.info("개인사업자 신용관리 진입 : PASS")
             moreresult.reports.append("개인사업자 신용관리 진입 : *PASS*")
             print("개인사업자 신용관리 진입 : PASS")
