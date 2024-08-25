@@ -14,6 +14,7 @@ from appium.webdriver.common.mobileby import MobileBy
 import os
 from config.info import InFo
 from drivers.aos_webdrivers import WebDriver
+# from drivers.ChromeDriver import ChromeWebDriver
 from appium.webdriver.common.touch_action import TouchAction
 from pages.mainlocator.main import Main
 
@@ -24,7 +25,7 @@ class basemethod:
         self.driver = WebDriver.driver
         self.info = InFo()
         self.main = Main()
-
+        # self.chromedriver = ChromeWebDriver.driver
     def appium_run(self):
         appium_command = "appium -a 127.0.0.1 -p 4723 -pa /wd/hub"
         subprocess.Popen(appium_command, shell=True)
@@ -209,6 +210,33 @@ class basemethod:
             logging.info(self.info.idtoken)
         except Exception as e:
             logging.error(f"요청 실패: {e}")
+
+    def context_switch_web(self):
+        # 앱이 로드될 시간을 기다림
+        time.sleep(5)
+
+        # 현재 가능한 모든 컨텍스트 출력 (네이티브 앱, 웹뷰 포함)
+        contexts = self.driver.contexts
+        print("Available contexts:", contexts)
+
+        # 웹뷰로 컨텍스트 전환
+        webview_context = None
+        for context in contexts:
+            if 'WEBVIEW' in context:
+                webview_context = context
+                break
+
+        if webview_context:
+            self.driver.switch_to.context(webview_context)
+            print("Switched to WebView context:", webview_context)
+        else:
+            print("No WebView context found")
+            self.driver.quit()
+            exit()
+
+    def context_switch_app(self):
+        self.driver.switch_to.context('NATIVE_APP')
+        self.driver.quit()
 
 # class ProviderJoinCertificateLocator(ProviderCommonMethod):
 #     #공동인증서 로케이터

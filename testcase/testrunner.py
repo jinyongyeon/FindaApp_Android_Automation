@@ -100,9 +100,9 @@ class test:
         resultjoin = Result_Join()
         suite = unittest.TestSuite()
         suite.addTest(LoginTestCase('test_log_out'))
-        # suite.addTest(JoinTestCase('test_message_certification'))
+        suite.addTest(JoinTestCase('test_message_certification'))
         # suite.addTest(JoinTestCase('test_membership_terms_and_conditions'))
-        # suite.addTest(JoinTestCase('test_certification_number'))
+        suite.addTest(JoinTestCase('test_certification_number'))
         suite.addTest(JoinTestCase('test_join'))
         suite.addTest(LoginTestCase('test_withdraw'))
         unittest.TextTestRunner().run(suite)
@@ -146,9 +146,9 @@ if __name__ == '__main__':
     print(SlackWebHook.test_start_slack_webhook("AOS 자동화 테스트 시작\n"))
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
-    # test.testmyhome() # 코드 개선완료
-    # test.testautoloan()
+    test.testmyhome() # 코드 개선완료
+    test.testautoloan()
     test.testmore() # 코드 개선완료
-    # test.testseting() # 수정 필요함
-    # test.testjoin() # 코드개선 완료
+    test.testseting() # 수정 필요함
+    test.testjoin() # 코드개선 완료
     # test.testloan()

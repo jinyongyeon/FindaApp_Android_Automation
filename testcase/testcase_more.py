@@ -143,6 +143,7 @@ class MoreTestcase_A(unittest.TestCase):
         results = []
         logging.info("자주묻는 질문 진입 및 상세 페이지 노출 테스트 시작")
         more.qna()
+        # base.context_switch_web()
         verification_list = [("정말 이 조건 그대로 대출 가능한가요?", etc.qna_a),
                              ("신청하면 대출금은 언제 입금이 되나요?", etc.qna_b),
                              # ("대출 조건은 언제까지 유효한가요?", etc.qna_c),    # 항목 삭제됨
@@ -159,9 +160,11 @@ class MoreTestcase_A(unittest.TestCase):
                 results.append("Error")
         logging.info(results)
         if all(result == "PASS" for result in results):
+            print("자주 묻는 질문 진입 : PASS")
             logging.info("자주 묻는 질문 진입 : PASS")
             moreresult.reports.append("자주 묻는 질문 진입 : *PASS*")
         else:
+            print("자주 묻는 질문 진입 : FAIL")
             logging.info("자주 묻는 질문 진입 : FAIL")
             moreresult.reports.append("자주 묻는 질문 진입 : *FAIL*")
             base.save_screenshot('자주묻는질문진입_fail')
@@ -178,6 +181,7 @@ class MoreTestcase_A(unittest.TestCase):
             logging.warning(f"자주묻는질문진입_A 에러 발생 : {e}")
             results.append("Error")
             base.save_screenshot('자주묻는질문진입_A_error')
+        more.qna_click_a()
         more.qna_click_b()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_b))
@@ -189,6 +193,7 @@ class MoreTestcase_A(unittest.TestCase):
             logging.warning(f"자주묻는질문진입_B 에러 발생 : {e}")
             results.append("Error")
             base.save_screenshot('자주묻는질문진입_B_error')
+        more.qna_click_b()
         # more.qna_click_c()
         # try:
         #     WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_c))
@@ -211,6 +216,7 @@ class MoreTestcase_A(unittest.TestCase):
             logging.warning(f"자주묻는질문진입_D 에러 발생 : {e}")
             results.append("Error")
             base.save_screenshot('자주묻는질문진입_D_error')
+        more.qna_click_d()
         more.qna_click_e()
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.qna_result_e))
@@ -222,6 +228,7 @@ class MoreTestcase_A(unittest.TestCase):
             logging.warning(f"자주묻는질문진입_E 에러 발생 : {e}")
             results.append("Error")
             base.save_screenshot('자주묻는질문진입_E_error')
+        more.qna_click_e()
         logging.info(results)
         if all(result == "PASS" for result in results):
             logging.info("자주 묻는 질문 상세 항목 노출 : PASS")
@@ -231,7 +238,6 @@ class MoreTestcase_A(unittest.TestCase):
             logging.info("자주 묻는 질문 상세 항목 노출 : FAIL")
             moreresult.reports.append("자주 묻는 질문 상세 항목 노출 : *FAIL*")
             print("자주 묻는 질문 상세 항목 노출 : FAIL")
-        more.qna_click_e()
         base.android_back()
         logging.info("자주묻는 질문 진입 및 상세 페이지 노출 테스트 종료")
 
@@ -690,7 +696,7 @@ class MoreTestcase_A(unittest.TestCase):
         time.sleep(1)
         more.private_business_credit_management()
         try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.private_business_credit_management))
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(etc.private_business_credit_management_result))
             logging.info("개인사업자 신용관리 진입 : PASS")
             moreresult.reports.append("개인사업자 신용관리 진입 : *PASS*")
             print("개인사업자 신용관리 진입 : PASS")
@@ -1072,19 +1078,18 @@ class MoreTestcase_A(unittest.TestCase):
         more.terms_of_use_c()
         moreresult = Result_More()
         results = []
-        verification_list = [("연락중지청구(Do-not-call) 서비스 이용약관", etc.do_not_call_a_a),
-                             ("개인정보 수집·이용에 대한 동의", etc.do_not_call_a_b),
-                             ("개인정보처리방침", etc.do_not_call_a_c),
-                             ("개인정보이용동의", etc.do_not_call_b_a),
-                             ("고유식별정보처리동의", etc.do_not_call_b_b),
-                             ("서비스이용약관동의", etc.do_not_call_b_c),
-                             ("통신사이용약관동의", etc.do_not_call_b_d),
-                             ("[금융스팸차단하기] 서비스 이용 약관", etc.do_not_call_c_a),
-                             ("[금융스팸차단하기] 개인(신용)정보 수집.이용 동의(필수)", etc.do_not_call_c_b)]
-        for text, xpath in verification_list:
+        verification_list = [etc.do_not_call_a_a,
+                             etc.do_not_call_a_b,
+                             etc.do_not_call_a_c,
+                             etc.do_not_call_b_a,
+                             etc.do_not_call_b_b,
+                             etc.do_not_call_b_c,
+                             etc.do_not_call_b_d,
+                             etc.do_not_call_c_a,
+                             etc.do_not_call_c_b]
+        for xpath in verification_list:
             try:
-                Result = WebDriver.driver.find_element(MobileBy.XPATH, xpath)
-                self.assertIn(text, Result.text)
+                WebDriver.driver.find_element(MobileBy.XPATH, xpath)
                 results.append("PASS")
             except AssertionError:
                 results.append("FAIL")

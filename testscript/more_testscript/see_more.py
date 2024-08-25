@@ -122,12 +122,12 @@ class More:
         except Exception as e:
             logging.error(f"qna_click_b : {e}")
 
-    def qna_click_c(self):
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_c)).click()
-            time.sleep(1)
-        except Exception as e:
-            logging.error(f"qna_click_c : {e}")
+    # def qna_click_c(self):
+    #     try:
+    #         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_c)).click()
+    #         time.sleep(1)
+    #     except Exception as e:
+    #         logging.error(f"qna_click_c : {e}")
 
     def qna_click_d(self):
         try:

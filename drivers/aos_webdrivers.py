@@ -11,6 +11,7 @@ class WebDriver:
         "appium:newCommandTimeout": 3600,
         "appium:connectHardwareKeyboard": True,
         "autoGrantPermissions": True
+
     }
 
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)

@@ -67,6 +67,7 @@ class JoIn:
     def malicious_app_search(self):
         try:
             WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.malicious_app_search_button)).click()
+            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(self.main.malicious_app_search_next_button)).click()
         except:
             logging.warning("악성앱찾기서버 : FAIL")
         time.sleep(20)

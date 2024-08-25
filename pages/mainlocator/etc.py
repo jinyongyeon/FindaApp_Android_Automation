@@ -158,7 +158,8 @@ class Etc:
     credit_history_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 개인사업자 신용관리
-    private_business_credit_management = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리 시작하기"]'
+    private_business_credit_management = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리"]'
+    private_business_credit_management_result = MobileBy.XPATH, '//*[@text = "개인사업자 신용관리 시작하기"]'
 
     # 신용퀴즈 어워즈
     credit_quiz_awards = MobileBy.XPATH, '//*[@text = "핀다 퀴즈"]'
@@ -181,7 +182,7 @@ class Etc:
     dsr = MobileBy.XPATH, '//*[@text = "DSR 계산기"]'
 
     # 계산기 > DSR계산기 진입 결과
-    dsr_Result = MobileBy.XPATH, '//*[contains(@text, "얼마나 받을 수 있을지"]'
+    dsr_Result = MobileBy.XPATH, '//*[contains(@text, "얼마나 받을 수 있을지")]'
 
     # 계산기 > DSR계산기 뒤로가기
     dsr_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button'
@@ -196,17 +197,17 @@ class Etc:
     interest_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
 
     # 계산기 > 내 집 마련 대출한도 계산기 진입
-    get_myownhouse = MobileBy.XPATH, '//*[contains(@text, "내 집 마련 대출한도 계산기"]'
+    get_myownhouse = MobileBy.XPATH, '//*[@text = "내 집 마련 대출한도 계산기"]'
     # 계산기 > 내 집 마련 대출한도 계산기 > 받을 수 있는 돈 계산하기
-    get_myownhouse_next = MobileBy.XPATH, '//*[contains(@text, "받을 수 있는 돈 계산하기"]'
+    get_myownhouse_next = MobileBy.XPATH, '//*[@text = "받을 수 있는 돈 계산하기"]'
     # 계산기 > 내 집 마련 대출한도 계산기 결과
-    get_myownhouse_result = MobileBy.XPATH, '//*[contains(@text, "내 집 대출한도 계산기"]'
+    get_myownhouse_result = MobileBy.XPATH, '//*[contains(@text, "내 집 대출한도 계산기")]'
 
     # 계산기 > 연말정산 계산기 진입
     year_end_settlement = MobileBy.XPATH, '//*[@text = "연말정산 계산기"]'
 
     # 연말정산 계산기 결과
-    year_end_settlement_Result = MobileBy.XPATH, '//*[contains(@text, "카드 및 현금 소비액 소득공제"]'
+    year_end_settlement_Result = MobileBy.XPATH, '//*[contains(@text, "카드 및 현금 소비액 소득공제")]'
 
     # 계산기 > 연말정산 계산기 뒤로가기
     year_end_settlement_back = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button'
@@ -250,7 +251,7 @@ class Etc:
     do_not_call = MobileBy.XPATH, '//*[@text = "금융 스팸 차단"]'
 
     # 부가서비스 > 금융 스팸 차단택 한 번에 차단하기 CTA 선택
-    do_not_call_cta = '//*[@text = "한 번에 차단하기"]'
+    do_not_call_cta = '//*[@text = "차단하기"]'
 
     # 두낫콜 약관 펼치기 1
     do_not_call_a = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]/android.view.View'
