@@ -23,6 +23,8 @@ class Main:
     #악성앱 찾기 버튼
     malicious_app_search_button = MobileBy.XPATH, '//*[@text ="악성앱 찾기"]'
 
+    malicious_app_search_next_button = MobileBy.XPATH, '//*[@text ="동의하기"]'
+
     #문자인증하기 버튼
     message_certification = MobileBy.XPATH, '//*[@text ="계속하기"]'
 

@@ -122,12 +122,12 @@ class More:
         except Exception as e:
             logging.error(f"qna_click_b : {e}")
 
-    def qna_click_c(self):
-        try:
-            WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_c)).click()
-            time.sleep(1)
-        except Exception as e:
-            logging.error(f"qna_click_c : {e}")
+    # def qna_click_c(self):
+    #     try:
+    #         WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.qna_c)).click()
+    #         time.sleep(1)
+    #     except Exception as e:
+    #         logging.error(f"qna_click_c : {e}")
 
     def qna_click_d(self):
         try:
@@ -269,6 +269,48 @@ class More:
             time.sleep(2)
         except Exception as e:
             logging.error(f"change_loan_back : {e}")
+
+    def business_loan(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.business_loan)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
+    def KB_loan(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.KB_loan)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
+
+    def analyze_commercial_area(self):
+        a = 5
+        b = 0
+        while b < a:
+            try:
+                WebDriverWait(WebDriver.driver, 10).until(EC.visibility_of_element_located(Etc.analyze_commercial_area)).click()
+                time.sleep(4)
+                break
+            except:
+                self.base.scroll(0.7)
+                b += 1
+        if b == a:
+            print("로케이터를 찾을 수 없습니다. 요소 확인 필요.")
 
     # 나의 금융 정보 > 내 자산 진입
     def my_loan_b(self):
