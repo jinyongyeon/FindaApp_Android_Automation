@@ -42,7 +42,7 @@ class Seting_Testcase(unittest.TestCase):
         base.android_back()
         base.android_back()
         base.android_back()
-
+#ㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ
     # 설정 > 내정보 수정 테스트
     def test_my_info(self):
         set = Seting()
