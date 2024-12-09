@@ -1,0 +1,57 @@
+INFO:root:
+
+
+자동화 테스트 시작
+
+
+
+INFO:root:핀코드 로그인 테스트 시작
+INFO:root:로그인 : PASS
+INFO:root:핀코드 로그인 테스트 종료
+INFO:root:마이홈 테스트 시작
+INFO:root:마이홈 상단 퀵 메뉴 영역 노출 및 진입 테스트 시작
+WARNING:root:마이홈 상단 메뉴 퀵 영역 노출 에러 발생 : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:마이홈 금융생활 선택 후 자산목록 진입 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:금융생활 선택 후 자산목록 진입 : PASS
+INFO:root:마이홈 금융생활 선택 후 자산목록 진입 테스트 종료
+INFO:root:마이홈 금융생활 출금 일정 노출 테스트 시작
+INFO:root:사용자ID 3559841
+INFO:root:3559841
+INFO:root:['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzU1OTg0MSwiZXhwIjoxNzU2MTgzNjIyLCJpYXQiOjE3MjQ2NDc2MjJ9.T8HGPfr5LBoYnDmakDpzo9xAsMgXzUaPzB9hx3bFFsY']
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 163170, 'totalCardPayAmount': 829241, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31376135, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135510, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_COMPLETED', 'repayAccountStatus': 'UNKNOWN', 'mydataError': False}]}, {'repayDate': '2024-09-19T00:00:00', 'assetList': [{'accountId': 31376136, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 163170, 'totalCardPayAmount': 829241, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31376135, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135510, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_COMPLETED', 'repayAccountStatus': 'UNKNOWN', 'mydataError': False}]}, {'repayDate': '2024-09-19T00:00:00', 'assetList': [{'accountId': 31376136, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:금융생활 출금일정 노출 결과 : PASS
+INFO:root:마이홈 금융생활 출금 일정 노출 테스트 종료
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 시작
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 163170, 'totalCardPayAmount': 829241, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31376135, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135510, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_COMPLETED', 'repayAccountStatus': 'UNKNOWN', 'mydataError': False}]}, {'repayDate': '2024-09-19T00:00:00', 'assetList': [{'accountId': 31376136, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : PASS
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 종료
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 시작
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 163170, 'totalCardPayAmount': 829241, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31376135, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135510, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_COMPLETED', 'repayAccountStatus': 'UNKNOWN', 'mydataError': False}]}, {'repayDate': '2024-09-19T00:00:00', 'assetList': [{'accountId': 31376136, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 : PASS
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 종료
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출 테스트 시작
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출결과 : PASS
+ERROR:root:credit_score_back : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출 테스트 종료
+INFO:root:마이홈 테스트 종료
+INFO:root:오토론 테스트 시작
+INFO:root:오토론 테스트 종료
+INFO:root:더보기 테스트 시작
+INFO:root:더보기 진입 테스트 시작
+INFO:root:더보기 탭 진입 : PASS
+INFO:root:더보기 진입 테스트 시작

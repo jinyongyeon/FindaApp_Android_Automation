@@ -1,0 +1,173 @@
+INFO:root:
+
+
+자동화 테스트 시작
+
+
+
+INFO:root:더보기 테스트 시작
+INFO:root:더보기 진입 테스트 시작
+INFO:root:더보기 탭 진입 : PASS
+INFO:root:더보기 진입 테스트 시작
+INFO:root:내대출 진입 테스트 시작
+INFO:root:['Error', 'Error', 'PASS', 'PASS']
+INFO:root:내 대출 진입 : FAIL
+INFO:root:내대출 진입 테스트 종료
+INFO:root:채팅문의 진입 테스트 시작
+INFO:root:채널톡 진입 : PASS
+INFO:root:채팅문의 진입 테스트 종료
+INFO:root:자주묻는 질문 진입 및 상세 페이지 노출 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:자주 묻는 질문 진입 : PASS
+WARNING:root:자주묻는질문진입_A 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_B 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_D 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_E 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS', 'Error', 'Error', 'Error', 'Error']
+INFO:root:자주 묻는 질문 상세 항목 노출 : FAIL
+INFO:root:자주묻는 질문 진입 및 상세 페이지 노출 테스트 종료
+INFO:root:대출 갈아타기 테스트 시작
+INFO:root:대출 갈아타기 진입 : PASS
+INFO:root:대출 갈아타기 테스트 종료
+INFO:root:대출 한 번에 비교 진입 테스트 시작
+INFO:root:대출 한 번에 비교 진입 : PASS
+INFO:root:대출 한 번에 비교 진입 테스트 종료
+INFO:root:자동차 구매 대출 진입 테스트 시작
+INFO:root:자동차 구매 대출 진입 : PASS
+INFO:root:자동차 구매 대출 진입 테스트 종료
+INFO:root:전월세 추천 진입 테스트 시작
+INFO:root:전월세 추천 진입 : PASS
+ERROR:root:charter_back : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:전월세 추천 진입 테스트 종료
+INFO:root:내자산 진입 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:내 자산 진입 : PASS
+INFO:root:내 자산 진입 테스트 종료
+INFO:root:상환일정 진입 테스트 시작
+WARNING:root:상환일정 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:상환일정 진입 테스트 종료
+INFO:root:정부 전자문서지갑 진입 테스트 시작
+INFO:root:정부 전자문서지갑 진입 : PASS
+INFO:root:정부 전자문서지갑 진입 테스트 종료
+INFO:root:신용점수 진입 테스트 시작
+WARNING:root:신용점수 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+ERROR:root:credit_score_back : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:신용점수 진입 테스트 종료
+INFO:root:신용점수 올리기 진입 테스트 시작
+INFO:root:신용점수 올리기 진입 : PASS
+INFO:root:신용점수 올리기 진입 테스트 종료
+INFO:root:신용점수 상승 전략 진입 테스트 시작
+INFO:root:신용점수 상승 전략 진입 : PASS
+INFO:root:신용점수 상승 전략 진입 테스트 종료
+INFO:root:신용관리 > 신용점수 히스토리 진입 테스트 시작
+INFO:root:신용점수 히스토리 진입 : PASS
+INFO:root:신용관리 > 신용점수 히스토리 진입 테스트 종료
+INFO:root:개인사업자 신용관리 진입 테스트 시작
+INFO:root:개인사업자 신용관리 진입 : PASS
+ERROR:root:credit_score_back : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:개인사업자 신용관리 진입 테스트 종료
+INFO:root:계산기 > 여윳돈 계산기 진입 테스트 시작
+INFO:root:여윳돈 계산기 진입 : PASS
+ERROR:root:extra_money_back : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:계산기 > 여윳돈 계산기 진입 테스트 종료
+INFO:root:계산기 > DSR 계산기 진입 테스트 시작
+WARNING:root:DSR 계산기 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+ERROR:root:dsr_back : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:계산기 > DSR 계산기 진입 테스트 종료
+INFO:root:계산기 > 대출이자 계산기 진입 테스트 시작
+INFO:root:대출이자 계산기 진입 : PASS
+ERROR:root:interest_back : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:계산기 > 대출이자 계산기 진입 테스트 종료
+INFO:root:계산기 > 내 집 마련 대출한도 계산기 진입 테스트 시작
+INFO:root:계산기 > 연말정산 계산기 진입 테스트 시작

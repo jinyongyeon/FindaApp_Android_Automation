@@ -1,0 +1,190 @@
+INFO:root:
+
+
+자동화 테스트 시작
+
+
+
+INFO:root:핀코드 로그인 테스트 시작
+INFO:root:로그인 : PASS
+INFO:root:핀코드 로그인 테스트 종료
+INFO:root:마이홈 테스트 시작
+INFO:root:마이홈 상단 퀵 메뉴 영역 노출 및 진입 테스트 시작
+INFO:root:마이홈 상단 퀵 메뉴 영역 노출 : PASS
+WARNING:root:마이홈 상단 퀵 메뉴_주택담보대출 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:['PASS', 'PASS', 'PASS', 'ERROR', 'PASS', 'PASS']
+INFO:root:마이홈 퀵 메뉴 진입 결과 : FAIL
+INFO:root:마이홈 상단 퀵 메뉴 영역 노출 및 진입 테스트 종료
+INFO:root:마이홈 금융생활 선택 후 자산목록 진입 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:금융생활 선택 후 자산목록 진입 : PASS
+INFO:root:마이홈 금융생활 선택 후 자산목록 진입 테스트 종료
+INFO:root:마이홈 금융생활 출금 일정 노출 테스트 시작
+INFO:root:사용자ID 3554335
+INFO:root:3554335
+INFO:root:['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzU1NDMzNSwiZXhwIjoxNzU1NTczNDg5LCJpYXQiOjE3MjQwMzc0ODl9.Q_1bp4PpenzkGwOnOjW0rvx9Qdyyuw-5e4OxNKR823E']
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 455048, 'totalCardPayAmount': 486261, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-19T00:00:00', 'assetList': [{'accountId': 31305408, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_CHECK_REQUIRED', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}, {'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31305407, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135519, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'AMPLE_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 455048, 'totalCardPayAmount': 486261, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-19T00:00:00', 'assetList': [{'accountId': 31305408, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_CHECK_REQUIRED', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}, {'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31305407, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135519, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'AMPLE_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:금융생활 출금일정 노출 결과 : PASS
+INFO:root:마이홈 금융생활 출금 일정 노출 테스트 종료
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 시작
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 455048, 'totalCardPayAmount': 486261, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-19T00:00:00', 'assetList': [{'accountId': 31305408, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_CHECK_REQUIRED', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}, {'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31305407, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135519, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'AMPLE_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 : PASS
+INFO:root:마이홈 금융생활 쓸 수 있는 현금 노출 및 진입 테스트 종료
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 시작
+INFO:root:{'result': {'code': '00000', 'desc': 'OK'}, 'data': {'totalCheckingAccountBalanceAmount': 455048, 'totalCardPayAmount': 486261, 'isTotalCardInfoMydataError': False, 'isTotalCheckingInfoMydataError': False, 'repayPlanInfo': [{'repayDate': '2024-08-19T00:00:00', 'assetList': [{'accountId': 31305408, 'productName': '주택도시기금 버팀목전세자금(신혼가구)', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 228688, 'seqNo': None, 'repaymentStatus': 'WITHDRAWAL_CHECK_REQUIRED', 'repayAccountStatus': 'INSUFFICIENT_BALANCE', 'mydataError': False}]}, {'repayDate': '2024-08-26T00:00:00', 'assetList': [{'accountId': 31305407, 'productName': '주택도시기금 청년취업(창업) 전세자금대출', 'orgCode': 'A1AAEM0000', 'orgLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori.png', 'orgBackgroundLogoUrl': 'https://cdn.finda.co.kr/images/bank/app/bank_symbol_woori_bg.png', 'orgName': '우리은행', 'assetType': 'LOAN', 'repayAmount': 135519, 'seqNo': None, 'repaymentStatus': 'UNKNOWN', 'repayAccountStatus': 'AMPLE_BALANCE', 'mydataError': False}]}], 'errorList': []}}
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 : PASS
+INFO:root:마이홈 금융생활 카드 사용금액 노출 및 진입 테스트 종료
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출 테스트 시작
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출결과 : PASS
+ERROR:root:credit_score_back : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:마이홈 신용점수 진입 후 신용점수 노출 테스트 종료
+INFO:root:마이홈 테스트 종료
+INFO:root:오토론 테스트 시작
+INFO:root:오토론 테스트 종료
+INFO:root:더보기 테스트 시작
+INFO:root:더보기 진입 테스트 시작
+INFO:root:더보기 탭 진입 : PASS
+INFO:root:더보기 진입 테스트 시작
+INFO:root:내대출 진입 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:내 대출 진입 : PASS
+INFO:root:내대출 진입 테스트 종료
+INFO:root:채팅문의 진입 테스트 시작
+INFO:root:채널톡 진입 : PASS
+INFO:root:채팅문의 진입 테스트 종료
+INFO:root:자주묻는 질문 진입 및 상세 페이지 노출 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:자주 묻는 질문 진입 : PASS
+WARNING:root:자주묻는질문진입_A 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_B 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_D 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+WARNING:root:자주묻는질문진입_E 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS', 'Error', 'Error', 'Error', 'Error']
+INFO:root:자주 묻는 질문 상세 항목 노출 : FAIL
+INFO:root:자주묻는 질문 진입 및 상세 페이지 노출 테스트 종료
+INFO:root:대출 갈아타기 테스트 시작
+INFO:root:대출 갈아타기 진입 : PASS
+INFO:root:대출 갈아타기 테스트 종료
+INFO:root:대출 한 번에 비교 진입 테스트 시작
+INFO:root:대출 한 번에 비교 진입 : PASS
+INFO:root:대출 한 번에 비교 진입 테스트 종료
+INFO:root:자동차 구매 대출 진입 테스트 시작
+INFO:root:자동차 구매 대출 진입 : PASS
+INFO:root:자동차 구매 대출 진입 테스트 종료
+INFO:root:전월세 추천 진입 테스트 시작
+WARNING:root:전월세 추천 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+ERROR:root:charter_back : Message: An element could not be located on the page using the given search parameters.
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:전월세 추천 진입 테스트 종료
+INFO:root:내자산 진입 테스트 시작
+INFO:root:['PASS', 'PASS', 'PASS', 'PASS']
+INFO:root:내 자산 진입 : PASS
+INFO:root:내 자산 진입 테스트 종료
+INFO:root:상환일정 진입 테스트 시작
+WARNING:root:상환일정 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:상환일정 진입 테스트 종료
+INFO:root:정부 전자문서지갑 진입 테스트 시작
+INFO:root:정부 전자문서지갑 진입 : PASS
+INFO:root:정부 전자문서지갑 진입 테스트 종료
+INFO:root:신용점수 진입 테스트 시작
+WARNING:root:신용점수 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+ERROR:root:credit_score_back : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:신용점수 진입 테스트 종료
+INFO:root:신용점수 올리기 진입 테스트 시작
+INFO:root:신용점수 올리기 진입 : PASS
+INFO:root:신용점수 올리기 진입 테스트 종료
+INFO:root:신용점수 상승 전략 진입 테스트 시작
+INFO:root:신용점수 상승 전략 진입 : PASS
+INFO:root:신용점수 상승 전략 진입 테스트 종료
+INFO:root:신용관리 > 신용점수 히스토리 진입 테스트 시작
+WARNING:root:신용점수 히스트리 진입 에러 발생 : Message: 
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-android-driver/lib/commands/find.js:75:11)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:33:12)
+    at AndroidUiautomator2Driver.findElement (/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/basedriver/commands/find.js:53:10)
+INFO:root:신용관리 > 신용점수 히스토리 진입 테스트 종료
+INFO:root:개인사업자 신용관리 진입 테스트 시작
+INFO:root:개인사업자 신용관리 진입 : PASS
+INFO:root:개인사업자 신용관리 진입 테스트 종료
+INFO:root:계산기 > 여윳돈 계산기 진입 테스트 시작
+INFO:root:계산기 > DSR 계산기 진입 테스트 시작
