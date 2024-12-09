@@ -155,8 +155,8 @@ if __name__ == '__main__':
     logging.info("\n\n\n자동화 테스트 시작\n\n\n")
     test = test()
     test.testmyhome() # 코드 개선완료
-    test.testautoloan()
+    # test.testautoloan()
     test.testmore() # 코드 개선완료
-    test.testseting() # 수정 필요함
-    test.testjoin() # 코드개선 완료
+    # test.testseting() # 수정 필요함
+    # test.testjoin() # 코드개선 완료
     # test.testloan()
