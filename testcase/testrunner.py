@@ -161,6 +161,3 @@ if __name__ == '__main__':
     # test.testjoin() # 코드개선 완료
     # test.testloan()
 
-
-#ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ
-
