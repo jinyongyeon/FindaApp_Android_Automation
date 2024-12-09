@@ -160,3 +160,4 @@ if __name__ == '__main__':
     # test.testseting() # 수정 필요함
     # test.testjoin() # 코드개선 완료
     # test.testloan()
+#잘 올라가나?
