@@ -162,6 +162,3 @@ if __name__ == '__main__':
     # test.testloan()
 
 
-    # 테스트 버전
-
-
