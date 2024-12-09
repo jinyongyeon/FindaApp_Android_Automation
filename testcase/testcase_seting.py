@@ -33,8 +33,6 @@ class Seting_Testcase(unittest.TestCase):
         more.etc_in()
         set.seting_in()
 
-
-#ㅅㄷㄴㅅ
     def tearDown(self):
         base = basemethod()
         base.android_back()
